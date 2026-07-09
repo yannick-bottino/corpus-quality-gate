@@ -1,0 +1,430 @@
+# src/cqg/registry/criteria_registry.yaml
+#
+# Registre des 57 criteres d'evaluation (source de verite de la grille).
+# Copie fidele depuis "ragdoc readiness simplified/SKILL.md",
+# section "Registre des 57 criteres (source de verite)".
+#
+# Tags : D = deterministe, H = hybride (signal + jugement), L = jugement pur.
+# external_dep : true si le critere depend d'un referentiel externe
+#   (questions typiques du RAG / cas d'usage metier) non fourni par defaut.
+# na_possible : true si le critere peut etre N/A selon l'inventaire du document
+#   (ex : absence d'images, de tableaux, de liens, de formules).
+
+scale_max: 5
+dimension_weights: { "1": 2, "2": 5, "3": 4, "4": 4, "5": 5, "6": 5, "7": 3, "8": 3 }
+
+criteria:
+  # Dimension 1, Metadonnees (poids 2)
+  - id: "1.1"
+    dimension: "1"
+    label: "Titre explicite et representatif du contenu"
+    weight: 3
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "1.2"
+    dimension: "1"
+    label: "Description synthetique structuree presente"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "1.3"
+    dimension: "1"
+    label: "Auteur et contributeurs identifies"
+    weight: 1
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "1.4"
+    dimension: "1"
+    label: "Versionning explicite (numero + date)"
+    weight: 3
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "1.5"
+    dimension: "1"
+    label: "Domaine metier et mots-cles associes"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "1.6"
+    dimension: "1"
+    label: "Frequence de mise a jour indiquee"
+    weight: 2
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "1.7"
+    dimension: "1"
+    label: "Statut du document explicite"
+    weight: 3
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "1.8"
+    dimension: "1"
+    label: "Historique des changements trace"
+    weight: 3
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "1.9"
+    dimension: "1"
+    label: "Coherence version / date de mise a jour"
+    weight: 3
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "1.10"
+    dimension: "1"
+    label: "Type de document classifie"
+    weight: 2
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "1.11"
+    dimension: "1"
+    label: "Source et domaine metier formalises"
+    weight: 2
+    tag: "D"
+    external_dep: false
+    na_possible: false
+
+  # Dimension 2, Qualite du contenu (poids 5)
+  - id: "2.1"
+    dimension: "2"
+    label: "Phrases completes, ponctuees et concises"
+    weight: 3
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "2.2"
+    dimension: "2"
+    label: "Une idee principale par paragraphe"
+    weight: 3
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "2.3"
+    dimension: "2"
+    label: "Vocabulaire standardise avec glossaire centralise"
+    weight: 5
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "2.4"
+    dimension: "2"
+    label: "Homogeneite des acronymes sur tout le document"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "2.5"
+    dimension: "2"
+    label: "Contextualisation explicite des regles"
+    weight: 5
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "2.6"
+    dimension: "2"
+    label: "Perimetres de validite des regles precises"
+    weight: 5
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "2.7"
+    dimension: "2"
+    label: "Pertinence par rapport aux questions typiques du RAG"
+    weight: 5
+    tag: "L"
+    external_dep: true
+    na_possible: false
+  - id: "2.8"
+    dimension: "2"
+    label: "Coherence intra-documentaire (absence de contradictions)"
+    weight: 4
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "2.9"
+    dimension: "2"
+    label: "Representativite (toutes infos necessaires presentes)"
+    weight: 4
+    tag: "L"
+    external_dep: true
+    na_possible: false
+
+  # Dimension 3, Lisibilite (poids 4), tous na_possible selon inventaire sauf 3.7
+  - id: "3.1"
+    dimension: "3"
+    label: "Images accompagnees d'une description textuelle"
+    weight: 5
+    tag: "H"
+    external_dep: false
+    na_possible: true
+  - id: "3.2"
+    dimension: "3"
+    label: "Schemas avec titre, legende et description logique"
+    weight: 5
+    tag: "H"
+    external_dep: false
+    na_possible: true
+  - id: "3.3"
+    dimension: "3"
+    label: "Graphiques transcrits en texte (valeurs, axes, tendances)"
+    weight: 5
+    tag: "H"
+    external_dep: false
+    na_possible: true
+  - id: "3.4"
+    dimension: "3"
+    label: "Tableaux titres avec interpretation textuelle"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: true
+  - id: "3.5"
+    dimension: "3"
+    label: "Liens hypertextes decrits (titre + cible)"
+    weight: 4
+    tag: "D"
+    external_dep: false
+    na_possible: true
+  - id: "3.6"
+    dimension: "3"
+    label: "Formules de calcul separees et contextualisees"
+    weight: 3
+    tag: "H"
+    external_dep: false
+    na_possible: true
+  - id: "3.7"
+    dimension: "3"
+    label: "Aucun element visuel tronque entre deux pages"
+    weight: 3
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "3.8"
+    dimension: "3"
+    label: "Titres de colonnes explicites dans les tableaux"
+    weight: 3
+    tag: "H"
+    external_dep: false
+    na_possible: true
+  - id: "3.9"
+    dimension: "3"
+    label: "Format homogene par colonne dans les tableaux"
+    weight: 2
+    tag: "D"
+    external_dep: false
+    na_possible: true
+
+  # Dimension 4, Structure (poids 4)
+  - id: "4.1"
+    dimension: "4"
+    label: "Hierarchie des titres logique et coherente"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "4.2"
+    dimension: "4"
+    label: "Intitules de sections clairs et representatifs"
+    weight: 4
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "4.3"
+    dimension: "4"
+    label: "Coherence des niveaux (importance comparable)"
+    weight: 3
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "4.4"
+    dimension: "4"
+    label: "Idees bien separees par paragraphes distincts"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "4.5"
+    dimension: "4"
+    label: "Absence de doublons internes non justifies"
+    weight: 4
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "4.6"
+    dimension: "4"
+    label: "Sections suffisamment autonomes hors contexte global"
+    weight: 5
+    tag: "L"
+    external_dep: false
+    na_possible: false
+
+  # Dimension 5, Fragmentabilite / chunking (poids 5)
+  - id: "5.1"
+    dimension: "5"
+    label: "Chaque section comprehensible sans lire le reste"
+    weight: 5
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "5.2"
+    dimension: "5"
+    label: "Densite informationnelle homogene entre sections"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "5.3"
+    dimension: "5"
+    label: "Absence de references circulaires non resolues localement"
+    weight: 5
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "5.4"
+    dimension: "5"
+    label: "Granularite adaptee aux questions attendues"
+    weight: 4
+    tag: "L"
+    external_dep: true
+    na_possible: false
+  - id: "5.5"
+    dimension: "5"
+    label: "Exemples clairement separes des regles"
+    weight: 3
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "5.6"
+    dimension: "5"
+    label: "Contexte cle (produit, activite, perimetre) rappele localement"
+    weight: 4
+    tag: "L"
+    external_dep: false
+    na_possible: false
+
+  # Dimension 6, Fiabilite et Temporalite (poids 5)
+  - id: "6.1"
+    dimension: "6"
+    label: "Chaque regle metier porte une date d'entree en vigueur"
+    weight: 5
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "6.2"
+    dimension: "6"
+    label: "Informations provisoires explicitement balisees"
+    weight: 5
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "6.3"
+    dimension: "6"
+    label: "Distinction claire regle / exemple / recommandation"
+    weight: 5
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "6.4"
+    dimension: "6"
+    label: "References reglementaires versionnees et datees"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "6.5"
+    dimension: "6"
+    label: "Mecanisme de detection d'obsolescence present"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "6.6"
+    dimension: "6"
+    label: "Suppressions et evolutions de regles tracees"
+    weight: 3
+    tag: "D"
+    external_dep: false
+    na_possible: false
+
+  # Dimension 7, Desambiguisation (poids 3), jugement pur
+  - id: "7.1"
+    dimension: "7"
+    label: "Termes polysemiques explicitement distingues"
+    weight: 5
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "7.2"
+    dimension: "7"
+    label: "Frontieres entre produits / perimetres delimitees"
+    weight: 5
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "7.3"
+    dimension: "7"
+    label: "Cas limites et situations frontieres documentes"
+    weight: 4
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "7.4"
+    dimension: "7"
+    label: "Exclusions formulees de facon explicite et positive"
+    weight: 4
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "7.5"
+    dimension: "7"
+    label: "Conditions de garantie distinguees des exclusions"
+    weight: 4
+    tag: "L"
+    external_dep: false
+    na_possible: false
+
+  # Dimension 8, Interrogeabilite (poids 3)
+  - id: "8.1"
+    dimension: "8"
+    label: "Presence de formats question/reponse ou FAQ"
+    weight: 4
+    tag: "D"
+    external_dep: false
+    na_possible: false
+  - id: "8.2"
+    dimension: "8"
+    label: "Regles formulees de facon actionnable (que faire si)"
+    weight: 4
+    tag: "H"
+    external_dep: false
+    na_possible: false
+  - id: "8.3"
+    dimension: "8"
+    label: "Couverture des cas d'usage typiques des utilisateurs"
+    weight: 5
+    tag: "L"
+    external_dep: true
+    na_possible: false
+  - id: "8.4"
+    dimension: "8"
+    label: "Absence de presupposes implicites non documentes"
+    weight: 4
+    tag: "L"
+    external_dep: false
+    na_possible: false
+  - id: "8.5"
+    dimension: "8"
+    label: "Orientation vers l'action avec etapes claires"
+    weight: 3
+    tag: "H"
+    external_dep: false
+    na_possible: false

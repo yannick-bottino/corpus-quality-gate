@@ -1,0 +1,44 @@
+# Modele de configuration cqg (a copier puis remplir). Aucune cle en clair : les cles API
+# sont lues via des variables d'environnement (champs *_api_key_env).
+
+llm:                          # LLM de JUGEMENT (evalue la qualite des documents)
+  provider: mock              # mock | anthropic | openai | azure_openai
+  base_url: ""                # azure_openai : URL du endpoint ; sinon laisser vide
+  model: "claude-opus-4-8"    # ex. deploiement Azure, ou modele openai/anthropic
+  temperature: 0
+  api_key_env: "CQG_LLM_API_KEY"   # NOM de la variable d'env contenant la cle (jamais la cle)
+  max_doc_chars: 24000        # budget d'extrait (compatibilite ; le jugement par sections couvre 100%)
+
+judge:                        # Jugement par sections (couverture 100% du document, levier A)
+  section_chars: 8000         # taille d'une section jugee en un appel LLM
+  section_overlap: auto       # auto (10% de section_chars) | entier (recouvrement facon chunking RAG)
+
+paths:
+  workdir: "./workdir"
+
+thresholds:
+  coverage_flag_below: 0.7    # en dessous : le document est flague pour revue (couverture)
+
+parsing: {}                   # pdfminer.six + pdfplumber + fallback cid (S14)
+
+enrichment:
+  enabled: false              # true : produit <doc>.enriched.md (descriptions d'images avant eval)
+  min_side_pts: 24.0          # images plus petites = decoratives, ignorees
+  vlm:                        # client de description d'images (independant du LLM de jugement)
+    provider: mock            # mock | anthropic | openai | azure_openai | manual
+    model: "claude-opus-4-8"
+    api_key_env: "CQG_LLM_API_KEY"
+    manifest_path: "workdir/image_manifest.json"   # utilise seulement si provider=manual
+
+# Jeu de questions/reponses de reference (sous-commande `cqg golden`), a faire VERIFIER par
+# le metier (colonne statut_validation). Reference-free, anti-fabrication.
+golden:
+  profile: "conseiller / gestionnaire AXA"   # point de vue de l'usager qui pose les questions
+  policy: |                                  # politique de reponse imposee au generateur
+    Repondre uniquement a partir du document. Citer la source. Si l'information n'est pas
+    presente, repondre 'Non couvert par le document'.
+  n_questions: auto           # auto (le LLM decide selon la densite) OU un entier (ex. 8)
+  corpus_level: true          # ajoute des Q/R transverses (reponse croisant >= 2 documents)
+  k: 6                        # Q/R transverses : nb de chunks recuperes par question (retrieval)
+  chunk_chars: 1000           # taille des chunks pour le retrieval transverse
+  chunk_overlap: 100          # recouvrement des chunks pour le retrieval transverse
