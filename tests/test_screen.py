@@ -42,3 +42,27 @@ def test_image_rich_low_block_integrity_not_flagged_degraded():
     # NE doit PAS etre route light-degrade. block_integrity ne pilote pas le crible.
     res = screen_document(_doc(pc=0.7), _metrics(non_alpha=0.27, dup=0.2, ttr=0.16, bi=0.13))
     assert res["route"] == "full"
+
+
+def test_large_healthy_doc_routes_full_despite_low_global_ttr():
+    # Cas "Le Cahier Ma Sante" : 222 pages, TTR global ecrase par la longueur (0.0042)
+    # mais extraction SAINE (parse_confidence, non_alpha, TTR fenetre tous au vert).
+    # Garde-fou metadonnees : un gros document sain doit etre juge sur le fond (route
+    # "full"), jamais ecarte du jugement LLM sur le seul artefact du TTR global.
+    metrics = {"signals": {"non_alpha_fraction": 0.2298, "duplicate_line_fraction": 0.30,
+                           "type_token_ratio": 0.0042, "mattr": 0.1725, "n_tokens": 227792,
+                           "block_integrity": 0.5}}
+    res = screen_document(_doc(pc=0.747), metrics)
+    assert res["route"] == "full"
+    assert any("gros_document" in r for r in res["reasons"])
+
+
+def test_large_but_genuinely_degraded_doc_still_routes_light():
+    # Garde-fou : le garde-fou metadonnees ne doit PAS sur-declencher. Un gros document
+    # REELLEMENT degrade (TTR fenetre effondre lui aussi) reste flague en light.
+    metrics = {"signals": {"non_alpha_fraction": 0.20, "duplicate_line_fraction": 0.30,
+                           "type_token_ratio": 0.001, "mattr": 0.02, "n_tokens": 227792,
+                           "block_integrity": 0.5}}
+    res = screen_document(_doc(pc=0.7), metrics)
+    assert res["route"] == "light"
+    assert any("degrad" in r for r in res["reasons"])

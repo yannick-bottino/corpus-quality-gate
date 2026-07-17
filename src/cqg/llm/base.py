@@ -20,6 +20,9 @@ def from_config(cfg: dict) -> "LLMClient":
     if provider in ("openai", "azure_openai", "anthropic"):
         from .providers import ProviderLLM
         return ProviderLLM(cfg)
+    if provider == "claude_cli":
+        from .claude_cli import ClaudeCLILLM
+        return ClaudeCLILLM(cfg)
     if provider == "manual":
         from .manual import ManualVLM
         return ManualVLM(cfg.get("manifest_path", "workdir/image_manifest.json"))

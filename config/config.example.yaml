@@ -19,7 +19,9 @@ paths:
 thresholds:
   coverage_flag_below: 0.7    # en dessous : le document est flague pour revue (couverture)
 
-parsing: {}                   # pdfminer.six + pdfplumber + fallback cid (S14)
+parsing:                      # docling (defaut) ; fallback auto sur legacy pdfminer+pdfplumber
+  parser: docling             # docling | legacy
+  docling_batch_pages: 1      # lot d'1 page = pic RSS ~1,1 Go, sur sous ~1,2 Go ; augmenter sur machine a RAM confortable
 
 enrichment:
   enabled: false              # true : produit <doc>.enriched.md (descriptions d'images avant eval)

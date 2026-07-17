@@ -35,10 +35,13 @@ def run_golden(corpus_dir: str, config_path: str, out_dir: str) -> dict:
     # n_questions : "auto" (le LLM decide selon la densite) ou un entier (reglable a la main).
     n_questions = golden_cfg.get("n_questions", "auto")
     corpus_level = golden_cfg.get("corpus_level", True)
+    parser = cfg.get("parsing", {}).get("parser", "docling")
+    docling_batch_pages = cfg.get("parsing", {}).get("docling_batch_pages")
     rows, docs = [], []
     for item in triage_corpus(corpus_dir):
         try:
-            doc = parse_document(item["path"], item["category"], pages=item.get("pages"))
+            doc = parse_document(item["path"], item["category"], pages=item.get("pages"), parser=parser,
+                                 docling_batch_pages=docling_batch_pages)
             if not doc.markdown.strip():
                 continue
             rows.extend(generate_golden_qa(doc, profile, llm, policy, n_questions))
@@ -77,6 +80,8 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
     enrich_on = enrich or cfg.get("enrichment", {}).get("enabled", False)
     vlm = None
     min_side_pts = cfg.get("enrichment", {}).get("min_side_pts", 24.0)
+    parser = cfg.get("parsing", {}).get("parser", "docling")
+    docling_batch_pages = cfg.get("parsing", {}).get("docling_batch_pages")
     if enrich_on:
         # VLM d'enrichissement decouple du LLM de jugement : construit seulement si
         # l'enrichissement est actif, pour ne pas exiger sa cle API sinon.
@@ -86,7 +91,8 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
     for item in triage_corpus(corpus_dir):
         doc_id = item["doc_id"]
         try:
-            doc = parse_document(item["path"], item["category"], pages=item.get("pages"))
+            doc = parse_document(item["path"], item["category"], pages=item.get("pages"), parser=parser,
+                                 docling_batch_pages=docling_batch_pages)
             if not doc.markdown.strip():
                 # Score-and-flag : document illisible (parsing S14 ne leve jamais) signale
                 # pour revue humaine sans passer par compute_metrics/score_document (pas

@@ -1,0 +1,41 @@
+# Config de test SANS cle API : jugement delegue au CLI `claude` (souscription Claude Code).
+llm:
+  provider: claude_cli
+  model: "sonnet"             # alias CLI (claude-sonnet-5) ; "opus"/"haiku" possibles
+  temperature: 0
+  cli_timeout: 300
+  max_doc_chars: 24000
+
+judge:
+  section_chars: 8000
+  section_overlap: auto
+
+paths:
+  workdir: "./workdir"
+
+thresholds:
+  coverage_flag_below: 0.7
+
+parsing:
+  parser: docling
+  docling_batch_pages: 1     # lot d'1 page = pic RSS ~1,1 Go, sur sous ~1,2 Go ; augmenter sur machine a RAM confortable
+
+enrichment:
+  enabled: false             # VLM image via CLI hors perimetre de ce test
+  min_side_pts: 24.0
+  vlm:
+    provider: mock
+    model: "sonnet"
+    api_key_env: "CQG_LLM_API_KEY"
+    manifest_path: "workdir/image_manifest.json"
+
+golden:
+  profile: "conseiller / gestionnaire AXA"
+  policy: |
+    Repondre uniquement a partir du document. Citer la source. Si l'information n'est pas
+    presente, repondre 'Non couvert par le document'.
+  n_questions: auto
+  corpus_level: true
+  k: 6
+  chunk_chars: 1000
+  chunk_overlap: 100

@@ -12,7 +12,8 @@ def test_end_to_end(tmp_path):
         c.drawText(to); c.showPage(); c.save()
     cfg = tmp_path / "cfg.yaml"
     cfg.write_text("llm:\n  provider: mock\n  temperature: 0\npaths:\n  workdir: ./wd\n"
-                   "thresholds:\n  coverage_flag_below: 0.7\n", encoding="utf-8")
+                   "thresholds:\n  coverage_flag_below: 0.7\nparsing:\n  parser: legacy\n",
+                   encoding="utf-8")
     out = tmp_path / "out"
     paths = run(str(corpus), str(cfg), str(out))
     assert os.path.exists(paths["corpus_report"]["xlsx"])
@@ -30,7 +31,8 @@ def test_run_isolates_and_flags_bad_document(tmp_path):
     c.drawText(to); c.showPage(); c.save()
     (corpus / "corrupt.pdf").write_bytes(b"%PDF-1.4 fichier corrompu \x00\x01\x02 pas un vrai pdf")
     cfg = tmp_path / "cfg.yaml"
-    cfg.write_text("llm:\n  provider: mock\nthresholds:\n  coverage_flag_below: 0.7\n", encoding="utf-8")
+    cfg.write_text("llm:\n  provider: mock\nthresholds:\n  coverage_flag_below: 0.7\n"
+                   "parsing:\n  parser: legacy\n", encoding="utf-8")
     out = tmp_path / "out"
     result = run(str(corpus), str(cfg), str(out))
     assert result["n_docs"] == 2
@@ -53,7 +55,7 @@ def test_cli_enrich_writes_enriched_md(tmp_path, monkeypatch):
     c.drawString(72, 700, "Texte du document.")
     c.drawImage(ImageReader(str(src)), 72, 500, width=120, height=90); c.showPage(); c.save()
     cfg = tmp_path / "cfg.yaml"
-    cfg.write_text("llm:\n  provider: mock\nparsing: {}\nenrichment:\n  enabled: true\n",
+    cfg.write_text("llm:\n  provider: mock\nparsing:\n  parser: legacy\nenrichment:\n  enabled: true\n",
                    encoding="utf-8")
     from cqg.cli import run
     out = tmp_path / "out"
@@ -78,7 +80,7 @@ def test_cli_enrich_manual_writes_manifest(tmp_path):
     manifest_path = tmp_path / "manifest.json"
     cfg = tmp_path / "cfg.yaml"
     cfg.write_text(
-        "llm:\n  provider: mock\nparsing: {}\nenrichment:\n  enabled: true\n"
+        "llm:\n  provider: mock\nparsing:\n  parser: legacy\nenrichment:\n  enabled: true\n"
         f"  vlm:\n    provider: manual\n    manifest_path: {manifest_path.as_posix()}\n",
         encoding="utf-8")
     from cqg.cli import run
@@ -108,7 +110,7 @@ def test_cli_enrich_feeds_eval_and_flags_auto_descriptions(tmp_path):
     c.drawString(72, 700, "Texte du document.")
     c.drawImage(ImageReader(str(src)), 72, 500, width=120, height=90); c.showPage(); c.save()
     cfg = tmp_path / "cfg.yaml"
-    cfg.write_text("llm:\n  provider: mock\nparsing: {}\nenrichment:\n  enabled: true\n"
+    cfg.write_text("llm:\n  provider: mock\nparsing:\n  parser: legacy\nenrichment:\n  enabled: true\n"
                    "  vlm:\n    provider: mock\n", encoding="utf-8")
     from cqg.cli import run
     out = tmp_path / "out"
@@ -130,7 +132,7 @@ def test_cli_enrich_config_only_with_separate_vlm(tmp_path):
     c.drawImage(ImageReader(str(src)), 72, 500, width=120, height=90); c.showPage(); c.save()
     cfg = tmp_path / "cfg.yaml"
     cfg.write_text(
-        "llm:\n  provider: mock\nparsing: {}\nenrichment:\n  enabled: true\n"
+        "llm:\n  provider: mock\nparsing:\n  parser: legacy\nenrichment:\n  enabled: true\n"
         "  vlm:\n    provider: mock\n",
         encoding="utf-8")
     from cqg.cli import run

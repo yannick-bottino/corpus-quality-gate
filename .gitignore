@@ -6,3 +6,8 @@ venv/
 workdir/
 out/
 .DS_Store
+
+# generated run outputs & local code index
+e2e_out/
+e2e_out_cli/
+.codegraph/

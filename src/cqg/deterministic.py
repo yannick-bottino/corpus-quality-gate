@@ -31,6 +31,8 @@ def compute_metrics(doc: ParsedDoc, reg: Registry) -> dict:
         "mean_words_per_sentence": signals.mean_words_per_sentence(text),
         "duplicate_line_fraction": signals.duplicate_line_fraction(text),
         "type_token_ratio": signals.type_token_ratio(text),
+        "mattr": signals.mattr(text),
+        "n_tokens": signals.token_count(text),
         "block_integrity": signals.block_integrity(doc),
     }
     _MONTHS_FR = (r"(?:janvier|f[eé]vrier|mars|avril|mai|juin|juillet|ao[uû]t"

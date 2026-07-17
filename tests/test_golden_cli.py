@@ -17,6 +17,7 @@ def test_golden_subcommand_writes_qr_files(tmp_path):
     cfg = tmp_path / "cfg.yaml"
     cfg.write_text(
         "llm:\n  provider: mock\n  model: mock-model\n"
+        "parsing:\n  parser: legacy\n"
         "golden:\n  profile: gestionnaire sinistres\n  policy: repondre brievement\n",
         encoding="utf-8")
     out = tmp_path / "out"

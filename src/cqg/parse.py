@@ -1,3 +1,6 @@
+import subprocess
+import sys
+import tempfile
 import unicodedata
 from pathlib import Path
 from .models import ParsedDoc, Block, ImageRef
@@ -37,6 +40,10 @@ def _typing_pdfplumber(path: str) -> tuple[list[Block], dict[int, list[dict]]]:
                                   "x1": float(im["x1"]), "bottom": float(im["bottom"])})
             if page_imgs:
                 images_by_page[i] = sorted(page_imgs, key=lambda d: d["top"])
+            # pdfplumber conserve le cache d'objets de chaque page : sur un gros PDF
+            # (des centaines de pages) l'accumulation sature la memoire (OOM). On libere
+            # le cache par page, l'empreinte reste bornee.
+            page.flush_cache()
     return blocks, images_by_page
 
 
@@ -93,6 +100,8 @@ def _pdfplumber_only(path: str) -> tuple[str, list[Block], list[ImageRef]]:
                                   "x1": float(im["x1"]), "bottom": float(im["bottom"])})
             if page_imgs:
                 images_by_page[i] = sorted(page_imgs, key=lambda d: d["top"])
+            # Idem _typing_pdfplumber : cache par page libere pour borner la memoire.
+            page.flush_cache()
     md, refs = _assemble(pages_text, images_by_page)
     for i, t in enumerate(pages_text):
         if t:
@@ -115,10 +124,91 @@ def _better_extraction(primary, fallback):
 # a produit du texte en volume mais illisible (mapping police echoue).
 _CID_FALLBACK_THRESHOLD = 0.1
 
+# Timeout genereux du worker Docling (gros documents). Un depassement leve et bascule legacy.
+_DOCLING_TIMEOUT = 1800
 
-def parse_document(path: str, category: str, pages: int | None = None) -> ParsedDoc:
+# Traitement Docling par lots de pages, chaque lot dans un sous-processus FRAIS : les modeles
+# rechargent a chaque lot mais la RAM est liberee a la sortie du process (un convert whole-doc
+# OOM sous ~1,2 Go de baseline). 1 page = pic RSS ~1,1 Go, seul lot sur ~1,2 Go de baseline.
+_DOCLING_BATCH_PAGES = 1
+
+
+def _docling_extraction(path: str, pages: int | None = None,
+                        batch_pages: int | None = None) -> tuple[str, list[Block], list[ImageRef]]:
+    # Docling isole en sous-processus : un OOM (SIGKILL -9/137) est vu via returncode et
+    # bascule sur legacy au lieu de crasher le pipeline. Leve RuntimeError sur tout echec.
+    # Traitement par lots de pages (process frais par lot) pour borner la RAM. Repli par lot
+    # sur pdfminer si un lot echoue (OOM/rc!=0/vide) : on garde du contenu sans perdre le doc.
+    if batch_pages is None:
+        batch_pages = _DOCLING_BATCH_PAGES
+    from pypdf import PdfReader
+    n = len(PdfReader(path).pages)
+    pm_pages: list[str] | None = None  # texte pdfminer calcule paresseusement au 1er echec
+    md_parts: list[str] = []
+    for start in range(1, n + 1, batch_pages):
+        end = min(start + batch_pages - 1, n)
+        with tempfile.NamedTemporaryFile(suffix=".md", delete=False) as tmp:
+            tmp_out = tmp.name
+        try:
+            proc = subprocess.run(
+                [sys.executable, "-m", "cqg.docling_worker", path, tmp_out, str(start), str(end)],
+                timeout=_DOCLING_TIMEOUT, capture_output=True)
+            batch_md = ""
+            if proc.returncode == 0:
+                batch_md = _nfkc(Path(tmp_out).read_text(encoding="utf-8")).strip()
+        finally:
+            try:
+                Path(tmp_out).unlink()
+            except OSError:
+                pass
+        if proc.returncode != 0 or not batch_md:
+            # Repli du lot en echec : texte pdfminer des pages concernees (1-based -> index 0-based).
+            if pm_pages is None:
+                pm_pages = _pages_text_pdfminer(path)
+            fb = [_nfkc(pm_pages[i]).strip() for i in range(start - 1, end) if i < len(pm_pages)]
+            batch_md = "\n\n".join(p for p in fb if p)
+        if batch_md:
+            md_parts.append(batch_md)
+    md = "\n\n".join(md_parts)
+    if not md:
+        raise RuntimeError("markdown docling vide")
+    # Typage (tables/images) + coords images : reutilise pdfplumber, ce qui garde le
+    # chemin image -> enrichissement VLM fonctionnel. Les blocs texte viennent du markdown
+    # docling (structure), decoupes sur les lignes vides.
+    type_blocks, images_by_page = _typing_pdfplumber(path)
+    blocks = list(type_blocks)
+    for para in md.split("\n\n"):
+        if para.strip():
+            blocks.append(Block(kind="text", text=para.strip(), page=0))
+    # Placeholders images groupes par page, meme format que _assemble, appendus en fin de md.
+    refs: list[ImageRef] = []
+    ph_parts: list[str] = []
+    for i in sorted(images_by_page):
+        for k, im in enumerate(images_by_page[i], start=1):
+            ph = f"[[IMAGE:p={i + 1};idx={k}]]"
+            ph_parts.append(ph)
+            refs.append(ImageRef(page=i + 1, idx=k, x0=im["x0"], top=im["top"],
+                                 x1=im["x1"], bottom=im["bottom"], placeholder=ph))
+    if ph_parts:
+        md = md + "\n\n" + "\n\n".join(ph_parts)
+    return md, blocks, refs
+
+
+def parse_document(path: str, category: str, pages: int | None = None,
+                   parser: str = "docling",
+                   docling_batch_pages: int | None = None) -> ParsedDoc:
     doc_id = Path(path).stem
     fallback_used = False
+    # Docling est le parser par defaut. Sur toute exception (import/OOM/erreur), on retombe
+    # sur la chaine legacy (pdfminer + pdfplumber) : robustesse score-and-flag, jamais de crash.
+    if parser == "docling":
+        try:
+            md, blocks, refs = _docling_extraction(path, pages=pages, batch_pages=docling_batch_pages)
+            return ParsedDoc(doc_id=doc_id, markdown=md, blocks=blocks,
+                             parse_confidence=_confidence(md, blocks, pages, fallback_used),
+                             images=refs)
+        except Exception:
+            pass
     try:
         pages_text = _pages_text_pdfminer(path)
         type_blocks, images_by_page = _typing_pdfplumber(path)

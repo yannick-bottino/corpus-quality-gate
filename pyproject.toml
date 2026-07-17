@@ -15,6 +15,7 @@ dependencies = [
   "pillow>=10.0",
   "semhash>=0.3",
   "model2vec>=0.3",
+  "docling>=2.0",
 ]
 
 [project.optional-dependencies]
