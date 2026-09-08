@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:5c79a3e22eebef37ef1c3515c805597700d48245eaa0d85409156b5bdd863e8e",
+  "claims": [
+    {
+      "id": "claim_c8b7bafb59234423bb3aaca0a4281a9c",
+      "statement": "LLM scope excludes three disjoint groups — criteria marked N/A by the inventory, criteria flagged external_dep in the registry, and D-tagged criteria that already have a deterministic score — and because the third is a conjunction, a D-tagged criterion lacking a deterministic scorer still reaches the LLM.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L47-L58",
+          "version": "repo-lines-v1:sha256:587b4fe6ed6cfd75ca2452e36f6cf5c23b07f9f709aa6735cac19c91840a9405:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiN2MyODRlNGYyMTRmMjBjNGU2ODE0MDA0MTQ2OWNhYjdjYmFhMWRhOTJhNzRlZjBjYzlhMjcxY2ZjMjc0YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4ZGMxNDhjZTM1NDkxYWMyMWM1Y2FjMWY3MzgwYTZiYzMyMDEzYmY5ZTM2ZTE0NWUxMzA0MmIzNGM4ZTY2ZTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmZDM5YzFhY2Y4M2I1ODlmNjYwM2YyNzJlNGEzZThkMGUwN2RkOGUzY2Y4YmNjYzdlZWRmNDU1NGI4NjJjODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4MzExZmVhN2UzYjVmMzdhYjNiYTVmZjBiNjMxNzEwMTlkNzY2ZjBlM2JjYzkwZDM5MmQyZTViN2Y5YWM2NjAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L139-L144",
+          "version": "repo-lines-v1:sha256:2bd711898f9bb9912a7c47f1f228cc2c26400d440a5151723998213b065426fb:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTUzMjFlM2I4OTg3OGQ4MWNlNzRlYmFlNmMzODNkN2FhODU3NjBlODlhYjc0Zjg5M2U3NjA0ZGE5YTMyZDc1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQ1OTcyZmY5ZGI4MDE5MzZiNWIwOTgxZGU2ZTlhODU2ODE2ZmYyMTQyOGUyYjc0MzcyNmZjODA0ZjllZjBmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjhjOWQ0Mzc0ZThjZjM0MWY4NmEyODQwMmE0NWQ0MzMzZTVmYTc5OTVkMWFhZDJiYzA3ZmNkYWJkOTQ3MGFiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDVjYzNkMmU4ZjM5ODI5MDg1YTEwOWE2MWMwMWVmNGM5NDRhN2UxYzI5YWNmYmNkYWMyYWQyOTZlZjk1MTJjNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4c4f595106084d46a6f2c2e5594b909b",
+      "statement": "_split_sections walks the markdown in windows advancing by a stride of size minus overlap, defaults the overlap to one tenth of the section size, and clamps overlap to be strictly less than the size so the stride is at least 1 and the walk always progresses.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L36-L57",
+          "version": "repo-lines-v1:sha256:857333b02b27e323ff00f539df92b8f47c335141c79befb16d0307cdea8c218a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5MmEwZjI3MGE4MDUwNGYwZGZlYTJhZDQ1YTkwMTkxNTA3Mzg0MDNmOTk0NWE5NTFjNWNjMGRhNzBmYTEyODYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMjI0NmYwNDQ4ZGM3NGM0MzgxMTI1YTM4OGM4ZGY2Yjk0MWUwYWQwZDQ3ZDgyOTU4NmQ2ZTIyNzhhYmQ1MWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyNzI5NjA3ZGVkM2E4M2Q0ZTg1YzExMTJkNjg5MTI3ZGI0NDZjNTkxNmFmMzgxYWQyM2UwOTA2MmE0OTgxN2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0ZDRhYzZiNGQyMmRiY2MzODAwNmM0MTkwY2U0YTUzM2FhZTlkNzNhYmY0M2NmMzYxZTE3ZmM1NTQ1YmZlZDUifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L45-L50",
+          "version": "repo-lines-v1:sha256:dd9b22f1d53eb0ff9081569361f6bbb612431ec515df60a602a1000632e65da5:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzkzYjA3MjcyNWI2OTU0NDU0ZTczZmJhMjYyYjk3MjQyM2E5MjA5YzdlZGZlODZlOWU5OTE3YjM0ZmRlZmM2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjU4MjI1MTIxOTBhY2NjZWU2NTVjOTM5NmZlMjVkNTUwMTUzMWRkZGMzYjVmZjM3ZGEyN2FjNDA3N2RkY2ZmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzc2ZmM1MDliMTRiMWZkZDY2NDc2NDkxMmE2NGJiMGViMzEyODdiNjU3MzFjMWQwNTY2NmY4NDllMDUzY2U4YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_926965ec673e496197949232b238b1fe",
+      "statement": "Sectioning guarantees coverage by union rather than partition: every character lands in at least one section and overlap-region characters land in two, verified by tests showing exact reconstruction at zero overlap and reconstruction from the first section plus subsequent tails when overlapping, with consecutive sections genuinely sharing their boundary region.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L36-L57",
+          "version": "repo-lines-v1:sha256:857333b02b27e323ff00f539df92b8f47c335141c79befb16d0307cdea8c218a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5MmEwZjI3MGE4MDUwNGYwZGZlYTJhZDQ1YTkwMTkxNTA3Mzg0MDNmOTk0NWE5NTFjNWNjMGRhNzBmYTEyODYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMjI0NmYwNDQ4ZGM3NGM0MzgxMTI1YTM4OGM4ZGY2Yjk0MWUwYWQwZDQ3ZDgyOTU4NmQ2ZTIyNzhhYmQ1MWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyNzI5NjA3ZGVkM2E4M2Q0ZTg1YzExMTJkNjg5MTI3ZGI0NDZjNTkxNmFmMzgxYWQyM2UwOTA2MmE0OTgxN2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0ZDRhYzZiNGQyMmRiY2MzODAwNmM0MTkwY2U0YTUzM2FhZTlkNzNhYmY0M2NmMzYxZTE3ZmM1NTQ1YmZlZDUifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L22-L43",
+          "version": "repo-lines-v1:sha256:5664f1620656710e94b5fcbd94afe509976e0d88ea56ed4818c14d78e0219a93:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3YzE5ZDg2ZTM2OTA4YjFhZjE4YjZkODQ5ZjM5Zjk2NWFiNzY4ODU3NzQ4ZDkxM2M3ZTRlODI5MTBiNjEwMDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyZDM5MDc0Nzg4OTA3NjQ5YTk3OGQ3NWVkOThiNzkwNzE5OTFiZGJlOTRlMTVhNzFiNjdmMzYzYjVhODU1MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2MTZmYjcwZDVlMWUwYjljMDIzZGU5MGI4NjEzOWEyMWI3NGE3MzgxZTRkYTViNGM5NmU2YWI0YTY0ZmU3MDgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_655daf441a2142ca95d16d53c060f734",
+      "statement": "Overlap exists so that evidence spanning a section boundary stays fully visible in at least one window, since a passage cut in half would leave both neighbouring sections with a fragment supporting no confident judgment.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L36-L45",
+          "version": "repo-lines-v1:sha256:cd688260261728b8b7e1239dd143c2b9a5f6504d4c1dd7290be9e31658d95f9a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5MmEwZjI3MGE4MDUwNGYwZGZlYTJhZDQ1YTkwMTkxNTA3Mzg0MDNmOTk0NWE5NTFjNWNjMGRhNzBmYTEyODYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlYjBlMTEwNDI3OTZjYWVmMDQ0ZWVhNzE3MzM5YjU5NjAzNzA0ZWUwZGI2N2VhMGVmYWQxZGYzNDk5MWE3YTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyNzI5NjA3ZGVkM2E4M2Q0ZTg1YzExMTJkNjg5MTI3ZGI0NDZjNTkxNmFmMzgxYWQyM2UwOTA2MmE0OTgxN2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVhMjljMzIyZDE5ZGVmMTczNTRkYzM3NmVmNmNmNjYzOTAzMjJlMDM3NDJhNjI2ZjRjOGVhNmMzMzFjYzkwNTgifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L30-L43",
+          "version": "repo-lines-v1:sha256:5d46fe30fb531d7e0e4ebb2f14cc9857bfa2c1d0d6c38ae049e5b1f2ec5e53d2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwYTQ1NTE0ODI0ZmE0NTQ0ODlkM2NlMzQzNmUyZTA1ODZhZDRkOTg3YjM3YmY4ZWE0YThhY2Q2OTQ5MjJjZjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlhNDIzODI5MzM1YWUzMjNlNGUwZTRiNDRmMWY3ZjQ2OTE4MzkyM2JiZjhkZDU1NDMwNzg0N2Q2ZjdhMTM4YWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2MTZmYjcwZDVlMWUwYjljMDIzZGU5MGI4NjEzOWEyMWI3NGE3MzgxZTRkYTViNGM5NmU2YWI0YTY0ZmU3MDgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_32090f1a176a4e58b02a1462d6bd5c0b",
+      "statement": "Empty markdown produces no sections at all rather than one empty section, and a document shorter than the window produces exactly one section.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L45-L52",
+          "version": "repo-lines-v1:sha256:3807de9cdd0a1a9b689a9922e91eb472291812c77aa50973096b285b70ab565d:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2ViMGUxMTA0Mjc5NmNhZWYwNDRlZWE3MTczMzliNTk2MDM3MDRlZTBkYjY3ZWEwZWZhZDFkZjM0OTkxYTdhNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDM2MGQ1YmJkNGZlNGQ0MDlkNzBkNWE4OGNhNDcxZTZhZGE5MDRhYjEzN2Q0OTIxNTU0Y2ViYjkzN2JhMDE2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmMxMzA2MjZjY2IwNzZmMTM4MWE4ZjI0N2FkZmUzZDlmZDhkYzE2Mjg3YzVlNmNlOTc4NzlhOTMxZTIwY2JlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWZhNzYwODY1MTFkNDg3YmRiOWE3NWIyM2VmNzVhY2EzOGJjNmU1ZDM2YjkwYTE0ZTI1ZjBmODZhMTlkOTEyNyJ9"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L52-L60",
+          "version": "repo-lines-v1:sha256:c2fa03e94f7fe6bd6ed2fc10f86d4a9cf532d31b4f71fcf628da293e10bf9a8a:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGFhM2IwZTBlNDEwYWUwZmE2Y2NhZTIyOGNhMDJhZjQ2MWE0OGFkNWE5ZWRjOTFjNTY0ZDhiMDY4MzI2NTg0YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjFmZmFmNGVjMTkwYzNjNjBjODNhYmU0ZjVkMjliODgzNzMzYWQ5ZTIyNjgxYjhhMjJmYmVkZmE2YWRlMjBmOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDhmOTQwNmNkMDg3ZjdiMTQxZmYwZDAzNjM1ZGNmYTI1OWJhNDcxYzYxMzJiN2Q1MWFjNzE1Y2I0YTlkZDRjOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTVkM2RkMzE5YzY4YjY3NDAzYmY4NmZkYTJhNDE0ZmU0ZDAyOWMzM2QzMWNjZTFlZjRmNGIxZjNkMTk5ZmIyNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bfc8f1de4d95419499e8e58397186845",
+      "statement": "_representative_excerpt, which samples a head plus distributed windows down to a character budget, is explicitly retained only for the baseline test suite and is no longer on the coverage path, having been superseded by full sectioned coverage.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L12-L33",
+          "version": "repo-lines-v1:sha256:fd96f5fb4957754b4736581a370f7c7f37635afa9e9552d4df26cb946f0de684:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhN2M0ZWIzOTkyMmVhZTRmNmU3YmUyZmIxMjIyMDA4ZGYzMGE5NzZjNzE2NjdjZjhjYmI5YzdkYzJkNDVkYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2YzY1MGE5MmI1MjM2NjE5ZDhhNzVkYTMzNDdhYzI0NTU1N2FkYjU3YzQ1YjdhMGFiYjBmODAwZTJhYzFkZDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI0N2Y2MDA2ZDAzNTgxNzI4NDcxMGQ2Y2JkMzAwZjhlMmY4MzQzOWYzODZiZjhhMWE2YWRkMTZhMzNkZWNkNjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyYjAzNTFkNjEyM2JiOWExNGIzNGU0MDAxYmNlNDNkYTllYjQzNzUzNjg4NTI3ZTcyNTU2MWYwMmY5MDViYTkifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge.py#L81-L96",
+          "version": "repo-lines-v1:sha256:d5cbd9a524d22d3ca1783338f7a7fe801a07cbd844ce4f570f87e44f8212151a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNDY2MDIyZmVlOTViYzI0MDdkZjg2OGQxMjVkNzVmNmExZWZkM2Q5NGRlMWY5OTBkM2VlNTEzYThmYTIwMDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA4MTQ4MTUxMjZkYTU0YmMxNmY5MjAwNjkyN2I5OWUxYzRhODRjYmIzNzg5MDYyODE1ZWE0MmE0YTgzN2Y3MmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE3MGFhYWY5YmQ2Y2M1NGE4MWRjMmUzYWFmNzVlNWY1ZDI5MzA3MmI3OGM0NzhhZmMxMGM5ZjA5ODRlMzQ0OWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI0NDE3OTFmMGQxY2ZhM2U3ZTE3ZjBhYjRiZDQzNjliMGRkMGJmMzMyYTYyMjY1YWQ0Mzg3ZDY3MGEwOTQ4MzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bcb3ccfa4fd84517ab6f33692ebb87bd",
+      "statement": "Each section produces exactly one batched LLM call covering every in-scope criterion, with the French prompt listing criteria as id-and-label lines, appending a deterministic-signal annotation where h_signals supplies one, and instructing the model to set not_evaluated rather than guess.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L146-L156",
+          "version": "repo-lines-v1:sha256:c93a87d98c3ee69bcbcdf1320a55aa2f666da12de61932601ecee1e070917286:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkMzMyZWI5Njk1MmRhOGU0NTU5NzI3YmVlZjUwNzg2N2FkODUyZTMyYTBjNmZjYTJlOTFhNmYxNDgwMmQ4YjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhNDM0Y2JmZThkOTQyN2Y2ZTJmNTc0NGVlODNmNjNhOGM1OTVjM2I2YzQzYTRhNWJmMmI2OTE3OWVhYzZiNzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA0YTE2OWRkOGU5OTBlNTFkMTMxNWVkZjUzM2ViN2U2ZGM2MzE5ZjRhMzY4YjU0YTcyYTg1NjdiYTY1Y2M5YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQxMDA0ZGE5NDFhNmE5NGNmNjVmZGRkMDBiODRiNGYzNmM0YmQ2ZGM4ZmMxZWE0ZjE3MTc2ZjcwNzljYWM3YWQifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L60-L78",
+          "version": "repo-lines-v1:sha256:b89e5d3f982c8f236ecfef3f2b411695cf302c69d0d6f6a10ac8684092145314:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJkM2ZhYjJiNTdmM2VkNzFkNjQ5YmZhYzRiMzE1ZmEyNjAyYjY2NDZhY2IzMDA3MTRmNjU2YWNkZDYyNWY3ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjOTFkNDdkOTQ0YTJiMmI4ZTM2NmFhMDI5YTViODQ5Yjk0NjQ3YjIxNWY1YjI0MGJjNmM4NGQzMDZmODc2OTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRlMzgwNjNhMjQ5ZDc0N2QyYTUzOGRlNTVhNDZmZmE3ODhhZmM5MmJmZWEwZDgyMjg1ODJiZTYzMmNhZmFkY2YifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1de5088e1266496dac674afe11606502",
+      "statement": "Only dict-valued response entries for in-scope criteria are collected from a batched response, so a malformed or hallucinated key in the model's JSON is silently dropped rather than corrupting the run.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L148-L156",
+          "version": "repo-lines-v1:sha256:e345a1e11308d14a9884df8cf5536bf009c0371d16edf065698ada2953871dde:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWZhZDg4ZDUzMDZkZWQzYmIyNDNjOTAwNDViMmQ0NWMwZDBiNWQzODE1YTA3MmVlNTljYjYyYjA3NjE3ZWFiNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E0MzRjYmZlOGQ5NDI3ZjZlMmY1NzQ0ZWU4M2Y2M2E4YzU5NWMzYjZjNDNhNGE1YmYyYjY5MTc5ZWFjNmI3MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDVjYzNkMmU4ZjM5ODI5MDg1YTEwOWE2MWMwMWVmNGM5NDRhN2UxYzI5YWNmYmNkYWMyYWQyOTZlZjk1MTJjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDEwMDRkYTk0MWE2YTk0Y2Y2NWZkZGQwMGI4NGI0ZjM2YzRiZDZkYzhmYzFlYTRmMTcxNzZmNzA3OWNhYzdhZCJ9"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L84-L90",
+          "version": "repo-lines-v1:sha256:f72328ed9b8c89c7f8d1cbdc103ea89df5c273d90cf4c0cbf033e7555439ad81:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmM3YjFjMWY0ZGQzNGVlMTM1ZWM1MDE1NmI4YmEyYTY5NTE5YjU0MmQzMmM4OWFkY2Q1NmY0YTljNDA0MDRiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDk1OWU5MTU5YzJkNGI5ZWJmYmEzMDhkOGEwMmMwMDQ4M2JkNDk0YzJiMzYxYTJkZGNhMjllYzE3N2E4ODg5YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWZmZjJjM2M5ZTU3YzMwZmEyNDIzYmQ5NGQwNWEyM2Y4MTQ5MTJjNDE3YWUzYjYxZWEyZTgxYTU4N2RkODdkYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1731153d509b4f13bea71a452379ff3c",
+      "statement": "The judgment cost model is one batched call per section, so LLM calls per document equal the number of sections — pinned by a test where a 20,000-character document at 8,000-character sections makes exactly three calls — making section sizing a directly legible cost lever observable in cost.json.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L124-L128",
+          "version": "repo-lines-v1:sha256:7c88d82da53d7c6a9651031fcefff8a8f2af630f5af56caffcf8edbef4166175:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjMyZDg3NjJlNDU2YmM2YzJhODkzY2VmNmExMzhjMWNhOWIyMzAwYWQxYTA0NmZhNWRhYjQ3ZTNlMDljNzM2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUyMTJlNDE1ZDFhOTZjYmZiNGY5MDg4MWE2NTZmMzlhMjI3MjZiOTZkODFhZTA0OWJkZDQ2OTllZjNiNTExMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjY1MjQ3ZmUzOTMwMTIyY2E3YjE5ODg0M2M0Njc1MGFlMWJiZGNkZGZkNDcwMDkxY2E1YWE3Njk1NzFjZTFmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTQ1YjNiOGE1Y2IwYzcxMWE0MWJlMGM1OGIwZTRiZWMxOWEyYTQ4ZWEzYmQ3ZTIzYTkzNjBmMGNmMzQwMGYyNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L146-L156",
+          "version": "repo-lines-v1:sha256:c93a87d98c3ee69bcbcdf1320a55aa2f666da12de61932601ecee1e070917286:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkMzMyZWI5Njk1MmRhOGU0NTU5NzI3YmVlZjUwNzg2N2FkODUyZTMyYTBjNmZjYTJlOTFhNmYxNDgwMmQ4YjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhNDM0Y2JmZThkOTQyN2Y2ZTJmNTc0NGVlODNmNjNhOGM1OTVjM2I2YzQzYTRhNWJmMmI2OTE3OWVhYzZiNzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA0YTE2OWRkOGU5OTBlNTFkMTMxNWVkZjUzM2ViN2U2ZGM2MzE5ZjRhMzY4YjU0YTcyYTg1NjdiYTY1Y2M5YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQxMDA0ZGE5NDFhNmE5NGNmNjVmZGRkMDBiODRiNGYzNmM0YmQ2ZGM4ZmMxZWE0ZjE3MTc2ZjcwNzljYWM3YWQifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L145-L150",
+          "version": "repo-lines-v1:sha256:64fc17216336f0e74d7ee19349cb13e89e1793b039c95aa48d14c23f94490a23:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU5NTkwMmZkNDgwNzg2ZDZiZDIzMmQ4ZDZiZTI2MWYwOTUyMzQzMWEzZmRkZTE5M2FkZmVmMjRmMTY4NjlhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNlMmEzNWFlNGQ5MGI2NWExZWFmMTU0MmI5ZjUzODNlZjc2ZjBkZjUzZDgzMmQ2ZDAyOWFmODIyOWIwOWUzZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQwOGQxZmFiOTJlMzYxZDMxYWVkMWNiMGY1YTU4MTVkNTc1MDY0ZGIzM2UxMjU5YmQ4MTFjNjA1NjFmMTRlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_57ee59f24cae47d28f136d66acf1f280",
+      "statement": "Cross-section aggregation takes the median of contributing scores rather than the mean, chosen for robustness so a single section that misjudges a criterion cannot drag the document's verdict, with an even-count median rounded to the nearest integer.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L92-L121",
+          "version": "repo-lines-v1:sha256:837974d8a1a0dc11123b9807fa39290785526222cf618f5dd708e13eaa5adc70:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NWY4NDljYjgwMjFlM2FiYmJlYjcwZTEzYTU0NTU0ZTljNjg4YWZlYzk1OWRlM2FiOTAxY2UyZTA3ZWNhMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NWViZDRlZDYxNDg4MGI1MTcwYTM0YzFkMDlhZWU3ODBlZGUzZTdkMjVlZTE3ODg1ZjgyMWQ4YzdiYWU4OGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMzOGZiNWUzYWU0NGFkYjIwNTAxYTc1MTdkNzJlNDRiZTU3NzhmZmFjZGQxYzE3Mjc0MzViOWE3NWFiOWZmYTIifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L117-L128",
+          "version": "repo-lines-v1:sha256:35036a3fb0bffe9fb99309416b232c46e389a810dee23ce6bf2637805e112c60:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyZmE4NjYzZmEzNjY0Y2NhZjhiNGJmMDUyYjk1M2E0MzcxYjU1Njg4MmRiYWUwOWE2NGFlNGU0ZWFjMjI5NjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiMmY4MTdiMjJhMDRjODk3MjA0OGI0MDM3YTQzMzZlNTFmNTk3MzcyODBmN2QzMmNmZWY4NzhkZTZjOTUxMzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM1OTVlOTI2NDMyZWFkNmEwODI1N2ExY2QyYmNiNTFhZTg1OGQ1ZTJmMjI1ZGUzMDFlODhjNDc3MzlkZjVlMjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_48ea4560e69f4580bee2a911221a0ef0",
+      "statement": "Non-compliant section responses are discarded rather than coerced during aggregation, so an out-of-scale section is simply outvoted by a valid one instead of influencing the result.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L103-L113",
+          "version": "repo-lines-v1:sha256:1425d4725f53bf3c47b491346d5af65c1f174eb6e98170dfd31758d57ebc3ebe:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjExZDM1NDk5N2VlMDZiNzRhYmI1MGZjYjQyNTAzOGQ4MzY2ZmRkYjQxNGJiMGQ2NDAzNWRkMTA3OTkxZDgwMzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAyZTQ3YTE3ODM1MzA1Y2ExYzFhNzNmYTIzOWJkYjBmNzcyZTdlYjMxYTQzOWMyMjY4ZGQ1MjMzOGJiNDJmMTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2YTg3MzdkNDIwNjRjYzhmNjMwOTg5YTk4NGI3ZmExOTdiNDMwYzI2YzlkZjZlZDg5ZGRhMGNhMDMxYWM2NWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM4ZjUyYzNkM2Q3NmJmMDkwNGVkYTBmNDM1OGVkNmNiYmRlNGZiMDJhMGUwZWFmNjk4YzA3ZDk1NjkzYzIyZmQifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L130-L142",
+          "version": "repo-lines-v1:sha256:3e35c8182d7b38ef994d85f712c65bcfda98ba288966353667a6a5acd77778b5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1MWMyZDQzYTRjY2FkMjUwMTM1NjBlNDNlMzY2OGE2MWQ3OWZjZTc2YmQwY2EzZWU5OTcyZTFlOWZiMjRmOGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJjNTJiZjc5OTFhMTZhYzY5N2U3ZjVjY2M2ZjNhYjU2NzkzNzdiM2QyMWMyZGIyY2ZmODI3MGVhZTQ3MTg5NTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEyYzY2MjQwZGE3ZjNhMzVlZmNhZWM5MjZiOWM3NDU0YTkzNjlmNDliYjc4NDIyZjkwODY2NjA3Njc5ZDJhZTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b97fa73a9b4c4d818ee9908c8bc61f88",
+      "statement": "The retained justification and evidence come from the contributing section whose score is closest to the median with ties resolved to the earliest section, keeping the reported rationale attached to a real section's reasoning rather than synthesized, and making the choice deterministic.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L96-L121",
+          "version": "repo-lines-v1:sha256:9379f44c2a1da8a713152b21fd3d36e69c8fe853763aace9e997c4cfce0395e4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmZTZkYjhhZTUwMDI5YWI4MTdlZTY4NDY0NzUxMzE4ZjMxYmU3ZWFiNjMzMDBlMDlhNWRjOGI2OTNjYjM1YTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NWViZDRlZDYxNDg4MGI1MTcwYTM0YzFkMDlhZWU3ODBlZGUzZTdkMjVlZTE3ODg1ZjgyMWQ4YzdiYWU4OGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyNmFkYmIyZTM3YzczYTdmMDY3OWI5Y2M5M2MzYmZlYTkzMGJmNTdlM2JiYmYwMzM5NGFiMmMxOGZkY2YyMzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMzOGZiNWUzYWU0NGFkYjIwNTAxYTc1MTdkNzJlNDRiZTU3NzhmZmFjZGQxYzE3Mjc0MzViOWE3NWFiOWZmYTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e7497fd2d9e46fb858a57239b10d857",
+      "statement": "score_document returns exactly one CriterionScore per registry criterion in registry order, resolved through five ordered terminal paths where N/A and external-dependency precede the light-route branch, so a light-route document still keeps its inventory and deterministic verdicts and only its qualitative criteria go unevaluated.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L158-L185",
+          "version": "repo-lines-v1:sha256:e5a32a782e465fa9ea2a9bb1195359a88cdacfec0b3076e0efe7922c3c06e0fd:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxNmYyNzNiYzg4MGZmYzZkMjU0Mjc2YTkzMWUzZjg0NTlhNDI2MjU3YzY1NWFmYzEyZTAwYmJhNjIyMzFlNWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzYWQwYWVmZGU4ZjlhY2RhYzY3ZGY0MDBjYzZiYTEzNzVmYmYyNTk0ZDI5YWFmZDliMWI1YWZjYmM5OWQ4MGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkZGY0Y2ZiNjIzZjNjNTBhZWY2MGM3ODQ3NzU2NWE5YjhjZTFlMzIxNWU2N2ZiNWI0OTk5NmEyM2NhYWE4NjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0NTI2YWZkNzhlMmJiZGM0N2QwODZmNjliOTdhZjYwZTQ5MjAzZDNjNDlhMTAwMDNmNTQxNzEyODlmOTYxZTQifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge.py#L38-L54",
+          "version": "repo-lines-v1:sha256:4b4bda2c52568dd52e6a020b53345b9c200456135ad792242da3301f4d0b73f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliNjU2YzIxNzUwM2ZmMWViMjYwY2M4NzZiMDYzYzViMDg5N2RjZWEyMTJlODNmZTg5M2FlMjlhYjYyZDg4MzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NzU1ZjAzYjFlNDlhYmRiYjBiYzIwOWE5YzM2Nzk0Y2NkYTNjODFmYTEzOGIzM2E5Yjg2Y2RmYWFiNzM2OTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlYzAzMjM5Zjk4Zjg5MzE0MzE2ZGJlYzJlNDMxMDQ1YjQwNDkxZGI4M2I2YWUxZjFiOTVjYjFmMmRhMjdjYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhNzMwYWMyZjhkNWNmZjdjNTlhMzlmZmE2MjZjYWJjOTkxN2FhNWEyMjMwNTM3NDJlMmMzMjc3OGIwMGE3YzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c2a4732557f145aea1557f9cce4e85a2",
+      "statement": "When the light route is active the section loop is skipped entirely so not a single LLM call is made, a guard implemented as a condition on the section loop itself rather than only on the per-criterion branch.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L146-L156",
+          "version": "repo-lines-v1:sha256:c93a87d98c3ee69bcbcdf1320a55aa2f666da12de61932601ecee1e070917286:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkMzMyZWI5Njk1MmRhOGU0NTU5NzI3YmVlZjUwNzg2N2FkODUyZTMyYTBjNmZjYTJlOTFhNmYxNDgwMmQ4YjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNhNDM0Y2JmZThkOTQyN2Y2ZTJmNTc0NGVlODNmNjNhOGM1OTVjM2I2YzQzYTRhNWJmMmI2OTE3OWVhYzZiNzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA0YTE2OWRkOGU5OTBlNTFkMTMxNWVkZjUzM2ViN2U2ZGM2MzE5ZjRhMzY4YjU0YTcyYTg1NjdiYTY1Y2M5YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQxMDA0ZGE5NDFhNmE5NGNmNjVmZGRkMDBiODRiNGYzNmM0YmQ2ZGM4ZmMxZWE0ZjE3MTc2ZjcwNzljYWM3YWQifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge.py#L38-L54",
+          "version": "repo-lines-v1:sha256:4b4bda2c52568dd52e6a020b53345b9c200456135ad792242da3301f4d0b73f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliNjU2YzIxNzUwM2ZmMWViMjYwY2M4NzZiMDYzYzViMDg5N2RjZWEyMTJlODNmZTg5M2FlMjlhYjYyZDg4MzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NzU1ZjAzYjFlNDlhYmRiYjBiYzIwOWE5YzM2Nzk0Y2NkYTNjODFmYTEzOGIzM2E5Yjg2Y2RmYWFiNzM2OTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlYzAzMjM5Zjk4Zjg5MzE0MzE2ZGJlYzJlNDMxMDQ1YjQwNDkxZGI4M2I2YWUxZjFiOTVjYjFmMmRhMjdjYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhNzMwYWMyZjhkNWNmZjdjNTlhMzlmZmE2MjZjYWJjOTkxN2FhNWEyMjMwNTM3NDJlMmMzMjc3OGIwMGE3YzkifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

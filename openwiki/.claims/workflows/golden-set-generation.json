@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:c562972bf0d922a963aeb085b72cb2674479df02fd46394bdff94d5a0d7b6d18",
+  "claims": [
+    {
+      "id": "claim_10b153e0d13048009e4cdf03ea3fbce2",
+      "statement": "The golden set is written to both an Excel workbook and a CSV with eight verbatim French columns — id, origine, question, reponse, sources, couvert, statut_validation, commentaire_beta — where origine takes the values document, profil or corpus and every row initializes statut_validation to \"a_valider\" with an empty commentaire_beta.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L156-L170",
+          "version": "repo-lines-v1:sha256:9974b594330dd6d1e25deeb80c0ae468aa599e1e16e817fe727bd2028ca3d2e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmYzIxYjcwYmQyNzlhM2U0MGIyNzQxNjEwZWI4MDU3ZWMzMWM1MzY3MDBiNzBiOTE4NWFmOTFhNmVkNTU3MmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3MDhlZDJjNjcxZDk3OWY3MzRjODg0ZWNhOWIzZDY1NDQyM2MwNDQ4YTZmYTY2ZmYwMmI5MTA4OGVhN2UzMTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4ODc2NTQxMWI5YzJhYjMxZDBhYjM2OWJhMzY1ZjczMWU1NmExYmYzYmFlZjc5ODFiNDY3OThlZDQyMDg3Y2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L84-L103",
+          "version": "repo-lines-v1:sha256:2bbb85ac15c68a77c9dabc9fa0dcdc79d0f14eb38e42db6d2339c9f4f78be9f6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4MjU4MDBhNWViM2UxYzc4YWRhNTZlMGVkMzhiZTQzZjA4MjEwNDE5NzI0M2VhNDMxNDFjMzkzMTY4MmYxOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyN2UyMjdhMjg2NTIyOTU0Mjk1MDFkNmEwMDhiNDAxYTM1NjUyZDRjMzFjNmRkYWFmOTk1N2M3ZGUwMzU1ZGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFhOTcxOTBkNTIyOWEwYmY1NTMyM2E4NWI1N2RhNWU4ZjFhNjZlNjdiZWVjYTQ2YWFhNTQ1NzUzYjNhNjhkNGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L9-L10",
+          "version": "repo-lines-v1:sha256:106e8d7ad886388a5d6343a069c47616316b65530d6a383216afbf711556871d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTgyM2JiMzEwODU5YTA0OTA2MTFkMzUzZTkwMTQ4MzkxZWU4MWZiZjgzODQyODkxNDk1ZjIyMDJiNzcwOTk2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWFkNjQyZTQyNGIwMWYyNTFlYzNkNWJmODJhZTQ5MGY3MmQwYjdhYWMxODQ5ODE1YzhlZjMxYjNiY2NiYzUyOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmY2NGE0YTRmODBiOWM4ZWNmNTQ0NmMzYjEwYTk2ZWJiOGI5MDYwZjcyOWU4MjAzZDI5ZGQ4Zjg1M2U3NDg4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDRmNzdiOGU2ZmFkNTc0OTM4N2RhOTQ2YTdmNTllOGVjOTRlMjNkMThkMzcwOWE2NjA1Y2E1MzQ5Mzk2ZGUzMyJ9"
+        },
+        {
+          "resource": "repo://tests/test_golden_cli.py#L28-L35",
+          "version": "repo-lines-v1:sha256:f71de4752ce66135600e9531b0bcd75e69a25e1ab9c4df133e3628f1781a1afa:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2YxYTRiZGZlOGIxMTczYWM3ODY1MTc1ZGJhYTI3MzE4MDVmNzA4MDE3ZjIyZDNhMTk4MGZhZjJkMWNhMDE1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTAzNmE5ZGM3ZmY3OWI1YzdiMWY1M2ZhODRkZTFkNzFmN2M4NGQxNjRhYmEzNjc4NzUzNDg2MGYxYWNlOGEyMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDE4M2RmNzFlNmU5MTg3NzFjNDhkNGMzM2QzNTQ3NjZjMWIwMTU3OWU0Yjg1OTQ1MWE0NjQ4YzFmMDA3MGYwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a42216f01d34aa287df9a4ff9cced50",
+      "statement": "The golden CSV reuses the corpus report's export safeguards — the same cell sanitizer neutralizing spreadsheet formula injection, a semicolon delimiter written through csv.writer, and utf-8-sig encoding for Excel accent rendering.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L1-L7",
+          "version": "repo-lines-v1:sha256:ec998955a20e24570abbb3fea71f03d1a493eefe05e2f83700509883e0e8316b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzc3ODNhYWQzZDI5N2EyMWU0OGJiYjRhZDliZmRmOTZmMzI4MGJhZTk3MzNkYTJkNDdlNzFmOThmYzdmN2FmNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWYwMTEyODlhYTE4NzA5ODUzYTU2ZDk3MjM3NjhlN2I1NjA3YWQwYWZhMTY1NmQ0MTVjMmQ1NGFkMjEzOTQxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzlmMDU3YmUwMDkxMDM1YzUzNjA5ZmIzNTEzODllN2I1NjYxOTExZDY4MWI5OGM1Y2I2OGVmM2ViZjI3OGY1MyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L156-L170",
+          "version": "repo-lines-v1:sha256:9974b594330dd6d1e25deeb80c0ae468aa599e1e16e817fe727bd2028ca3d2e6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmYzIxYjcwYmQyNzlhM2U0MGIyNzQxNjEwZWI4MDU3ZWMzMWM1MzY3MDBiNzBiOTE4NWFmOTFhNmVkNTU3MmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3MDhlZDJjNjcxZDk3OWY3MzRjODg0ZWNhOWIzZDY1NDQyM2MwNDQ4YTZmYTY2ZmYwMmI5MTA4OGVhN2UzMTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM4ODc2NTQxMWI5YzJhYjMxZDBhYjM2OWJhMzY1ZjczMWU1NmExYmYzYmFlZjc5ODFiNDY3OThlZDQyMDg3Y2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L89-L107",
+          "version": "repo-lines-v1:sha256:cbcf61d5aac8e832126bbcd1736b0564b9e62f7186084c93c1b895298fbcf7d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3NmE2YTM5YTIzZDgzMThlMTI0NzQ0N2VhYzhiNGUzMDM3NDc2YjUzOWE3ZWFlYjIxOTU0MjdiOWZjNjBlMTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3NGU1NDA0NTAzZTJjNzYzODg0N2VhNDA5MGIyZDc1MzM1ODg3ZjdiZmFlNDk4OGE3MzNlZmMxYjMwOGE0MzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU5NGZkODFlN2MyMDI5ZWUyNmYwOGZkYmFhZDM4ZWQ1MjMzZTdjOGI5MjQzM2FlYzM4NTE2ZWM0OWQwM2YzOTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c9a07ef8ddcd4d85ba142698f45e6cf8",
+      "statement": "A document that raises or parses to empty markdown is skipped from golden generation without aborting the corpus, and the entire corpus-level stage is separately wrapped so a failure there still returns the per-document rows already generated.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L40-L62",
+          "version": "repo-lines-v1:sha256:1675697b0cd63fe0f61505050a7e8e994e0b118aeef8f15d94d9f7f11bffac53:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyODBkMWUwNDFlZTE3YmJhNDc2MDY0YWJmODMxNTk3YjYyMzM2YjQ2ZDUyZWQ4YTgyY2M2OGYzNGY3ZjdmMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzYWFmMTgzODhmOWFiZTQzNjAyOWYzMTViYTFlNGJkMjRhYjE3YjhiZDAyOGY5OWYwYTUzNjRjMzg0ZWEzZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_25e47a3127a64e5da5ebe6c30e9866f3",
+      "statement": "Unlike the run workflow, a skipped document leaves no trace in the golden output because the deliverable is a question set with no flag mechanism, so identifying unreadable documents requires the run subcommand.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L40-L62",
+          "version": "repo-lines-v1:sha256:1675697b0cd63fe0f61505050a7e8e994e0b118aeef8f15d94d9f7f11bffac53:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyODBkMWUwNDFlZTE3YmJhNDc2MDY0YWJmODMxNTk3YjYyMzM2YjQ2ZDUyZWQ4YTgyY2M2OGYzNGY3ZjdmMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzYWFmMTgzODhmOWFiZTQzNjAyOWYzMTViYTFlNGJkMjRhYjE3YjhiZDAyOGY5OWYwYTUzNjRjMzg0ZWEzZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L96-L105",
+          "version": "repo-lines-v1:sha256:e228fb68c8c7e0c4b2357560aac611777361200d29554581c4cecf3c827ba85f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZDk0ODk2OWVmNThkNGUxMzQ3Y2M2YWQ4NTUxODIxNWNkMDMwOGMwYTI5ZDFjZGY1MWMxNzI3M2M2NjM4OWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2MWNlOGQ4OTIyOWE5NTllNzYxNmY0ZGRmZWI1NDU5M2Q2MDhhYTNhMWQwMzE1NGM4MmIwNjE0Y2ViNTM3MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_24e0010fe588495992b403b6a26d39d9",
+      "statement": "Per-document generation makes one LLM call over a truncated prefix of the document's markdown rather than its full text, a deliberate sampling choice distinct from judgment's full-coverage sectioning.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L106-L109",
+          "version": "repo-lines-v1:sha256:43df32c1cdcdbaa6125c72b6c4f8c584871029c10ecae65ab76ef073fc49e1cc:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDRmYmY1ZjJhMjFkNDEzMjE1OGY1ZWUyMDRjN2FjMjMxY2I4MjIxM2M1ZDRhNDQyOGE2N2E2ZDJhM2ZlYjA2MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWRkNDA4N2M0OGMyMTRhZGQ0N2Q1MzZjN2E5YTc0NTYxODI4NGEwMWMzZWYxOWY2NDA5MmFkNjA2ZWM0MDc0NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjRiMmE0NGE2NjI5OTkxNjc0NjE2NmEyNjk5MDU5MmZkZmZiZjdhM2EzMDEzNDRkNjE0OTIyMGUzNzhjMGQxOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2E0NGFhMTkxYWE2ZWMyYmQ0NGQzYzIxZmZiZGEzZWE5ZDhmNmQ0YmJhYTM1YzNkODM0ZTE3NmJiMmVkZTUxYyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L38-L49",
+          "version": "repo-lines-v1:sha256:5db23d073f55fb457f4d9ee0e29b37df1fcfb50a5a7d72f26b26fe45a2b787e3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2NjljMTNiMTQ3NjBlYmI5NzM0MmE2ZWZhZjlmOTU2ODczOWYzMTI1MGEwMzY0NjkzNmY2MWQ4Nzk0NzA1ZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2ZGZiZWE1MWMzMGE1M2RhZGIwZjA0ZThjZTVhNWU5ZTU5ODVhNzA0YWNiNDk1MmNlMjc5OTEwMzk2YjZlOWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU1OGQ3MmIyYjRkM2Q2YzQzYzk4OTJkYTY4MGQzNzE3NGY0ZTY2ZjI1YjFhZmIzNTVlZjE5OWJjYWViNGFmNTMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d59027698ce546a9ab1ecf1ccb881a6d",
+      "statement": "The question count is either fixed to an exact integer or left as \"auto\", which instructs the model to choose the count from the document's information density — few questions for a sparse document and more for a dense one — with both branches pinned by tests.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L23-L30",
+          "version": "repo-lines-v1:sha256:d470f61ab9e70b243f302ec7799d67984579767adaf249906fd428eee9b880af:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWIzNTJmMGYzNzJiYWI0NjNhMmU3ZjIxOGFkZDRhZGNlN2I2Yzg0NzY0ODI3MzNiNzY4OGRlOTgzMTQxYWU2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTk3N2QzMTE1NjQ4MDAxZTkwYjk1YTRmNzA1Mzk5MTQyNDE2YjZlNWQ4ZmI0NzhjNGJhYTMyNDc2NTFkMzUzNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTk4YjA2M2Q5YjQ3ZTY1Mzc5NjI1NTcyY2NlMTk3NjY5ZDU3NjdlMTJjMThiZTA3NTY1MmI4Y2Q5ODFjZThkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzI0OTQ5Y2ViMzY3ZWMzMjBmMmE5ZGNiNDkwN2U4MmZlOTY3OTQ2NTFhOTM4NWVkYzNiZDE0NWI2YjZjOGUyMCJ9"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L18-L37",
+          "version": "repo-lines-v1:sha256:6fc1bd8c26210548c8da68bc111e25b831cd207f57335afe7a676c91b6a221e0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0MTQ2NzQzODRkYjFlMDdiYzdjZTc2OGI5NWI2YTY3NTgyMTVmNzllZDFhZDg4MjE2YjQ2ZTc3NDNjYjdiNGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyMDYyYzJlMTU0Y2E4ZjU5Nzg3ZGU5M2FlOTA4ZjBlZmNjYzJjZmZjOGY4NDE4NmM2NzRmOGNlMWZmODZkZGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImJmMGRhMGEzMDk1NWRhZjkyYTVmNmM1Mzg0MmYzZWZiY2UyZmY4ZmQ1MGE1YTAxMzdhZjNmYWQxMjBkZWQzMzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d94b9b0322214680989b1eccaf402a73",
+      "statement": "A mandatory style block requires every question to be a complete natural sentence as a real user would type it to a support chatbot, explicitly forbidding keywords and telegraphic style and supplying both counter-examples and correct forms, and the same block is applied to corpus-wide questions.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L12-L20",
+          "version": "repo-lines-v1:sha256:8a06774a271ea43c6848f2dcd177d19f78aa90f11419589c07895e5dd58b0184:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjdhZTBiM2VjOGE3NmUzZmM3M2U4Njg4MzRmN2RlNmUyYWY4MTg3NGIzNTFlZjE2ZWIwYTAwZjM5ZDE3ZTczNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFmYmEwNTI3YzM5NTNjNGI2ZTBlNWI1NzM5YmE4MzYxMmY4MDUzYmNkYzk0NjY3MzAxOTNjZDFkNTkwYjQwOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjU0ZmJkNDJjODkwN2VkZDU2OTM4NDAwZDNmOTRjOTBkMWZkNDZjZmQzMGQ1YmQ1OTZkOGMwZGU3NGJhNzhlNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjUxODY4M2JmNmEzYWQwZWNkMTUyMzQxMmJlM2M5MTY3YmRmNGM2MGMzYmI0MGNkMTQ4ZjUzNmZjMzliNDFkYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L38-L49",
+          "version": "repo-lines-v1:sha256:5db23d073f55fb457f4d9ee0e29b37df1fcfb50a5a7d72f26b26fe45a2b787e3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2NjljMTNiMTQ3NjBlYmI5NzM0MmE2ZWZhZjlmOTU2ODczOWYzMTI1MGEwMzY0NjkzNmY2MWQ4Nzk0NzA1ZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk2ZGZiZWE1MWMzMGE1M2RhZGIwZjA0ZThjZTVhNWU5ZTU5ODVhNzA0YWNiNDk1MmNlMjc5OTEwMzk2YjZlOWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU1OGQ3MmIyYjRkM2Q2YzQzYzk4OTJkYTY4MGQzNzE3NGY0ZTY2ZjI1YjFhZmIzNTVlZjE5OWJjYWViNGFmNTMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L52-L67",
+          "version": "repo-lines-v1:sha256:b34681c313f886cb0f61417548a7438041f5482ea5d8e6ffe44b76df83999325:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiYjBkM2U1NzZjYmU1NDllODFjMTY2NjQ0ZDc1NDZiZDgyYzJiMzA5ZjFmMmYwZTQ4NmRlODc0NjgwN2VlOWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5ZjgzMmEwNGJmNzY3ZmNkYWJlMGRjMWUyZmMzOTk4ZjE5ODlkMzhjZTQ2MDQyNjQwZmJkMDE3NWM0YTM4ZjcifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L8-L16",
+          "version": "repo-lines-v1:sha256:5b121f861521c919077906e8cdce0b75e5c486f9edc047e4762aed54bba8dd85:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmNjOGZkZGFhZGRkY2I0OGRiMWYzODljYzZmZTI4OTI2NWNhMDhkNDc1ZDAzNjU5OWY3ZWI0OTc1OTM1MzY1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTY5YmRkZjI3NThjNTg3NGNiMGIyYzE1YzJiNjY0NGFkYzAxMTZjMDBhZTk1YzVkMjIyNDg4NDNiMmU2YTJjZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDU0MjAzMGViMTYyYjZhYzIzMWRhYTBkZGE4MTJkZWJkODY3NmIzZTczYmQxZjg3ZmJlMWVkMDY0OTQ0NGEyYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3c15af58c02445c9997a90454ebcecfa",
+      "statement": "The answering policy is externalized for business ownership: config/golden_qa_policy.md is explicitly marked editable by business teams and specifies citing references, flagging caveats and exclusions, naming the product, and never inventing, with a built-in French default constant applying when no policy is configured.",
+      "evidence": [
+        {
+          "resource": "repo://config/golden_qa_policy.md#L1-L7",
+          "version": "repo-lines-v1:sha256:12208549da8459a134836b4032f36566fbe03c3e7e0ddbd636e16e34863cd69f:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg2MGYwNDg4ODE2NDYyMTk5ZWRjNmUxYTVhMDgzZjg5ZGM3Yjc4ZDIyMTZhMmRjZjBmNDNlOTY2ODg3ZTA1OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTU5NmRkYTUxYzhkMjdjMjJjN2Q5YTU3M2RhYWE2ZjY5MjQxZTQ4YWEyMTEzN2UwNjkzNWVjMGY5MWNhY2QxOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L19-L22",
+          "version": "repo-lines-v1:sha256:1778c157d282228941fe28fd49b675ae0b297142298b5d45c13104864f1fea20:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGQ0OWFlNDc5NjExNDViMWQ2NzAxYTJjMWU0ZTYzZTJjNjA1MDhkNGRhMDkxYjhjNGI1YjRkNTlmMzcxNmUwNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFmYmEwNTI3YzM5NTNjNGI2ZTBlNWI1NzM5YmE4MzYxMmY4MDUzYmNkYzk0NjY3MzAxOTNjZDFkNTkwYjQwOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzJlNjEyZGVkNWQwZDZhMjYxMTNhNmJkZDBlNGQ5MGFlMWFjNTM0OWIyMWM4NDhjYTA3NTc3MjA0OWM2NDBiOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWFlMTg4YjlhM2FjMDFhMzc0ZTRhYjdlNGJhNDlhZGNhNTA5YjQ5ODI2ZGRmZWFjYjg0OGZiNzMyN2U0NGQwNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L32-L34",
+          "version": "repo-lines-v1:sha256:f8e4725adcc1a83724bb0ab93d0f9f5fb8b144945451e97aafc36c7ac813ee62:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2MyY2Q0MGFkM2Y3MGQ2ZWQyNjExOWNkNzA4MjZhYjc4YmJiNWRmNjA5N2UyMjE4M2Q2MGNlNWU0YjZkMWVkNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U0YWUyMTk1MWI2NjI5MTQ1NTAwOTM4ZGU0Mjk5Y2UzMDRmZjQxZDkwM2ZkYjAxZjE4NGQxODIzYzExNDUxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmFkNTkwNjQ0MzgyODU5OGFjYjNmYjUxODJiMGMxZWYwN2Q2NjRkZGM5N2RiZTc0ZGJjNTU4ZGNlM2E2OWFkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWQzYzU1MThkYzc3OGNjNzVjYzczNTQ1NGMxMDAwNGVmNzkxZjA4ZWViMDdjNTU5MWY0ODBjODI1OGMwNTU1MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ffdaf60b98da424eb5bbe86bafd65c15",
+      "statement": "Corpus-wide generation requires at least two documents and returns an empty list immediately otherwise, a precondition pinned by test.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L112-L125",
+          "version": "repo-lines-v1:sha256:ef232d998fc28e2b086c8ab4f24dada7d22ed4a0f6b14f90f3cdf2c4a02397d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkNmQzOWI2YmVkNmM1OTQ2YTRhN2NhY2Y1OTFiNzYwY2QxOGFmMzgzMmM5ZWE4NGFiYjJhY2QyMDJjMzZmZDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2OTM0ZWEyNTA4ODZiMjExNjc3ZjIzM2Y4ODA2NjM3M2Y2M2ZiN2FkZTQ4MzNkN2JiOWE2YjMxMDQxOTE4YjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhYjI4ZjdiYmNlMGM0M2YzMTE3NTBhNGI2ZjZhOGJlMWNkYzY5YjE1ZTQ5MGIwNDJmZjU4MmJiNDVhNjQ5NGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYmM1YjFkNGIwZjJjY2Y2Zjk3MDQ0NmFmNzQwNjZhYTQyN2Q0OGQ5MDY0ZTdkZjZlMTJlYzNlYmYyOGRlMjkifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L63-L67",
+          "version": "repo-lines-v1:sha256:c95ab14b1ccccab42c440231729ee35efcd08ee0d179526674c4c9301f4a5d15:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA4ZTM5NGNmZWJlYzQ0ZWNhOTY1ZWQ4NjUwYjY5Njg4NzhlYmNmOGYxMTNjZWExMjI3OGVjMDdkOWY4NGVhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmMwMzE5YTc5ODZmZjU0YmQ1OTIyODJjZDZmNjhlNGIxYmQ1MmY5ZDlhZDhlM2JkZjI1ODI1ZWNhYzNiZjhhYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDg1MWRmMWI1YzcwOTY3ODVhNDc4MjE5N2RjNjFjYjMzOTE0ZDIwMWYzYTEyNmI3MDI0NWI0ZGJkYmMzY2EzNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjc3ZTBkNTUwOWM5NzMxYWJjNjY1MDM5NmU2OTc0YzVlMDAwZDQ4OGNlNjA1ZmMwNDZmYjVhMjc4N2U4NzQxZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e92e0a001abd4e4ba9b4c892bdde71a2",
+      "statement": "Cross-document questions are produced in two separate LLM stages with retrieval between them: stage one proposes questions from a map of document ids and truncated synopses without answering, and stage two answers each question using only the retrieved excerpts, each prefixed by its bracketed document id.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L112-L143",
+          "version": "repo-lines-v1:sha256:e45010c2893621195727fdcc241721dada63e695993860fa8c99a5c908927814:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkNmQzOWI2YmVkNmM1OTQ2YTRhN2NhY2Y1OTFiNzYwY2QxOGFmMzgzMmM5ZWE4NGFiYjJhY2QyMDJjMzZmZDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQzYTA2MmM0NGRlMGQ0NDExMjU5OTBiNDYxNjAyODkxYTFmMjlmZjNlNWZhZTk5ZDUxOTc4N2NhNzc0NmI3MTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhYjI4ZjdiYmNlMGM0M2YzMTE3NTBhNGI2ZjZhOGJlMWNkYzY5YjE1ZTQ5MGIwNDJmZjU4MmJiNDVhNjQ5NGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc3ZmMyY2RkODBmOGFmZjJmYzliOWFhM2ZiMmQyN2NlMWFhNGE1Y2Y2NTcxNzFjOTM0Yjk2Y2EyYTFkYzA1NTAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L52-L81",
+          "version": "repo-lines-v1:sha256:b2846f058d5e90f0f87a7b47bb9a4f2256c016a4e365e8f7010d5754ecf7c9d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRiYjBkM2U1NzZjYmU1NDllODFjMTY2NjQ0ZDc1NDZiZDgyYzJiMzA5ZjFmMmYwZTQ4NmRlODc0NjgwN2VlOWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzOTZlNTAyMzM4NTkyZDI5NzI2Nzg3Zjk0ZWUzYWM3NmFmNzQ2ZTIxOWU0NTY4OWFlMTNkMThmMzNjYWRmYjMifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L39-L61",
+          "version": "repo-lines-v1:sha256:8fc0839c856deb841dd663c8abc8bfea1746d439e627326e54a59dbdbcb93679:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExOWQ4MzA0ZjQzZjJmM2IyODU3Zjc5ZTAzYTc1ODUzYjg1NDIyNDIyZDE0M2JhZGE0MDNiMzMzNzQ5ODFjNzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzYTI5NzkzNzdjY2RmYTdmZDdmNDVmODZjNWU1N2VmZjAxZGMxNDY4YWYyMzZmM2FiNDY2MTY2MzY3NmY5OWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2ZDgzZjgwNzRjOTBhYjUwMThhM2E2NDlhODdhNWYxMTIwOTNlZDZjNjE4NWE3MjhmODEyYWIzYmYyZGUxMjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_058febfe58034e0cb476d4bee60b83fb",
+      "statement": "The sources column lists the document ids actually mobilized by retrieval, deduplicated in stable order, which makes a corpus question multi-document by construction — its answer was composed from chunks belonging to several documents — rather than resting on the model's claim or on the synopsis map.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L116-L153",
+          "version": "repo-lines-v1:sha256:6dc3dfaead0a3f4b92afa0bb422034f738fd2d6b26032a62fdfceedc2cacdab1:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlN2MxZWU4OGMzMGI5NjY2NWM3NGFiZWQzNjQ3NWNjNGE5MmI1M2YzNGZjMzNhMDllMDFlZGI4MzZlN2E2MzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjE5ODJlOGRkNzQ4MTE4MTQ2YjM5YTJkMDA2MmY0MDgxZTM0Nzc5Yjg2NzVjMjM0YzRmYjEyNGRjMzkzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRlZDQ3YjJjYTk1YjY5ZTkwOTg5YjVjOTIxNDgwNGZiN2UyNzU0NGM4M2Q1NTEzZDgxOWUwOWQ1YzA2NDQ0MjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyYjIzY2YyNTRjYjc1NGI0NGNiMTFjNWRlOTE2ODY3ZDJhODExMjc0MjQxMmVlZmE2MjFhZDUxM2QwMTZmYWMifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L52-L60",
+          "version": "repo-lines-v1:sha256:88365cdc625ba817547d172993daf402067e46a8de32d8ff304aabc8caa4385a:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjQ3NWU5NGE5MDRhYzQ5YjMxNTRkNDY3MmE2NmU4NjI5Yjg2ZGFjNzRlM2UyOTM3YmU2OTI3YWUzZGExMWM1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTVmNTYwODMzOWM0NDY3MjgwNzczZGVlMjlmNGVhNjBmZjUwMmRlMDdmMTFkNDg2MWI0NDIxNWJjNDljZTVhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWFkYjhhM2NiZWU0ZjI1OTQ0MTBiZmZmOWE5NmVkYTk3YzNjYWY3N2VkOGYzZGViNDFmNzdiMzNlOWNlMjRkNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjFmY2Q0MDNjMDdjODdlOTU3YjE2NjQ5ZGY3MjY3MWFlMmRjOWJlN2E5NmM4NTIwZmM1NDYzZWYxY2FmOTgxNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_64177132ec104074af662e1e14e4b241",
+      "statement": "The corpus index chunks every document's full text with clamped overlap using the same windowing logic as judgment's sectioning, tags each chunk with its source doc_id, and embeds chunks with a lazily loaded module-cached offline model2vec static model so no network call or GPU is needed at query time.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/corpus_index.py#L1-L51",
+          "version": "repo-lines-v1:sha256:c7b300fd432145613211ec4e7795f3e554c9fbbc6f899baafce119f1e846986a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRkODI5ZGJlMGM2YmFhMjQ5ZmQwYjNlOTM3MjY5MjczMDc3MjM4Y2ZlOTk0YjY2YjE0YTBjZGQxMWE5NGY3NzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1OWNjZWU0ZTkyZjM5MjBjMTczNWYwNjQzMDUyODFkMTAwZTMwNWNlNDhhM2RiYWRlMzYxNzQzZjEwYWU0NDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmNjUzOGJjNWRlMTY2MWFjNzhjYjE2NmUzZDZhNjlkOTk5ODhmNDAzZDNiOWI3NTc0ZjNiYzkxNWFmMDg2MzEifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L36-L57",
+          "version": "repo-lines-v1:sha256:857333b02b27e323ff00f539df92b8f47c335141c79befb16d0307cdea8c218a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY5MmEwZjI3MGE4MDUwNGYwZGZlYTJhZDQ1YTkwMTkxNTA3Mzg0MDNmOTk0NWE5NTFjNWNjMGRhNzBmYTEyODYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViMjI0NmYwNDQ4ZGM3NGM0MzgxMTI1YTM4OGM4ZGY2Yjk0MWUwYWQwZDQ3ZDgyOTU4NmQ2ZTIyNzhhYmQ1MWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyNzI5NjA3ZGVkM2E4M2Q0ZTg1YzExMTJkNjg5MTI3ZGI0NDZjNTkxNmFmMzgxYWQyM2UwOTA2MmE0OTgxN2MiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0ZDRhYzZiNGQyMmRiY2MzODAwNmM0MTkwY2U0YTUzM2FhZTlkNzNhYmY0M2NmMzYxZTE3ZmM1NTQ1YmZlZDUifQ"
+        },
+        {
+          "resource": "repo://tests/test_corpus_index.py#L18-L32",
+          "version": "repo-lines-v1:sha256:34429f8300ce6767c927de9684bd6658a1a1dc86f72d507a9fcac4c90dd7368f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2ZGJiMDNhZmQ1NjMzMTM5OTYzY2VhOTA5MjY1MTQ3NGM1MWEzNjBmMDRlNDRjODAxZWJkYTU5ZjcwM2NhNzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzYTI5NzkzNzdjY2RmYTdmZDdmNDVmODZjNWU1N2VmZjAxZGMxNDY4YWYyMzZmM2FiNDY2MTY2MzY3NmY5OWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhYTE0MTI5MjYxMmM2YjlhMzkxMDRjZjZiYjc5Y2VlMGNjMGM0MDhiMWY0OGQ1MjNlZDZhZDlkMDVjYzE1NWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_24f5c8cd5fae4e5a8ba5b0be2bd50c2f",
+      "statement": "Retrieval ranks by cosine similarity with L2 normalization guarded by an epsilon against division by zero, and returns an empty list rather than raising when the index has no entries, so a corpus producing no chunks degrades quietly.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/corpus_index.py#L54-L66",
+          "version": "repo-lines-v1:sha256:a1cd86293409b3878ab6e678445b77ed02eea44ddcb7747de19553c1e76ec676:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4MWUyZTNiOTcxYzM1ZTRkNzE1ZWFkYzk5YjQ2NGIzOTFhMjU3MDFmYTRjYWQ4OTNlZmQyOTg1YTk2NTk5OTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjODNhMDcwYjNiY2RhZTg3NmQxN2U2ODZlMTkzYzEwMTg4ODVkYzlkZTAxZjRhODA3OTFiM2E2YzFlMTFhMTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk3MGY5MDI3ZjA3NDRjMTA5MDc2NjljNDI3OGM4MTQzNWVlNjIxZDk5ZWJlNTE0NGJkNzdjM2RlOTE1ZGRlYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_corpus_index.py#L34-L43",
+          "version": "repo-lines-v1:sha256:6f4f9550497d78b772a2971e5d0285a4fee73db26e5923c45c985e1640cd7fda:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY3OWY1MDZlNzA0NDkyYjdlMGMwODcwYzAwODEwOWI4ZDRkOTlmYTRiMWZjZWE5ZWI0OGYwOGEyOWM3M2EyZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjMzBjYjJiNjAyY2ExNzY2YzlkNzk1ZmZmYTc2ZTRhMWI0N2Q5ODI4ZmRlYzQ2M2FmMDZmMWQ0YzY4YjhkMjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI4NmRkYTJmMzIzNDU5ZTJmM2I0ZjkwYTE5MzVlY2Q3ZWJkY2RmYjA3NTAwY2YzYjk0NGE1MWYzNDQ4M2Q3MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e30429a1c949434d975b6fc7212f61e8",
+      "statement": "The encoder is injectable on build_index, retrieve and generate_corpus_golden_qa, which lets the test suite exercise the full chunk-index-rank-answer path deterministically with a trivial character-frequency encoder and no model download.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/corpus_index.py#L40-L60",
+          "version": "repo-lines-v1:sha256:a1176ea97f3a0ec35520d22a5c9faa64ff53774631ca32d22b39a597beff4c7c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3NDRiNzYxMGVmYzhiOGU3YTk1ZDU2NjFlMzhkYzZjZjJkY2MxNDQ0ZjE4ZDg4MmQ0MGU2ZmI3ODlhNDg4OGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE0YTFkNzJjNjM3YzU4YTRhNzEyYzMzZjJiNWM1ZjE2ODE4ZjlkMmI3YTZkZTE3Nzc1YjhhMjBiMTk4MDM1ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiNDY4YWQwYWJkNWRmODYyMGJiOTRiZGZmZTg1ZjQyMTEwZWNkYThhZjc2NGE0ZDVjM2JhMDZiYWE1Zjc3M2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZkMzA5Mzk2MGI5NDFkMjBhNDI4OTUxMzA4NjQ5YTZjZTljNmI3OTgwZWI5OGYyZWI3N2ZhNzQ0N2E5ZDliZDkifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L112-L125",
+          "version": "repo-lines-v1:sha256:ef232d998fc28e2b086c8ab4f24dada7d22ed4a0f6b14f90f3cdf2c4a02397d0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkNmQzOWI2YmVkNmM1OTQ2YTRhN2NhY2Y1OTFiNzYwY2QxOGFmMzgzMmM5ZWE4NGFiYjJhY2QyMDJjMzZmZDgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2OTM0ZWEyNTA4ODZiMjExNjc3ZjIzM2Y4ODA2NjM3M2Y2M2ZiN2FkZTQ4MzNkN2JiOWE2YjMxMDQxOTE4YjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhYjI4ZjdiYmNlMGM0M2YzMTE3NTBhNGI2ZjZhOGJlMWNkYzY5YjE1ZTQ5MGIwNDJmZjU4MmJiNDVhNjQ5NGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhYmM1YjFkNGIwZjJjY2Y2Zjk3MDQ0NmFmNzQwNjZhYTQyN2Q0OGQ5MDY0ZTdkZjZlMTJlYzNlYmYyOGRlMjkifQ"
+        },
+        {
+          "resource": "repo://tests/test_corpus_index.py#L13-L16",
+          "version": "repo-lines-v1:sha256:864a9adcf4a5eda6b8dd1e1af6b29587c8a1fe9ed8be8d43c1b487a9e28de37d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU0MzIwNzg4M2NlY2I4NWU5MTEzYmM2NDBjNzBkOTkxYTkyYWJhYjljYTA4ZGQ0YTdiNGJkN2FjYWU2MzU4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2M3OWMzNGI5MDNjZDc4OWJkODMwOWRiY2VhYzhiOTE1ZWFiNzZhN2IyZTQ2ZDBkNzhjMmIwMzdkOGRkZWE1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGU4YTMzNmZmY2ZkOTA2N2RmNmQ3MTdmNTk4ZmYyN2FmYWY4YjM2ZjI5MWJiYzUwYzE4YzlmN2RiNmM4N2Y1YSJ9"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L39-L61",
+          "version": "repo-lines-v1:sha256:8fc0839c856deb841dd663c8abc8bfea1746d439e627326e54a59dbdbcb93679:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExOWQ4MzA0ZjQzZjJmM2IyODU3Zjc5ZTAzYTc1ODUzYjg1NDIyNDIyZDE0M2JhZGE0MDNiMzMzNzQ5ODFjNzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzYTI5NzkzNzdjY2RmYTdmZDdmNDVmODZjNWU1N2VmZjAxZGMxNDY4YWYyMzZmM2FiNDY2MTY2MzY3NmY5OWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA2ZDgzZjgwNzRjOTBhYjUwMThhM2E2NDlhODdhNWYxMTIwOTNlZDZjNjE4NWE3MjhmODEyYWIzYmYyZGUxMjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ac6beb374332476dbf8ccdba88c6cb46",
+      "statement": "The coverage fallback is implemented independently on both the per-document and corpus-wide paths rather than factored into a shared helper, so neither generation route can bypass the rule that an answer survives only when explicitly marked covered and non-empty.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L139-L153",
+          "version": "repo-lines-v1:sha256:7d81fc17984ac21a4e5a61cd35c657422196275f2626d20e4ac5c523bc4de378:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiZjA3MjE3NDAzYmE4ZWI2NDVjYWY5MmZmMmE1NDI3ZGVmMGFjMzdlZWNmMmRkZmE3ZWIxMmRlMTJkNDQ4MGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjE5ODJlOGRkNzQ4MTE4MTQ2YjM5YTJkMDA2MmY0MDgxZTM0Nzc5Yjg2NzVjMjM0YzRmYjEyNGRjMzkzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5MjE4OTM4NGJmZDUwZTk5OGFhYThkMTgzZWM2OWIwYTA0NWU0MDE5M2RiZDZiYmViZTNmZjY1YzFiNWZjM2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyYjIzY2YyNTRjYjc1NGI0NGNiMTFjNWRlOTE2ODY3ZDJhODExMjc0MjQxMmVlZmE2MjFhZDUxM2QwMTZmYWMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L84-L103",
+          "version": "repo-lines-v1:sha256:2bbb85ac15c68a77c9dabc9fa0dcdc79d0f14eb38e42db6d2339c9f4f78be9f6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4MjU4MDBhNWViM2UxYzc4YWRhNTZlMGVkMzhiZTQzZjA4MjEwNDE5NzI0M2VhNDMxNDFjMzkzMTY4MmYxOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyN2UyMjdhMjg2NTIyOTU0Mjk1MDFkNmEwMDhiNDAxYTM1NjUyZDRjMzFjNmRkYWFmOTk1N2M3ZGUwMzU1ZGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFhOTcxOTBkNTIyOWEwYmY1NTMyM2E4NWI1N2RhNWU4ZjFhNjZlNjdiZWVjYTQ2YWFhNTQ1NzUzYjNhNjhkNGYifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L81-L88",
+          "version": "repo-lines-v1:sha256:1717764539f77c03f295e92fc32ee409e63c7fecf5e363d387a44ced5dbf01b4:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBkMDAwYzI4MWIzNjRlODQ3YjAzZDU1MWY5MDlhYTY4Y2QzMzNlNjNlNWE5NDExMTY4MzY4ZjlmY2NlZTFlNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDU3YThkNjllMWI2Y2UyODJiYWRkYmZjOGVmYTY5M2IzYjAzYjIxMWJlNGY4MWZjNGZlNTRmNTlhMzM4NWE5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY0Nzc0ZmY5YzMxMjc4ZTI1YzRkNzcxNWI0YjgyMTkzOWE3ZWNkYjE5ZDZkODg5NWQ3YzQ5NDU5NGZlY2E3NyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

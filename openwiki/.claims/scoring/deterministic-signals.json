@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:94532af837fa24123b38b7f3fbe96dbd24cd206c857f179b8e09eaf5b1624186",
+  "claims": [
+    {
+      "id": "claim_44238282d1684dd986832deac6401d24",
+      "statement": "compute_metrics returns a four-key contract — na, signals, d_scores and h_signals — that is the interface consumed by screening for routing and by judgment for scope exclusion and directly-scored criteria.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L27-L63",
+          "version": "repo-lines-v1:sha256:e1673d8f869830067cd0f2747007044db2133108930fd62357207afe652c79cc:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjY2ZTA3ZTZlODljOTVlMTRjOGVkNWFhOWYzNWFmZjcxODQwZTY0YWQwZDQwMWU3YjAxY2U2ZTYzYmY5ODUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1NmRkZDY1NzliYTI0Y2FiYzMxN2QyNDBiNDNiZWU0MTYyYmEzMzIyZmViNDA1YjNiNzFhMGRmMDljNmRhYmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkNmQ1ZmJkYzIwNTVkZGVlOGI0NjUzNDQ2ZGM5YTQwMzA1MGJlNjA5ODdmOWUzOWQ5MzY3NTViNDZjNDY3NTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L135-L144",
+          "version": "repo-lines-v1:sha256:2d0dd08a3bb80c364b26b56bd4b1cb791027cdaa0fe700674799e91e7264b6f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZjA1NWUxMzQyNDVhMWQ4ZGU3NWY3MmJiMWExODQzMGM2YmYxMDUxMTZkYWEwODQ4MjQ0NTUzMDAwYmJkMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM0NTk3MmZmOWRiODAxOTM2YjViMDk4MWRlNmU5YTg1NjgxNmZmMjE0MjhlMmI3NDM3MjZmYzgwNGY5ZWYwZjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ4OTk3MGFlNDVmYTg1NDUzMmZjZjJhMDcyZmM2YTFmYjk2ZWViZWNmMWUxNWYyMzczMDk2NjM2YTZmMWRiZTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1Y2MzZDJlOGYzOTgyOTA4NWExMDlhNjFjMDFlZjRjOTQ0YTdlMWMyOWFjZmJjZGFjMmFkMjk2ZWY5NTEyYzYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L21-L30",
+          "version": "repo-lines-v1:sha256:796b8bbd9315f428d678815f4b27ccace5a319854ab87e23e4f567c6bc328fa0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDM3OWZmNmE0ZThkNWE0ZDhiYjk2ZTUwYjkyYjZiM2UzNmZiMTUwNzViYmVhMDlhNjQzM2UwOGFhZjg4NjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNzA0OGJkZGY1NTY4ZTMwM2U3ZGVmMmFhMTc4NGMxM2UzYzI0NDQ2ZDI3NzkzYWI4MDQ1NzgyOGU5MWVjMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjEwYmM0MWUyM2U0MWQ0YzM0YTE3ZDc0N2NkZjc2YTY4MzcyYzNlYzliMDJjMTM1MGRkMWEzMzcwMjgyNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcxYzNjNzZkNGU5NzMzODZlNzhmNGY0NWZhMWUxODg2OGQ3MzJiMzVkMTI1N2JlYTNjYWU1Njc0NjEyMTViOTIifQ"
+        },
+        {
+          "resource": "repo://tests/test_deterministic.py#L6-L13",
+          "version": "repo-lines-v1:sha256:e290d914adbcc8abc32aa328c888d085a91de8be9c86090bd3d843f563c199cd:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQyYThhYTI2ZDZlN2JjNmViZGE5Yzc5Y2RlZmQxNjVmNDhjOWY1OTA2NzZiYjAxZWQxOGJmM2FlYjU4NzExZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjljNDcyZjJlNGQwZTIwMzU1NjlkNDE0NTM3YTU3YzIzZWM0M2M3NTZiYjViM2MzODJjMWEzMmRlMzE2MDM4YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWRlODlmN2I5M2MzNWJiOWJkZjc0NWZmODdkNGZlOTE3OTUxZjM3Mjk0ODNlNDAyMmRkMjFiYjhhNzljMWQ3MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_433169758efd49d4ba2b251022660548",
+      "statement": "h_signals is a wired-but-empty extension seam: compute_metrics always returns it empty while the judge's prompt builder already looks up each criterion's hint and appends a deterministic-signal annotation when present, so populating the dict alone would activate signal-informed judgment for hybrid criteria.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L59-L63",
+          "version": "repo-lines-v1:sha256:3ebd83e3002fbfe3ec5d77811ec36150ad67ab26f6980eea5ee6d08985b03e5f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzY3N2ZlMWYxY2QxYmEyY2ZjYzcwYTY2MWVlYjFhYjhhOWMyZjRlMmQxMmE5ZWYyNGQ1MTk4NjY0MmMwMTc5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjU2ZGRkNjU3OWJhMjRjYWJjMzE3ZDI0MGI0M2JlZTQxNjJiYTMzMjJmZWI0MDViM2I3MWEwZGYwOWM2ZGFiZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmQwODczYjg0OTM3YTBjNzNhOWZmMjU0MTQxYTc2MTEyOTlkYzU4NGQxNWNjMDIzYTc5NmU1MDhjMjc0YTEwMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L137-L137",
+          "version": "repo-lines-v1:sha256:8a69cc95a805eebf3a18a34b80273a40a0c622c6867263e87231484c2cc34685:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGE2OWNjOTVhODA1ZWViZjNhMThhMzRiODAyNzNhNDBhMGM2MjJjNjg2NzI2M2U4NzIzMTQ4NGMyY2MzNDY4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGE2OWNjOTVhODA1ZWViZjNhMThhMzRiODAyNzNhNDBhMGM2MjJjNjg2NzI2M2U4NzIzMTQ4NGMyY2MzNDY4NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTI3ZjhkZGJkNTYwMWYzMzliNjcwMjRlNGNhYTcwZjM4NTExZmQ0YmRkNWIwNTlhMjk0YTRiYmI5MDMwNGQwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2Y1NDk3MzY4ZDhkMzJiMzAyYjM2OWJjMDJhYzFjNmJjNTQ0ZTU2ZWQ4YzE2YmY0ZDEzYzFkZDdlM2ZiYzlkMSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L60-L66",
+          "version": "repo-lines-v1:sha256:1aebdfe80b8e379c96ba07585c4ebccdb952122680c6a22dada869e377e80f2b:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmQzZmFiMmI1N2YzZWQ3MWQ2NDliZmFjNGIzMTVmYTI2MDJiNjY0NmFjYjMwMDcxNGY2NTZhY2RkNjI1Zjc4OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc1MjJiYWYyOTk5MTFmNWFkZTU3MzYzNzdjNWM0NmE4MjRhZGQ5MjllNzY0YzZlMjM1ZjIyZTliMTQ4NGMwMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmM5MWQ0N2Q5NDRhMmIyYjhlMzY2YWEwMjlhNWI4NDliOTQ2NDdiMjE1ZjViMjQwYmM2Yzg0ZDMwNmY4NzY5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWNjNWFlMjhhYjUyZjBlOTlkZGUwY2Q1M2MyOWMxZjEzMDZlNjkzZjczZjgxMmQxMTdhNDY4YjA2NmQ0NmJkMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f7bce8e97f4e4c3ebefc566f12539089",
+      "statement": "The global type-token ratio decreases mechanically with document length as vocabulary saturates while the token-count denominator grows, so a long healthy document scores as if degraded — a measured case in this codebase produced a global TTR of 0.0042 on a 222-page document with healthy vocabulary.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/signals.py#L52-L65",
+          "version": "repo-lines-v1:sha256:7eb1f36b9a44ccc1fdb6d87504f322d7aa0591e48db84018059f8514a7b8c676:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMjRmM2ZjNDVkNjJlZTllMDhhYmMwMWNhMGE0MmJkZjAwNTU2NGZkNzIxZWNhODdhY2E3MmEwYzkzZTk0YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2YTcxNTI1NzJlZTg0ZjEwOTA2Yzc0YjlmMmE5MjQzNGRkYWIwZTNjNDI4MTNiMDRlNTk3ZWZjZWM5NTFiMjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI4MWVjN2QzZTdlMTIwOTFlNWM4MmJjZjNlMTdhOGY1YWMyNzlmYjhkZmVmMjYxYTIyYjg0NDM3NzkwYmVlYTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1YWJmMDBiNWFkZGRlNWE2ZTQ0ZDA0YjIzZmU5YzI0ODMwOGRmNmFjMTJjNTc3ODcwNjlkMDA0NzE3NDRhYmIifQ"
+        },
+        {
+          "resource": "repo://tests/test_signals.py#L47-L54",
+          "version": "repo-lines-v1:sha256:30f96d8aabd76d2a88ee20682dead72df7c9922adb1c4ff334391af19a6c6242:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWRhOGE2MmU3YTVhODIxODBjNTI0NzIxMDQxZGM5ZjNkYWExYjdlMzkyNTNhODVhYjY5ZDYzYTlmYWMwMDg5YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTcxOGYyNWY3ZTRiM2M3YWRjOWIzYjA2YmUwNjkyMzZhYzk1N2IyMTI4M2IyOWVmYzIzZGRkNDlhNDdkOGZjZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWQ4NGE4ODY4ODQ2ODMxZWE0NjY4YmVjM2I1MGU2ODQ3NWVlNWIwMDA5MWI2YThjZGE0YjBjZTcwMTBiYmZiNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_df6d4aa6500a4718a27d4a11faeeda8e",
+      "statement": "MATTR removes the length dependence by averaging the TTR of fixed-size token windows so every window shares a denominator, and it reduces exactly to the global TTR for text shorter than one window — both properties pinned by test.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/signals.py#L52-L75",
+          "version": "repo-lines-v1:sha256:5f835cfc77d11216613b25ebc8f270f2ba189fcf330c19589a9bf5fff609fb11:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMjRmM2ZjNDVkNjJlZTllMDhhYmMwMWNhMGE0MmJkZjAwNTU2NGZkNzIxZWNhODdhY2E3MmEwYzkzZTk0YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMwNThmY2MxMmJjOGQ4ZTRjMjQzY2MyMmY2YmY3ZmVjMzVkNWMyZGI5Y2QyYmUxYzExNzRmMDEyOTRjZTg4YjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI4MWVjN2QzZTdlMTIwOTFlNWM4MmJjZjNlMTdhOGY1YWMyNzlmYjhkZmVmMjYxYTIyYjg0NDM3NzkwYmVlYTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzNGU4NTY3ZTRjYWYyNGJhNDQ0Y2NhOGEyNWNhMWZjODFmMjY4NzU0ZjJiNDVjNDhkMmMyMzVkYTU4MDY5YmUifQ"
+        },
+        {
+          "resource": "repo://tests/test_signals.py#L41-L54",
+          "version": "repo-lines-v1:sha256:c23ed6ff94848ee388b97fbc840e4e287fe09f14b51de0292531c681f6dcc639:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyNGU5ZDI3NTU4NDIyNzQxNWU1YzQ3ZDRiZTlmMTVmNDQ5OWFiMTNiYzY2YTc0OWQyYjEwZGIwZjBjNjYwZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3MThmMjVmN2U0YjNjN2FkYzliM2IwNmJlMDY5MjM2YWM5NTdiMjEyODNiMjllZmMyM2RkZDQ5YTQ3ZDhmY2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjNTk2MjQ5YjdlNzAwNmU4MDhmYWQ4NTMxYjZkZjllYjVmNzk5YWYzODY1NTBkYjljNDk3ZWIwZDllNGExYmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eed93a9f07214127af91dcdc5ec4e8e5",
+      "statement": "non_alpha_fraction returns 1.0 for empty text, the maximally suspicious value rather than zero, so an empty extraction cannot pass as clean on this signal.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/signals.py#L23-L27",
+          "version": "repo-lines-v1:sha256:d7080ecdb29002117bf4ec62e32cb05e3b8f882be29edeb6bab9c5a33dcec37f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc0MzI4Njg1YWJkYjY2YmU3MWY5YWJhYWQ5MjljNWNiZGE1YmQwZWNlMmY5ZDI3NmEyNDQyMTAwZDg2MzA2YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWQxM2NiZGY4Zjg1MzY4YzFjNWUzMmYxYzJlN2Q0OWZmYzg3NjlkYjVmNWNlNjc1NzI1NTZlNWNmYmNkN2RjMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzQyYTdlZjZhOWI3ODU5NjlhMjgzMzVhNjQ2MjgxNWU1OTg1YWUwMDc4YzZmMjlhMTE5MjY3N2I1MThhMWI3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGIyYTUzZmM1ZGE1ODJjNTI1OTkxMzAwOTQ3Y2RmNjhiOTBiNjIyOGJiZDY2MzM3ZmEyMWFmNzY4NjZmYjE1MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1ef9964fa91d44ed8f5554dd50fa29d1",
+      "statement": "block_inventory counts block kinds by substring match so differing parser vocabularies are handled safely — figure and picture both count as figures, and the image count accepts image, picture or figure — while links are counted from the markdown itself using a negative lookbehind so a markdown link is not also counted as a bare URL.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/inventory.py#L12-L21",
+          "version": "repo-lines-v1:sha256:645ca739f05e87cc1c233a5dd3025c698974d705ff79bbe7afeac6d4374ddd5f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRjYzA3NmE2ODlkYzAxODVkYTU0ODZmNzA5YTM1MTcxMzRlMjg1YzdhZDA2OWU4ZTIzYTZiY2M3ZGM1ZTlmMDMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMGQyZmY1M2I3NzEwOGVlMmZlYzVlOGQyMWMwNTMyYjM5MDNjMDRhZmJmY2M3Zjg2Yzk5NzRmMzMzZjQ5ZmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJiODk1Y2QyNGQ1ZjVjYzk0NWYxOTdjYzc3ZDQ3ZWNlNjkzNzMzMzhlZmU4MDcyYWQ0ZDlhYWI3MjkwNmNhN2MifQ"
+        },
+        {
+          "resource": "repo://tests/test_inventory.py#L15-L17",
+          "version": "repo-lines-v1:sha256:9086f1e73c80e946de2e00e5062d277235633cfcdb950dc828fb5f09d1b9cd8b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDQwNzFmYjQ3YWRlY2I4ZDk5YmZmODhiZjdhM2U5MTI1YmY4YjAyZWUyMWNjMTE0ZmY4Nzc1MTJlYjcxNTQxMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmYyYjIwMjNmNzg1MzA1NmRlZTUyYmVhYzE1ZmJjZmY1NmZhY2U0MTNlZThhNzQzZTM4N2UzOTI1MmI5MGMzZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2MzNWVlZmM0ZjdkYmNiYjhlNTVkNzU3MTRhMmJlNTEyOTc5NTJjZTJiMjUyYTU4YWE2NzhmZjFhZDg1MGNmZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_41653a3f3c174b16ba5834268cf9f312",
+      "statement": "Four inventory conditions map to groups of readability criteria — absent images, tables, formulas or links — and the resulting proposal is intersected with the registry's na_possible whitelist, so the registry has the final say and the inventory cannot mark N/A a criterion the grid requires to be judged.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/inventory.py#L6-L35",
+          "version": "repo-lines-v1:sha256:0a71360dedd5d91d90657c2c83bc5a37354a70fdf087512a27fd811629427c1d:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY3NjRiYTgzYzE0NGMwZGIzODhlMThhYjE3YTBmMjcyNTlhMGZiYmRjOTdiNjM3OTY1NmMwYmRhMGNkNjFjNjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDAwOTMzZTg3YzBkMmI2ZjkyZjhmZDA2OWVmZDMwYjJmZDllNDQ3ZWQ2OTFjZDk4MGVlNDU2NjAwNGE0MzUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRkZjg4NzQ1ZDA2YWE0NTFjOGEwMTUxYjc2ZmM1MmI4ZjU4NDg1ZGQxOGNmZTJmNDlkODY1YzkzMmIyYjM3ODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_inventory.py#L9-L13",
+          "version": "repo-lines-v1:sha256:9bc6a22cf3f1e3f3beb8660b8a784290f9d87c4273e5a3bea18026c728222516:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzUxNTdlYzMzNjQ5NDJlYjhkNGJhMzMxYWJmYzFhN2JlNzYwZDg0MjJhOGZjZWY0NWE3ZGRlNmQ5ZWViODU0MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWM3ZTY1NmQwZmE2N2M2NGQ2NGRkYTJiZjkxY2QzYWU5NjJmNjhhODYwMmY0NTBlMmM5YzAzY2ZlZTExOGRkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODE3YmU2YTkxYjIzZmIzYTI1ODFkNjFhNTVlNTRjMTIxY2E4YjBiYTAxOGQ3NjM3M2UzMTc4NDA0MDdhYWZiMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDQzY2JkMTg4M2M5MmM4YzFmOGVlMGMyODE2YzM0MmExNTA4Zjk2M2E5MjUxMjQ3MjIxYTE0YmZmODM1ZTM2YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a24cd7639c104d1aa925eb312cc2f10c",
+      "statement": "Eight criteria are resolved by pattern matching over explicit textual evidence of document governance — authorship, version and date markers, update cadence, lifecycle status, change history, FAQ structure and content duplication — and are emitted directly as scored with the justification \"Signal deterministe.\"",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L47-L58",
+          "version": "repo-lines-v1:sha256:587b4fe6ed6cfd75ca2452e36f6cf5c23b07f9f709aa6735cac19c91840a9405:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiN2MyODRlNGYyMTRmMjBjNGU2ODE0MDA0MTQ2OWNhYjdjYmFhMWRhOTJhNzRlZjBjYzlhMjcxY2ZjMjc0YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4ZGMxNDhjZTM1NDkxYWMyMWM1Y2FjMWY3MzgwYTZiYzMyMDEzYmY5ZTM2ZTE0NWUxMzA0MmIzNGM4ZTY2ZTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmZDM5YzFhY2Y4M2I1ODlmNjYwM2YyNzJlNGEzZThkMGUwN2RkOGUzY2Y4YmNjYzdlZWRmNDU1NGI4NjJjODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4MzExZmVhN2UzYjVmMzdhYjNiYTVmZjBiNjMxNzEwMTlkNzY2ZjBlM2JjYzkwZDM5MmQyZTViN2Y5YWM2NjAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L171-L174",
+          "version": "repo-lines-v1:sha256:b44e9eaffb960b02bc6d15585f508bd583709270a0cf0d138f5ea53b85bacefb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWE5NmI2Njc1MzhmYzAzMjA3ZGI1OTNhNzI1OTQ0MzgwNjgxZWUxYzQwMDA2ZGFkNTUwMzZkZTg0MWNkNDdjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzdhMGY1M2JmNTNkODkyZWE2ZWUxZjhiNTIxNWVkZDIwNTRlNDg3N2NkOGI3MzRlNjZjZGRkYmFmMDJlOGZlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGUyMDFkM2YyZTQ4ZTRiM2E2OGQ2OGY3ZjY5N2NmODc1MWI3ODBmMDIzMzljNGU0NTM0MTExZjhiMjFhZGExMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f20e4898277440599cdd8efda44954f8",
+      "statement": "Most deterministic criteria grade binary 5-or-1 on presence of evidence, while the two versioning criteria are three-valued — 5 when both a version marker and a date are found, 3 when only one is, 1 when neither — and content duplication grades 5/3/1 against a measured duplicate fraction.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L47-L58",
+          "version": "repo-lines-v1:sha256:587b4fe6ed6cfd75ca2452e36f6cf5c23b07f9f709aa6735cac19c91840a9405:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiN2MyODRlNGYyMTRmMjBjNGU2ODE0MDA0MTQ2OWNhYjdjYmFhMWRhOTJhNzRlZjBjYzlhMjcxY2ZjMjc0YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4ZGMxNDhjZTM1NDkxYWMyMWM1Y2FjMWY3MzgwYTZiYzMyMDEzYmY5ZTM2ZTE0NWUxMzA0MmIzNGM4ZTY2ZTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmZDM5YzFhY2Y4M2I1ODlmNjYwM2YyNzJlNGEzZThkMGUwN2RkOGUzY2Y4YmNjYzdlZWRmNDU1NGI4NjJjODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4MzExZmVhN2UzYjVmMzdhYjNiYTVmZjBiNjMxNzEwMTlkNzY2ZjBlM2JjYzkwZDM5MmQyZTViN2Y5YWM2NjAifQ"
+        },
+        {
+          "resource": "repo://tests/test_deterministic.py#L15-L21",
+          "version": "repo-lines-v1:sha256:850110c655120fcc21b808d199a5274469701c6254b2b5514212f149ea5fabaf:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdhYmE4NzY5MWNlNmY5NDAwYjljZjlhMGU1NWFiY2NkYzYyYjc0OGU1YTQ1Yzc1MjY0MDRiNTM1NzY0YzM1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmE1M2RmMWUwNTVkYTgyNjcyYjA0NDQ5MGU1YjQ4ODhlZjc5NTZiMGZmMmVmZDcxNmIzOWM4MDc0OTk1MmIzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWU0NDVhOWIwNDBiZmZiYWRlNGYyOTI3NmZkODdlNmZjZmRmZWE2YTIxOTRlMTY4MzM3Y2RiMzljZTEyOGE1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_45ca0af64e7d42e39c9df63fc272cea4",
+      "statement": "The FAQ criterion accepts either an explicit marker or structural evidence — at least five lines ending in a question mark — so a document that is FAQ-shaped without labelling itself is still recognised, a path pinned by test.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L54-L56",
+          "version": "repo-lines-v1:sha256:de05cade30dddb2a74186f88c4b9189024557a46bd984ebf25f5d3f883eae6e9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzkzM2RjMGUwMjZhYzRiZGFmZTY1ZWI5ODUwYTk0Y2ZmNjllNTc3NTg5Y2EwYTg2Nzg3MDk1MjQ2NjVkMjBiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjRkNGU1NTc0NzhmOWJkZjZlMzI2M2U4MmVlNDk2ZTY2NGI0ZWU5MjViNzVhNWM2NWI4NTcwMTI2NmEzZTBmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjZhMTY5NTU2YmVlNWM5YWRmMGZhODg5NzA0YmE0MGE4OWRlMjMwNTgwM2NkNWVjOGIyZmI2MGJmODJhMTFjYSJ9"
+        },
+        {
+          "resource": "repo://tests/test_deterministic.py#L30-L35",
+          "version": "repo-lines-v1:sha256:415e55d88ea6a5f461986616f8d8004f4935988fa0f0134d448a3a80f1c4f6b1:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGJjZDQ0OTI2MGU0YmRjYWYxOWE2M2Y0MGJhZjBiNjFhOTk4NDZhMDVmZjE2NzU3NWFlMmIzMGU2MDVlYzgwMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGI0ZjJmNjNmZjJlMWU3YmMzNmUxMDhkZWM4YjQ4NjE5NTY5MDNlMzQzZjM4ZWVhMWE0NzI0MGYzYjhkNjQ4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2ZmMTI2NzlmZTVmOGE0N2EzMDExMzk4MjIwM2JkYzEwNjdkZGExOTU0ODgyZTY4Nzg5NzMxNGJiZmQxNWFhMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9b5695a0fb5548979e4d542ae4ca1456",
+      "statement": "Date detection depends on a verbatim French month alternation carrying both accented and unaccented variants because extracted PDF text is inconsistent, and it matches both a day-month-year form and a bare month-year form; translating it would silently stop detecting dates in the French documents the tool targets.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L38-L46",
+          "version": "repo-lines-v1:sha256:bc91a3c64eeb9aba843afe97cb7e1d60ca6a10b687b3a54f624577255c0ccf4c:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU2NGI4OTQzODM0YmNlYjY2YTI3ZjQyZWVlZGU2NWE3MjAxMjYzODcyMTU2OWVkY2NhOTYxYzFlYmE3ODFlZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBjMWYxODhmMTQyZWQ3YTgyNDY4MGIyMDcxNzJjNTUxOWJjNjE0YTQ4ZmRhN2NmMTY3ZWRiOGRkZjc5OTU2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDRlYjY3ZWNiM2M5ZTAyMmVhODBkNjM1NmNmN2I0YWZmNTM1MGNlZTY3YjhkMzE2YzQ0YTRhOGI3NzU5Yjc3MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzdlOTk1YjhjNjBiMDBiYWNjMDVkZjExODBiODM5YmEzODZmOGZiODViYmJiYzc4M2M1NTcwMGI1NjVlNmI0NSJ9"
+        },
+        {
+          "resource": "repo://tests/test_deterministic.py#L15-L21",
+          "version": "repo-lines-v1:sha256:850110c655120fcc21b808d199a5274469701c6254b2b5514212f149ea5fabaf:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdhYmE4NzY5MWNlNmY5NDAwYjljZjlhMGU1NWFiY2NkYzYyYjc0OGU1YTQ1Yzc1MjY0MDRiNTM1NzY0YzM1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmE1M2RmMWUwNTVkYTgyNjcyYjA0NDQ5MGU1YjQ4ODhlZjc5NTZiMGZmMmVmZDcxNmIzOWM4MDc0OTk1MmIzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWU0NDVhOWIwNDBiZmZiYWRlNGYyOTI3NmZkODdlNmZjZmRmZWE2YTIxOTRlMTY4MzM3Y2RiMzljZTEyOGE1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_542bc73c42bb43fdb87c61258bc4e252",
+      "statement": "_content_duplicate_fraction excludes both short lines and lines occurring more than a small number of times before measuring repetition, so page headers and footers repeated across a long PDF are treated as structural boilerplate rather than duplicated content — a test confirms a header repeated five times alongside one unique paragraph yields exactly 0.0.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L11-L25",
+          "version": "repo-lines-v1:sha256:fa0be224e6b93634f494201cb293dbe0602e5a36aed48c9ba03efb8e7da01ddf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1NDZlMjkyYTUzMGNjNDcyNWVjYTJlY2UxMTliNmY4ZGQxY2M0NGE3YWEzYzg2Zjc1ZWQxYmI2N2EzYzU0ZGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3ZjBkMDlhMjM2YTllY2M0N2IyNWI3ZWY4ODAyMzVlYmE4ZWI0MjdiMWZmZGM3Y2YxMGI2NGRkOGYzODYzNWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ4ZmI3YTRiNjdhMjkyMWM2ZmQ3NzlhNmJjNmM2NGUxNzAwNmYwNzE5ZjJhMjYwMWRjZWJmYWU2MjUxMTczMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhiYjRiNmUwMmZhYzI3M2ZiMmEwNzhjZDI1MDdhZTY5Zjg4MDBhZmNjZTFiZjdmMWZhNWU3ZDdkMjU4NzE0YzkifQ"
+        },
+        {
+          "resource": "repo://tests/test_deterministic.py#L23-L28",
+          "version": "repo-lines-v1:sha256:93e4d2bc87e35b295d2fca33a976a7e09b5ac677d137c08ad8bef866f6dc8ebd:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjY1YzA4ZWZiMzQxMDRhNzlmNzc0M2E2NTVkYTYwNTk3YTBjYTcxOTM2NDg1NmNkZGE4YTBmYjNmODE1NmFlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGZiNjRiNTljMDg5YmE1ODE1ZWE1OWY4NDQwMzQ2ODEyYjBjZGE0YWYxYWJlY2NiODQxYjA1NzM5Zjc0ODY0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWIzZGY4NDFkNmQxOWM5MzZhY2RiZWM2MTljMmE2YTc3MzJhMDlhYWRiNTk1YjFiZGQ2YWRlYmU2YzFlMjJlNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3ddfa508639b463a840efc68daa97dae",
+      "statement": "The boilerplate-insensitive duplicate measure does not replace the raw duplicate_line_fraction signal: both are computed, with the raw one remaining available to screening as a coarse degradation hint.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L29-L37",
+          "version": "repo-lines-v1:sha256:9e8e764ccc75d6d58b6fadae07115073f36dd5d871c158b0e537f8f3bfb28c35:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjdkNDQyNTdlZDhlOWUxZmZlMmMxOTJiYjQwOGZlODkzYThiOGFmMDVhZDQ5NDY3N2VlMTVmOGNhZmNmN2QyMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGJiNGI2ZTAyZmFjMjczZmIyYTA3OGNkMjUwN2FlNjlmODgwMGFmY2NlMWJmN2YxZmE1ZTdkN2QyNTg3MTRjOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2UwODY2MGEzYTNhNWY2ZTlkZmRkNjEyNzA0NjA4YWJkMDJjZmM2MjBmYjVhOTBmNThhOTAyMDA2ZGZmMmI4ZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/deterministic.py#L57-L58",
+          "version": "repo-lines-v1:sha256:eccc612491ce0d0f3e530a35c8aad37c7a1c926aa277b1fd8be23c170ec4f44a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2QwZTBkOWJjY2EzOThmMGYxMjA4NjE4ZGU1NzBhYmJlMDNjMjcwYTBkMjBhMzhlODgzNDM4MzAyOGYzMmY4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjhkYzE0OGNlMzU0OTFhYzIxYzVjYWMxZjczODBhNmJjMzIwMTNiZjllMzZlMTQ1ZTEzMDQyYjM0YzhlNjZlOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGUwNWNhZGUzMGRkZGIyYTc0MTg2Zjg4YzRiOTE4OTAyNDU1N2E0NmJkOTg0ZWJmMjVmNWQzZjg4M2VhZTZlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjgzMTFmZWE3ZTNiNWYzN2FiM2JhNWZmMGI2MzE3MTAxOWQ3NjZmMGUzYmNjOTBkMzkyZDJlNWI3ZjlhYzY2MCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L21-L30",
+          "version": "repo-lines-v1:sha256:796b8bbd9315f428d678815f4b27ccace5a319854ab87e23e4f567c6bc328fa0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDM3OWZmNmE0ZThkNWE0ZDhiYjk2ZTUwYjkyYjZiM2UzNmZiMTUwNzViYmVhMDlhNjQzM2UwOGFhZjg4NjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNzA0OGJkZGY1NTY4ZTMwM2U3ZGVmMmFhMTc4NGMxM2UzYzI0NDQ2ZDI3NzkzYWI4MDQ1NzgyOGU5MWVjMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjEwYmM0MWUyM2U0MWQ0YzM0YTE3ZDc0N2NkZjc2YTY4MzcyYzNlYzliMDJjMTM1MGRkMWEzMzcwMjgyNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcxYzNjNzZkNGU5NzMzODZlNzhmNGY0NWZhMWUxODg2OGQ3MzJiMzVkMTI1N2JlYTNjYWU1Njc0NjEyMTViOTIifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

@@ -1,0 +1,6 @@
+# Files
+
+- [The Criteria Registry](criteria-registry.md) - The YAML registry that drives cqg's whole evaluation grid — how a criterion is declared, what each field changes downstream in judgment scope, weighted scoring and report columns, how the loader validates it, and where the extension seam is.
+- [Deterministic Signals and Metrics](deterministic-signals.md) - The reference-free measurements cqg computes from extracted text before any LLM is involved — text-quality signals including length-robust MATTR, the block inventory that decides which criteria are not applicable, and the regex-driven scores for deterministically resolvable criteria.
+- [Sectioned LLM Judgment](llm-judgment.md) - How cqg scores qualitative criteria — the document is split into overlapping sections covering 100% of its text, each section is judged in one batched LLM call over all in-scope criteria, and per-criterion results are aggregated across sections by median under anti-fabrication validation.
+- [Two-Speed Screening](two-speed-screening.md) - The deterministic gate that routes each document before the expensive LLM judgment — manifestly degraded and manifestly clean documents take a light route that skips the LLM and flags them, while borderline documents receive the full judgment.

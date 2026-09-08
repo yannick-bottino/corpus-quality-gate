@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:bf2780240318b5eca1cfe3229ac8adcfb77101b81724d052d7c809481b3cb712",
+  "claims": [
+    {
+      "id": "claim_bfaa8017a9b24b38a3d5cc230e0bbada",
+      "statement": "The global percentage is built in two weighting levels — criterion weight against the registry scale maximum within each dimension, then the registry's dimension_weights across dimensions — and the cross-dimension denominator sums the weights only of dimensions that actually produced a score, so an entirely unevaluated dimension is not treated as a zero.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/registry/criteria_registry.yaml#L13-L14",
+          "version": "repo-lines-v1:sha256:1e8098a301ca5ddbbc8a1b0c18df47ebaf0ede58182f8bea28131256e675ba13:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGExZTA5NzBlNGRlM2UxMGMwMzEyMGU5OGYxNDE4NmFhMWZiNjA4MzA0YmIzMWU2ZmU1ZTE0OWQxYTA4MWZmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjFlMWZjMTAwOTFmYjZiZjAwZDVkNWFhODk1MzBiNDljYjBmYjNhMWIyYmE0NzI2MDViN2I3M2Y2MDNhMzZjOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjdlM2U5YWRjNzdiODNiMDk1NzE5OTIzOWQzNWNjZDRlYjk2Njc4ZTMyZTg4YjM4NDZhMTU5YzJiOGFjMzM3MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGQ3NWRiYWEwNTVjYjRkOGQ1ZGY5NzgxMGZiMDkxOWMwZjJhNDQwMTdiNDE5ODhjZDA3OWQ0YTIyMGMzZWMzOCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L12-L29",
+          "version": "repo-lines-v1:sha256:aaa35c9f04636ccf11a1ced77f551bfaee34086992d5e52e729f338fea75f7fb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5MTEyMzkwMzE2YjEzMDRkYjc1ZTZkZGNjNWU4ZWU0OGU4YzNjOGQxNzJmNTk3YmUyOGRjZWQ1ODVmZmEyYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1YTYxNmQzZWY4NTJkZWQ3ZTMzZjBkNGJlMWQyOWY0NDczZDAwMzJhODM4MjMwZmZhYmI0ODNkODdjZGRjMzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1YTY4NDE4ZjNkMzY4NTg0YjdkNWJiMGJlMzQ0MWIzZjM2NWU0YmEwNDRhMjc1NTY0ZWU3NDE2Njc2OGFkNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk5Y2UxN2RiNGE3NzBkMTMzYmQxOGYxOTZhNGJiNmExN2FiMTllOThhMmZjMGFmZmM4MDJiODMxZWRiMWJmYzEifQ"
+        },
+        {
+          "resource": "repo://tests/test_report_scoring.py#L10-L23",
+          "version": "repo-lines-v1:sha256:4b6fa3129bc1884bc6860e51f114ea03d03ce0d24250743ff658a008f303ebee:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjZWRjZDk2YzAxZGUwOGViODQ4MTBhZTI3Mjk5MjAxMThjODA0OGY1NTQ0MWM2OWRjMzNiZDEwNDA1MjU3YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUyYTRhOWUzYzdmYjUwNzYzYzFlZjY3MzQzYTRlYTEwMmQ4YjNjMDdjMmFlM2M0NDIwOTE4ODE0Y2U1OGRkYWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhZDZiMWQxZWRjMjllODBmYzgzZTQzYmMxOTM5MGY5N2Y4M2IzYzQ2OTkwODFiYTAyODdmZDk2MzQ4MGY4MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI1NjQzZWUwOWVkOWY0M2I1ZmE5NDU2ZTlkZDM4YmY3MjdlZmJiOWYwN2Y5YjM0MDM1OGZkOWYwYWYxMDJjOTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc668be0f335436894ddfa39c39d3b01",
+      "statement": "Only criteria with status scored and a non-null score contribute to either weighting level, so na and not_evaluated rows enter neither numerator nor denominator and a missing judgment never becomes a zero.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L17-L25",
+          "version": "repo-lines-v1:sha256:a4525434c69bfaf0ad3f1196e1d69895ecdfbe80df270681272a6fc3f1473637:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFkMGI1NDM3OGIwNjZlNTFiMDg3N2E5ZjU1ZTRlMDUyNWVlZTdjNWI5Yjg3NjM4MTg2MTcxMzRhNWI0MmFjZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMThjNDE2OGM3MDNhNGNmMDg1ZTdlZTQxOTFjM2MxZDE5ZTljMGY1MTM3YTJjNDM1ZWU2MDg1MTI0MWI5ZGJhZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzkxMDJjYjdhNTlkMTQ5YzE2MzI5ZDJjZDdhNzVkNTA5ZGFjZWYwOTJjNjMzMGQyNDQ1NWVjOWYxNjdkMzI2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWRlNDI4MDRlOWNiYjQ2MTIzNjA1ZDY1NTUwM2QzNjE2YmI1NmRjYWY3YmQyODM4ZjE0M2Q4ZTA5YTI3NDViZSJ9"
+        },
+        {
+          "resource": "repo://tests/test_report_scoring.py#L35-L42",
+          "version": "repo-lines-v1:sha256:7a7c9263b609c6749f51722003af2ef43b39b42443993a71c97c0f1554ddf7eb:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzk0NTljN2M1YWNmOTRkZjVhNTlkYzdhZWE4NzE2ZTRjMzQ3NjgzZTNiMzA0NzU4YzJhMmY4MjIxNjljYzcwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTQxYzRmYzRjZTJlMmY5ODBhYmM3ZTJlMjJjZTYxNjI5MDQ1NGQ0OTVhYzliYmQzMmU5OGQyZDc3NjZmZTU1MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTY4YmI1NWZmZTI3NjQ5OWMxNWU5ZjE4NGNhZDM2ODE5YThmMmRkYzcyY2QzYjVhMTBkNDExM2EzNmU0NTI3NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a17dc2e4010d43f59aa27c33c5fa4082",
+      "statement": "The global percentage is bucketed into four verbatim French levels — Excellent at 90 or above, Acceptable at 70, Insuffisant at 50, and Inadapté below — and Inadapté is also assigned directly by the run orchestration to unreadable and failed documents.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L100-L102",
+          "version": "repo-lines-v1:sha256:7ba057d328bc63e401c9b581f7730c73b96bd8794370046bfbb3eca813726eee:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDgzZDZkNjJmYTI0OTRiYzM5ZTY3MWFiYjllZTY5YWUyOTNkNjkxMDQ3YjlkYTg0MDY4ZmNkMTFjMTI1NGQwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNhYjNhNWYyY2Y4NzQyMzlmOTkyYmZmYzhhYmJkMzM2MzM3NmU4MjlmMTMxYmM5NzhiM2JiMWMwNWVlYzYwYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDI5YmQ1YzcxNGM5ODk4YjJkNzQ0ZDZkY2MyMDYyNDk4ZTczN2YwMDNmYzVlMGIwMzExZGE4MjY5NDBkYjJiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDJlZDkzYjY2OTkwYTMzMDE2YjUwZDU2ZDg2ODczNzU0Y2UwNjE5MWZkYjYxZTBlZmVkZGI4YmEwOGEzZWE4YyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L137-L139",
+          "version": "repo-lines-v1:sha256:01864bca2d97e6c9e8e7696f3676aafe50aa584291328fffe019b3f2c726eeeb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmIwOWNjOWFiYTE0YjIyN2E0YTEyY2I3NDg0YmVjM2FiMGM3ZDY1NzM1YzI1ZmRlOTllN2Q2NDM4YjBlZDg3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkZTFhNmU2MmU2YmNkZTNjM2Q2OWU1ODI5YWE1N2JiMDQwYjQ2NzRjN2ZmMTMzNDBhNmIwMGEyZDJiNWNjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzhiZTJkYWJiZmExN2ZiNGNhMDdiYjU5NTM0MWQxZTE2ODY3YTEyNGYyZjkxZTIwMWVkN2EyYmIwOWY3MzRhNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmE3Y2M4YTZkMGQyOTBjZWQ0Nzg5OWMzMzhiZjdlMzRhZDNkZWM1OTVmZTJkNThmZmE3ZmM2NjQzNTkxZDQxNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L6-L10",
+          "version": "repo-lines-v1:sha256:d6ea35b7cf4aaddb7898a1af61cd5d6fe02048a5b5d759446cc8da4e68fe093c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM4YWMxYzY3YjMyMjFhODZiNTM0MmQ1OTAzMzAwYzZiZDM0ZjBjYzRkYWYyNzMyYzMwYTYwNzQ0YzgzYWY4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVkYjgxNzg1ZTExNDNmYzJiNDk1ZjY1MTUwZTk1YzA4OWZlOWQwNzdiOTYwODI3ZjRmMjEzNDYwODVlNWYxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzVkZmUyZmFjZTFiMmUxNGVkYzg1YjhlY2Y3YTkxOGJhNmQzZmY4YzJhZDgxZjMyMmJhMGM4ZTM1NjhlOGE1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU1MDFjNWZlY2Q1MTcxYzAwMGRmNGI5ZTY2N2U4NWRiMGU3M2MwYTY1ZTMzNGRkMGU1NjljMDcwZTcwN2M4MCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e44cc8d03804d57bb37bfb7e42f654c",
+      "statement": "A CriterionScore whose id is absent from the registry is skipped rather than raising, a deliberate robustness choice at a seam where criterion identity crosses two trust boundaries — editable registry YAML and model-returned ids — so a stray id cannot destroy an entire run's results after the LLM budget has been spent.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L150-L156",
+          "version": "repo-lines-v1:sha256:6d7f480346a1ef13cb40e2b84c27f4663ae3bcd9d5fbea1b87ab58174de6b526:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmU4MDVjZWU2Zjg1ZmYzNGNlN2MyMzdhNjAxZDk2NDZiMzQyY2NkZGEwNTAxNWViNDk3YWM4OWUxMDMxY2Q2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E0MzRjYmZlOGQ5NDI3ZjZlMmY1NzQ0ZWU4M2Y2M2E4YzU5NWMzYjZjNDNhNGE1YmYyYjY5MTc5ZWFjNmI3MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzNjMjZiM2U1N2M3YzM3MmZmMWMxNGI5NDI0NGU0MjUyYWVmNzM0NWQ4ZGJlZThkYjVjYjI0ODhkZjZlZWI4MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDEwMDRkYTk0MWE2YTk0Y2Y2NWZkZGQwMGI4NGI0ZjM2YzRiZDZkYzhmYzFlYTRmMTcxNzZmNzA3OWNhYzdhZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L26-L32",
+          "version": "repo-lines-v1:sha256:0e6688fca58137f04fb55589c39652771cb22b716adf975af36894d6bda4c30c:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVkMzMxMzVhYmJhM2QyNjNmODU2MTRmOWQxZGE5ODU4NzJmYzdlYjdjMGM4MTM4N2NjMDJiNzcyNjIyMTMyMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1OWZiZjNkMTYyMTc3ZDBlZWFhNjllNzEyMzE0NGE3ZGMxZmMyNTBhODYwMTFmMzMyNmIxZWI5ZGEyODFiNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzgzMGQ4NjBhYTYyYTYzZTQzODFhNTM3ZjliN2JkODA0ZWUxYmM5ZmRkYTA2NmIyZjdkN2Y3MDJlYzUzMDQxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L20-L23",
+          "version": "repo-lines-v1:sha256:92fabb50c7685bacc2102317d0bb1a186dd988e1341e58b8b991573ba92a9ed3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGFmMDU5ZWI5ZTllNzA4YTk2ZDIwYmExYTViMmQ5NTA0NmI0NTBmNDgwNmQzMGMzNmQ5NjVmNWI2M2RhZTc1YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM1NDE2NGI3Y2FmNzgwNGVjMzY0NjE1ZjI2ZTBlNWNmZWNmMzNjMzA5NGZhNzcyZTEwMTJjZTU5YjQ0MTZhYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTdiMjc3ZmQwZTg4ODdlOTUzMzUyZmJlNjYyYjk1NTIxZGNmOTIwYzBmMzdjNTVlODc1OTViODI1MmM5ODFkNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2ZmZDQ4NmVmNWRiNTgwZjdlMzcwYWNkOWJiZDYxMGM1MjFmYThjYjNiMjQzMGFkYTMxYmQ5NWE4ZmMwOTg0NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_027108c5f71441698794fcb3fd9b3989",
+      "statement": "Coverage is scored over scored-plus-not_evaluated with na criteria excluded from both terms, so a document is not penalized for inapplicable criteria but is marked down for criteria that could not be judged; a zero denominator yields 100.0 by documented convention.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L30-L34",
+          "version": "repo-lines-v1:sha256:f699f1cbec16db6a585fd5fc35ecda132d447da0af2ebbded1b6c3ad5765acc7:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMzZDY0NDEyZDcxYzBkM2MwZDJkMDcwMjFmNTRhMjJiZGNkY2Q5ZWI1Y2M3M2EzNjUzYWVjYmEwMTM2ZTljOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTFmYzQ1YmNmMTc2YzI1ZDcyNzc1MTgwYjM5YWIyM2Y5MGU3MzFiZGY0MjM0YTA4ZjdkOWM4YmI2MzkzYjg1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTBjY2IyZWZlZGEzYjEzMmFhMzE1YmZkZjA2ZGJhM2Q4NGQzOTRkNjdlOTczOTQ3MjA5ZDYwZmExODNkN2Q3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNThiZWZlZDE4MDdlYjVkYzJiMWU4ODVjNDExN2QzNGNmZjgzOWQ5N2Q5Yzc0ZjlkNWNkZWZjNTRhYjEzM2NiMiJ9"
+        },
+        {
+          "resource": "repo://tests/test_report_scoring.py#L10-L42",
+          "version": "repo-lines-v1:sha256:5c2db7dc8671df4e9315bc1e3b0a078a3f9b926aca4540f1dab409ba5626357d:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjZWRjZDk2YzAxZGUwOGViODQ4MTBhZTI3Mjk5MjAxMThjODA0OGY1NTQ0MWM2OWRjMzNiZDEwNDA1MjU3YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0MWM0ZmM0Y2UyZTJmOTgwYWJjN2UyZTIyY2U2MTYyOTA0NTRkNDk1YWM5YmJkMzJlOThkMmQ3NzY2ZmU1NTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhZDZiMWQxZWRjMjllODBmYzgzZTQzYmMxOTM5MGY5N2Y4M2IzYzQ2OTkwODFiYTAyODdmZDk2MzQ4MGY4MmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea1aab7abb884065b1219dc1ff43fadf",
+      "statement": "Coverage is mechanically depressed by every mechanism that declines to guess — a light-route document has all qualitative criteria not_evaluated, external-dependency criteria are permanently not_evaluated setting a ceiling on any document, and an unjudgeable criterion lands in the same bucket — which raises the low_coverage flag below the configured threshold.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L166-L180",
+          "version": "repo-lines-v1:sha256:216cebc5cf9627b4cb640f8dfe619a5dafc2a2f9f7a798e2747078ab586beb99:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFlMTRlYTcwYjI4YmI3MWNmNDE4Y2I5MjFjMjJmNTNkYjdmNzRjN2VlMmJhZjVmYjY5MTY0MzkyOWUwMDcyMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2YWQwNTJjNDRiOTUzZjBkODMyODZhMmRkZGVjMjE4NWU3ZjE4OWRiMGU0ZjUwMmM2ZjA2ZjM0NzU4NDU0YTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczZmVhNmZiMDI2MmNiOTgwOWRmNDlkMTQwMDM1NzUyNDZkYTQ4ZDIxNmQwYzc2MGZhNjhiNjFhZjQ2NzljODQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyNWIxYzE2MTlmZTEyNzJlMWQ2NmEwNDQ5ZGE4Mjg5Yjc4ZmY3NzAxMzcwODQyYmY2M2IxYjRlYzMxMmY2ZDMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L30-L39",
+          "version": "repo-lines-v1:sha256:b969a4d345bd0da9f43c89bbabb092e277106cf5f2521eef0cacdc22a302f06d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjM2Q2NDQxMmQ3MWMwZDNjMGQyZDA3MDIxZjU0YTIyYmRjZGNkOWViNWNjNzNhMzY1M2FlY2JhMDEzNmU5YzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyZmZlMTg3NjZmNTIxYzE2ZTU2MDQ0NjQ3MWRjOTQzNjMzMmUyNTljNTg2M2MxMWE4NDY5NGM1MDg1YjI0MGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEwY2NiMmVmZWRhM2IxMzJhYTMxNWJmZGYwNmRiYTNkODRkMzk0ZDY3ZTk3Mzk0NzIwOWQ2MGZhMTgzZDdkNzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljZmNhMjViZmQ2ZTA3NTFmNzg0Mjg5Yjg5MTRiNGQxMTY5NjFmZWMwYjE1OTk2MzIyMWU3NzY0YmI3OTEzZTIifQ"
+        },
+        {
+          "resource": "repo://tests/test_report_scoring.py#L25-L33",
+          "version": "repo-lines-v1:sha256:cb0792419ac32b622eb34f58e6827bd247eca8b94cdc69f4acb50f15fac24364:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUyYWExOThmYmMxYzE5MTAxNmU1ZGVkZjBhOWQxZGI0ZmQ2MGMyZGZkNDFhMWY2ZDdiNmQxOTkwZDk5MzZjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg3NDZlOGYxODMxZTllNDE4MjRkN2ZlOTU3NTgwNjAzYWEwMzhlMDZlMGNiODc3OTNhMzU4Njk3YmQ1NDY5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTRmMWJhMzNiMDAyOGFjMzlhOGRhZGI1OTBkY2Y4N2IyNTM4ZWNmOGQ5MGQyOGM3MTcxZDMxOTA0ZWE0ZGExZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGJjODRiYTMwNjIxOTAzNzc3NjQ3NzY0N2QwZmI3ZmFjOGYwNGY4NTUzMmVlODc5MGJkMzRjYTM1NmRhNzAzZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_539a5a76f1e64fc1bfa401fd55a74ab9",
+      "statement": "The corpus workbook has three sheets named verbatim Synthese, Detail and Remediation, with Detail carrying the per-criterion audit trail of status, justification and evidence and resolving criterion labels from the registry.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L74-L98",
+          "version": "repo-lines-v1:sha256:56dd018c5575692f2f93958481ceaf2c697d958421452e1cb9b6e3bc73e8724b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxYjNiZjUxMzVmZWEyYmU5Y2E2YTIxYTkyZTEwMGU5NGRhZWEzYjRhNWE2MWY0NTg4NjhlN2JjNjViNzZkYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4NWU1ZDQ3NTllM2FkZWY5NGM3NjUxYzM3NmE1MTU3NDM1NjZkOWEwNjc4NzdjM2M5ZWQzYzkzNmNiYzdhOTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0MjA5N2Y3ZjA1N2M2ZjA2YTQyZDhjN2Q1MzQ1ZTEyYjBhOTNmZWQxMTI5ZjczZDM1OWJiZThjN2QwZTBlNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM0MDVmNTYxZTA2ZjJhNmEwOTFhYTdiMTUxNTA3OGVjODFmYTVmOGVmNjUzNjM3MmY3YzBkZWY2ODUwMGQ4ZDkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f430b9afd3264ecfbcc8cdb22787564a",
+      "statement": "A row reaches the Remediation sheet only when its criterion is scored with a score of 2 or less, deliberately excluding not_evaluated criteria because an unjudged criterion is a gap rather than a known defect, and rows are sorted by document then by descending criterion weight so the heaviest fixable criterion comes first.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L102-L103",
+          "version": "repo-lines-v1:sha256:4b4f5e787619488264dcffa72e11b1952331eb3f7c61f63bf052bd5d2da593ed:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzI3OGFjYWEwNzJiMWQzYWU3NWQyNDYyZGU5MGM1YWQxMmNiZmI5ZjE3OWIxYmE2M2Y0MmY0OGY5NzMxMTA4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ2NzY3NzkzYWY2ZGIzNTc4ZmQyNzVkZmQxYWU0YWFmZDYxMzExOTliNWI4Yzk3ZTMzMDEwYjJiYmUxYTg4OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzQwNWY1NjFlMDZmMmE2YTA5MWFhN2IxNTE1MDc4ZWM4MWZhNWY4ZWY2NTM2MzcyZjdjMGRlZjY4NTAwZDhkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzYzODIzMjNmOWY1MjhiNTFkNDQzYmZjMjlkODNkZWZhN2JkZDMxODYzMDRkYmY1NzJkOTljYmJmZmMwZDIzNyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L86-L97",
+          "version": "repo-lines-v1:sha256:9c5c5aad1c5983863464afe0c22d94dad4145e3855e66c4275c747b1dce6a47c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4ZDk1OGNkNjE2ZWIxMjM0YjMxMzQ2NTBlM2FhY2FiZGFkMjE0MTdhODgxNGI5YjRkZWFmZWRjMzcyMTlhZmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyNjZhNGUxYTIwYTdiZmI5N2NjYzE3YTc4MGYyZWE2Y2ZiYmExOWRmYWI5MzNjMDRkMzEwNzg2NmFiMTM4YWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNkM2NiNDY4NjkwYWQ4NWQ5OTY2ZTAxZTUyYTliMjk4MTgzYWM4NTliYjAwYjE2NGFkYjg1NzRhYWZmNTU1ZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0YWVlYTI3MTkyZmExNjExOTdlZWRkMmNjYmZiMjgwZTBjMjE3MWUyNGVmYzU0ZGNjMWE1MmQ4NjJkNzY1NDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_357233825d804338b1c68eaaf07972ea",
+      "statement": "Every exported cell passes through a sanitizer that prefixes an apostrophe to any string beginning with =, +, - or @, neutralizing spreadsheet formula injection from text extracted out of untrusted PDFs, and applied to both the workbook and the CSV outputs.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L56-L63",
+          "version": "repo-lines-v1:sha256:40576aded356cfdbb946742d7c37e160d9b889086ad3a7d447e9daf56dacf393:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5MDU5MzY0MzI0YTFjZjEwMGFiODQ1MDM5OWUzZDdiM2E4YzVlYjk0MzczNjkwMzFmODM5ZTRlYjRlNDY5NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWZiMGNkOWU2YzNhNDRjYWFmOTQwZWU2ZjEwNGNhZjIzNGJhNWJiMmQ4NTRhYTQzZWFkMTYyMTc0OTcwMjJlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTQ0MjJlMzM0OTRlY2I1ZTRhYmY1YTdjY2M5MmY4ODYyMmE1Y2M2NjQwMmY3NmJmYzA3N2EzZGM5Yzg4MTkxMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY4MGZiM2ZiZTM0MjJjNTgzYTEzZmY0YjllODEyOTc5YWI0YTZjZGMwYzRhYWVmMjY1NDQ5ZTJiNjM1YThhZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L83-L97",
+          "version": "repo-lines-v1:sha256:3a2b19ef802caf6aa57b5de2644702f0e1cb29a1bfafb824ef6c830b5f6328fe:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIzZDBjMjllYzRiMmQ1ZGJmNDdmYTNmYjI1MDY5OTc1N2FhYTkwM2Q0MWI4MTkwN2JlMjRiZDJlZGVmMjUzN2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyNjZhNGUxYTIwYTdiZmI5N2NjYzE3YTc4MGYyZWE2Y2ZiYmExOWRmYWI5MzNjMDRkMzEwNzg2NmFiMTM4YWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM5OWZjOTE1Njg0N2ZhZDg4NzM5ZWVjNGIwYjRiMDYwN2UxODMyYWI0NGVjZTFiYjQyODIwZGIzOGU3MTk5MTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0YWVlYTI3MTkyZmExNjExOTdlZWRkMmNjYmZiMjgwZTBjMjE3MWUyNGVmYzU0ZGNjMWE1MmQ4NjJkNzY1NDIifQ"
+        },
+        {
+          "resource": "repo://tests/test_report_export.py#L37-L46",
+          "version": "repo-lines-v1:sha256:ae3fe7c857a9a0810534202998393440a7dc985618a3732f345ee1c8d64104a0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzMTJlMDI0OGUzY2U3NTA5YmYzNDcwYzM5ZThiN2I4NTg2MzA1MDRlMzg3ZjVhYTM1MDk4NDg3YjZkZjdlOTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzYmQ5NmQ1NTNiOTFiNDRmZDk1YWUxYmIwMzU0ODg2NWRjYTgwOGM2ODlmYjNmOTBkN2EwMDYwNzdlMWU1MDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE4M2MxYzBiYjllM2ViY2RiMzM0ZjU0MzBkMWM4N2I0MGQ0ZmMxZDY3MDZjNGRiNmJhMTgxYjU5OTM1ZmQ0ZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ae706600ed474e9487d933d02735c4a4",
+      "statement": "CSV exports use a semicolon delimiter written through csv.writer so values containing the delimiter, quotes or line breaks are quoted rather than corrupting column structure, and are encoded utf-8-sig specifically so Excel renders accented characters correctly.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L65-L72",
+          "version": "repo-lines-v1:sha256:8c91960c70593e5e8005f404305395841851acc99c057d70a5f1643ba3c0b699:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU0MzFiMjhmZmE3YTM1MDQ1ODRkM2U4YzQ3OWMyYTczMWJmZWU5YWY5Mjk5NWE1ZWZmNjVmNDYxMTQ3N2QyYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWU1ZDZhNjJhODg5N2JmNDkzZjczMmYwOGEwNWVmN2U4ODNkMjY3MWI5MTdjNDRmMzFlMjY2NGMzZjA3ODIyNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjNiNDgwOGU0OTBmMGQwY2YzOGZmZjEyYmZjNTRjYWY0ZjhiZTFmOTZjODQ5NzBkN2YyNjNkMjQ2MjJkNTU5NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBhNDE0ODNkNjk2ZjkxYTA3ZjI0M2ZhNDlhZDhhOTc4YjU3NWYxNTkxODA0MDQzNDBjOGU5YmQyNTQxYzZlNCJ9"
+        },
+        {
+          "resource": "repo://tests/test_report_export.py#L24-L35",
+          "version": "repo-lines-v1:sha256:33f35201ac60f2008e405e3a9d1bd4357ae7bd2cdf66e5d10e2548334c7671b2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1NGY4OWZlYTczZjU0ZWE5OTUwZGE3YTA3ODI2Y2NlMTg3MDdkMjY4MDNjZDk1NWY5MzNjOTkwYzJlYjljNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjljOTliZmQ2N2Y5OTUxOTkyYTY3YmYyN2RkMTA4NDUwYWViODRiMTMwYWIyZGE1ZWRmN2UxYzFlNzVmMTdhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyMWIxOTZjNmE5NGYwNTlmMzI2MjIwZjQ5NmM5YTY0ZjRmNGM1ZGY4OWM5ODZhZWQ4NjU1MDRkYjljNTlkYzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyYmRkZWFiZDgzYjgwZWE1MjYzM2JhZmM1ZTgxYmRjM2JlZjgwNDE3YzhiYTJiNzZjMjcwNTE1MTk5YTYxNmQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e04cc6d358794f0186e22dd0e03e7ee1",
+      "statement": "Each document additionally gets a <doc_id>.score.json holding the complete machine-readable DocScore including every criterion and the config_hash.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L50-L54",
+          "version": "repo-lines-v1:sha256:673aca9bffe2f18be6a4c857506d771b22a417ebeb21cc4df1d1e119924adef9:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcyMTYwZWZkYmM1YjUzNDZlOWRlZGNkZDIxMjZmMmIxYzEwODk5ZDZhZjNlZWUwZTU1NDgxMzkzN2EzNjIzMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUwMWRlMDRkZjcyYzMwZGNlOTkxZTczYTQxNDk0NjE2MzgxNzFkNDA0ZGVmOWZlYWNlNmVhYjJkYTE0NzE4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGUzYThmM2ZjNjIxY2I1MjE1NTM0MmMzODYzOWFkNTJiMmM4N2QzMTkyYTM1NTIwOGQ1YTNlM2RhYmQ3ZTE5MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjczZDE5OGNlMGZmMDBjMGNjY2YxOTYyNWE0ZGE5MjAwMmVmZTc0N2Q4ZDM1NjNkYjc0YmM0YWRkZTlmMmNiNCJ9"
+        },
+        {
+          "resource": "repo://tests/test_report_export.py#L13-L16",
+          "version": "repo-lines-v1:sha256:c378897c5b223c896115f96826af6ad71c9f23630f3122629a7465b0631d5d58:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTk5ZmRkMDg2MDVjODZhNWFjMTRkMTZjYmNiY2RiZWNhZTY1ODIwYzIzNDk3MDAzMmJkZGM0ZTk4MTA4OGFjYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDlkZDY5YTkyODUyOGMxZTQ4ZWNiZmMwNDYyZWNhYzg1NjEwZDA3NWE4YWU2YjZmOTA0MThkY2JlMzI4Y2Y3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjdhMWE4MWI4ZDU0ODJhNzRkZTNmOGU5MTFkNTRkOGJhM2RiZDNkYjE2YTMzNWM5ODA1MzBhMmFmZDY2YWNhNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f2578f365a124734a17f5708efb16681",
+      "statement": "Exact duplicate detection buckets documents by the SHA-256 of their whitespace-normalized lowercased text, so two files with different names but identical content are grouped, and any bucket with more than one member is reported as a duplicate group.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/redundancy.py#L11-L18",
+          "version": "repo-lines-v1:sha256:5a5a26ef9053905e983c1c3329d191fcaed8898dfb2948fb16bfe7fee7e4a433:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc4ZWIwY2M1M2E4N2RlYzc5OGQwZGE4YWNmZmIxOGMwODVlMjVjMDI1YWJmOTZlOTA4MzIzZmZhNzBiOTRmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOThkMzYxNjhiYTAxNDFmZWFjOTM3Yzg3ZWUzY2YxNzUwMjIwYTQxNTk0ODcxOWQ0NzExZjY1M2E2MmQwYjVkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWJjNmQyYWI3NDNmMDQyOGJjNGM2NDVlMDI1OWM5YWQ4Zjc2NDNlZDA3YTBmNjEyY2Q5YTIyMGUyOGNhZWUyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U5ZmIyOWUwMjkyMzViYmExZDJkNjM4MDY5YjU0NDViNzM4MTQ0YmI3ZjIwMmU1NDg1ZDAxZjFhNzIzNzUzYiJ9"
+        },
+        {
+          "resource": "repo://tests/test_redundancy.py#L1-L8",
+          "version": "repo-lines-v1:sha256:b3c0885a9ee3bafcd11ca39f08fc3d4ba1b65d52f672f9698af8d6b7f083fedc:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmEyNmYxOTdjOTRiNDVkODdmM2Y1MzgwZmIzOWFiNjYzNTNiYTM5NzE4YTRjMTUxNDZjZjA1NmYyMmRlNGUyZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjkwNzA5NWFiNmM2NWZkODViZWQzNjU1MjY5MzA2MmQ4MGM0MzgwMDJiNmNiNTMzYzY3MDBkZGZmNmNmNThjMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_24f3d6f400cb4073a06cd4abce126a98",
+      "statement": "The optional semantic near-duplicate pass degrades silently but recorded: when semhash or its embedding model is unavailable the results stay empty and a near_duplicates_status string names the reason, so a consumer can always distinguish 'no duplicates found' from 'the pass did not run'.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/redundancy.py#L19-L46",
+          "version": "repo-lines-v1:sha256:5aa46916d8f1751f72f49ddbdfdb5e09316c6cc6f8a0a7d08bc8fe3dfdf52f2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEyYzgzNjUwMDk3MWJiOTdkYjAyZDU1M2QyNDY5ZmZlZTY4ZjQyNDRiNjFmMDgzNWViNzhhODdlNzMwZWFhNDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNlZDA0MDRmYWQ0NmJiOTQzZmZiOTNjZmY1MTQ1ZTI1NDRjZmZhMTNlNzBlOTBlMjU2ZTNkOGZiMmFlNWRmYWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdiZmE0ODQ0YmI4Zjk2OWJhZTUxNDM5YTJmZWE5ZWU2MDNlNTVlYzY4YjQ1ZDBkMTlkM2JmZTVlNGI2NzY3YWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZDc1Y2NjYTYwYzkxZTIxMzc1ZTk1MDMzYTk0YTQ5NDk5YTlhNzAzYzBjZGNmNjQ3ODk0MmFhYWI0YWQyMGQifQ"
+        },
+        {
+          "resource": "repo://src/cqg/redundancy.py#L4-L9",
+          "version": "repo-lines-v1:sha256:e7b78cd8e47e0968e57e61678121a4e8c480ad95d919d39e8c20b5696832be92:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDllZmMxNzc1MGI0NzBiYjk0NWU1YWJlNTg4NzRmMjQyOGJmMmMxNjIxMWNkMmZhYzUwNjJjZjkyNmEyYmFlZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk3YzcxMjQ3YWYzY2QxZWRmNTU1YTdkMTA3NTkzMTU3ZjZkYzJhMjJhZjBkZTgyZTc3NzRhYmYxMGY4YWRlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFhNzQwMmMyMjBlZjJjMzkyYzQxMTdmYjYzNzA0YTdiMThjMTNhYWI2MjlkNWM3NjVjOTI2ZDMxMWU1M2M1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmU4Y2VlNWQyYWFiNTBlZDVjOWFhNTBjY2JiYzUxZmZmNGJmN2M5NTI3ZGQ5YWU0MjQ2YmIyN2VmN2QwNmJmOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cdc1c92d65b94e48914877a257588dfd",
+      "statement": "The run orchestration rather than the report module writes the two corpus-level artifacts corpus_redundancy.json and cost.json, the latter recording per-document judgment calls and prompt characters from the counting wrapper.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L124-L128",
+          "version": "repo-lines-v1:sha256:7c88d82da53d7c6a9651031fcefff8a8f2af630f5af56caffcf8edbef4166175:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjMyZDg3NjJlNDU2YmM2YzJhODkzY2VmNmExMzhjMWNhOWIyMzAwYWQxYTA0NmZhNWRhYjQ3ZTNlMDljNzM2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUyMTJlNDE1ZDFhOTZjYmZiNGY5MDg4MWE2NTZmMzlhMjI3MjZiOTZkODFhZTA0OWJkZDQ2OTllZjNiNTExMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjY1MjQ3ZmUzOTMwMTIyY2E3YjE5ODg0M2M0Njc1MGFlMWJiZGNkZGZkNDcwMDkxY2E1YWE3Njk1NzFjZTFmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTQ1YjNiOGE1Y2IwYzcxMWE0MWJlMGM1OGIwZTRiZWMxOWEyYTQ4ZWEzYmQ3ZTIzYTkzNjBmMGNmMzQwMGYyNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L143-L151",
+          "version": "repo-lines-v1:sha256:58f83a56eb0571e3d579830ed389f000611c0d2a77ef7f624c4cd4ede06379e7:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmYwZDA3OGViYjE1OGM4MzNjMzdlNWU2ODZjNmI4MTM2MTkyMTI5NTZhYWM2Y2Y3YmQxZmMyZDVlNGQ5NGQ1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVlOWYwOGQ3MDMzMTRjOWNkMGI0MTk0YTU4MTVlZDk0MDE3MzgwMmM2MmM4YzlmOTM0NzY2ODFmNjdhMzU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmE3Y2M4YTZkMGQyOTBjZWQ0Nzg5OWMzMzhiZjdlMzRhZDNkZWM1OTVmZTJkNThmZmE3ZmM2NjQzNTkxZDQxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk3MzJmYjFkMTExYmIzZDgyMGUxNmYxM2VhMmVkMGE4ZWI0NjJlZmNmZmM0ODRlNzQ5MzM2YjM5NTgxYTYxYyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/instrument.py#L11-L34",
+          "version": "repo-lines-v1:sha256:b0ee65328bf0fb0dcd63ef36f311d267dedbf3f7a402fa7a830d48ae92da610a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMmY1NzViYWE1MzQ2NThkMDIxZWE5N2JlNjhkOGUwOWUxMjgyZWZjZTQ2ZGMwZjI1YTQxZWNjMDA1MGMwZjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxZmY5YzkzNWZiZjJhZDQxNzBjNmQwZDQ1ZWJlNjE5YjNhNGQ3N2U4OTNkY2I1NjA4OTY4OGEzZDljZTU1ZjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2YmQ3YjhiZjA1MzYzMTEyN2NlZjJhZjc4ZWUwNTEyYTBmZWVlM2MyYjc1YzYwZDE3ZDRkODkyYmY5MDg0YWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

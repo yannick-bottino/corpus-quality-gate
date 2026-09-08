@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3c3d50b4b37bb70545b04be4a46f3ca7ac3ee8561b025116ee4c0589459153a2",
+  "claims": [
+    {
+      "id": "claim_4f125b1dee9d451f9348548f978dda27",
+      "statement": "cqg evaluates intrinsic document quality before RAG ingestion and is reference-free and document-level: it requires neither ground truth nor a query workload, scoring each document on its own observable properties and aggregating to a corpus verdict.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L1-L6",
+          "version": "repo-lines-v1:sha256:04e8e1eec3af9280de97ba83c04ca4139ce822b852f8e0d067ef44d8981e0a93:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTA2M2FmY2I2ODM3MWJmMjc3ZWY5ZTMyNTA4YWQ0Mzc5ZmU4YjI0YmNjOWRhZTA3ODVhMTUzNTQ3MmJiMjA0NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzY3MGNjMDRiNzY0ODc0MjFlZTdhZWU5MDQ2OTg1M2E0NzA2NDA4ZDVmNzE5MTc1YmI2Zjk2NmM4N2IxNzMyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGQwMDI0ZDkwNzViNDM4Y2ZiOWNkNTcwNzI2MGIzYjExNjZmY2ZiZWYxYTdjNzJjZmJmNTE3OWE1OGVlODNiNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L64-L96",
+          "version": "repo-lines-v1:sha256:19aa197886da478a3b989dd3bc3ff71156e4bfd6aa18b5ebb7544f85b80f6c60:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhODI1YWE1MTMwMGU3ODM5YTY2OGQ3ODRlODg0NmY0ZWQ3YmFlZTBiZmViOTRkZGY4OGY5NjM4ZmUyOTI2OGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZDk0ODk2OWVmNThkNGUxMzQ3Y2M2YWQ4NTUxODIxNWNkMDMwOGMwYTI5ZDFjZGY1MWMxNzI3M2M2NjM4OWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZDM0NmNmMDk2OWNkOWY2MzcxZTljNDg5OGJiNjgxODU0YWZhNWZkMzU3YWIxNDExZDI3ZTJkNGViNTJiNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyOWJkNWM3MTRjOTg5OGIyZDc0NGQ2ZGNjMjA2MjQ5OGU3MzdmMDAzZmM1ZTBiMDMxMWRhODI2OTQwZGIyYmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c42b015481c34e488875c01db466c9aa",
+      "statement": "The CLI is a single argument parser exposing exactly two subcommands, `run` and `golden`, over a corpus directory with --config, --out and --enrich options, both dispatching into the same module-level entry function.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L158-L172",
+          "version": "repo-lines-v1:sha256:7eb59991b72a189a738633972cb57ff2bf41b347903b7752e1a0ab9aa3e818bd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzk3OTMzYTI0YTgwMWVlOTIzMzI3YmQ2OWEwMTA0OWMwNzc5MTUwMjFjZjJlYzM5ZGRhNGY4MWFhODM3ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2MjMzYjNmZmVhMzJhMjNkZjUzMDY1MzQzNDhmMmRlZTc3NmE1YTZmNzRmYjUzMzE3NWRkYzUzOWE4ZmU0NjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzNDExNGYyNzI3NWRkZjQ5NDE1YzQ4ZmRkNmEwZGU1ODAxZThlNzMxM2E5NzdkZDE4ZGU0MjQ1NzZlOWM2Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2ff168a429244beca67a5412c6f90266",
+      "statement": "The repository is runnable without installation through a root shim that inserts `src/` onto the import path before importing the CLI, while an equivalent `cqg` console script declared in the project manifest points at the same entry function after `pip install -e .`.",
+      "evidence": [
+        {
+          "resource": "repo://main.py#L1-L11",
+          "version": "repo-lines-v1:sha256:36686cfc8f5b0e7b51ab37e49dd5b8399c23437ddb435196ccf88ab9d0060b79:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEwZWM5OWU3N2QxNDlkNzkwZmVmZmUyNjAxZDlhNzMwMzYyNmY1N2UzMDBjZjlkMWM1NTk3ZGZkOTkyMmI0ZDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiNjRlOTIwMDBhMTljYTM4NTkzYTRlNmEwYmFjNzcwOTZkMWU5ODY5NDlhM2I2MjgyNmI3Y2VhNGY3M2Q5ZTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://pyproject.toml#L26-L34",
+          "version": "repo-lines-v1:sha256:430b45a6e06c44ec3db10785cf6607ef8703d0b490f6cd3be07926eefc69dc54:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGVhYjRlYzYzZGU1MTdkYTRjZDhlNWM4MzA3ZmIyYzc3MzdkMzkxOTBhYjY5ZjMyYTVlOWVmODFlYTQ0MTZkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWRmZGRkMDhlY2NhMDU3NWQwOTk5NTBmYmMwMTgzNTgzM2JiNTNhZGI1NDdjODBjZDU1NTQzZWFlYWNiYzdiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGNmM2M2ZTFmYzkyY2IyOTM5ZDU4MGVhYjVmMjE2ZDMyM2I4MzY2ZDhjMWQxY2ZhZjYwYTZjNzQ0NGVkNDI5NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f3f1da6dddd34f08b9f58fbf44abee21",
+      "statement": "ParsedDoc is the single unit of work handed between every post-parsing stage, carrying the extracted markdown that is actually judged, the typed blocks, a parse_confidence in [0,1] and located image references.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L94-L127",
+          "version": "repo-lines-v1:sha256:93ab49ea271c77dcb4b6104cc5c9b7662d84c2aa6efec7df66314ad04788f0b2:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjY2FkMzAwZTQyNjIyYjdlNzE3YjQwMDcwZDY1NTA5MGQzNWViYWY5NDBhNDgwMDhlNDU4MGJlZTA1YjliMjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5ZWU3MTMzYjA0OTNhYzEyYTkzNWM4OTJjZTNkNjAzNjE0YjRkZjEwMDE3YWZkYzEwN2FlYzgxZDg2OTUzMjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0YWRmMzViY2VjNjY4M2U3NmFmYmIxNDhhZTkxNjU0YWM4M2M4NjhlZTgxZTQxNzAyNTQ1MmZhMmIxMmZmYTEifQ"
+        },
+        {
+          "resource": "repo://src/cqg/models.py#L6-L26",
+          "version": "repo-lines-v1:sha256:31284529274e8ea9d9aa6707551257c341d48a524a4b7d4784e082c62afbcfee:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3OTI3MTkzMWZkMDNiYzQyNzdhMjNhOGQ3YTYyNWY2NjQ5OGU0MmRkNjc1MmIxYzE2N2M5N2Y5NTQ5ZGY1NTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxYWFjYTUxNDRiZDlkOWIwZTk0OWFmNTg1MDdjYzIzMzhlMjYzZjk0ODZhYWNlZTM4ZjYzOWEzZjc1NjMwMmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU5MmVjYjI2ZGYxNGYyZmM0NDFlNzJhZTk2NTE1ZmU0M2I4OGRiOWUyZTJkM2NlYjRlOWRiMmE5OWNmMGVhNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdmMDJkMmIzMTA5Y2M2Y2M5NDA5OTM3ZTA5ODlhZGM0YWQ4YTEzNGJiYThiMDk0YWE0NDNiMTZjNDk2ZGM5NzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b0d741552b384159935ecd492e94c10c",
+      "statement": "The ImageRef placeholder token is the join key between parsing and enrichment: parsing writes the token into the markdown in the image's position and enrichment substitutes a description back at that exact position.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/enrich.py#L26-L45",
+          "version": "repo-lines-v1:sha256:e19183cd4037d762327ae57c5be6ef0a1d7ceb9dc94caa6dc31c37aff859bbd0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkYzczZjAxOTc5NjQyMGQ4YmMwMzU3N2U5YmNmNTJjYjFlNTk5MzIzMzQwNjNkZDJjZjA1MjgzMDU4OTAzNmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2YTk1MTUyZjUwNDBiMmU4NDVjYmFkZjJjYWVmNWQwZGJhODIzZjY2M2UzNzRmMzQyYmExYTUzZTIxNmFiMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjllZTA2ZjMzMGJmN2NiNDU2NjEzNGZjYjZlZDU0MGU1NWU5ZmVmYmM4NmJiYTc5NGZjNzkzZGY3ZTlmNmJiZjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRhMGMxYWJkMDU0MWU2NmI2ZjlmYjNkMzFiMmFkNzk2ZTk0YTRjMzE3ZWM4MDlkMGY0ZDM2YmY3ZTIyYzg4MjMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/models.py#L12-L19",
+          "version": "repo-lines-v1:sha256:f20ea29c051ebcf242dc579ecf1578f18e4d3a57ccb8e40123a869dc6332fdad:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWUyMmJiZTg0MDQyYzNkNWFkNTM1MjkxOGY0Njc5YWExYzVhZjVhMmUxZTU4OTVjY2M5ZmZjNmUxYzhhOTVjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWEzM2FjNDNlNTRkZDNlMGQ0YTlmNzEwMDUyZDY5N2Q3N2Q1MDY0YTk4NDY4NmNiZTBjNTk1ZmM1NDk2ZTc0MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGM0ZDYwMjkxNWMzZTE5ZWYwYTE2NTk1ZDhkMmU0ODU5OWM4MzE3YzAwOGUwZjYwMWQ3ZmRhMWNiNTk5YjgxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTZlNTQzOGNjNWNkNTEwOWRlMTEyZDBmNDA2YmM2NjFiYzA5N2FmMmZkYTIyMDU4OGIzZWI2ZjY4ZDUyN2UyOCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L50-L62",
+          "version": "repo-lines-v1:sha256:01ea5f24ed9114127a649978b97463ad648649a1472c559c7d705cb5889c706c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3ZDQwZjgwNjgxZWMzN2I2YTRjMGRlZjViYjAxNzMxM2Y4MWUxYWJiNDFlZWI3Y2M2N2E4MDJkZjZhOGU0NzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdjNzUwZjAyMDM2ZWU2MjBkZWZmNzdlYzZmNzkxODE2MTc1NjI4ZTQzOWU0OTM5ZGIyMDUzZTJlMzNmNTBiNTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0Y2JhNTIzZmZjOTljMjMzMDk3YzQ1ZmQyN2M3NzFiMjI1NTc4YWRmZDU5MWQyMzAzODQ3ZjgxMGRmZDc5YmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwZTQ2YmI3MjVjM2FiYzRmOTAwYzg2ODA2NDc2OTQ5MDBkMjE2MDBkYjg3NTBhMzRhYzRjNWUwZjEwYTQxYzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_33bfc1c64c624b61bfe2d0e4f7aed246",
+      "statement": "DocScore is constructible directly rather than only through the scoring path, and the run orchestration builds one by hand for unreadable and failed documents, which is the mechanism guaranteeing every input produces a persisted output record.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L134-L142",
+          "version": "repo-lines-v1:sha256:4c3300774e60e5abc4a17ca66ee9dff426f83005fd149a58a86cba1e75a9b2b4:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU5ZTQxOWU1Y2ZhZGJkNjdjMDgxODFkOTU5MTc1YjJkZTdlOGJjYTIwZTg3MDlmOTk2NDhmZWJkYzgzMjg0OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU1NTExMjljYWZlMWU3NzI5MGM2NDM3ODRiMDllZWY5YTdmZjk2NWQ3NzU4MjQ2MTI0NWM2NmJiNjkwMDAyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU1OGJkYThjMTQxYjI1YWNmYTg0ZDlhYzUzNmU1Yzk0MDc3ZGY4MmM5NGQzYTJlNzZmMWUzY2NkOGRiY2NmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzJmMTJmMTZiMDdiNjJiMjcwOWUwOGQ5ZWQwMzAwYjZmNzVjYmEzNDFlN2Q4OGM3MmU3OWMzNDg4MmIyMTBkZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L96-L105",
+          "version": "repo-lines-v1:sha256:e228fb68c8c7e0c4b2357560aac611777361200d29554581c4cecf3c827ba85f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZDk0ODk2OWVmNThkNGUxMzQ3Y2M2YWQ4NTUxODIxNWNkMDMwOGMwYTI5ZDFjZGY1MWMxNzI3M2M2NjM4OWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2MWNlOGQ4OTIyOWE5NTllNzYxNmY0ZGRmZWI1NDU5M2Q2MDhhYTNhMWQwMzE1NGM4MmIwNjE0Y2ViNTM3MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
+        },
+        {
+          "resource": "repo://src/cqg/models.py#L37-L46",
+          "version": "repo-lines-v1:sha256:48a6db2d9c4fd8b8317d5138e372148c88e58313ff9b63df0e237a08a0848b1a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllYjk2N2YyMTJlOWE0NzI3ZmQwMTY3MjNjZjYzMmFiYTg3ZjBjZjA4MmZiZDM1OGI0YmVjYWNiYTY5MWJjNmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNjZTQ3ZmNkMDJjYzQwODY5MmI2MDJiY2NmYmFjNDAxNTVjMzA4NzM1YjA4NjRiMzY3NzBlY2IwMDdkYWMyNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM3ODkwYzg4OGE0Mjc5NjFhNjY4NjFjNmI1MTA0MDQ0NDE2ZmRiMTg3YmY3NjY5OWM5MGNjYzE4ZDhmYWYzYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3d6e737a202b4482828d41ef2faeb508",
+      "statement": "The `run` and `golden` subcommands share the triage, parsing and LLM abstraction layers but not the scoring machinery: `golden` produces reference question/answer rows and no criterion scores.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L24-L62",
+          "version": "repo-lines-v1:sha256:cfff86ec8d8ab6ba0a7ff91cacf881bd7bf35d389f437ac18fe6817e488c231c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYTU5ZmFmMzA3ODJhNjMzNjgyZWEwOGQ4OTY2OTE4NzMzMmMwNjZjM2MyZjY5MDlhMWViZDM4NzM1NjA3YmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY1MTAzNTUxMGYyZDkyOGQ1ZGE0Y2Y1NmI3ZWUzMGE1ZDg0MDc1N2Q0MDU2ZDU4ZjVkNjNiZTBjMmE0ZTE2ZTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L64-L156",
+          "version": "repo-lines-v1:sha256:e696f1d6cd580275bb7f0bb189f90e1a0ad568a093f4f9942917b6d830fe8963:eyJzZWxlY3RlZExpbmVDb3VudCI6OTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhODI1YWE1MTMwMGU3ODM5YTY2OGQ3ODRlODg0NmY0ZWQ3YmFlZTBiZmViOTRkZGY4OGY5NjM4ZmUyOTI2OGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhMTFjMDU2N2QwYTVmOWU5YjEzNWY2NWNkMjUzNzJkZmQ2Mjg3NzVmN2MxZWQyNTNmOGJhZDQyZGQyZDY2NjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZDM0NmNmMDk2OWNkOWY2MzcxZTljNDg5OGJiNjgxODU0YWZhNWZkMzU3YWIxNDExZDI3ZTJkNGViNTJiNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmNGY4MDBhMDliYTRkYjMyMWRjOTZlMmZjYzlmMDJmMjI1NmRhNjc5MjkzMDM0NTI0MTY2NDhlMzRkODA3YjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fdb8bda32bce4f62a7a075c807c6ebdc",
+      "statement": "The project targets Python 3.11+ and uses a src/ layout with setuptools package discovery rooted at `src`.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L1-L34",
+          "version": "repo-lines-v1:sha256:b14fc124d411a114d5a18666d6180888ba33d6c74067fdb0c608e915c6345506:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwMmE4MWMzODM2ZWRlZjJkMGJhMTFkMjM1M2ZiNmRhYmM3NzcxNTBhN2NhODNlYTBkOWU5YTcwMzEzZmVhYmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkZmRkZDA4ZWNjYTA1NzVkMDk5OTUwZmJjMDE4MzU4MzNiYjUzYWRiNTQ3YzgwY2Q1NTU0M2VhZWFjYmM3YjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

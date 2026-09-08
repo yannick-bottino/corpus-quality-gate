@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:b7ee80ad4e7e05520498bf2f241a24f9a8123af3b229017317525a70a14231f6",
+  "claims": [
+    {
+      "id": "claim_82dd87205fb94a30b8c6f7e1d2f3da65",
+      "statement": "LLMClient is a capability contract rather than a uniform interface: only judge is abstract, while judge_batch and describe_image have concrete defaults that raise NotImplementedError, so an unsupported capability fails loudly instead of degrading silently into a response a caller would misread.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/base.py#L1-L13",
+          "version": "repo-lines-v1:sha256:5e8ce205fbe1b476b454a4be53818f99b854b0386b5b804b948bf772b9b80776:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmZTFlZDhkZGU1ZjBhZTZjNGJiNzFlMjE5MGU5ODYwNzMwNzczODBiYTFhOTg2NDg2NzZhNDZkZTAxZjU3NGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3Yzg0ODljMDJkMTI1NmE0MDVmYzMyZmFiN2M1ZDM1M2JlZTIwYjIwMDE2NWJmYmI2ZGZiOTBmNDgxNzE3OWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIxM2Y1MzYwNzE0M2U0YjFiMmEyZjMzZDRlNmNlMzg0YzEzZTFkYzQ4YTAzMjlkNjBiZjY4YzM4YTBhNGQzNGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/llm/manual.py#L27-L35",
+          "version": "repo-lines-v1:sha256:a56930b1359dd43b4528b8a796053ad4ccacedb33dd23c0dd9d1b54a7f26e434:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTRiMDA3YzQzNzhiYzg0NGViYTBhYjJmYmIyYzlmOWRlMjJkNGQ5Y2EyOTM2OTZiMTE4MTc0NDY1M2NkNjU1YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2RmNGNlMDMwMmVkMWQ4YTU4NjQ2OWNhYWQ1NTEzOTYzM2IxMGVlNjEyMGJiOTllNWZiODYxMDVlZDg3OGYyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTkwMjFjOGM3Mzk2NWNmMzRiMzdjNTgxMzNhZjhjOTNjOGY3ZmM4MWE1NDFlZTNjM2VkYzg2OTY1OGViYjFjOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzg4ZjlkNWEwZTg4MGM3MjNmMTQ1ZjVjMWQ0ZWI2MDgxODhjNGRmZDE2ODUwYjQxYjk5ZWRkNzhmMDUzNjgyOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4f3b4f0ac1674f99bfb6ff7b286b55f7",
+      "statement": "The from_config factory maps the provider field to a client with lazy imports so an optional dependency is required only when actually selected, and raises ValueError naming the provider on an unrecognized value rather than silently defaulting.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/base.py#L15-L29",
+          "version": "repo-lines-v1:sha256:9d6863db81affdeb40588d35ea91d10f6e2ce285f506a1a9de447e9465d3b37f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjZTQ5Mjg1YjY1MTkyZjVlZTBjYTQ4ZWU1MTc4NjI1NDQ5MTdmN2U4NzdiZWI2OTRlYmI5MWViNTJkMmJiY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYTMwOGZkNmExMWIyMjhkZWFhZWUyYTM5MWRkZWQ3NDQyY2U0NThhMzQwOWU3MWI5YWFkMGMwNjk2YmUxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMjkzZjZmNzIzZDlhYTgzMzU0NTU4ODM0NzA0YTRjNGYyOTRiMmJmYmY1NjlhZTNlYjNhYTQ1YTAxMzZlYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_llm.py#L10-L21",
+          "version": "repo-lines-v1:sha256:9313b1c69320fd6f60099736362268ae264b6d5b6e07c69e8063715b5d0e0c65:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkZTI0NGEwYjY4NjMwYzcxOWJjNDJjMDVlNGIxNDY5Yzc1ZGQ1NmEzYjJiZjkxZWZjMmI1YTFlYTU3MmJiZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViY2E1YjQxNDkwN2ZkNTRiOGY5ZDhjZWQ4M2UzYjBhYmFkMTQ2YWE5Nzg0NWMzNDhiNWI3YzAyZDBhYWU3NjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4ZjAxMzhhMTBlYmQyNmMzNjIxMzk4M2UxMjhjOTgwYmRmM2Q5MWJlM2YwZTIyYWUwZTE5ZjA2ZmE0OGFkODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0MDY4NjdiNjA2YjE4Mjc1YzczYTI1OWQwYjkwMDQzY2M3OTI5MjQ0ODA0ZTFlNDM0YmQ0ZTE0Y2NiN2VkOWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9ebae9bc61c1470caad5a22ea9b4f615",
+      "statement": "The factory supports two providers the README's configuration section omits — claude_cli and manual — and both are exercised by shipped artifacts: config/config.claude_cli.yaml selects claude_cli, and manual backs the enrichment manifest workflow.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L72-L77",
+          "version": "repo-lines-v1:sha256:ebce8aeb292a7ab4b79b8365f2d62e10511ceec02f1d876fb8605918dfc46b9b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA0OTc4YTRjZmEwZjg5ZjkzZjI1MzE4NTNmYTU3ZWExZmQ5YWFjNmEzZTNjMGYyODZkOTJjOGJiMDUyMzI0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzg3MjBkOGE5YzViZTY4OWQ0NDNmNjdmNzA0ZTJiMTgwYWU1MmQyMGQ3NTMzYTEzODlmMWY3YjJlNzNmZTNjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTE2ZTMyOTE3ZmFhMjQ1ZDgzMDlmM2ZlNzVlZDNiOWI0MzYyNmIzNWI2Y2Y2ZmZiNmZjZWI0OGU0Yjg1MzllNiJ9"
+        },
+        {
+          "resource": "repo://config/config.claude_cli.yaml#L1-L7",
+          "version": "repo-lines-v1:sha256:2d223f3a65dde221e9a07154b8d99359ef1dadc2bc0467fa0ec45ba544057271:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdhYTBjOWYwZmYyM2IxYjdiNzFjYjc1ZmYxYWViY2FjZDBhYWU3OWE2ZjY5ZDhkMWVmYTJiMjQ1YThkNTMyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU0MmEzNDI3NmUwMTUwNzk3YWYzZTA1NzZlOTViMTE1MzQzN2M2YTE2MTQ2OTU3YzliNDkwNzFkYzJmNTYzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODhhZTViMTYwYWQ4ZmQzYTlmYzhlZmE5MjE1MzZkYWZkMmU1YTU1MGQyNDc3NTljM2U5YWQ2YjJmOTViOTk1MSJ9"
+        },
+        {
+          "resource": "repo://config/config.example.yaml#L29-L33",
+          "version": "repo-lines-v1:sha256:60dd70570ca34784a68e8819295b2ece32ca3358690ce43bca46107b784ec012:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5YjFlY2Y0YzYwOWJiYzViMGVhMDVmMDk5ZjAzNzU1MTk1ZjAyZjc4N2NhODAzZmNiY2E4ZThiYWU4YjcwMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyMTExNTFiOTljY2U5YzdmODYzN2RiMjQxOGFhMDY5NzU5OGEzMWJmYTFmMjdmNTU0N2Y4NTVkMGQ5ODI3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2RlMDcyNjFjMmZmOWM5YzJlMTI2YTI3NTRmOWY5OTUzYmEyYzczNDdjMGQ5M2ViZjI2MDAzZDhmMDk3NzhlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWY2ZDQ5MWJiNDY3ZTlhZGJiODA0YWYzYzU5ZjVlNGVmZTMyZjc0MjA3MmRjYWM0YjY2YjJhYWMzOWI4M2M2MiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/base.py#L15-L29",
+          "version": "repo-lines-v1:sha256:9d6863db81affdeb40588d35ea91d10f6e2ce285f506a1a9de447e9465d3b37f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjZTQ5Mjg1YjY1MTkyZjVlZTBjYTQ4ZWU1MTc4NjI1NDQ5MTdmN2U4NzdiZWI2OTRlYmI5MWViNTJkMmJiY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYTMwOGZkNmExMWIyMjhkZWFhZWUyYTM5MWRkZWQ3NDQyY2U0NThhMzQwOWU3MWI5YWFkMGMwNjk2YmUxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMjkzZjZmNzIzZDlhYTgzMzU0NTU4ODM0NzA0YTRjNGYyOTRiMmJmYmY1NjlhZTNlYjNhYTQ1YTAxMzZlYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c80ae61239f744ddbcec5722a67fd007",
+      "statement": "ProviderLLM resolves credentials indirectly by reading the NAME of an environment variable from the api_key_env configuration field, so no key value is ever stored in configuration.",
+      "evidence": [
+        {
+          "resource": "repo://config/config.example.yaml#L1-L9",
+          "version": "repo-lines-v1:sha256:d9cc73eafce3357709ac8ae906eb9f01ea38125595de690016aac103350ef7f8:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzBjOWFlODY1YzZhMWE4N2NhMDA2NTIwMGE3NDNlODUzZDNkNjliZmEyOGJiMzc2N2IxNjllMzFiYzU1MzNkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmUxYWQ5ZTBkYjMzZjUxYmQ1Mzk4YjEyNmZmZjZkZTI4MmEyNGMxNDY4M2M3MDRhMGQzNjQ3Mjk3ZjM4ZTg1OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTg4YTI0YjIyNjJkYjQ5NTMyNTBjMGIwYWM4NmRmNGQ0M2VkNjhmZTg5YmZkYTMwMTNlY2NiMTZlZjMxYWM5MSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/providers.py#L23-L30",
+          "version": "repo-lines-v1:sha256:a5c42f0c92163db2345fb00f5e50f5a36b93d60697e8e60e7172975b9514a5f6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTljZWYxYTJjN2Y2ZGJlNDdkNjQ5NDNlMjNjNmFhYWRlNWNmMmQ4M2VmZTgyZTVmMWVkYjNiYjdiZDMwZDEyYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTQxMzI5ZTQ0NjI1OTM4ZjgxMDMzZWI3NjBkZWMwZDdkM2YyMDQ2ODRiZDE0NDVlM2IxYTFjOTk1NDZiZjFmOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzllZmQ5ZTE3MmU1MTY0OGNjNjU3ZGJlYTA0NjEzZmI3NzkzZDZmNmNiZWI5MjJmMTZhZWRhNmZkNGExOWY1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U0YTFlOGQ1NGYwNjBiMjY5OWFhYWVkN2M4ZWUwMGU5NzQzNGJjNjQ4NmY4MTdmOWIxNThmZjMzMDMzOTVjOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3782839c289d4b6f8c9ab2372055bf05",
+      "statement": "A hosted provider constructs successfully with an unset credential and instead raises at call time with a message naming the missing environment variable, and each of judge, judge_batch and describe_image performs this check independently.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/providers.py#L42-L45",
+          "version": "repo-lines-v1:sha256:ac7499e43bdfbc14744e9ac8c440ea85af24324fe80535cc66bf20355c2b40b6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTRiMDA3YzQzNzhiYzg0NGViYTBhYjJmYmIyYzlmOWRlMjJkNGQ5Y2EyOTM2OTZiMTE4MTc0NDY1M2NkNjU1YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdkMDZkZWI3NmFlYjBlOWQyM2M3Njc3YTVhMzdiOGExZWY1NmFlNjU2YzY4OTIwNzRjMjZlZjZjOGQyM2U1NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDlhMWNkMjI1YWE4Y2RiOGJkNDllNTFjYTZkMzVjZTdkOTAwNzc3ZmRkOWY0MTZlZDFlN2ExOTVhMzMwNmU1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWNmZDY1Y2EwNDhjMzc2YjZiNThmZjZhMjEwY2I5M2YzNTg3NWE1OWI2NjhhYzk4MzYxZTlhNTJhMzQyZDZkMSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/providers.py#L62-L64",
+          "version": "repo-lines-v1:sha256:a0a432a3081d3c452891ccf41932c505b253deea10dc8b5aeec467af1dd8da94:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDc3MDE4YTY4ZWIxNDQwZTZhNzkxMjc1NDQwMDhjMjBiZGI0YzE1YzM4YTMzNTBjMTcxYjVkMDI4ODdlMTYzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdkMDZkZWI3NmFlYjBlOWQyM2M3Njc3YTVhMzdiOGExZWY1NmFlNjU2YzY4OTIwNzRjMjZlZjZjOGQyM2U1NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzliMmI0MDE5ODM1ODFkZmM1Mjc3OGRkZjkwODhjZWVlMjc2NzdkNDIzM2QxM2U0ZDdiMTM0MDI3NjY4ODhiMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWNmZDY1Y2EwNDhjMzc2YjZiNThmZjZhMjEwY2I5M2YzNTg3NWE1OWI2NjhhYzk4MzYxZTlhNTJhMzQyZDZkMSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/providers.py#L77-L80",
+          "version": "repo-lines-v1:sha256:163f67876902c959c6c025d5c77cc51ea9bfb198b7650f3fcb5d0b7efd1d31ec:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmU1MmQ0ZWU1NTRkNWZlOTVkNGRiNjZkYjI2NTM0NTFlODQzMWIzMDkyMjQ3NWRmODJkMjBhZDg1MjY3MDYzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDdkMDZkZWI3NmFlYjBlOWQyM2M3Njc3YTVhMzdiOGExZWY1NmFlNjU2YzY4OTIwNzRjMjZlZjZjOGQyM2U1NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2IzYmI2NjYwM2M5MTk4Njg4ODVlNGVhOWU0ODdhYWQyNDhlODg3NmM3OGNmODMyZTU4Njg5MjBmMTBjYTEwOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzRkZWMxYWZhMmNmMjliMTg4YjBkYzIyOWZkOWU1ODIyMGI2YTg5YTBlYjFhZWExYzExMzBlNWExMzgyYTljNiJ9"
+        },
+        {
+          "resource": "repo://tests/test_llm.py#L23-L27",
+          "version": "repo-lines-v1:sha256:80cb11493c62c21a94408f7a6cc5318c702b393eed1953b4b7261c738a636674:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzA1NzdlMjA2NzUyMGExZDQ2YjI0NTk5N2EwNmU2YWU3ZmQ4NTE3NDUyYzA3ZTE3ZmJmZmE5ZGJmMjkyNWE1ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Y4NmI0OGM5NzA1MWVkMmVmYmRiNjY5MDI4NDk4MGI2ZmM2ZGQ2MmExZmI1YzVmNWI5NWVlYzU1N2JmM2VkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzlkNTBlNDgzOTRhZjFiODI1ZjBkNWE0M2RhNzkzZjM5YWZiYTViMTdlMzkwZGJjZDQ2MmIwY2M3ODM1OWY2YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzNjZmIwZjgyOGI3ZjUzODU0ZmI5NWU4YWJmMDI2NTk3MWNkYmUyZTYwY2E1ZDY1MTkyOTAwNDVlMTkwNGZiNiJ9"
+        },
+        {
+          "resource": "repo://tests/test_llm.py#L40-L46",
+          "version": "repo-lines-v1:sha256:8b5030a2c4c6fa5ad719d250f69a984982c79f15aeaa2b644d2958b995cc68dd:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE5M2ZlNDY5Y2NjNTk3ZTBiNTg5ZDZlODAwMDA3ODU0NTEyYjFlMTc4ZDNkNjg0NTVlYTA4M2ZhZjZkNzQzYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmZmMDk2M2FkZWIwODZmNWRlOWY5YjZhYmUyMDQ2MDJkZjQ2NDcwNzgwMmYxNDgwMDVkYTRmMGFhZWI2OTVhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmU5ZmZkYjRkODI2Njk1YzE3Yjk3MWIxYWQwZjQwMDU3MDRmMTJmOTExOTk2N2U3OGQwNTJlMWE3MzZhNTllOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjhiZmNkM2VhMTc3NWZiZjYxZTAyMjVjZjljZWE3YmYwZWVkNjk1M2YyNGViNTZkZTA5MTc4YmMyNGJmNmQzMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bc4e828e78d24a6898370b6a47e40be4",
+      "statement": "ProviderLLM covers OpenAI, Azure OpenAI and Anthropic behind one class, branching only where the SDKs differ — a JSON response format for the OpenAI family versus an explicit token ceiling for Anthropic — and pins temperature to 0 for reproducibility, raising the Anthropic ceiling for batched calls that cover many criteria at once.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/providers.py#L32-L75",
+          "version": "repo-lines-v1:sha256:4e67570834d0991de528423ba36d5269a0bac2011c1c25ac271dc3e2a5e7d6c2:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5OTI0NmE1MDY1MWJiZTA2ZGJhNjYxMTBjNWYxODFmYzMwYmMyNjgxNWJhMjAwNDU5NzUxOTM4NDdmYzFkNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1NzFmMGE2ZjcyNjcxODI1Zjg4ZjZhZTdiNDkwYjhkY2M4YzVkOTUyNWVlZWNjYWE2ZDA4MjY3NDM5MTcwYmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQzMmQwM2NiZjQ4MmU1MGRhZTgwZTdjMmYwOTY2NDkwZDliYTA4OTFlM2VhNTllYmZjNWE3MDkzMWExZTUzNjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNjZjg5MDM3NTVjZjgyZTg3YTMzZjExYmQ1ZjhmNjI2OTI1MGFjMWJlNmEwMzBiYzEyMDBkYTlkNDVmZDkwZDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_822d133d31ca49ee8e3eda404cfd20cb",
+      "statement": "All providers parse model output through a shared three-tier _extract_json that strips a fenced code block, attempts a direct parse, then falls back to the substring between the first opening and last closing brace, because models routinely wrap structured output in prose or fences.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/providers.py#L8-L20",
+          "version": "repo-lines-v1:sha256:dc39929460dc996d4fbd3b64e66ebedee1b252c207d4b57215de3214d0f8b0ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkZTUxOGFjOTBjNjY0OGU3MjNjNDJkMjcxMTQwN2E0ODgyZmRjYzJkYWMxNjk1YWZkZDA2NzI2MDQxNGYyMzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzYjIyMzQzZTljNzU1OTIzM2RjNDZkY2VhNTg5OTY1OGY2Yzg2YTczMTRmYTQ2MjA5OGYyOTI4YWY2YWQzZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2YmQ3YjhiZjA1MzYzMTEyN2NlZjJhZjc4ZWUwNTEyYTBmZWVlM2MyYjc1YzYwZDE3ZDRkODkyYmY5MDg0YWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVjNGIyYmIzZDZmMGZmZWQxNDlmMzM3N2RiOWIzYWYwODliZjQxNGM2YzViYjhjZmNjOTMyY2M5NDFiMTE4OTQifQ"
+        },
+        {
+          "resource": "repo://tests/test_llm.py#L29-L32",
+          "version": "repo-lines-v1:sha256:75d05ffe520bbb74116a6d3a5cb2cb8b1d0946e9d72f2868d4cb04f8ce758cd4:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDk0NGY3NjVlZWE5OWU2YmY2Y2NiYmE1ZGQ5MjdiNmYxMzU5MzA1OGFmMDcyODk1NTliNDQwMDdlNDJhMWZmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGYzOWY2Y2Y1YmY5ZGU0NDA2YjM0OTA3ZDhmZjEwOWEzMDU4MWQwODE2MDFjMWM4YTExYzgyY2RiMzI5NDg0ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGE3ZmQzNDE4MDU4MzdkZjc3NjAxMWJhNzI5ZjU3NDg4N2ExYWEyMWY3Y2JhNzlmOTI0MWM1MDczODk2ZThlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTJmYjdhNDA0YjNlNGE1ZDkxN2U3NGQyMzU0YTI0ZGMwYmRiOTkxYWE1OTYxZThlNjVhOWU3NTQxYjljOGFlMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_99c1ec9f4be6489a915fc47c60717fc6",
+      "statement": "ClaudeCLILLM provides judgment with no API key by delegating to an authenticated `claude` CLI subprocess, passing the prompt over stdin rather than argv because judgment prompts contain whole document sections that would exceed argument-length limits.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/claude_cli.py#L9-L33",
+          "version": "repo-lines-v1:sha256:9d4959012bea8d7044b39dad5b4e01189f6bac5b6678fa1a4991d13d83997dee:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxNTFhNDQwZGZkYzZmMDlmMzhjMWI3OWIyNDNlNzQ2MGZiMGRlNjY3M2FiYTA0NzQ2YjJkYWRkNTZhMDgzNDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmNzNlMThkMjc0MTdiNjdhMjg0OTRmOTQzMWQ1NDBlMjkzYzAyYzc4YjU2OTM4ZGZlMTQzZWNjYmE1YWFjMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiY2U1NTE0ZTg1NDg0Yzg5ZGViYjRiNjY2YmI0ODNlNzJjMDI1MDBmNzJkM2E2MmNjOTlhOTc2MjQxMTg2MDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwMDQ3Yjg1ODI3NmE4MmU0ZTYyMTc4YjM4ZTQ1NDVhZTljOGVhNmQyMzQ3NjZkMzU2MmZmNjA2OTgyOWNlOWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_28cca727ed7d4abc9d40c5c59a1d74fe",
+      "statement": "The Claude CLI client checks two independent failure channels — a non-zero return code and the envelope's is_error flag on a successful exit — so an error payload returned with exit code 0 is not mistaken for a judgment.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/claude_cli.py#L31-L39",
+          "version": "repo-lines-v1:sha256:63e337cb5c04950745e928d8cc8e1208519caf78376aad119a148b1dae9792db:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmM5YzkwNDAwODIwMmU5Y2M5ZjNhZWU0YjRlOTkyZTcyNzMxN2FhYmFmZjA5Nzk2ZTMwODc4NTI3OGI4YmFjYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjFhYWYxNjBjMDUwNDI0MjU0OWY4N2UxNDhhNGRjOWI2OTMwM2I2MWY5NWY4NjljYWZjYjBjZjlkOGQ2MDVjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjJmNTU1YTczMmM5ZmUwNmRhNWIzZmY0NTNlMTM1YmI5ZGVhOGU1ZDcxNzQxMDg1M2ZjZGM4MWRkOWNhYjhhZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzMxNWZkNTcyNDFmOTFlNGQwYTEyNTZlMDA3NDFjMzNiNDIxYjczM2M0MDcxMTdiOTc4OGIwNmU3ZmExMGQ4NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_8bf47ecd2f1e406099767b4b707722ee",
+      "statement": "The Claude CLI client removes a session-nesting guard variable from the child environment so the CLI can be invoked as a subprocess from inside an existing Claude Code session.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/claude_cli.py#L28-L32",
+          "version": "repo-lines-v1:sha256:8f734e5ea05334fc706d84cf34f3c36ec7316f0963599cbe1beea1bfe4073b04:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmU2NGU0YTRhMWI5MzM0NDg4ZTdlZDUyOThjNDk5OWFmNjE1ZGE3MmUyZjYyZjc4M2M5ZDg3NTdiM2I2NWZmMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDg5MGI1ZTFjNTA5ODUxYWE2NTJlNzE2Y2JkNzBjOGJiZDcxMDY5Y2ZiNzE0Y2ZlYmRmYmIwZDVjYjVkYWViZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2Y2MjRkMjYxMzM5YjU3NDAwYmQzOWRhNDkzNjMwODEyNDQ2N2EwMTBlM2QwMzJmY2I2MjIwZTM2MzQxNmM2MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDM5ZjY3ZDFlNmNhZjU5MDk1MjlkOWFjOTdiZWMxMmE5ZmQ1MTFhZDkyY2VlNTJmMDIyNTdmODFiMDU0ZTc5OCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_28287d4171b54ea69b95f26c6347d9a5",
+      "statement": "MockLLM returns scripted responses selected by substring match against the prompt, maintaining separate script tables for judge and judge_batch because the two return different shapes, with a batched default of an empty dict representing 'no criterion answered'.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/mock.py#L3-L30",
+          "version": "repo-lines-v1:sha256:1e123b941b5e0725d6af8e50739bf9269a788f476c50fa38d0220bd965e20b82:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiZmEyNmRiNzY0NjZiMWQ2Zjc2YTA4YWE4ODEwNGNkMjlmMWIzNDMwZTRkNWU3YjI3Y2RhYzg2N2Y0M2Q3Y2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwNTFkMjU5YjdiOTgzM2ExZmRiYjdkMzAzNzBkMzA1YTUxOTEzZmU2NjUxYTVjODJkMjhhMGM5YWQwMzVkYWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ4MDZiMTEwNmY3ZDg0MDcyMjBlM2QyNGUzZDNlZGRmODFhMWViNmYyZTY2ZjBiZjRiMmVmNzAzYTgyZDJjOTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L62-L77",
+          "version": "repo-lines-v1:sha256:b8d023682ecac0d82b43ddd8106df39abe1ec705cc6d87618b3b1ea32b91d014:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1MDJlYzdlYzA4ZjRlMTA2ZDZhZmU2YjUzMTcxZDk2ZWU0NjdhMzM4NDI2YWRjYzFkZTZlYWI0MGY1MzA5NzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ1ZDBlODhmNDUzYjkzNDIzMjY5YzAxN2M5MjIwMWI4ZmEzZjY3Mjg0NjU4YTFmNDI4MmRjZTQ2YTM0Mzc3NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE0YjFmZmY5YTI2ODNjNTQ3ZDgxZjIwMzliNzJiY2UxYTI4ZGQ5MGJkMDBmYjg0MzFlYjUzNThmYTdiMzZjNWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7995ac9636fc499ab8aea335ddb90ec8",
+      "statement": "CountingLLM is a delegating decorator that counts both judgment forms so that with sectioned judgment the recorded calls per document equal the number of sections, making cost.json a direct readout of the judgment cost model.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/instrument.py#L11-L27",
+          "version": "repo-lines-v1:sha256:b961df24a94d61206162dbae8145001d2056305b081e36f83ef00dc63d953f4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMmY1NzViYWE1MzQ2NThkMDIxZWE5N2JlNjhkOGUwOWUxMjgyZWZjZTQ2ZGMwZjI1YTQxZWNjMDA1MGMwZjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5ODEyY2ZiNzg3OWYwOTg2NWM5NmY4YjAzOWI1YmIwN2MwMmVjOWQxYjRhZDQyYjI2YWFhZjc5NzkxMmI3OGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc2YmQ3YjhiZjA1MzYzMTEyN2NlZjJhZjc4ZWUwNTEyYTBmZWVlM2MyYjc1YzYwZDE3ZDRkODkyYmY5MDg0YWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0MzQwMTVlMGJkZTEyOWVjMTZmMjFkMmJjOGE5YzRkNjhmYjVkYmY5NWE4ZmUxYWYyOGY4M2UwYzUzYjkxODcifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L145-L150",
+          "version": "repo-lines-v1:sha256:64fc17216336f0e74d7ee19349cb13e89e1793b039c95aa48d14c23f94490a23:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU5NTkwMmZkNDgwNzg2ZDZiZDIzMmQ4ZDZiZTI2MWYwOTUyMzQzMWEzZmRkZTE5M2FkZmVmMjRmMTY4NjlhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNlMmEzNWFlNGQ5MGI2NWExZWFmMTU0MmI5ZjUzODNlZjc2ZjBkZjUzZDgzMmQ2ZDAyOWFmODIyOWIwOWUzZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQwOGQxZmFiOTJlMzYxZDMxYWVkMWNiMGY1YTU4MTVkNTc1MDY0ZGIzM2UxMjU5YmQ4MTFjNjA1NjFmMTRlYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://tests/test_llm_instrument.py#L6-L25",
+          "version": "repo-lines-v1:sha256:e554b0921eb2063cb5428074f0fdc4e0eb2319f5cd43c96c10dd8af59c2e7215:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0YjAzMjJkZjA0OTM5MWMyMGI1YTRhMjRkOTA3ZGIzYWZlYjI5ZWYyNjQ5NWY4YzA3YjQ0ODdkNGNhY2M0OGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRhMmZkNjA1ZGE5MTUzMjY5YmJmZmE4YjkwOTg4ZjY0YTIwZDdhZTNmODZhNjIzN2QwZmYxODU4ZjJmYmI4NmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2MjFhNDc3ZGZiMDYwYmQ2ZThhNmU5YWNhOWQ2MDA0ZmU2OTkzM2RkZjAxYmY1YzE5MjBkMzkwMzJjYzYzYTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8241ed7410c94961b8452963b0d65b41",
+      "statement": "Image description calls pass through the cost instrumentation without being counted, a deliberate asymmetry pinned by test so that enabling enrichment does not inflate the judgment-spend figures.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/instrument.py#L1-L7",
+          "version": "repo-lines-v1:sha256:e1a42770ecbc761aa270374034d7186fcf596bdb25326f007472f8b38fe8105e:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDk5YjM1Yzg2NjkzYjI2MjQ1MzBkMDc1Y2Q5MDQxMjdlYjhkMzBmYzE5YTM4Zjg3NDY1ZjMyYjFkMTY4MGFkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTMwM2VjZGQ0YTRkMTBmMTljNzNmZDQyZmQxMjQzN2ZkMzM1NGE4MjY4MTYwNWRhNTI1NWE5N2EzOTA2OGRiYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzZiZDdiOGJmMDUzNjMxMTI3Y2VmMmFmNzhlZTA1MTJhMGZlZWUzYzJiNzVjNjBkMTdkNGQ4OTJiZjkwODRhYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/instrument.py#L29-L30",
+          "version": "repo-lines-v1:sha256:446857236337d19f926cf85bb74a89ef064aff5be59ab20bf5d4f346376bfc79:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmU1MmQ0ZWU1NTRkNWZlOTVkNGRiNjZkYjI2NTM0NTFlODQzMWIzMDkyMjQ3NWRmODJkMjBhZDg1MjY3MDYzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTcwN2U1NmMwMmNlODdkOTIyMTIwZjA5YjNjN2FiZWVlYzA1MDc2NjZhNTI2YTIzOGQxY2RhMDMzMTM3YWExZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjM5YTU1MmVhOTRiM2M5NzJjNzM0NGM1ZjEwYTkxYzBhM2E2ZDdhY2ZlY2IwOWVhOTM4MmI2OGE4ZjBhMGZjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWQ3NjA4NTk1NTQ1Mjk2YjM3Mjc0ZTE4YzNmNWJiY2IwNTg0YWM3OTcwOTE3ZjMyODk5YTNlMDdmMzIwOTAxOCJ9"
+        },
+        {
+          "resource": "repo://tests/test_llm_instrument.py#L27-L35",
+          "version": "repo-lines-v1:sha256:964b43ea950868879a003030130361742225c5a3ebd76ea1375dc5248c41662e:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM2MTI3MmI0ZjM5Y2FiODM3ODZlMzQwMjIyODkyMTk1MjcyOTUxNGViNmEzNjg5NDY3OTUxMTNlZWMxMTkzYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjA3MDUxOThiYTYwMWFlYzYzN2ZiMDkwYTgzYWI5ZmExMWMwZmYwYjUyMjBkZTBmZTFhODQ3NmFjMDhjZWNlNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzRhMTU5NTk3M2FiNDM0Y2U0ODc5MjVhOTI5N2M2NDIyNDgyNjRkZjkzYzIyOTgxNmMzYTYzYjQ4MjIyZmVmZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_abe50a07d2104be3a5b695e8d8eab095",
+      "statement": "The run calls CountingLLM.reset() immediately before judging each document, which is what makes cost.json report per-document rather than cumulative corpus figures.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L124-L128",
+          "version": "repo-lines-v1:sha256:7c88d82da53d7c6a9651031fcefff8a8f2af630f5af56caffcf8edbef4166175:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjMyZDg3NjJlNDU2YmM2YzJhODkzY2VmNmExMzhjMWNhOWIyMzAwYWQxYTA0NmZhNWRhYjQ3ZTNlMDljNzM2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUyMTJlNDE1ZDFhOTZjYmZiNGY5MDg4MWE2NTZmMzlhMjI3MjZiOTZkODFhZTA0OWJkZDQ2OTllZjNiNTExMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjY1MjQ3ZmUzOTMwMTIyY2E3YjE5ODg0M2M0Njc1MGFlMWJiZGNkZGZkNDcwMDkxY2E1YWE3Njk1NzFjZTFmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTQ1YjNiOGE1Y2IwYzcxMWE0MWJlMGM1OGIwZTRiZWMxOWEyYTQ4ZWEzYmQ3ZTIzYTkzNjBmMGNmMzQwMGYyNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/instrument.py#L32-L34",
+          "version": "repo-lines-v1:sha256:e2e68f76997528212d53167fb108e94821aee1cf22fa5f09db77d99f2df132ac:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTM1MTZjY2ZkNmM0OTNjZTMwZWQ4MjE4MTcyNTk0NzU0NzUwOTc2NzljZGE1OGUzNmE5ZTA5MmU1NDYxOTkxZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTFmZjljOTM1ZmJmMmFkNDE3MGM2ZDBkNDVlYmU2MTliM2E0ZDc3ZTg5M2RjYjU2MDg5Njg4YTNkOWNlNTVmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjgyNGE1ZWI4NzdlNjRkZmI1MzQ3ZTVhYmYzMjgyNjA5ODYzYTgxYTc2Yzg3N2QzNGEyODI5ZmZiMWY4MDgxNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://tests/test_llm_instrument.py#L37-L42",
+          "version": "repo-lines-v1:sha256:226a7b196c50be55b8ebbb2a1bd216587c7bc88a443f0c7a094e1c779bd727cc:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODNhNjg3ZWExZmQzNDY0NDYzNmU4MzE3NWY2MWQwZjlmZDc5YTkxNTMyNzRiYTgwZDQ0MjA5MmYyZTc5ZDg5NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmM3NmFiOThiZjYyYzY2OGQ0ZTZhNTAwM2E3ZmVlZjRiYzM2NzliNjgzNmQzNzBlZjk2YWYxYzQ2YjRkYmU3ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQzZDM3NDczYTFjMGZkZmM3MzIwNDZmYTc1OGY1ZDEzYTllNGI1NjhkMmE0Yzk1MTViM2M5ZTNmZTdiYmZhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

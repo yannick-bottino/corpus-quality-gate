@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:275f5a9e69c21776b72275b4bec9c4ba2d8c8a9242d158da0ab7e2617270e272",
+  "claims": [
+    {
+      "id": "claim_b37e275d9ed54498992244e4d06c1603",
+      "statement": "Docling runs in a spawned subprocess rather than in-process specifically so that an uncatchable out-of-memory SIGKILL becomes an observable non-zero return code in the parent instead of terminating the whole cqg run, a path pinned by a test that forces return code 137 and asserts the document still yields content.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/docling_worker.py#L1-L7",
+          "version": "repo-lines-v1:sha256:97d8e04e33234d105c5efff74ba78115d50ad3803c52620086887acf5fb9fb6e:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzIwYjg5MDI2NDg0ODMzNmQ0MzUwYjc4OGEwNDVmZGEyN2ZhMzE3MzYyNmJlYjAyN2ZkOWE3ZDdlYjcwZGM3OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTMwM2VjZGQ0YTRkMTBmMTljNzNmZDQyZmQxMjQzN2ZkMzM1NGE4MjY4MTYwNWRhNTI1NWE5N2EzOTA2OGRiYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzlmMWJmYTIyM2I4ZTQ4YjAxNGY3NjUyMjFlYzE0MzRmOTc1Y2IyNWY0ZWMzNjMyOTA2NzE3OTg1YjEwNjQzMCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L136-L172",
+          "version": "repo-lines-v1:sha256:bdbc6bcc5fe18b65e73fc7b833def2dfdccc596871c8530267afa0803f8a1e1c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyOWVmYzEwYjRlYTBlYTY1YWJmMTJhYWE4N2NkZjcyZDA5NjNiODVjZGY1OTJkMDBkYmQ1NDlhMTdhN2IzYTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxOTJlOWY5ZGU2M2FjMTE2N2ZkMWE3NjM5ZjY5OTg4NTYwM2I5ZjhkNDgwMjM4NTdiOGUxNThlZDM5ZWVjMzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIzZDI0ZjhjNGQ1ZDU1MGI4Y2M3MWU3ZThiYjYzOGE5ZjJmODc3MDg2MzBjYzM4NGVkYjRkNTlhZmNiYTIwMjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiOWFlOWY1NDJhN2U4NWJjYjY0ZGE5ZDU2OTQ2MjZkZjI2YTRlMmU3MzZkOGU0ZmIzOGE5MjkzMGQ2ZThiZTQifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L199-L215",
+          "version": "repo-lines-v1:sha256:76301f1894cda3bd2f23ba07a34857570497d7b496269c9e8ec2cd6bc90f9ecf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxNTQxMjViNDAwMmI1NGVhYjgyM2FmMTgxZjY4NTI0MTMyNDA1YTE3NjBmODg2ZWYzMjg3ZmI4ODg2MTdiNDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmZjUxZmQ4NTFhY2E2MDg5MTY0YWFhNDdiNDJjMmExMzdiODM4Mzk1ZjRjOGJiYjRmMTZlNGMzZjM3YWRiNjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxMTA1MGMzMTQ5MzY1ZWM4YWVhNWFiZmExNTcwNTkyZTVlODliZWZhMTNjYWZmM2M0NTU4ODc3Y2MyY2E4ZjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_95dbd2cf96c8449aab4018c9f70cff4c",
+      "statement": "The docling worker exposes a minimal argv contract validated as exactly 3 or 5 arguments, treats start/end as a 1-based inclusive page range passed through as Docling's page_range, writes its markdown to a caller-supplied file rather than stdout, and converts every internal exception into a non-zero exit code.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/docling_worker.py#L1-L39",
+          "version": "repo-lines-v1:sha256:9d0bd2f94e4edaeead0e8164c7988ed738617e1e5d30101b3e369af65782c5af:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyMGI4OTAyNjQ4NDgzMzZkNDM1MGI3ODhhMDQ1ZmRhMjdmYTMxNzM2MjZiZWIwMjdmZDlhN2Q3ZWI3MGRjNzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmM2U2YTJhM2MxZDM0MWU3MjI1OTI3NTc1NzRkNDY2MDcyNGI0NjUzYjUzZTg4NjQyYjNhMGY3NDEyZDExMGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJmYTIwODU4YWY2NDI0N2FhNDdmMzFkMWUwMDQ0ZjcxMDc1NmJkMjc0Y2Y1MmYwODk3ZjgxNTU3YzU1MjViZjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_875dd102b402414ba299b9eeec66633a",
+      "statement": "The docling worker fixes its pipeline options rather than exposing them: OCR is disabled because the target corpus is digital PDFs, table-structure recognition is enabled, and page and picture image generation are both disabled.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/docling_worker.py#L21-L27",
+          "version": "repo-lines-v1:sha256:6acfbf8ee2d7d1581dbb950b039a3354696942f3b5181fad680a5a59a04fe2c3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmYyZjk3NTZiYTc3NzhmNTcwM2JlNmNlZWJkZDY2MWQ2MzVhNmU0ZDIyYzM2ZGRiMzdkNGZkOWViOWRhMmVkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDhlZjEzMThjMzAzNGZiMTNiMGJkNWJjZGMwYTY2ODU3NjA2ZGIxYmIwMzQ1NjcyZDNiZGI4MzJhMzRmOTA5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDEzNTQ0NTZhZGQ2MjhhMWUxMTc5YWJlODQwZjhlODdjMDNkNzNiNzViYjFjY2FkNjI3M2VkYWI0Nzc4MWE2YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzg4NjY3YzlmY2E3ZWJjNmIyMTczNzYwMDdkYzU1NDg5YzdmOTQ4MWJhYzEyYWYyZjgzYjZhOWNkOTE5OWNkYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c691132a946a4f538bb2a4bb0e6dd2af",
+      "statement": "The parent walks the document in page batches spawning a fresh subprocess per batch, accepting that models reload each time in exchange for RAM being returned to the OS on process exit, and a test confirms a three-page PDF at batch_pages=1 produces exactly three subprocess invocations.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L128-L156",
+          "version": "repo-lines-v1:sha256:848800a8f311540068cbfba652b619b07b370010307dd978efca58fea361d51d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyZmY3MDdlOTA0YWU0N2MwMDZkYzRlZDk0N2QyN2I5ZTg4ZTA3OWZlOTdiMDIwODVlMTQyYzczZWJjOWYwZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhMDAxZmZlYTI2NWNlMzIyNjE4ODY1ZGVkY2QwOTA4MGQxZTlmODEzZWU5MWNkNjQ1NDk5MGNhNzJkOGU4MzkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjNmEwODg1MGM4NDM1OWEwODhmMjIxMGI2Njc5NTdhY2YyYmJiNDQ1MWM2NTI0MjA0NWNlYzVjOGM5MmE2NGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU0YjdiZGE2MmZhZjEwZjE4MGY3MzQ4Y2M0NDRlNjc2NWQ1MzkzYTUzOGFiZmEzZmZhYWI4MzcwYjgyMjZiMzIifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L175-L196",
+          "version": "repo-lines-v1:sha256:73d95e6461035292c83da151405e40a621afdfe74f476ffa4b6af73450de2d91:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2YzM5OTU4YWM4ZTVjMDk1ODhmZDlhNTUyYTJjMWEyMDFlZWZmZWJjNjk1MDRhYTAwMWU0NGI2OTliOTg0MTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmMGQ4MTRlNzBhNjZjMGQxOTlkMTNkZTBiMjE1MDY3ZGYxYzRmNDg2ZDg4ZGQ2MTJhMGQwMDQwMmM2YTYzOGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRkNTdiOGQzMTU3MTUyYzg1NzE1NmVhODNiYjA0NTMxMzM3Y2JlMTFiMTM2YmFjODIxZDdjNzJmOTBjOTBhMmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEyZmUxNjgyZDI2MWVkOTY5NWUyMGRmOGNlZGRlZTRmZDUzZGY0NDQxMzRlOGFmMDljZjk1MmQ0OGViOGU5Y2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_71c09217d8e04f7b81d611520da045a5",
+      "statement": "Batch size is an operator-tunable RAM/latency tradeoff exposed as `parsing.docling_batch_pages`, defaulting to the most conservative value of one page per batch for constrained environments, with measured peak-RSS and runtime figures recorded in docs/GUIDE-run-docling-complet.md.",
+      "evidence": [
+        {
+          "resource": "repo://config/config.example.yaml#L22-L24",
+          "version": "repo-lines-v1:sha256:c995e5d50b517403b55ca6bfce7c89f53c445993510b029a550c50f89f408731:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FlNjEwYTNkYWJhNDEzY2M0OTRkOTRmZGQxZmRiZTBjMzI3OTAxOGY1YWExY2EyNDliOWMzMDJhOGQwNjc3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjZjNTMyYjVlMmVmMWE3MjAyMGNlNTg1MzcwYTI4OWZmMDljN2I2NWU5ZmFhMTRmYjMwMzQ1NDE1MTM1OTMyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTE1MzYzOWM1OGVkYjBlN2E0ZGI0NDVlYTg4OTAxNTQzZWE2ODhiODQ1ODJiYTA2ZjgzNjhkYjQ2NmM0NTQ1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjBjMGQzZGE1ZjFmZTk2YTE2OWJiOWNiZTk2ZTgyOTdlNTE0MGZjODI3MTMzZGU1ZGVhODg3MDA1ZTM5NjZmNCJ9"
+        },
+        {
+          "resource": "repo://docs/GUIDE-run-docling-complet.md#L18-L25",
+          "version": "repo-lines-v1:sha256:7b44ca5de2fdfbba3bf837b233a277dcb249ca4e5c194a4beb4daa40d07c12ab:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQyZThjMGVmZjAyYWE1NjY2ZmVhMzFiN2JiYTkwYjNjMWY2OTQxYjUzN2IwYjI5YzM5Y2QyMWUxZGE0MmU0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRlMmY1MzI4ZWU2ZTgwNTBlOGFhZmQ4ZGM4NjlhMDY5Y2Q5NTg0ZWRhYWY1NGZlNTg5ZDczYzNiN2RjZDc5OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDhhN2YwYzU0MmEwNWRlMDkzZTkzMDgzMDZhMTMyOTExNGY0ZTBhNmMyMmUyMDMxYzRhMTA5NDgwMWU2MTA2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWNkYWQ0MTVkMTU2Y2ExZGQ0MWZiMTMwOTgxY2U4YjhiYWVlNDBjNTVmYzZiMWIzOWFkZDIwOGFhNDljNTgzYSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L130-L133",
+          "version": "repo-lines-v1:sha256:f54831eb2dd97148d13b03c1550aaa93b592e7e534ea9d71fed3b460967b7452:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDMzYmRiOGVlYThlY2VkMmM5MDk2YjlkNjhkZDc2OGZmMTQ1OTgzOTk0YjI2NzYxMWQxYzRjNTJkNTdjMDU1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM1YTg5Njc5MWE5NzdkZmMzMTYwYWM2ZThhYjEyZTkxZDFlZTZjYzM0YmFlNDlkOTkyNTQwYzViYTRkMDNlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWEzYzk2Y2I4NzY1YjVkZmE0YzEwMDY5MDNlMDVjYzM5ZGIxNzExOWE5OTcxYzJiMzg4MjI4NjMxMDg5MWJjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjJlNzkzNWZjNWNjYTVkYWZlZTdkZmNlMzc1OWMxMDRkM2VjYmU3OWIzNzE2NGQ5NjgwMWM1NThkOGQwMzFiNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_31d947b54f3442c5b72e1c9b033980c4",
+      "statement": "A failing batch degrades to pdfminer text for just those pages rather than losing the document, and the pdfminer extraction of the whole document is computed lazily on the first batch failure and reused thereafter, so a fully successful run never pays for it.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L145-L171",
+          "version": "repo-lines-v1:sha256:d3ed7902e980bd9a081bd7e72aa74ba2d3e1141c1544bd04fb7396c49b06fcac:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU4NTZkZGNiYmFiN2M3ZTE3MGVmM2Y5ZGVlNjI0ZjUxZTgwNDJjZTA4ZmFiODZjMDFlOThhMzExZGZiMzIxOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjMTJjMWM1MmUwOTBmMmFmYWFhYTIxZmUxMDBjMTQ4OTZhMTYwNDU4NDBlZjEzYmEwMDY3M2JmNDk3YTFiYjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyNGE4ZWUyNDM3MmI3OTUzNThkODgxZmFhOGIzNmFhMzk4ZmMyNmFhNzU2ZjUzODUxMDg4NDg4YjFiOWQyMDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZmODRiYWIyMTU0ZDM4OTNiYjExMDIxODFiYzJmYzA2MDc3MmYyYmJmNmM4NTE1YjdkZDFmYjJjNDNlNjMzYWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bd2b95589c744c6a87f4ce32d4cf53d7",
+      "statement": "The Docling attempt is abandoned to the legacy pdfminer + pdfplumber chain only when it produces no content at all, in which case _docling_extraction raises RuntimeError and parse_document swallows it, so no Docling failure ever propagates to the caller.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L172-L174",
+          "version": "repo-lines-v1:sha256:6f84bab2154d3893bb1102181bc2fc060772f2bbf6c8515b7dd1fb2c43e633ad:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjE5MmU5ZjlkZTYzYWMxMTY3ZmQxYTc2MzlmNjk5ODg1NjAzYjlmOGQ0ODAyMzg1N2I4ZTE1OGVkMzllZWMzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWMyYTUzODA1OGViNzMyYjlmYzBmZDdhMjRiZmUzN2JkYmYwNzM2YzhjOTVmNDdmZTFjODQwYjc1ZGRjYTc4MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGZiN2ZmOGU5MjBhOTk3MmMwNzk5Njg4NjQwYjA4MmIwZDAxNDExYzM0MGVhMWE1M2Q1NTMyNTQwZGE1YTVjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWUxNWQ4MTk3MWM4ZGE4NTRlOWZkZmUzNDc0MmVmOTc1ZWI5MzY5ODdhYmY2ZjAwMWI5MjY3MDMxZGYxNjc0NiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L197-L212",
+          "version": "repo-lines-v1:sha256:cd7248b247e3ba0d4c50ca0db69568a35dd3578f769072562133f027d2080334:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNmU3NjZkNWIzNWU3OThjOTU5NDNjMzgwYzRmN2UxNDRhMWVhNjE4YWQ2NDNlOThmYzAxNGM4ZjVjZjliOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkYTVjNjZlMTdiMTQ1Mzk3ODM0YjhjODU0ZGM0MTkzZTIxMjUxODBhODk5NmExNGMzMTg4MzMyNmIyZWZiY2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhZDIzY2VjZWNjMjE5MWQ3ZDE5NDBhYjI3Mjk0MTgzMjA1OWJlZjhlMzYzZGZiODIwOTNiNzc0MzUyNGRjNDgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea9f66c583214389a27bd85f539c771a",
+      "statement": "After a successful Docling extraction the parent re-opens the PDF with pdfplumber for table/image typing and image bounding boxes, because Docling's markdown export with picture generation disabled supplies no geometry — this is what keeps the image enrichment path functional on the Docling route.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/enrich.py#L5-L21",
+          "version": "repo-lines-v1:sha256:721d43a22ea7e92a30a0b3203610a9011de0a8cbb310ddab8f6380edc2214747:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4Zjk0MWM5MzcyOTcwNmEzYjFiMTkxZWFmYmNjOTk2ZjkxMmFjYTQyYWE1ZDIzMWJmZDc5NmNiZTJlODhiODgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NTI2YWZkNzhlMmJiZGM0N2QwODZmNjliOTdhZjYwZTQ5MjAzZDNjNDlhMTAwMDNmNTQxNzEyODlmOTYxZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjYThjMjQ3MDMyMDgxNTg3MGRmZmQwYzNiY2U5NGVjN2RiMDRkYzcwMjYzNWU5NDg3ODhmOWM4NmQ1MGJjZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5MjJlZjQwNzgxMGE4MWRlYTQyNDI5NWMxNWM2MmU1ZWQ5MWQyYTE5OWVhMGE1NmNmYjM5MzIyY2I3MjBlMDUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L175-L194",
+          "version": "repo-lines-v1:sha256:1bd1731cbf998c10bada343ed755e46d6bbff171e38f80c956d289548c4dec11:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlZmNmOWZmODRiYzcwYjJmZTZhZmYwMzZhZGVlN2Y0MWM2NmVjZmViYmNmYjdjZGVjN2I1ODRkNTM5ZDBlZWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4ZDg2OTQ1MDE3NGM1ZDhlNTEzYTMwNzE2M2EzZTBjZDUzMjRkOTQ2YTg1MmIyNjQzY2VhYjIwZDI5ODA3ZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmODRiYWIyMTU0ZDM4OTNiYjExMDIxODFiYzJmYzA2MDc3MmYyYmJmNmM4NTE1YjdkZDFmYjJjNDNlNjMzYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViODhlNDY5NTgzNDY4MGYzMGI3NmM3NTI5NzQ1YzYxN2IwOTg5MDEyMGE2MmI5NWJkYzEwMjE5ZDc3NTIzYjIifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L26-L47",
+          "version": "repo-lines-v1:sha256:f8c6c7abea2125cebcc19b743edff07248afe4dca4ad0f9d6fb0f8e41222ca0d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1YjI0Mzk1NDlhNjU5NjAxY2QzMjkzMzczMDgzZDVkMmZjM2RlYjYzMzM4Y2E5OThhM2I4NDNkZGZlZDA4NzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUxMDI5NWQ0Nzg0ODM2MDlhYTI4ZjU0ZWQ3ZTNlN2RhM2JmNzQ2ZmExZGRlZjgxNTBhYTc0NmE2NWUyNGNlNmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlhYTVkNTVlY2UwMDBhMDQ4ZmZmZmI0YzJiZTk3MjJlNmQ0ODJlNjJlYWUzZWQ1YTkwODc2ODU3NDUxN2E4ZDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjMjBiNDg2NjE1MDJkOGI3MGU2Y2QxYzdlNmU5NTAxZjU0Y2I0ZGM1ODQ0NTk2ZWZmMzgyYjMyOWJhZjc1OTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e306afc2ea754334bbdc8dc11636d7e9",
+      "statement": "Text blocks derived from Docling markdown are assigned page 0 because the batch markdown does not preserve per-paragraph page attribution, so the page is left unasserted rather than inferred.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L178-L182",
+          "version": "repo-lines-v1:sha256:fffe16f811870841322f64da8a953793c41c76ed0c681b679160256eb319790c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmViYmQwYjMwMjJlZDYyMmRmNGE2NmExZWEyMWUxMTllZmI3N2ZmYTkwZGViNDhhODFkYmQ1ZjcyYTBkMDg1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjhkMjA3NzBjNTk2YWY1MThiN2FiNmMyYTZjOTdkMTg2ZDg4ZDFiYjUzOTIyMjU4MGFjZjMxNGFjNzc4NDIyNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWUxNWQ4MTk3MWM4ZGE4NTRlOWZkZmUzNDc0MmVmOTc1ZWI5MzY5ODdhYmY2ZjAwMWI5MjY3MDMxZGYxNjc0NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjYwMDVhMDczMzA4NTM3YzIyZTY0NDgxMWNmMjFhN2Y1ZjM0MzlkZTk2NzA0YmExMzI2M2QyMGM0YTA5M2Q5NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2aabf1b69e5f43f9ba8d5264fd550e22",
+      "statement": "Docling-route image placeholders are emitted in the same [[IMAGE:p=..;idx=..]] format the legacy chain produces, so downstream stages consume an identical ParsedDoc regardless of which parser produced it.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L183-L194",
+          "version": "repo-lines-v1:sha256:291de811384273da12fa43db3764a86e38cabb0fa9f0b7a55778f8ad999df1ef:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlMmI0YWI5NzBlNDliZjE5MzFjYjU3MTUyNWE1N2M3NDkzZjg3OWYzOTBmNmM0NWRjZDhhMzI4MmIxZWVhNTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4ZDg2OTQ1MDE3NGM1ZDhlNTEzYTMwNzE2M2EzZTBjZDUzMjRkOTQ2YTg1MmIyNjQzY2VhYjIwZDI5ODA3ZjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ1ZjU2YjQ4Y2Q0ZjhlZDgxYjRkMmZkZjQ2MDRjMmI2YWM5MGI5ZjUzNzljMTg1MjI4ZDhhMWQyZDE1ZjZmM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViODhlNDY5NTgzNDY4MGYzMGI3NmM3NTI5NzQ1YzYxN2IwOTg5MDEyMGE2MmI5NWJkYzEwMjE5ZDc3NTIzYjIifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L50-L62",
+          "version": "repo-lines-v1:sha256:01ea5f24ed9114127a649978b97463ad648649a1472c559c7d705cb5889c706c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3ZDQwZjgwNjgxZWMzN2I2YTRjMGRlZjViYjAxNzMxM2Y4MWUxYWJiNDFlZWI3Y2M2N2E4MDJkZjZhOGU0NzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdjNzUwZjAyMDM2ZWU2MjBkZWZmNzdlYzZmNzkxODE2MTc1NjI4ZTQzOWU0OTM5ZGIyMDUzZTJlMzNmNTBiNTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0Y2JhNTIzZmZjOTljMjMzMDk3YzQ1ZmQyN2M3NzFiMjI1NTc4YWRmZDU5MWQyMzAzODQ3ZjgxMGRmZDc5YmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwZTQ2YmI3MjVjM2FiYzRmOTAwYzg2ODA2NDc2OTQ5MDBkMjE2MDBkYjg3NTBhMzRhYzRjNWUwZjEwYTQxYzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4539625232994f5283b70b9176731c1a",
+      "statement": "The temporary markdown file handed to each worker invocation is deleted in a finally block regardless of the batch's outcome, so a failing or timing-out batch leaves no temporary files behind.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L149-L163",
+          "version": "repo-lines-v1:sha256:9c4af41688a5be6354acaff7d4dff9a2a197089d4487388c35fd0a49b8642812:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyYTMxMmRkYjUxNTk1ODllZjhiM2QwN2EyNGYzMGU1N2M5ODA4NzQ4ZmNkOThjMzEwMzJiMjMyOTc2ZTBiM2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZWM1MGM5NjU0NDFlMGUxNWQ3ZjI3ZDc5M2QxZTg0NjhjY2M5MzczMWI5OGJiNDFhOWEwYzY2MDUxMDhjNWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkMjIyOWQ3YTQ1ZDkxZGVlNWUwNjBiMzRhNTJlNWMyNzFkNmMxODE5ZDgyNmU3ZDMzMWNlYjZhZTQwZmFjMmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmNGY2MzU1YzVlNTg3ZjY3MjM4NjFhYmExOTMwNjU2Yjc0NDJiZjFkY2FlYmIyYTY2ZDA0ZjRlMDU3NmNiZjcifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:1d69e080b5438571df6c355aaae35988dfb34799131334841cefde79f9b66a5b",
+  "claims": [
+    {
+      "id": "claim_849893926f3c48d096e1df85fd388c05",
+      "statement": "Triage enumerates the corpus directory non-recursively in sorted order over five admitted extensions (.pdf, .docx, .pptx, .txt, .md), giving a stable and reproducible document order across runs.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/triage.py#L38-L41",
+          "version": "repo-lines-v1:sha256:6b108f5450bea76cb52763dbe343bc9cd71f3b7e7ab4772f32a54497cec5eac2:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTRhZmQ3YTQzZGI3ZWU3ZWQ3ODZkYTU1MDAzM2YwMTIyMTNjYmExNmFkOWFjNWQ3YjlkYmFlZTc0YzY1MGY5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWIwMmY5MmQ4NWNlMWQzNmFjYTU0NWNkYTdmZTBhN2RjMmNmN2IzYjZkOGJiZmJhZWQxMTk3OWI1MGMwYjIxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzI5MzQyY2FmZWQ1ODdkODdkMTE5MzkxZjQ5NjZkOTVjMjU0ZDgyYjk4YTgwZTgyZDUyMDQ1MTUzYjFkNjJkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bf40319235914a13a7332f220bbc669c",
+      "statement": "Triage classifies PDFs into scanned, born_digital or mixed from words-per-page and images-per-page thresholds computed with pypdf, and returns the `unreadable` category rather than raising when pypdf cannot open the file at all.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/triage.py#L7-L36",
+          "version": "repo-lines-v1:sha256:a9a1b66098ca0735f0416e27380a9c49769276bdbb3843663b867c4304655f63:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxMTM0MjNiZmU0MzlhNjZhNTU1NDJhMTdlNWEwZGZiZDU3OTAzM2FjNzFjYTdhN2JmYzIyNGJiZWNiOGFkNDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YjVhYWMyMGJhZjJhYzIxZTIwYTQzNDI3MzkwYWJjMTZkYjY3N2Y5Nzg1ZWU2YmI3ZWVhZjE3NTUyOGI0M2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2M2NlNDYwOWE1OWUwZTEzODBjNGI2OTU1NDJlYmZkODllMzQ5ODgzODUzYzFiMzA0MTJjMWJiNTRmYTlkYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg5MjRiYWZmNzQxZTFhNTJkNjBhNjk5NTI4MTdkNTllZWNhZDYwMGUwMGU5N2I4ZjAzNmE2ZDI2OGFmYTlkNTgifQ"
+        },
+        {
+          "resource": "repo://tests/test_triage.py#L1-L13",
+          "version": "repo-lines-v1:sha256:f353a4ae8027aa7e9dcff33dd191d48c4eb49dc59e5f1a5f79478166f143ce6d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIzYmI1OGM1NzQyNjg5NmUzM2NhOGI1ZmQ4ZTdhZjU3MzhiNjUzYTQ5ZTIyNjQ4MzkyNTM4YzJhYThhZTE4ZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkMDQ1YjlmMDE5MDBjNzMxMDk2NTk2OGUxMzZmMDYzOGU1ODllYjI0ZGY0NmRlNWY1YmI3ZGIyZDU4NmM5MjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZkMDVhYzJiMjkwMzVjYjcxZTlhNTA5Nzk2YjRlOWUxZTRmMDRiY2RlYmY4YzEyYzU3MDEyMmQ2ZDk2ZTdjYjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_365c6e026249406f8f4fcba3b70101a5",
+      "statement": "The per-page image count in triage is best-effort by design: it swallows a specific set of pypdf exceptions raised by malformed PDFs and continues with a lower count instead of failing the document.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/triage.py#L18-L24",
+          "version": "repo-lines-v1:sha256:7f5e86b16485e78c4db7ee9c6ecb0f8dcc9883f731986725292b126aa133fc0a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTFlYWY5YzdlN2NmZTc5NjIzNmUxYmM5ZDUyMzNmYWE2MmUwODEwOGFmMjU2NmRjZDVjN2Q1MTliZGRmMGE3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGVlYzUwYzk2NTQ0MWUwZTE1ZDdmMjdkNzkzZDFlODQ2OGNjYzkzNzMxYjk4YmI0MWE5YTBjNjYwNTEwOGM1ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDA2Njg1OWVjOWQ2OWYxNWQ3NTIwY2QwMDk3MDQ0OTU4MmNlMjdmN2UyYjJiZGI1OWYzMzA4MjAwOWMyZTQ2MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzZkMzU1OTU2MTE3NWQ2MDkyY2QwYWM2MmM5YjY5ZDg3ZTRmY2JiOGZjM2YyNmFiNjkzMzYwNmMyYTM5NWVhOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_288425fc34bd4c2f8411c9b9b954d67a",
+      "statement": "parse_document accepts a `category` argument but never reads it — the parameter appears only in the signature, and extraction strategy is chosen from the `parser` configuration setting and from runtime failures, so triage classification is advisory at the parsing boundary.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L94-L95",
+          "version": "repo-lines-v1:sha256:4b9eaf1590b79f0a30f3c0634ae993a18fa26decd9517912afab7631fbec770a:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWNjYWQzMDBlNDI2MjJiN2U3MTdiNDAwNzBkNjU1MDkwZDM1ZWJhZjk0MGE0ODAwOGU0NTgwYmVlMDViOWIyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMyMWM4YTRjN2IzMjhmMGJhODBmMmFlZmU0ODExODE0ZGU1N2I0YTk4MTY1ZjFkNmZmMTM1YTJkOTI5N2FhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzMxMjJkOTg4YTZiZjJkNzU1MGNiZDVjMWZkODI2MTJlMzE2Y2RiNDgyZjQ2ZWY3YThjNzMwZTY4MDQyNDU0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU5NTIyMDlmNjY3ZmEwYTg2MzJjZGVhODg3OGQyNTQ4YzBiNzM4YzA0OTYyYjkwZGI5NjU0ZjE3NTJlYzQxZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L197-L243",
+          "version": "repo-lines-v1:sha256:8517d34a4474f7fad2973e1cd5b2583057a9d84e541f9546e9577743e82c3d54:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNmU3NjZkNWIzNWU3OThjOTU5NDNjMzgwYzRmN2UxNDRhMWVhNjE4YWQ2NDNlOThmYzAxNGM4ZjVjZjliOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmNjY4Yjk1OTg1YWEzNjMzNWMwMTg2ZmQ4MmNlNDU1MGY0ZjdiZWJhNDFhMzVlZTY5MTVhMGRjNjg3NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ea3f91abd7de46c685d9037148c60932",
+      "statement": "Triage computes a SHA-256 hash of each file's full bytes, but no consumer currently reads that field; content-level duplicate detection is instead performed separately over extracted text in the corpus redundancy stage.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L91-L95",
+          "version": "repo-lines-v1:sha256:b678be996703e4a66b6e2348c969fb4221172840a80560f8d73257db53ebe740:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc3YzAwYjNmNzc1ZDgwNDE0ZmY1MmYyNGE0MGQ2ZWZmYzVmNjA3M2RlZDkzOTg4ZTIwZGIyN2EwNDlmZDBhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTMyMWM4YTRjN2IzMjhmMGJhODBmMmFlZmU0ODExODE0ZGU1N2I0YTk4MTY1ZjFkNmZmMTM1YTJkOTI5N2FhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNhMjVjOTE5ZTRiYzVlZjQ2ZDY1MmY2NmFhNTBiYTkzNDQyYzkwYWMxMWYyNzVlZmM2NTc0ZDI2MjY3NjdjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU5NTIyMDlmNjY3ZmEwYTg2MzJjZGVhODg3OGQyNTQ4YzBiNzM4YzA0OTYyYjkwZGI5NjU0ZjE3NTJlYzQxZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/redundancy.py#L11-L18",
+          "version": "repo-lines-v1:sha256:5a5a26ef9053905e983c1c3329d191fcaed8898dfb2948fb16bfe7fee7e4a433:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc4ZWIwY2M1M2E4N2RlYzc5OGQwZGE4YWNmZmIxOGMwODVlMjVjMDI1YWJmOTZlOTA4MzIzZmZhNzBiOTRmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOThkMzYxNjhiYTAxNDFmZWFjOTM3Yzg3ZWUzY2YxNzUwMjIwYTQxNTk0ODcxOWQ0NzExZjY1M2E2MmQwYjVkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWJjNmQyYWI3NDNmMDQyOGJjNGM2NDVlMDI1OWM5YWQ4Zjc2NDNlZDA3YTBmNjEyY2Q5YTIyMGUyOGNhZWUyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U5ZmIyOWUwMjkyMzViYmExZDJkNjM4MDY5YjU0NDViNzM4MTQ0YmI3ZjIwMmU1NDg1ZDAxZjFhNzIzNzUzYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L4-L10",
+          "version": "repo-lines-v1:sha256:ec5966dc84d1e2ac67dbfc95902aa82273557881335ba799ea96f7984d6e7826:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjBjZDNiMjVmNGVkZDQ3ZTcyN2Y4NmRkMjAxZDY4N2VhMDcwY2U4NWViZThjNDRjOWQxYTJiZDY0YmQ5NzRmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNiOWQzOTEzYjNlOWIxNDVhNWI2MWY2YjYyOTZlNGY0NTg1MWJlYzBhZDgyOWY0NWYzMzI1ZDA0Zjc4OTFjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTJkMzQxOWU0YTFkNWYyZDI2ODU4MTkwODE0ZGQ2N2E4NGMwMjU1NDE5ZGQ3NDMxZWMxY2U5MzE3ZDI2MTIxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzMzZjVlZTAyOWUwNGJlZTViZjcyYTdmODcyMTg3Y2RlOWRlODBmY2JiMjRiY2MxMTQwYmYxMDRhYjkxMjNlNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e90e8224fb341c4a94a9c962bddf26d",
+      "statement": "A non-PDF file admitted by triage fails every extraction attempt and reaches the terminal branch returning empty markdown with parse_confidence 0.0 and a single `unreadable` block, so the run flags it `unreadable` rather than `processing_error` because nothing raised — in practice only PDFs are actually scored.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L96-L105",
+          "version": "repo-lines-v1:sha256:e228fb68c8c7e0c4b2357560aac611777361200d29554581c4cecf3c827ba85f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZDk0ODk2OWVmNThkNGUxMzQ3Y2M2YWQ4NTUxODIxNWNkMDMwOGMwYTI5ZDFjZGY1MWMxNzI3M2M2NjM4OWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2MWNlOGQ4OTIyOWE5NTllNzYxNmY0ZGRmZWI1NDU5M2Q2MDhhYTNhMWQwMzE1NGM4MmIwNjE0Y2ViNTM3MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L231-L240",
+          "version": "repo-lines-v1:sha256:a9658b1fbb86dbc649772fed41085b8e84672c9505b28451c40c8740b4ec4382:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmM2U2YTJhM2MxZDM0MWU3MjI1OTI3NTc1NzRkNDY2MDcyNGI0NjUzYjUzZTg4NjQyYjNhMGY3NDEyZDExMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmNDMyYmEwODZhYTFhMzY3NmMwYWFhMDFkNDc5YzY1YjZjYWIwYmRjM2JkN2FjY2FmMzNkNzRhZDY3ODE3YTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1NjliODk0Y2U0NDkxNTM1MTg4OWEyMTI0MTdmNDY0Y2MxNjVkMGE3M2NhOGNlNzAwMDA1MzUwNjBmMWNmNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg5MTI1NGU1MjkwNzE0MTAxZDE5NDg4Y2Y5NjEzZDUwOTBmNmM4YTRiNzNhMDI3ZDk4NzVmYTcxMTU1YmI3MDQifQ"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L11-L12",
+          "version": "repo-lines-v1:sha256:8adb708a6a1738a1a2721f6d7ffb38025a784e37de099b5785d3124942923a64:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM2Y2JjZTQ0NzcxZTgxNTU5YTNiMThjNDM4MGYzOGI0OGViNDQwMjk4ODkyNmJkM2Q4ZWUyY2FhMTFiNTc4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzk4OWU5NTE1M2ZiNjQzOTVjOGE3M2RhOGU5YzEyNTZlNTg3M2EzOWI3MTgxOGFkZTljYzk0NjIwMTcwMzRjZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWRiNTc5ZDdmNzgyMjk1YmRkMzE4Y2QwY2U2ZTdmOTQ4NDcwNThiNjUzODYwN2JhNzA4Yzk0N2I3NTNkNjk1MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDgzZjRiMjI5NmRiZDIzZWZkY2QyMWJlMGJlM2E4ZDg2NjU1Mjc2MDgzMTc1YjFlY2NjMjgyZWZhMzAxMzgxZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_644d97d9288743fc96329d71cfc2bde3",
+      "statement": "The extraction chain is layered so each level covers the failure mode of the one before: Docling out-of-process first, falling through on any exception to pdfminer text plus pdfplumber typing, then to a pdfplumber-only extraction, and finally to an empty ParsedDoc.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L197-L243",
+          "version": "repo-lines-v1:sha256:8517d34a4474f7fad2973e1cd5b2583057a9d84e541f9546e9577743e82c3d54:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNmU3NjZkNWIzNWU3OThjOTU5NDNjMzgwYzRmN2UxNDRhMWVhNjE4YWQ2NDNlOThmYzAxNGM4ZjVjZjliOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmNjY4Yjk1OTg1YWEzNjMzNWMwMTg2ZmQ4MmNlNDU1MGY0ZjdiZWJhNDFhMzVlZTY5MTVhMGRjNjg3NzIzNGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L149-L173",
+          "version": "repo-lines-v1:sha256:ad51ad9207b6030d9cbd7b14a75d95a26878de5bcd190ea9c92e373c80aec646:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhY2E2YTUwMGNjMjJjNmI3MDlhNzVmODlmNDFjNGE2ZjMxNWIwMjUzNjE1ZmZiZWMyZjNhNjkwYmQ5NTBiMTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYwYzUxODA1M2M4NDk3MGVkMzA4M2JjMTM2YWU2YTNiYWM3MDAxZTYwMDExN2NmM2EyZjBmOTk5Yjg5MDgwYmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdlNGMzMjg1MTE3OTU4MDYwY2ZhOTlkYWZlM2VlMjlkZTQ1ZWJhYmJjN2U0YjU0MmFhM2FkN2JjYmY1ZWFlY2YifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8643145454954b65b7da3ff41b944d9c",
+      "statement": "The parsing chain never raises: the terminal except branch returns an empty-markdown ParsedDoc at confidence 0.0 rather than propagating, making an unreadable document a result rather than an error.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L231-L240",
+          "version": "repo-lines-v1:sha256:a9658b1fbb86dbc649772fed41085b8e84672c9505b28451c40c8740b4ec4382:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmM2U2YTJhM2MxZDM0MWU3MjI1OTI3NTc1NzRkNDY2MDcyNGI0NjUzYjUzZTg4NjQyYjNhMGY3NDEyZDExMGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRmNDMyYmEwODZhYTFhMzY3NmMwYWFhMDFkNDc5YzY1YjZjYWIwYmRjM2JkN2FjY2FmMzNkNzRhZDY3ODE3YTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1NjliODk0Y2U0NDkxNTM1MTg4OWEyMTI0MTdmNDY0Y2MxNjVkMGE3M2NhOGNlNzAwMDA1MzUwNjBmMWNmNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg5MTI1NGU1MjkwNzE0MTAxZDE5NDg4Y2Y5NjEzZDUwOTBmNmM4YTRiNzNhMDI3ZDk4NzVmYTcxMTU1YmI3MDQifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L110-L116",
+          "version": "repo-lines-v1:sha256:b86b44c82f628117ac2f48c1943ce112a64125fa149acb564267325cfcd9b4dc:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2ZiZDk3NzNjMjZmNzhhNzk3NjUwMDM1YzdkZGI4ZDAzNGRiMGZjZGI3OTNjZGZmNGVlM2FkYzVmYjQyNzA2MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDBiZGVlM2RiN2QyMmFkMzZkNzYxY2NjNjI1ZjIzNmFjMjA1Yzk2YTc1YzUwNWEyYTQzMmJiZmVkMWQ1ZDc5MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjczNGVmZjU0MTAyZjU5OTEzNTNjNTk1NjZhMTg3NGI1YTU3MDNhNDZjNzE3OTUzODRiZDQzNjRlMTIwNGIyZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_63dd4242374240cba2221b62b7eced18",
+      "statement": "All extracted text passes through NFKC compatibility normalization, which flattens ligatures and other compatibility forms while leaving French accented letters unaffected.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L10-L13",
+          "version": "repo-lines-v1:sha256:b1e68f93d74ff217902869361ddf2ed6cbf03abc1209ea0edc952d327f27f3c5:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI0NGNiZTcwN2FlMzFkMmZjYTQ0YTZmYWU1ZTliNDYyYzI2MWUzOThkNDNiZGQzNjEyNWI4MTMxOTgzMjQzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDM0OTRmZTM4ZTg0ZTllZjllZWVlMmFhZDAwMmU3YjdjMjkyYWEwNWNjZjhhMWE2MzQ5MmViMzNiZWM5NmM3MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTgwMDgyNDljYjRlYmI4MjY0M2RkY2QxNjE3YTFjN2EzZWYwYWYwMTU2ODkyYmFlYmQyMmJiZTMyZDYzOTU4NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjRhODg1YjczOTgxZTgyNjhmMGUzNzQ5ZWZjMmQ1MzkzMzE3NzkyYzZiZWVhZGQ4NTRmNjRjMzg5YTRlNjk4NiJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L14-L20",
+          "version": "repo-lines-v1:sha256:1dcc113fd286f45aa682b9447c0fbf30f339ed64a1049f1334ac0e434a1f4d12:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDEwZDc3M2Q0MmE4YzAyN2I2MTFmNTJjMmRiMjQxNGQxY2ViZTEyODkzZjIxYTA5NTZlYTI1ZWJhZjE2NTE1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2Y1ZWQwZTE1MGFmNDdlOTdhMTllMDkwYmE3MzBhYmQ3MDI5MzMzNjQ4NmQ4NTA3NmYyZWY5NTYzZjM2OWQ2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTJkODM1YTE0NjQ2YWU0NDJmNjQ5ODc5ZTM1MWJmYWM0MzRhNjgyZDA3MmYwYzYwYjhlODc3YTE2ZmNmYTYzNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_849b7a1aae354b3f8f8ce851041c7d53",
+      "statement": "Both pdfplumber extraction paths call page.flush_cache() after each page because pdfplumber retains the parsed object cache of every page it touches, which would otherwise exhaust memory on documents of several hundred pages.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L103-L104",
+          "version": "repo-lines-v1:sha256:c0c6666fead2e1de7ad04ffc1d32bdee806dc9f48140c3c2a0a037092aab7a78:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjgxMGFjOGUxODY4ZTNjNWQ2MTlhNGQ4N2ZiNGQ2YmQ2N2ZkNDU0NzU3NDY4ODFlM2FkMzczYzY5YjUyMDliYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjEyMzI0YmRhNGQ5YjcwZTg4NWU4MjNhNjI0ZjJmNzBlOTAxOTFjMjM0OTVhMDBlOGViYTFjMmZjMTBlY2MxOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWVhYzk5NGZiN2IxMDk1YjQ3MzNhZTI2M2Q2ZWU3ZGU3OTU3YTc4NzFlODgyN2I4YjY3ZTY4MjQ3MTA3ZTNmMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGU0MTFlY2RmMTdhNjIzOTkxZWRjODgyYmUyYjFiZDJjMTRiNjg1NGEwN2QyYWU3ZDBmMDZmMDNlYjc5YThkMCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L43-L46",
+          "version": "repo-lines-v1:sha256:6cde0ca711adb618b2ccc8b9baf2d00c1bf360facfd0ecbe2f3719e8b796ae5e:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDVmOWU3YmEzMGQ2ODVhZTk2ZjlhMDI2NmQxZTY3OGRjZmRlZDAzODk2MzcxMzExY2IxNGY1MGMzN2YxYmZiOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjEyMzI0YmRhNGQ5YjcwZTg4NWU4MjNhNjI0ZjJmNzBlOTAxOTFjMjM0OTVhMDBlOGViYTFjMmZjMTBlY2MxOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWVhYzk5NGZiN2IxMDk1YjQ3MzNhZTI2M2Q2ZWU3ZGU3OTU3YTc4NzFlODgyN2I4YjY3ZTY4MjQ3MTA3ZTNmMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzRjYmE1MjNmZmM5OWMyMzMwOTdjNDVmZDI3Yzc3MWIyMjU1NzhhZGZkNTkxZDIzMDM4NDdmODEwZGZkNzliZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_137318fd378f49c99e13d033e370fb06",
+      "statement": "A font-mapping failure produces text that is present in volume but unreadable — (cid:NNN) tokens or Unicode replacement characters — which length- and structure-based confidence measures cannot detect; cid_failure_fraction measures the share of text occupied by these artifacts to expose it.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/signals.py#L5-L21",
+          "version": "repo-lines-v1:sha256:3a6b8a0303948b9d51043f0e4c39051eb9a56611d33344d2bea213244011625a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAyZmFkODMzM2M2NWI4ZjczM2FkNTJhMDJhODc2MzAzZGRmNDg2ODY2NDNjNjJlMWZmYTRiOTJiNDMyZTg2ZTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4NzIyOWRhNTg4YTkxMjQyMGZjODhmNmM3YjE1MDg0ZTQ2ODM2MDIyNzY0OThhYjdhOWNiZTE1ZDA4ZmYyNWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyNWRhNDY1NGY4OWJkNmQyZWI5ZDE4MjM5YmRmNzMzMzQwMzNiYmJjODM3ZWYyMjU1MDhiOWViMzk4ZGFlZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjNjFkOGYxZDkxZDU4Mjk4N2I4OGY2OGM0ODEyNWE5YmU1ZmFkZjBmZDIxZWYyYWU2MjEwM2YwZWVlM2RhYTgifQ"
+        },
+        {
+          "resource": "repo://tests/test_signals.py#L7-L25",
+          "version": "repo-lines-v1:sha256:ce6942fed09b6d66f628d368421cbd396d18a6704e9b814f9b87f300b1dfaf36:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhNTk0NGRjZDk3MmRmMzUzYjhjZTYxOWYyMzZjZDUwZjg1YmMxMmNmZjlhNDE3N2MwODBjYTI1YmZhOWY5NmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4YTMyOTdiMzljODQxOTIwMjUyZTlmMmM0MzY5ZjYwNmY4NWY3MDdjODQwNDRmOTQ3ZDI2NTZhNTNjNzdiNGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2YzYxMDFhYzhjNzMwMGVhMjQwYWI1NDQ3NDNjZWFjOWI0OTgxYTlmZDFhNDAwMGQ5NDRiMWM3NGM4OTRlODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVmMDZmNWNiOTc5ZjBlY2JkMDZhOWFhZWY2MjY4OWQwNDA0ZGI2NTA1ZjIzZTQ1OTRmNDI0MTNlOGQ0ZDY4NGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a860ccf11d8d462985d34a1a6d1dddc2",
+      "statement": "Above a cid-fraction threshold the chain attempts a pdfplumber re-extraction, and _better_extraction adopts it only if it STRICTLY reduces the cid fraction, keeping the primary result on equal fractions; the attempt is wrapped so a failing re-extraction leaves the primary intact.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L112-L125",
+          "version": "repo-lines-v1:sha256:eb1ffbe75d5d51f574d5f26f5e6287883d195f565a9cf7d6822758ba2c3a058a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2YWE4Nzc5ZWQ1MzQ3ZGZiNjA1ODMxNWZjNWI5YjRjNmRkNmM2YjhkMjAyZTAwN2QwM2M1YjI0NWMzNGFmNmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ4NDYwMjFjYzIzYzRhMTU3ZWFkZTJjZGRmMjUzMjJhNDM5YzFjMWUxNzE0MjJhMDFlMThiMGVjOWY0ZThiOWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI4NzMzMGIzNTAxYjQwMTRjZmFmODkwMmMzNTAwYjViNjljMTk4YzY2YWZkNDQ3MWQ0NTJlYTYxNDUxYjE1NDMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L222-L230",
+          "version": "repo-lines-v1:sha256:da3136c949ec5dc2ea83ae82e12e99e25a7c14b9e8914ed82910f61ac0e4b8d3:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTY1MDhkNDZlMmQ1YWI3YTM4OGFlZGZmZGEzOTA2Mzc2N2ExMWU1NGZlNDA1MTBmYzMwNzdkZTAwYjdjMDhhMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGVlYzUwYzk2NTQ0MWUwZTE1ZDdmMjdkNzkzZDFlODQ2OGNjYzkzNzMxYjk4YmI0MWE5YTBjNjYwNTEwOGM1ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWEyMDc4MDJlOGIxNTVkM2U2MGI1ZWFlODI4OTk4YzA1ZDk5MDhkZDNhMDAyMWRmNjEyNzY4MWEzM2VhNmI1NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzE0NWM0ZmI2NTUxMzQ3NTNmOWRkYTNhNGIwMzMwOWY1MjZkOGYzMDVmM2Q2NmY4NzUxNzI0NDQ4MGFhYmE3ZCJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L78-L100",
+          "version": "repo-lines-v1:sha256:30b9910ac11ac7b4381bdcc4abeb6bb330387cab2ce88e91b0ae1a02fdd57636:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2N2VhZWRjNDgwM2U4YTVkOGMzZmE4OWRlMTljNzAwYjhkNTIzZDkxNDQ1MTE2YzYxMjNkMGZiMTdkN2I3ZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ2ZDJjMGFhYTg5NDMzNzdjNTAxMmQ0ODk2Y2FmOGZiNTNmMDgzNmRhZTg0Yzc1MzU4ODlmZTI2ZjI3MGRmNzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiMmUyODI0ZDM3OGZhMjI5OTMwMmVlOTFmYzIwNGFhYzg4ZmMwODM0OWJiM2U3YjJmNTMyNjRiMDI1NzQwMzgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_23e64628509b4791a75c7cc368d6cc0b",
+      "statement": "parse_confidence is a blend of a saturating length component and the ratio of text-bearing blocks, then capped when characters-per-page fall below a floor (catching a parser silently losing some pages), capped again when the pdfplumber fallback was adopted, and finally multiplied by (1 - cid_fraction) so a half-unreadable document cannot report high confidence.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L65-L84",
+          "version": "repo-lines-v1:sha256:cb73d086e729227b89997ef8335f5e62850bf68759d9986380d09d4b2d24785c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjMDNhMTExOThhY2YwNTkxNzJkZDkzMjllZTBhMWVhODlhOTU5YzQ5NmFiNWQ0YWFjOGM2N2I0MjgwODQwZGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhZGNkODIzOWE3NzA4OWM5OTA4ZjliNDgzYTExM2Q2YjFiMzVkOGZjZTc1ZDE4NTM1MDRhMTQ2ODljYWMyMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMxMTc5ZDg3NGY0YjMxODkwN2ZmMDA4OGU3YjA2YmQwNDUxM2E3MWMzMmY0YjU0MjJhNzczYTUzMjFkODRjMzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ1MzllZDEzMDhlMTM4NGQ4MGEyZTM2ZjJjMTdlMTg3OTIxMjJmODE5MGI2NTRiODI2Zjk0ZjRiMDc2YzA2OTcifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L49-L76",
+          "version": "repo-lines-v1:sha256:6fecf34a475e20aa60aa963fd8cee97c0c7b1b2577ae4764da2b3e6fcfa06ddd:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViNjdlODI2NjYzYmQ5MjI3MTVmMjhhOTgwOThlZTQzMGNhYzc5MDk1ZWViZGVlNWY4ZDVmNDcyNmU2MTRmN2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA0YTdlMDdlNTI5MmQ5N2RkYmI5OTRlZmE0MTJhZWU0YmI3Yzc1NzdjOTQ5OWI2MzUyMDEzOTJkZTQ5ODNiZjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI3MWZhYzdmMTNjMjZlNjZlZTZhMmFhZjM5NmUzZGZjN2ZkYTIwYjQxNDRkYjViMDZkYjZmZTZjMDQ5YzcyN2IifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9b13d22c81974b55a13a68d1911ec0a2",
+      "statement": "On the Docling path fallback_used is always False when confidence is computed, even if per-batch pdfminer fallback fired inside the Docling extraction, so the fallback confidence cap never applies to a Docling-parsed document and degradation there surfaces only through the cid penalty and the per-page cap.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L164-L171",
+          "version": "repo-lines-v1:sha256:30dbb10c1217128d869ab1eb9d5c32ac0f9c40f072b43311a362c3e7d2153e1f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGJjYTE3NGNhNjBjOGQyMGY2YzNkNWJjMTQyNmQ3OWVlYWM2ZjJjMDIxYjJjNDhhMGYxYjgwNDRiMGRjZjUxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGMxMmMxYzUyZTA5MGYyYWZhYWFhMjFmZTEwMGMxNDg5NmExNjA0NTg0MGVmMTNiYTAwNjczYmY0OTdhMWJiMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjFjYWExMmJkNTFmZDhmZjgwYWE1MWFmODI3ZDY3ZWY1OGEzZDkwYmM0MDUzNjgyZmNkODMyYjkyMzdlMTlkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmY4NGJhYjIxNTRkMzg5M2JiMTEwMjE4MWJjMmZjMDYwNzcyZjJiYmY2Yzg1MTViN2RkMWZiMmM0M2U2MzNhZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L200-L209",
+          "version": "repo-lines-v1:sha256:722c3918910c9c60ed16f9e7d26a1445a415c83bd07f86b9e5f90c74b4b6c94f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YTQ5OGY1MDQyOGIyOGQxYTQ1MmM1YmJiMmVjMGM0MTY3YzgxOGQxYThhZDg1OTg4ZWYzYmE0OTdiOGUyNzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlNWU1M2RiZDE5MmI3YTNmYWQzMGUxYTUyNzg4MjdjNjE4Mjk5NzY3YzFiMmViYWM4NzUyZmNiYmYwZjM4NWMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0MWM5ZTdkMzIwZDFkMmUwNGVmYWZkOTEyOGRhNzk1MTc1ZjRlZTM3MGQxYjBjMTRlNWJjODZmZTY5MTExY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRiM2Q1Mjg4OTNhYThiYzlhZWZiNDdiOTVmYTEzYjYwN2NkOGNlMzUxM2ZiYzAyM2I1YzNiNGYyYzYyY2QyZDAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d2d2bff664084d278632a214660b31f6",
+      "statement": "The legacy chain assembles markdown with [[IMAGE:p=..;idx=..]] placeholders inserted in reading position, with images sorted by vertical position within each page, which is what lets enrichment substitute descriptions back at the correct location.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L39-L42",
+          "version": "repo-lines-v1:sha256:fa3a1316417a66127dc00db8839010e4281e409cf117a36903cec56f73211844:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWUzYmY3NmFiOTMzZjQwMTNmMDMxMGU0MThjM2FjYTQ5ZTY4MjRlOWYyZDgxNGE3ZTU3NTNjNDRhZGI1ZmY1MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmVkYjhkZTUxNmUzNGY1NDI5NjQzYTJmZGU1MzUyZWRiMmI1NDMzYzBkN2Q5NjMzZjFjZTYyMzQzZDIxMWIwMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjU1ODVlOWVmOWFhNTZjOTBlNTg0OWY2MmRkNGM0YTU1ZDU0NWNmYjdiYzMxYmQ4NTM1MGI0NjhhOGFhNGI2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWZlZmNjZDY5MTFlMWExOTBmZDc0OGNlY2FiNmYwMTdiOGFkZDE5YzVjZjRjZDQ1YTNkMjgxNDc3YjNhMGE2NCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L50-L62",
+          "version": "repo-lines-v1:sha256:01ea5f24ed9114127a649978b97463ad648649a1472c559c7d705cb5889c706c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3ZDQwZjgwNjgxZWMzN2I2YTRjMGRlZjViYjAxNzMxM2Y4MWUxYWJiNDFlZWI3Y2M2N2E4MDJkZjZhOGU0NzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdjNzUwZjAyMDM2ZWU2MjBkZWZmNzdlYzZmNzkxODE2MTc1NjI4ZTQzOWU0OTM5ZGIyMDUzZTJlMzNmNTBiNTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc0Y2JhNTIzZmZjOTljMjMzMDk3YzQ1ZmQyN2M3NzFiMjI1NTc4YWRmZDU5MWQyMzAzODQ3ZjgxMGRmZDc5YmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIwZTQ2YmI3MjVjM2FiYzRmOTAwYzg2ODA2NDc2OTQ5MDBkMjE2MDBkYjg3NTBhMzRhYzRjNWUwZjEwYTQxYzIifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L36-L47",
+          "version": "repo-lines-v1:sha256:eaa0009ca0b38fab7bb8715453afdb51a4ed54cbfed9acdb21d65852094c0f3f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxOGY3NjhlOTY2NDljMWNiMGU3M2NjYTJiMzc5MDkzMTNiOTZiYjZiY2VjNGVkMmJlYTIzNWI1M2ZmMDlmMGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzZjVhM2QzZDIyMDQ2ZjVkNzZhMjY3ZDI5MTlhNzUzZjRjOTEyMDk0MjZlNGNlZWFjYzFkOTM4ODU3NTE4N2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhiZmM0NmU5OWNiNDA2NzIxMWY4MTlhMjdiNTNjNDUzZmFiYjdhYjZiOGYxZmMzNjYxMzYxNDEwYTY2ODQ2YjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5cf0f112271e4c1ca376fcb87b9fe4a8",
+      "statement": "doc_id is derived from the filename stem, so two corpus files differing only by extension collide on document identity and on output filenames.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L197-L200",
+          "version": "repo-lines-v1:sha256:f5bd8a769d8a2847f7f78a12f057d52fdad54b240aaacab4a574cff5ae9482e3:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWY2ZTc2NmQ1YjM1ZTc5OGM5NTk0M2MzODBjNGY3ZTE0NGExZWE2MThhZDY0M2U5OGZjMDE0YzhmNWNmOWI5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjlhNDk4ZjUwNDI4YjI4ZDFhNDUyYzViYmIyZWMwYzQxNjdjODE4ZDFhOGFkODU5ODhlZjNiYTQ5N2I4ZTI3OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM4MThiMzg5MGYwOGE3NTM0OWIwZDRmMzk2MzE5MWExNTk4NWU3NmEwOTUzMmIzZDJjNzgxZjZjZTU3MzUzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGM1NTc2MDU0OTcxMzdhMzVmYzIxYTM5OWQ5NWE5YjU0ZmVkZjcxM2EzNjgzYjY1OWNiYTcwMDE2M2NhZTBmOCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L50-L54",
+          "version": "repo-lines-v1:sha256:673aca9bffe2f18be6a4c857506d771b22a417ebeb21cc4df1d1e119924adef9:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjcyMTYwZWZkYmM1YjUzNDZlOWRlZGNkZDIxMjZmMmIxYzEwODk5ZDZhZjNlZWUwZTU1NDgxMzkzN2EzNjIzMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmUwMWRlMDRkZjcyYzMwZGNlOTkxZTczYTQxNDk0NjE2MzgxNzFkNDA0ZGVmOWZlYWNlNmVhYjJkYTE0NzE4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGUzYThmM2ZjNjIxY2I1MjE1NTM0MmMzODYzOWFkNTJiMmM4N2QzMTkyYTM1NTIwOGQ1YTNlM2RhYmQ3ZTE5MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjczZDE5OGNlMGZmMDBjMGNjY2YxOTYyNWE0ZGE5MjAwMmVmZTc0N2Q4ZDM1NjNkYjc0YmM0YWRkZTlmMmNiNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L7-L10",
+          "version": "repo-lines-v1:sha256:8dc227c316413e3566b06b485b4cd4f05882c55cbdbc541f8cf828b85781d586:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDExMzQyM2JmZTQzOWE2NmE1NTU0MmExN2U1YTBkZmJkNTc5MDMzYWM3MWNhN2E3YmZjMjI0YmJlY2I4YWQ0NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNiOWQzOTEzYjNlOWIxNDVhNWI2MWY2YjYyOTZlNGY0NTg1MWJlYzBhZDgyOWY0NWYzMzI1ZDA0Zjc4OTFjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTYzY2U0NjA5YTU5ZTBlMTM4MGM0YjY5NTU0MmViZmQ4OWUzNDk4ODM4NTNjMWIzMDQxMmMxYmI1NGZhOWRhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzMzZjVlZTAyOWUwNGJlZTViZjcyYTdmODcyMTg3Y2RlOWRlODBmY2JiMjRiY2MxMTQwYmYxMDRhYjkxMjNlNyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

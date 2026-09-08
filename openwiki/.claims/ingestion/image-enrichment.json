@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:a55feeb6e4e038a1e9d472a1b8d980788dc8c5137845b9781e2cf9ebfe08f544",
+  "claims": [
+    {
+      "id": "claim_d7134f6776504568a2d295f49f51a27a",
+      "statement": "Enrichment runs before evaluation by design: the run orchestration replaces the document's markdown with the enriched markdown so that quality is scored on what will actually be ingested into RAG rather than on raw text containing opaque image placeholders.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L106-L117",
+          "version": "repo-lines-v1:sha256:e0a5b72d2cf458c6476ddc25171cfbed94fd3db012ecbeff847c59db8d0d6cd7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxM2JkYjNhNDBmNmY1ZjAwODVmMTdjYjZhNWNjNGI1ZmU5ZDdiYzJhY2Y0OWNkMTIxY2Y4YjZmNjBjNGJhYTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkN2FhZmVhMjc3OTE3YWVlOWUwZTYyNGYzY2YyMmJhMThmZDQ0ZTczZDE4NjY3NzJkZmI5MzBlNzM5ZTI1NDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyZWQ5M2I2Njk5MGEzMzAxNmI1MGQ1NmQ4Njg3Mzc1NGNlMDYxOTFmZGI2MWUwZWZlZGRiOGJhMDhhM2VhOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg4Nzk2NTcwMGZlZTZkMTAyYTE1NWU5MzMzMTJkNmU3NWZkOTJhMmNhMzk0MGY3NDM2ZGE4MWE2NDhiYzhjMmIifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L100-L120",
+          "version": "repo-lines-v1:sha256:e1e3064714fd0b2446bc9c278cada03c8c5a53af2851fcd78e07f977a08539c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2YjZmYjBiMWU5MjgwMzBmMmQ5YTk3NWY1N2VkOWY3YjdkMjk0YTgwYmZjOGZkODZiNjdjZGYxZWNhNjQ3MDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM0OGNiNjIxNGFmYTgwYWUyMzc4OTg0ODg0YzMyYWQyZmNkNDQzY2U2MTM1YTYzNDNiYmFjZGIwYTkyZjAwZWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIwYTAzZTVmNGM1NTEwNDA1NGIwMWNiM2RiMjgxYzQyZTI3NWMzMWM1OWIwZjRmOTEyZDQzMDA0ZGE3NGUxMWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_698c4a7a33024792be9b1b0d2088d2f8",
+      "statement": "The enriched markdown is persisted as <doc_id>.enriched.md so a reviewer can inspect exactly what was judged, and a test confirms the file is written containing the injected description text.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L108-L111",
+          "version": "repo-lines-v1:sha256:690f159fd60050d126de96fb3ea1be1e1a0fee9d3c44e48be5ddc73d0fd6f09a:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ1ODJhMGQ0ZjEwNDJkN2U0MjgxZWMwOGVhYzg1NjIxOWY4OTRmZDM0NGFiNGNjM2M2NmU4MjMzZjlmYjdkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdjMmQxMzYzOTdmZDk2N2ZlM2I2ODc1NjczMTcwZjA4YTA1Y2ZlZjNmYWYxMTRjZjQ5ZmMzMTNhZTNhZWFjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDBlMWMxYjY1ZDNjMDU0YjViODllN2ZlMzhjMjk5NzRjNTczYzFkZDNkNmYxYTQ2YzIyNjA5NjY1YWFhMDg0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBjOTM0OTJkZTZiNjEwMTkyNTdmMmZlOGYxMDcyMjY4MjAxZTI1MjljZjc0NDA4YzZiMmU5OTVkNWRkYThhMCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L122-L143",
+          "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8daec1e06e9f48e38aa34edf8319b4b0",
+      "statement": "Enrichment is optional and activated either by the --enrich command-line flag or by the enrichment.enabled configuration key, with either route sufficient on its own.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L164-L167",
+          "version": "repo-lines-v1:sha256:a623f593cd77bb04c2314f30ec74aaccb15d65df22a768488d80865ecce3678d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDM4ZjBiMzNiNDQ2NGVmZjYzYzFlZTFkNjhkMGMyMDMxMGQ2YWRmYjY1ZWNiN2VlNWY0MDdlMTlhMWY3ZjEwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTE1MWE4NWVlOTM0ZTRhMWVhYTZkNmMxMmU5YTNhZTE1OGVlZDE5MDdiNWFlN2E4ZjMyYTA3YmViY2UyZTBhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmI4NzI4NThhZTlmMmI0OTFlMGEwYTIyYTI1YmMyZmRlOTRmOTM4NzA4Mzc0YzFkOTFkM2Q3NzA1MDYyYTcxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTMwMTM5N2JlMTQ3ZjFjMDE4NTllNzVmMDAzMzg2ZjU0ZGQ0MjJkM2VkNDA3MzI4ODA1NGI2ZDU4NGFkNTRhNyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L80-L80",
+          "version": "repo-lines-v1:sha256:ebbf6b591e1e975834e20397cd877ab05d0bf1544830e7ec3a2efbd6b035adbc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiZjZiNTkxZTFlOTc1ODM0ZTIwMzk3Y2Q4NzdhYjA1ZDBiZjE1NDQ4MzBlN2VjM2EyZWZiZDZiMDM1YWRiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiZjZiNTkxZTFlOTc1ODM0ZTIwMzk3Y2Q4NzdhYjA1ZDBiZjE1NDQ4MzBlN2VjM2EyZWZiZDZiMDM1YWRiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzgwODMyYTc4NDIyODc2Y2JkZWEyNGZkNzMyYTJhZGY5ZTI3ZDkwYzg0ZTU1MWRhYzRkZDY5NDhjMmQ3Njk5YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmU5NWFmOWYzYmJkNTkwMmE2ZTk5NTE3YTA4ZTA5NzI5NDUwNjgyYmUzYTNkM2RjMWFlMGZlZjI5MjQ4OTU2NCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L122-L143",
+          "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d3709fd71297436da9556a3b7b77f9d4",
+      "statement": "Enrichment renders an image by rasterizing its whole page at a scale factor and cropping the pdfplumber bounding box scaled from points to pixels, rather than extracting the embedded image stream, which makes it robust to how the image was embedded in the PDF.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/enrich.py#L5-L21",
+          "version": "repo-lines-v1:sha256:721d43a22ea7e92a30a0b3203610a9011de0a8cbb310ddab8f6380edc2214747:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4Zjk0MWM5MzcyOTcwNmEzYjFiMTkxZWFmYmNjOTk2ZjkxMmFjYTQyYWE1ZDIzMWJmZDc5NmNiZTJlODhiODgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NTI2YWZkNzhlMmJiZGM0N2QwODZmNjliOTdhZjYwZTQ5MjAzZDNjNDlhMTAwMDNmNTQxNzEyODlmOTYxZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjYThjMjQ3MDMyMDgxNTg3MGRmZmQwYzNiY2U5NGVjN2RiMDRkYzcwMjYzNWU5NDg3ODhmOWM4NmQ1MGJjZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU5MjJlZjQwNzgxMGE4MWRlYTQyNDI5NWMxNWM2MmU1ZWQ5MWQyYTE5OWVhMGE1NmNmYjM5MzIyY2I3MjBlMDUifQ"
+        },
+        {
+          "resource": "repo://tests/test_enrich.py#L1-L14",
+          "version": "repo-lines-v1:sha256:a857dd3cf03cf005069782b8908d552dc764b1a2cbcf3c206e420b7efa6fb254:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4ZTZkZDA0NmQ3ODI1YzhjYmU0NjNkMjhiN2I3YjQ0ZTdiMzJlNTE3NTMxNzAxZjQyZjg2M2UyYjY1YjlkMGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3ZjEwNGFlYWFjNmE2MWUxYTMwZGVmMGZmZTNmMzM1YTkyNjA2ZDQ4ODdlODEyYmZiM2UxNjlkODQ2NzI4OGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY3YTY4Yzk4ZmQyYjZlYjQ0NzYyYjYyMGZlMjBhYzY2NDY2YzM0MjFlMzI4MDVjMzYyYmRhM2Q0ZDQ0M2M0N2MifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_22c58d2547254bfaad461ab979bc3bd0",
+      "statement": "Each ImageRef resolves to exactly one of three substitutions: an image whose bounding box has a side below min_side_pts is replaced by `[Image decorative ignoree]` with no render and no model call, a successful description is wrapped in `[Image (description automatique, non verifiee): {desc}]`, and any exception yields `[Image non decrite: {type}]` naming the exception type.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/enrich.py#L23-L44",
+          "version": "repo-lines-v1:sha256:d2c218c10177110c4fe5ac8e41ae0a7cc838eaecd184cdf4a5883db9f3de382f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxMWVkODIxNTRiMjZhNmQ2ZjBjYTNjNmUzZmIyNTFmMjkwMDI5ZjI2MDYwNDNhYTVhYjNhMDg1MTFjZDg3ZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYzNTUwYzhlZDg0YWVlZjM2MWRhNjNiZjJhN2NlN2NiMWIwZTA3NWJkNzZkNjhkNmEyZTFiMDU0ZDM5NmViMTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3ZjEzYTU0ODE4N2VmMTRlZjA3MjgwOTI5ZGFjY2QyY2Y4NjY4M2M1OWUwZDkwZjJkNjY2M2NkYmU5ODFjMmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhNjg3MzFjMWYzMDlhMjc0MDc2Yzk5YTA1MzI2ZmY2NDE3ZmU0OWE4ZjBjOGM0ZjAyZmZmODY1MjAyOTZjZmIifQ"
+        },
+        {
+          "resource": "repo://tests/test_enrich.py#L16-L46",
+          "version": "repo-lines-v1:sha256:2168e9b555c8a4290527f1d12a10a0a98d7f77b96e14e3a884dcef9fe6fec2e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQwMTcwZjIxYmMyZDkyOWM2ZWI5NDUyNjdkZDBkNTQ1NDdkNGI4OGJiNWJjY2E3MDcxZGMyMTA2NTgxMjhhMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3YWNiNzM4NGE1OTBjYzhkNTU4OGUyMWZiYmNlYWVhOWI1ZWEyMDg4NGI1ZDI3MWRkN2FkMDQ1NjNkY2Y3YmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjljNTNjY2U4YmY2OWY3YzFjYTYwMTZkNzk2N2EzZDVmZDc5MTZkMWNiZGFlYzY3OWIxNDJmNjhhMDk2OGU2MGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQyY2EzOGVkNjU5ODA1ZjFlZjBjNThhNDU5NWIxMzY1YTY2ZDI2NzlmNWYzZWExOTQ0NTBlNzk2NWY0ZmU1NTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_97185616382f4c9b9f3564eca7c44796",
+      "statement": "Image size is the sole criterion for the decorative decision, so an image that passes the size filter but receives an empty description leaves its placeholder intact rather than being labelled decorative — an explicit invariant pinned by separate tests for enrich_document and apply_descriptions.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/enrich.py#L40-L45",
+          "version": "repo-lines-v1:sha256:a47e0541bff276408bf07c73d16592b2ac71687a5d98b465dbdcb06ea8e5f5ea:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU1ZmYwOTlkMDQyZjc1OTFjZjc0NmU1NzkyZGY4MmIzNDgyMzYwNWI4MDFhMDczODI1MDgwNDg4Mzk0YzZjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZhOTUxNTJmNTA0MGIyZTg0NWNiYWRmMmNhZWY1ZDBkYmE4MjNmNjYzZTM3NGYzNDJiYTFhNTNlMjE2YWIyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDFkMDk0ZGVmZDI1Y2VmOTRhM2YzN2I3MzE0NDVmZjQyMWY2NTkzNTFkY2ZlNzJmNjFiZmU4YWJiZDBiYTkyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGEwYzFhYmQwNTQxZTY2YjZmOWZiM2QzMWIyYWQ3OTZlOTRhNGMzMTdlYzgwOWQwZjRkMzZiZjdlMjJjODgyMyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/enrich.py#L47-L56",
+          "version": "repo-lines-v1:sha256:be62ad93393167a8c817e6d5a131073bf2da231be36e91bddd5f480aaad9d383:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiYzQ3MTZjYWFjZDk0ZTZlNTViYzM4MGYwNmRjMDcxYTM2ZThlNzAwZmExODYwYmFhMWVhZDljNzFkNjUzYzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjZTc5ZDgyYjc1YzNhYjRjODQ5NmYyYWEyNWZiMDBmMmY4MGI5NTIzZTAyNDRlMjdhYzQ4NmE4OGJlZGNhOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI1NGZlOWU3YTEyMjU2ZDFhMzc5OWI1MTFkZDJhMDNkYWZjOTI1ZTQ4Mzk4ZGE0MTNkMDFjMzM2YWI5ODM0ZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_enrich.py#L48-L83",
+          "version": "repo-lines-v1:sha256:bccdc1e9bf49e3bff382980ea14a8cc616147cf814091a1fa91c2fe9e0f8231a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjNGQxODk1ZWNkZWY3YmUzZjExODU1NGY5NTk0ZTdkM2IwMGY4YTVhZTY3NWE3NWI1YzA2YmVjZDIzYTNlYWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4YjA5OGM0Y2ZjMDU1NjM1ODcxNDk3MGVjYjY2YWQ4N2E3YjI2YTQ5NmQzZDY5NDQyNWI1NzQxY2Q2YjQ1YTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY2MzZlZjAxZWUxMGRmZTIxNGRmM2UyZjVmNjcxYzZhMWZmYWQ1ZGI3NzUyYjlkYjhmNDQxMmZlZTg5M2UxOGUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMxNjM3YzFmZTRlOWIzOGJiMTc5NjFkYmNjYTliYTMxMTI2ZTBlODAwZjU1MzQ4OTY5NDY5NTkzNDQyOGEyOGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b531ecdfe66343baa112bc5bf0030492",
+      "statement": "The run counts occurrences of the unverified-description tag in the enriched markdown and attaches the count as an `auto_descriptions:<n>` flag, giving a reviewer an audit trail for how much of the scored text was machine-written rather than extracted.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L112-L117",
+          "version": "repo-lines-v1:sha256:149a5fcfb1be33fd609129fd4759b4f50c88261881348000f8456f30e07f5bf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTAxMGU0MmJlOTA2MzdmMWY3NzI3MWQzZDRkMTMyYzMyZmY0YzRiMmFlZmM4NjA1OTEyMDNjYmNjOTc0NGUxZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ3YWFmZWEyNzc5MTdhZWU5ZTBlNjI0ZjNjZjIyYmExOGZkNDRlNzNkMTg2Njc3MmRmYjkzMGU3MzllMjU0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODM1NmQ1MDA3MzNhNWUxMWUwYTBkYjVjNWIzZTE1MzRiMjRmM2RjNTVkNjM5YTQ5MDdhYTRiYjk1MzhjZGExNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODg3OTY1NzAwZmVlNmQxMDJhMTU1ZTkzMzMxMmQ2ZTc1ZmQ5MmEyY2EzOTQwZjc0MzZkYTgxYTY0OGJjOGMyYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L132-L133",
+          "version": "repo-lines-v1:sha256:2052136f45502331956cb776b81fcbef25374e1b0cb756f16fd16aac3156b145:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE3ZTNkNTMwMTBmYWUzNmM2MDY4NGMzNDhjMzliODFmMDA4YzJmNjIxMzYzMjk1NGUzODczNjZhYTU4YTk5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTRiMjgxMzljNjU4Mjc1ZGNhMTE3NGYyODVmZWQ0NWNmYWFlMzJlMTg0OWI3YjU5MmEwZmNlMmU4NTM4YzRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQ1YjNiOGE1Y2IwYzcxMWE0MWJlMGM1OGIwZTRiZWMxOWEyYTQ4ZWEzYmQ3ZTIzYTkzNjBmMGNmMzQwMGYyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzhiZTJkYWJiZmExN2ZiNGNhMDdiYjU5NTM0MWQxZTE2ODY3YTEyNGYyZjkxZTIwMWVkN2EyYmIwOWY3MzRhNiJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L100-L120",
+          "version": "repo-lines-v1:sha256:e1e3064714fd0b2446bc9c278cada03c8c5a53af2851fcd78e07f977a08539c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2YjZmYjBiMWU5MjgwMzBmMmQ5YTk3NWY1N2VkOWY3YjdkMjk0YTgwYmZjOGZkODZiNjdjZGYxZWNhNjQ3MDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM0OGNiNjIxNGFmYTgwYWUyMzc4OTg0ODg0YzMyYWQyZmNkNDQzY2U2MTM1YTYzNDNiYmFjZGIwYTkyZjAwZWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImIwYTAzZTVmNGM1NTEwNDA1NGIwMWNiM2RiMjgxYzQyZTI3NWMzMWM1OWIwZjRmOTEyZDQzMDA0ZGE3NGUxMWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_01c4e953a0c04cb48249237bec2adb6d",
+      "statement": "ManualVLM turns enrichment into a two-pass human-in-the-loop workflow: its describe_image records each image and returns an empty string so every placeholder survives pass one, and the run calls flush() when the client supports it to persist the manifest and return its path as image_manifest in the run result.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L152-L156",
+          "version": "repo-lines-v1:sha256:dda6d6a8a2864cbe30928461d3d113a3bf7ff7566dccd6858c889c2175cc66c4:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTMyMTcwY2ExY2M1ZjFhM2EzYTVhOTZiMWE4ZDg5Mzc0NDJhMGEzMjAxYTY0YmQ2YjA3YzFkNmVmOTEyOGNhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmExMWMwNTY3ZDBhNWY5ZTliMTM1ZjY1Y2QyNTM3MmRmZDYyODc3NWY3YzFlZDI1M2Y4YmFkNDJkZDJkNjY2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQxY2ExODM4ZWYxNDRhMTkwNjY0NTMyMzc5YWE5NzVhYjkwYmNlYTA0M2VjYjI5ODExNzllNmIwOWFiOTg4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWY0ZjgwMGEwOWJhNGRiMzIxZGM5NmUyZmNjOWYwMmYyMjU2ZGE2NzkyOTMwMzQ1MjQxNjY0OGUzNGQ4MDdiNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/manual.py#L30-L41",
+          "version": "repo-lines-v1:sha256:7af684d2b1af007b913fd2019868398660b6898c880614424670db2c97c77187:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJlNTJkNGVlNTU0ZDVmZTk1ZDRkYjY2ZGIyNjUzNDUxZTg0MzFiMzA5MjI0NzVkZjgyZDIwYWQ4NTI2NzA2M2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0NTdhODJlZmU0NWM1NmUxMmUyNDY5OGY2OWZkZGY3YmZjYzM0NTRiN2Q5MTYzYzM4NWUzNDE2ZmI1Y2UwZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0ODI1Yjk0ODM2ZGRhNGY3ZDExYjZjNmEyZTg3ZjdmMjA2MWNlNGJlYjE1NzhkYWU5MDliNTQ0Y2VjZmRhZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_enrich.py#L85-L113",
+          "version": "repo-lines-v1:sha256:36b0f88235c9c5b4a0485ab851b77c8332c43e53b03563de5f6296a4215dba08:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJhZTAyNDQwNzM3ZWRlODc1NGFjYjFkZGRjYjIwOGVjZmYxMWJmZTNmZDZhMWNiZTUyMzdjN2YxZjAwMWNjODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxNDM2NjYzZjBiNzc4YzU3NTE1ZjllN2RiYjU3YjNiYjY4ZmM2MzdjYzE2MzkyNDk0N2YxN2VkMGEwOTZhZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM3MDNjYTAzMTBkZDBiNjllMGEyOGFkYzRhZmEyMTNiZjNmOTNiY2VmZjA5NDA0YzdkMzRhM2ViZmY1NTVhYTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_67359aac518a471d9c2c8c348de8aa1f",
+      "statement": "ManualVLM re-reads an existing manifest at construction and indexes filled descriptions by placeholder, so a second run injects them during the normal enrichment pass and therefore before evaluation, preserving enrich-before-eval without a separate apply step; an unparseable manifest is treated as absent rather than fatal.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/manual.py#L5-L35",
+          "version": "repo-lines-v1:sha256:a5ca0ded2515e79300c77812eac7c25c2c7930ca96e9f0bec5049cac3b4977dd:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkzOGE0NjNhNGZhZWVkZTAyNDRmMjg2ODhlMTlhYmYxNzkxY2M4NzFlYjM2YmI2MWVlZmFlZjYzMDQ1MDhiMTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkZjRjZTAzMDJlZDFkOGE1ODY0NjljYWFkNTUxMzk2MzNiMTBlZTYxMjBiYjk5ZTVmYjg2MTA1ZWQ4NzhmMmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE2MzBlNDhlZDQyYTFkMDkyZWVhMWQ5NWU2MmZhNjZlODUxMDI3Mzg3MDZlZTYzZjAwMTYzOTkwZGViYmIwMjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4OGY5ZDVhMGU4ODBjNzIzZjE0NWY1YzFkNGViNjA4MTg4YzRkZmQxNjg1MGI0MWI5OWVkZDc4ZjA1MzY4MjgifQ"
+        },
+        {
+          "resource": "repo://tests/test_llm.py#L58-L73",
+          "version": "repo-lines-v1:sha256:21430b718a9d1e53504a234a62256cf27fa23712cfd80ef9463d61b613d63033:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmMjI1MTQ1MTAxYzY1ZDNkZTU5M2FkMTYzNDA5NDJiNWI0MGZiOGEzYjg1NWQzMThmNjE1ZGNiMTZmZGI2NjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjMGE4YWQ0ZDAwYzY1MThkNjU1ZGU4YzhlMGQzYTM5MzA4ZTRiOTQ1ODZmNjgzMTI1OGQ4MTdiMzA0YWNlMTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlZjRjNTA3MzlkNWMyZjQwM2UwMjkzNjkyNDExNWZjNDNkZmU2ODk4YjU3ZTE3MzY1MjVlMjg2N2I1MmIyNDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4bad0167364c41719813cd42504f2c63",
+      "statement": "The vision client is constructed from the enrichment.vlm configuration block falling back to the main llm block, and only when enrichment is active, so a different provider may describe images than judges text and no enrichment credential is required for a plain run.",
+      "evidence": [
+        {
+          "resource": "repo://config/config.example.yaml#L26-L33",
+          "version": "repo-lines-v1:sha256:256f641b9352b63090c69d298a60d0a31e908de368578f9bf7d44f4126582551:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc1NGY0NTc3OTFhN2Y5ZmM2MzUxYTcyNDZkYjVjYjZkNjU4NGUyNDRmMTMwMWI4OTFjYzE4NTJjZDE0NzhiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyMTExNTFiOTljY2U5YzdmODYzN2RiMjQxOGFhMDY5NzU5OGEzMWJmYTFmMjdmNTU0N2Y4NTVkMGQ5ODI3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWZmZGQyNjA5ZDk2NzA3Zjg1YzdjNmM0MjZmOTA2NWVjMjZiZjcyM2YyYTM1OWI2YjFlODVkOGVhNThiYzAwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWY2ZDQ5MWJiNDY3ZTlhZGJiODA0YWYzYzU5ZjVlNGVmZTMyZjc0MjA3MmRjYWM0YjY2YjJhYWMzOWI4M2M2MiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L81-L89",
+          "version": "repo-lines-v1:sha256:21db45f4074156bffbf73c0fd4a3516dd20509d6670d49e796b27e212155252a:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI4ZDU2MTNmZDUzMmMxZjFmODlkMWZlYTAzYjc4ZDQxMTAzZjAzZWEwMjYyMGM5ZjFhNWJjMTFiYTNiZjY2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2YxOWI5ZWQyNWMyNTUzY2U4NWU5YmJmODIxZjljY2ZmZmZhMmMwZWY1MzU3YzlhMzgzZDY3NjZlYTVmYWIwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTU0YzMzMzVlMmQzMGFhOGUyZDEzNzdlZWRkOTIwOTI0NmZhZTNjNTM0NTYxNWM0MWI0ZDkwMmVjZGFmMDQ0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGY3YTJiM2M5ZjEzMGQyZTE5ZjE3ZDhjZmFmYjkxYzUwMzEyZmM0OTY0ODY4OWJjOGY3OWFiYmUyODg0ZjYxZCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L122-L143",
+          "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:8f1283c168e910296c8b8cc001d16becf77fc5bcac5a11eea200e2d4ad94a35a",
+  "claims": [
+    {
+      "id": "claim_bed408509cb741408464306f95ead2b6",
+      "statement": "The evaluation grid is data rather than code: the 57 criteria, their weights, dimensions and the scoring scale are declared entirely in criteria_registry.yaml, and no pipeline stage hardcodes a criterion's identity or weight.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/registry/criteria_registry.yaml#L1-L30",
+          "version": "repo-lines-v1:sha256:8630b3f5e88bbd3e8854d4b6d4ed1f722d63f4b4ab21014227b52c0843d613be:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5YzdlNzdhNTc2MjRhMjFjNjVmNzM3MDc0NjkzMTczZjM4YTcyOGE2ZWNiYjJjY2ZjODAwNGNiMDRmNGQzMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2MDlmMGZiOGUwOTczYjNmNWMyY2UyYjA5NTRlZmU2NWQzYjU4MjUxYjQxNmZhYmYwNWIzYTUxZjY0ZGZmYjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA1YTEwMmZjYjA5OWE0NjE2OTFjYzAwZTZiNTJhMDc0ZDgxZjE4MWMwZjJhMmYwMzNhMzkzMWRmNjY4YjE5ZjQifQ"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L1-L32",
+          "version": "repo-lines-v1:sha256:904e857dc23e9a30c9b1510958afd6edf4c4fd55256b0af71c4d90e631353ad9:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjYjlmZmNjYmE1MTQ2YjJkZDE3N2EzMGMzMDU3YTQzOTVlYmQ1Yzc0NWQwNzg5ZDJlZDk1ZDBjZjRhZmUyNzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNTlmYmYzZDE2MjE3N2QwZWVhYTY5ZTcxMjMxNDRhN2RjMWZjMjUwYTg2MDExZjMzMjZiMWViOWRhMjgxYjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_registry.py#L4-L7",
+          "version": "repo-lines-v1:sha256:d415f7cd829977fa470a31ee73b60205308c246398febdb5485244d4b0eef535:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2FhZWY2MzI2Yzg0OWNlMzQ1NzAzOTQ3YjIxNDU0NDU1NjZkODljNTA5ZjYxMTk4MDY2NDM1MGIyMGJiMTFhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2ViOGQ2ODNiMWJlOWY5ZWVkOTc3M2JiYWY0NjJmNGMzNGU0MjVhZThkYmJkM2MyNWZlNTk2MjM5MGQ5MGNmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTgzYTQyYmM5OTIzNDAxMWY3NTJjZmQ4MjYxNWIwMGE0OWMyNGMzM2JjNTdkNGRiM2JkMWM1YzUyZDE0Y2JjMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2c8602974f794c0aaa4b8c2260925f0a",
+      "statement": "The registry declares eight dimensions whose weights total 31, a total pinned by test as a guard against an accidental edit to the balance of the grid, and dimension keys are strings rather than integers.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/registry/criteria_registry.yaml#L13-L14",
+          "version": "repo-lines-v1:sha256:1e8098a301ca5ddbbc8a1b0c18df47ebaf0ede58182f8bea28131256e675ba13:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGExZTA5NzBlNGRlM2UxMGMwMzEyMGU5OGYxNDE4NmFhMWZiNjA4MzA0YmIzMWU2ZmU1ZTE0OWQxYTA4MWZmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjFlMWZjMTAwOTFmYjZiZjAwZDVkNWFhODk1MzBiNDljYjBmYjNhMWIyYmE0NzI2MDViN2I3M2Y2MDNhMzZjOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjdlM2U5YWRjNzdiODNiMDk1NzE5OTIzOWQzNWNjZDRlYjk2Njc4ZTMyZTg4YjM4NDZhMTU5YzJiOGFjMzM3MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGQ3NWRiYWEwNTVjYjRkOGQ1ZGY5NzgxMGZiMDkxOWMwZjJhNDQwMTdiNDE5ODhjZDA3OWQ0YTIyMGMzZWMzOCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L17-L20",
+          "version": "repo-lines-v1:sha256:1ca407567e91fa019b2843eefebeb6d1409eb3a0b1967c8ecc191c5309cff299:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUzZWEwZjI2YzQxM2Y1MzQyODVmYWI5YTUyNjdlZjU3NjdlZjBiM2E5OWY4ZmE0YzVmMmZhMjQwODAyOTVkZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTFkODEzODQ3YzcyZDJkYzliODcxMTEyMGZmYTYwMjEyNjAyOTI1MjA1YzRiNjc1MDY0NDgyZDI1NTMyM2ZhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGRjNTRhMTEzNmYyNTNhYmNlOGEwNDY1ZTk2NDdmZTNlNjExNTNiNTcxNWZlOWM3YWUyZDY4MjczZGU3MDA0MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzRkOTM1MDViYzMwYzI2NDk1NzhkYTc4MDI1NWYwZTU2YTNmNDcyNmY4ZTI2NjliZmRlZjM4ZThiMDEzNGQ1YiJ9"
+        },
+        {
+          "resource": "repo://tests/test_registry.py#L9-L11",
+          "version": "repo-lines-v1:sha256:1d2459e578cfd1455cf039acd7f1cc9f7941904e1ea42303b0e2aa72bfa6441a:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmJhZWM3OWM4NzA5ZTcxMGI4ZTJiYjYyNzk1NmJmNzJhOGU5MWVhNWU0YjkxYmI5ZmM3Njc1NmM3NGZkNjVjOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGMxZWY4MDI4N2Q4MzFmNTYyMWRkZGYyYTZmNzMxMTcwZWFlYmFkOTM0MDMyY2NhM2E2NTEzNzIyM2ZhNjRhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzIzMTdjNjBiYThhYTZkMTlkMDVhOTVjMjA3ZTIzYjZlMzk2ZmI3NDEzODUyNjFhNjEyNzczZmNhNDgwNWY5ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjRkM2ZhODE0ZWFkNjQ4M2JjNTZkNGUzNzgxYjljMGMwNmYyZTBiOWRlNDY4MGJhNWI1NGE3NDhmYTlhOGU3NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_a6acc9b85c4d4d06aa6e0a7f4ee7ce36",
+      "statement": "Criterion ids are dotted and dimension-first but nothing parses them: the explicit `dimension` field is authoritative for selecting the weighted bucket, not the id prefix.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L7-L14",
+          "version": "repo-lines-v1:sha256:ba61bb21731720e2ba255ab339ada0ad8992083ce650993437d7fae0d723d47e:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWM3ODM1ZmJhYjg2NDIyMjEyMjcwYzU0NTc2OGRjOWE5OGMwZjAyNjk5ZTZiMmQ5NTY3ZTk3NDZlODBlYTBmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjE1ZmJlYzkxZTZiNDk4YjRhNjA0NTgxZTEwYTg3ZDdhZmFkNTYwZTkwZDhhNWU4OGI3N2NkYThhOWRhZmIxYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTQwMTBiY2YzZDdkMjA5NzJiNjhiNzcyZDQ2ZTEzMTJkMjU1ZTliOGZlY2EyNWYxNDY4NDQ5MzA3MDJhYmRiMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjYyZTFkOGNkNmY5YjQxMjBjYzEyNjhhMDAwMTZjZmIzNDk2ZThmZDY5MmNlZTJiYjU5NTA1YWQ0ZmExMTUxNyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L15-L25",
+          "version": "repo-lines-v1:sha256:d31a467cf1196d904c37538ad1d44123adf13681a3d8c1933a6a6eee628474ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4NDMzMjUxZDhkNTE0NzVkOGZhZGI0OThkYWU5NTUzY2ZhYzA2OGRmYzQ3OGQ1NDc0ZDE0M2Y3Mjk2ZTFiZjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE4YzQxNjhjNzAzYTRjZjA4NWU3ZWU0MTkxYzNjMWQxOWU5YzBmNTEzN2EyYzQzNWVlNjA4NTEyNDFiOWRiYWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlZDg5ZTU0M2E5OTJjNGNiNTVjYjg0YWUzYzQ1NzYzMzA1MjMxYzc5ZTg0MGIwZjQ0ZjdjMzFjZjc1MjA4N2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFkZTQyODA0ZTljYmI0NjEyMzYwNWQ2NTU1MDNkMzYxNmJiNTZkY2FmN2JkMjgzOGYxNDNkOGUwOWEyNzQ1YmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d11c268f1c234ae588bf22ca44b7acfe",
+      "statement": "The loader does not validate that a criterion's dimension exists in dimension_weights, so an undeclared dimension is accepted at load time and instead raises a KeyError during global percentage computation — after the LLM budget has already been spent.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L26-L32",
+          "version": "repo-lines-v1:sha256:0e6688fca58137f04fb55589c39652771cb22b716adf975af36894d6bda4c30c:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVkMzMxMzVhYmJhM2QyNjNmODU2MTRmOWQxZGE5ODU4NzJmYzdlYjdjMGM4MTM4N2NjMDJiNzcyNjIyMTMyMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1OWZiZjNkMTYyMTc3ZDBlZWFhNjllNzEyMzE0NGE3ZGMxZmMyNTBhODYwMTFmMzMyNmIxZWI5ZGEyODFiNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzgzMGQ4NjBhYTYyYTYzZTQzODFhNTM3ZjliN2JkODA0ZWUxYmM5ZmRkYTA2NmIyZjdkN2Y3MDJlYzUzMDQxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L26-L29",
+          "version": "repo-lines-v1:sha256:2b2f0865fa81cb60aaf3fecbc93775b75869d429a2387f4add686f81af1f5a7d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTgzZjkxNGE0NDlmOTc0OGFjNTQzYTgyYTUwNWMwZjdjOWVmMzhhMDM1OTkwOGI4Y2IxNGNhNzEwMmNmZDczOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjVhNjE2ZDNlZjg1MmRlZDdlMzNmMGQ0YmUxZDI5ZjQ0NzNkMDAzMmE4MzgyMzBmZmFiYjQ4M2Q4N2NkZGMzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2UzMmRkYzkyMzZkYWUwMmFkMzZjN2Q1Zjc4MDdmMWRmN2Q0Y2VmMDkyMGVhZTJiMzA0MGMyYjZhNTMxYTcyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTljZTE3ZGI0YTc3MGQxMzNiZDE4ZjE5NmE0YmI2YTE3YWIxOWU5OGEyZmMwYWZmYzgwMmI4MzFlZGIxYmZjMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f9c81153f4e4be6983b11961ad3b3c4",
+      "statement": "A criterion's weight enters both sides of its dimension ratio — as weight times score in the numerator and weight times scale_max in the denominator — and additionally serves as the descending sort key for the Remediation sheet.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L16-L26",
+          "version": "repo-lines-v1:sha256:d6d6960b81ab2e3ecf6f240862f39787ef68a171cc06d1e6dc88d92041d97eb2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2YTQ5ODlkMjc4NjdhNDc1ZDkwOTQ4MTBlMWM3M2E5ODkxMmQ0YjljNjczYWEwNGFiODM5ZWM2YTA2ZTkwODMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE4M2Y5MTRhNDQ5Zjk3NDhhYzU0M2E4MmE1MDVjMGY3YzllZjM4YTAzNTk5MDhiOGNiMTRjYTcxMDJjZmQ3MzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImIxNTc2MzVlOGQwYWMyM2M1NjE4MWE3MWIwZjQ3OGI4ZjkyYTg3NzZmNDc1MmFhMzVmMzc5ZmRkNTZjNGZkOTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEwY2NiMmVmZWRhM2IxMzJhYTMxNWJmZGYwNmRiYTNkODRkMzk0ZDY3ZTk3Mzk0NzIwOWQ2MGZhMTgzZDdkNzYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L94-L97",
+          "version": "repo-lines-v1:sha256:f64ba98528f04f096528c68a80b68fe2a06ef4434c5a87f163e44f354b37e473:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDBiODk4ZmY0NGU5ZDMwZjdkMDhkNDI5MTQxOTVmOTE3ODYxNTIzMGM2YjQ2NjAxNGI0OWM4ZTY0MTJiMWUwYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjI2NmE0ZTFhMjBhN2JmYjk3Y2NjMTdhNzgwZjJlYTZjZmJiYTE5ZGZhYjkzM2MwNGQzMTA3ODY2YWIxMzhhYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTM4OGZhMzc4ODEzMTEzMWZiNTg3OTNmODBjMjk1MzU2NTUyNTUwZGY1MDY5MTg2YTQ3YjhiNzZjYTc4ZTlmZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTRhZWVhMjcxOTJmYTE2MTE5N2VlZGQyY2NiZmIyODBlMGMyMTcxZTI0ZWZjNTRkY2MxYTUyZDg2MmQ3NjU0MiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f2384fe5190d4dd58b66084dece4be35",
+      "statement": "The D/H/L tag is descriptive intent rather than a dispatch key: routing to deterministic resolution requires both that the tag is D and that a deterministic score exists for that id, so five of the thirteen D-tagged criteria have no scorer and fall through to LLM judgment despite their tag.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L47-L58",
+          "version": "repo-lines-v1:sha256:587b4fe6ed6cfd75ca2452e36f6cf5c23b07f9f709aa6735cac19c91840a9405:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiN2MyODRlNGYyMTRmMjBjNGU2ODE0MDA0MTQ2OWNhYjdjYmFhMWRhOTJhNzRlZjBjYzlhMjcxY2ZjMjc0YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4ZGMxNDhjZTM1NDkxYWMyMWM1Y2FjMWY3MzgwYTZiYzMyMDEzYmY5ZTM2ZTE0NWUxMzA0MmIzNGM4ZTY2ZTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmZDM5YzFhY2Y4M2I1ODlmNjYwM2YyNzJlNGEzZThkMGUwN2RkOGUzY2Y4YmNjYzdlZWRmNDU1NGI4NjJjODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY4MzExZmVhN2UzYjVmMzdhYjNiYTVmZjBiNjMxNzEwMTlkNzY2ZjBlM2JjYzkwZDM5MmQyZTViN2Y5YWM2NjAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L139-L144",
+          "version": "repo-lines-v1:sha256:2bd711898f9bb9912a7c47f1f228cc2c26400d440a5151723998213b065426fb:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTUzMjFlM2I4OTg3OGQ4MWNlNzRlYmFlNmMzODNkN2FhODU3NjBlODlhYjc0Zjg5M2U3NjA0ZGE5YTMyZDc1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQ1OTcyZmY5ZGI4MDE5MzZiNWIwOTgxZGU2ZTlhODU2ODE2ZmYyMTQyOGUyYjc0MzcyNmZjODA0ZjllZjBmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjhjOWQ0Mzc0ZThjZjM0MWY4NmEyODQwMmE0NWQ0MzMzZTVmYTc5OTVkMWFhZDJiYzA3ZmNkYWJkOTQ3MGFiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDVjYzNkMmU4ZjM5ODI5MDg1YTEwOWE2MWMwMWVmNGM5NDRhN2UxYzI5YWNmYmNkYWMyYWQyOTZlZjk1MTJjNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L171-L174",
+          "version": "repo-lines-v1:sha256:b44e9eaffb960b02bc6d15585f508bd583709270a0cf0d138f5ea53b85bacefb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWE5NmI2Njc1MzhmYzAzMjA3ZGI1OTNhNzI1OTQ0MzgwNjgxZWUxYzQwMDA2ZGFkNTUwMzZkZTg0MWNkNDdjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzdhMGY1M2JmNTNkODkyZWE2ZWUxZjhiNTIxNWVkZDIwNTRlNDg3N2NkOGI3MzRlNjZjZGRkYmFmMDJlOGZlNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGUyMDFkM2YyZTQ4ZTRiM2E2OGQ2OGY3ZjY5N2NmODc1MWI3ODBmMDIzMzljNGU0NTM0MTExZjhiMjFhZGExMSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/registry/criteria_registry.yaml#L17-L95",
+          "version": "repo-lines-v1:sha256:85bdcacee1105eb0317041f27fff67bc81aca2545b98822610c1a831f8d4e96f:eyJzZWxlY3RlZExpbmVDb3VudCI6NzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1NzE4OWRhMGYzODBmZThkOGMwOWU0MTNkYWRjN2E1YzNkNTdiZDc0NDJkNmZkZTdkM2RkNmVmYmJlNjE4Y2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwZWNjNjhlZDBhZDhlZDQ0NWEyNjFjZjlkY2M0NTBlZDQ5YjE2NmIxZGIxZTAyNzA4YWI5Yjk3OTk2NmE3MzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRkZDIzNzc3ZTNmNGEzM2E3Mjc3MGM4NjM3Y2I3NDdmMjA1MmY5NDU3NjRkODY1ZDM5NjU1MWU5OTFlNDU5MzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_145f0fcd24834e18859d28435bdf485a",
+      "statement": "A criterion may be promoted to deterministic resolution simply by adding a scorer for its id in deterministic.py, with no registry change required, because dispatch keys off the produced d_scores map.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/deterministic.py#L47-L63",
+          "version": "repo-lines-v1:sha256:9e6b68e9acddc1acc126910a27b0726825f7be069991646195ce43f48755a02b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiN2MyODRlNGYyMTRmMjBjNGU2ODE0MDA0MTQ2OWNhYjdjYmFhMWRhOTJhNzRlZjBjYzlhMjcxY2ZjMjc0YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY1NmRkZDY1NzliYTI0Y2FiYzMxN2QyNDBiNDNiZWU0MTYyYmEzMzIyZmViNDA1YjNiNzFhMGRmMDljNmRhYmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFmZDM5YzFhY2Y4M2I1ODlmNjYwM2YyNzJlNGEzZThkMGUwN2RkOGUzY2Y4YmNjYzdlZWRmNDU1NGI4NjJjODEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L139-L144",
+          "version": "repo-lines-v1:sha256:2bd711898f9bb9912a7c47f1f228cc2c26400d440a5151723998213b065426fb:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTUzMjFlM2I4OTg3OGQ4MWNlNzRlYmFlNmMzODNkN2FhODU3NjBlODlhYjc0Zjg5M2U3NjA0ZGE5YTMyZDc1NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQ1OTcyZmY5ZGI4MDE5MzZiNWIwOTgxZGU2ZTlhODU2ODE2ZmYyMTQyOGUyYjc0MzcyNmZjODA0ZjllZjBmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjhjOWQ0Mzc0ZThjZjM0MWY4NmEyODQwMmE0NWQ0MzMzZTVmYTc5OTVkMWFhZDJiYzA3ZmNkYWJkOTQ3MGFiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDVjYzNkMmU4ZjM5ODI5MDg1YTEwOWE2MWMwMWVmNGM5NDRhN2UxYzI5YWNmYmNkYWMyYWQyOTZlZjk1MTJjNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb738710f4394924ac9a591e251f15df",
+      "statement": "The four external_dep criteria are unconditionally excluded from LLM scope and always emitted as not_evaluated with the justification \"Referentiel de questions/cas d'usage absent.\", placing a permanent ceiling on any document's coverage; a test pins that exact set so removing the dependency is deliberate.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L142-L144",
+          "version": "repo-lines-v1:sha256:f01375f5a5cae9d31254959b17d84fba48d4a98031eb78c60ed8397e2f58c32b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGRiMzIwMGJjYWQ0ZTQ2NzNmZGRlN2U0NTJlN2MzNDQ0ODlhNTg2Y2ZiMjY2ZjE1YTA3YjhlZDg0YTMzNmJhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzQ1OTcyZmY5ZGI4MDE5MzZiNWIwOTgxZGU2ZTlhODU2ODE2ZmYyMTQyOGUyYjc0MzcyNmZjODA0ZjllZjBmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTRlZDY3MjI3ZjUxMTNhMWEwZDBkZWUyOGQ1YTcxNTNhZGIwMWIxZWFhMjc2YzJmNDMyNDJiMTA0NWI0MmEyZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDVjYzNkMmU4ZjM5ODI5MDg1YTEwOWE2MWMwMWVmNGM5NDRhN2UxYzI5YWNmYmNkYWMyYWQyOTZlZjk1MTJjNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L166-L170",
+          "version": "repo-lines-v1:sha256:c0ebe7587ae1f9c5324b97233e3a2516fb2322262682eb917ec6187f49173f20:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWUxNGVhNzBiMjhiYjcxY2Y0MThjYjkyMWMyMmY1M2RiN2Y3NGM3ZWUyYmFmNWZiNjkxNjQzOTI5ZTAwNzIyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzNmZWE2ZmIwMjYyY2I5ODA5ZGY0OWQxNDAwMzU3NTI0NmRhNDhkMjE2ZDBjNzYwZmE2OGI2MWFmNDY3OWM4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmUzNTgyZWNmMGE4ZTgwMDM0OGE2YzY4Nzc5NjYyZGU2ZTUzZWVkMWIzNDEwZWZmOWFmY2FkZmM0NDU4ZTI2MiJ9"
+        },
+        {
+          "resource": "repo://tests/test_registry.py#L14-L17",
+          "version": "repo-lines-v1:sha256:5c056b9c1eecdb177485c57d1b4c7790841c042a8cfcc851867088afc45e867a:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTczODcxZDNhMzQxODc0MTY5MjcyZDYzYzY3YmNmYWI0YWExNzQ5YjQzOTlkNzE4NjUxMWU1ZGI1NDg2YzhhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjg5NWNlMjY3ZGE1NjVkOWJkZTM2Y2I1N2RkZWJmODMxYzc4YjI5MzdhMDliZjVkMjFmNWE0MDBkZTBmNzIzYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTFjYTUzZDQxNGJhMzM0ZTVhZWQzNmRmZjRhNjEzOTg2ZTNkNmExZDQ2MzZiYzdmYmE3YzM2YTY4YjZmMTQ3YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_696730e548bf424a88d4a6299cee3e06",
+      "statement": "The na_possible flag acts as a registry whitelist that the inventory's proposed N/A set is intersected against, so the registry has the final say and the inventory cannot mark not-applicable a criterion the grid says must always be judged.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/inventory.py#L23-L35",
+          "version": "repo-lines-v1:sha256:ab07131595a7e386d19cfbc6e91f7a3e5494625638cbf837e25175c09334792e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiZjA5YzFmMTAzMmJmMzhmMDAyZGIwMTJkNTU2MTM4OTJhNDE5MzQ0NTRkNDU5OGY1MjY3ZWIxNDJiZWU5NzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDAwOTMzZTg3YzBkMmI2ZjkyZjhmZDA2OWVmZDMwYjJmZDllNDQ3ZWQ2OTFjZDk4MGVlNDU2NjAwNGE0MzUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhhOWMzNDM0NTEyMDEzNWRmMmM1YzcyMjVkNTE2NDBmYWE2NjA4MjdmNDg0ZjViNDkxM2I1NTZmYWEyY2RlMmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L7-L14",
+          "version": "repo-lines-v1:sha256:ba61bb21731720e2ba255ab339ada0ad8992083ce650993437d7fae0d723d47e:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWM3ODM1ZmJhYjg2NDIyMjEyMjcwYzU0NTc2OGRjOWE5OGMwZjAyNjk5ZTZiMmQ5NTY3ZTk3NDZlODBlYTBmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjE1ZmJlYzkxZTZiNDk4YjRhNjA0NTgxZTEwYTg3ZDdhZmFkNTYwZTkwZDhhNWU4OGI3N2NkYThhOWRhZmIxYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTQwMTBiY2YzZDdkMjA5NzJiNjhiNzcyZDQ2ZTEzMTJkMjU1ZTliOGZlY2EyNWYxNDY4NDQ5MzA3MDJhYmRiMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjYyZTFkOGNkNmY5YjQxMjBjYzEyNjhhMDAwMTZjZmIzNDk2ZThmZDY5MmNlZTJiYjU5NTA1YWQ0ZmExMTUxNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_665390f3b77847c39af2808335cd3e2a",
+      "statement": "load_registry enforces one explicit semantic check beyond Pydantic typing — criterion ids must be unique, raising ValueError otherwise — because ids are used as dictionary keys throughout the pipeline, where a duplicate would silently shadow one criterion rather than failing.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L148-L156",
+          "version": "repo-lines-v1:sha256:e345a1e11308d14a9884df8cf5536bf009c0371d16edf065698ada2953871dde:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWZhZDg4ZDUzMDZkZWQzYmIyNDNjOTAwNDViMmQ0NWMwZDBiNWQzODE1YTA3MmVlNTljYjYyYjA3NjE3ZWFiNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E0MzRjYmZlOGQ5NDI3ZjZlMmY1NzQ0ZWU4M2Y2M2E4YzU5NWMzYjZjNDNhNGE1YmYyYjY5MTc5ZWFjNmI3MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDVjYzNkMmU4ZjM5ODI5MDg1YTEwOWE2MWMwMWVmNGM5NDRhN2UxYzI5YWNmYmNkYWMyYWQyOTZlZjk1MTJjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDEwMDRkYTk0MWE2YTk0Y2Y2NWZkZGQwMGI4NGI0ZjM2YzRiZDZkYzhmYzFlYTRmMTcxNzZmNzA3OWNhYzdhZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L26-L32",
+          "version": "repo-lines-v1:sha256:0e6688fca58137f04fb55589c39652771cb22b716adf975af36894d6bda4c30c:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVkMzMxMzVhYmJhM2QyNjNmODU2MTRmOWQxZGE5ODU4NzJmYzdlYjdjMGM4MTM4N2NjMDJiNzcyNjIyMTMyMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1OWZiZjNkMTYyMTc3ZDBlZWFhNjllNzEyMzE0NGE3ZGMxZmMyNTBhODYwMTFmMzMyNmIxZWI5ZGEyODFiNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzgzMGQ4NjBhYTYyYTYzZTQzODFhNTM3ZjliN2JkODA0ZWUxYmM5ZmRkYTA2NmIyZjdkN2Y3MDJlYzUzMDQxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L15-L15",
+          "version": "repo-lines-v1:sha256:b8433251d8d51475d8fadb498dae9553cfac068dfc478d5474d143f7296e1bf8:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg0MzMyNTFkOGQ1MTQ3NWQ4ZmFkYjQ5OGRhZTk1NTNjZmFjMDY4ZGZjNDc4ZDU0NzRkMTQzZjcyOTZlMWJmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg0MzMyNTFkOGQ1MTQ3NWQ4ZmFkYjQ5OGRhZTk1NTNjZmFjMDY4ZGZjNDc4ZDU0NzRkMTQzZjcyOTZlMWJmOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWVkODllNTQzYTk5MmM0Y2I1NWNiODRhZTNjNDU3NjMzMDUyMzFjNzllODQwYjBmNDRmN2MzMWNmNzUyMDg3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDRmZTY5NTFiNDcwOTQ4ZTkwY2MwNjNlMDA5ZDdmYTU1NDEwZWU5NGE0ZTY2Y2U3ZmRlN2VhMjhhNjJlMzUzYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_67bad4a6c16f46a3a78053270d063e50",
+      "statement": "The registry is loaded from a package-relative default path with an override parameter, and every consumer receives the Registry object as an argument rather than importing the file, making an alternative grid swappable without changes to judgment, scoring or reporting.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L124-L127",
+          "version": "repo-lines-v1:sha256:bf533b96e793a0139551b7a09fdd4eec4f1241ccd914659d4220f333c21efcce:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTFjYmRjMWZjMzJmNDBiOTQ3Mjg5Y2NlN2I2OTE5MjkzMDJmODllMjM4ZmMwODFmZGQ1Y2MwYWNhN2RjOTdkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU1MzczZjEzODU0M2ZiMTI1MDQ0YzM3ODQzZGJjYzViODZmZjZlNzNkZGVmZTY5NGQ3MGM0Y2FlOGYwNWI1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTQ2MDRlNTAxMDVjMzYxYmQ2Y2RiZTJjNjAxZmFmZjQ3MDc0ZWUwMDRlYmVjMWEzZjcxZDRjMDViNjA5MTg2NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmRjMGVlNzM1ZDY2Y2Q4Njg4MTNmNmNkYzkyZDY2ZDM2YTQ4NTkxYjU2ZWFiOWU4ZjVhZDRhMTEwYTVlYWEwOCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L23-L32",
+          "version": "repo-lines-v1:sha256:7db390513b735318cae7c66245b7b01f1f94981faf041d664b14548b8125b0b9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIwZjhkMWMwNDUyN2E0ZDhiYjBkZDAwZjMwZmVmNDNmYzBkMzM4MTAwYWYyYzExYjJjNGYxY2EzMWJhZTE1MjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNTlmYmYzZDE2MjE3N2QwZWVhYTY5ZTcxMjMxNDRhN2RjMWZjMjUwYTg2MDExZjMzMjZiMWViOWRhMjgxYjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3NmQxZDcwMzg5YzRkOWNlZDNjYjFjZDAxYjBkZjI4YTM0N2I1MmM3MGM4MmQ3ZjVjOTg3N2M4MTU0ZjJjOTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L12-L14",
+          "version": "repo-lines-v1:sha256:eed89e543a992c4cb55cb84ae3c45763305231c79e840b0f44f7c31cf752087d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTkxMTIzOTAzMTZiMTMwNGRiNzVlNmRkY2M1ZThlZTQ4ZThjM2M4ZDE3MmY1OTdiZTI4ZGNlZDU4NWZmYTJhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE2ZjkxMTAwZjFiYzE4NGNhYTNiNTQyNjczYmEwYjNkYjEyZmE2ZGQ3NmYwYTFmYzhjMTI3Mjg1MTdhMDg0NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjVhNjg0MThmM2QzNjg1ODRiN2Q1YmIwYmUzNDQxYjNmMzY1ZTRiYTA0NGEyNzU1NjRlZTc0MTY2NzY4YWQ2ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzZjZGNjMTg0MTc1ZGFmODIzZmE2YjdkNTJjYTA3NTE5OGYyMDA5YzBjOTAxODkyMTE4NzgyN2RhMWQ5OGM5MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_54d39110af67499a9a311c8bf13e5f99",
+      "statement": "The alternative-grid seam is not reachable from configuration today: the run orchestration calls load_registry with no argument, so the shipped grid is always used.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L64-L66",
+          "version": "repo-lines-v1:sha256:10ca73a3746aab0971f857a6f95a745aff809ff60c66a3aebb59ddf95205e752:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWE4MjVhYTUxMzAwZTc4MzlhNjY4ZDc4NGU4ODQ2ZjRlZDdiYWVlMGJmZWI5NGRkZjg4Zjk2MzhmZTI5MjY4YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI4MzczZTZiMjkwMDA5MGU2NDY1NDljYjQ2NGViODRjMjQ4MmY2NTY4ZTlkOWJjN2EwZWVkMDY0MGZlOTg2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWRkMzQ2Y2YwOTY5Y2Q5ZjYzNzFlOWM0ODk4YmI2ODE4NTRhZmE1ZmQzNTdhYjE0MTFkMjdlMmQ0ZWI1MmI1MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmUxZjA2ZGMyYzRhNDUyMzY3Zjg5ZmNkYjA0ZDIzYzhlYWIwZDUwZjdjM2Q4YmRlZDcyMmQzNzRmMDVkNDAyOSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L26-L28",
+          "version": "repo-lines-v1:sha256:c750c97c9360cb4875c52d8f97439dbdb666a46e2ae67f2c30349671564e9219:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVkMzMxMzVhYmJhM2QyNjNmODU2MTRmOWQxZGE5ODU4NzJmYzdlYjdjMGM4MTM4N2NjMDJiNzcyNjIyMTMyMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODIyYzJiMTM5NDc3YWUyYzczM2E4ZTRmZmQ5MTJlODc2MjFlODAxOWQxYWRkNjE0MGM3NjQ2MWE4YmVkNmNkMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzgzMGQ4NjBhYTYyYTYzZTQzODFhNTM3ZjliN2JkODA0ZWUxYmM5ZmRkYTA2NmIyZjdkN2Y3MDJlYzUzMDQxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQ2NDg2OWM0NThlY2UyNDVlY2MyZDFmNGMxYWJkZDQ1MjEzOGRmYzZkODRmYzI1N2UwMzZkZGYzZmNjMzM3OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9fc6888d98e343e5babd46d9a0ace998",
+      "statement": "Criteria are iterated in registry order when results are assembled, so the row order of the report's Detail sheet is the order of the YAML file.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L158-L185",
+          "version": "repo-lines-v1:sha256:e5a32a782e465fa9ea2a9bb1195359a88cdacfec0b3076e0efe7922c3c06e0fd:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxNmYyNzNiYzg4MGZmYzZkMjU0Mjc2YTkzMWUzZjg0NTlhNDI2MjU3YzY1NWFmYzEyZTAwYmJhNjIyMzFlNWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzYWQwYWVmZGU4ZjlhY2RhYzY3ZGY0MDBjYzZiYTEzNzVmYmYyNTk0ZDI5YWFmZDliMWI1YWZjYmM5OWQ4MGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkZGY0Y2ZiNjIzZjNjNTBhZWY2MGM3ODQ3NzU2NWE5YjhjZTFlMzIxNWU2N2ZiNWI0OTk5NmEyM2NhYWE4NjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0NTI2YWZkNzhlMmJiZGM0N2QwODZmNjliOTdhZjYwZTQ5MjAzZDNjNDlhMTAwMDNmNTQxNzEyODlmOTYxZTQifQ"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L86-L91",
+          "version": "repo-lines-v1:sha256:7bf3da15419d3ff702fb2efcb02fb8b5de0675130d673a29a343541ff8f3a97c:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDhkOTU4Y2Q2MTZlYjEyMzRiMzEzNDY1MGUzYWFjYWJkYWQyMTQxN2E4ODE0YjliNGRlYWZlZGMzNzIxOWFmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzk2YzQzYjUyZTg0OTZhMDAxNTg3ZTAzZmMxYTA4MzNjNTY4ODU2MDRiOTg3MTI0MzA2ZGRlYzViZDIwOGQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2QzY2I0Njg2OTBhZDg1ZDk5NjZlMDFlNTJhOWIyOTgxODNhYzg1OWJiMDBiMTY0YWRiODU3NGFhZmY1NTVlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzFjNzkwM2Q2ODliN2YyNzJjYTVlYTNiYWRmYzI0OTNmYWIwOGQ2YzRmM2MyY2RjODNlMGNmMWIxMzVlMDJlNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a5cd0e3c61c4ec799f02517a27a1307",
+      "statement": "Criterion labels are a faithful copy of an external French reference grid and are reproduced verbatim into the report's critere column, so they must not be translated or corrected.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/registry/criteria_registry.yaml#L1-L26",
+          "version": "repo-lines-v1:sha256:27d4a40f8605ccf4f4fa05e119fe48844f2e84731102bbbee3ff5fb2b4396def:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5YzdlNzdhNTc2MjRhMjFjNjVmNzM3MDc0NjkzMTczZjM4YTcyOGE2ZWNiYjJjY2ZjODAwNGNiMDRmNGQzMmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImExMDRlY2VhYmU0ZTZlOGJlZGNmYWNjYjA4NzgxMTk5NmIwZmJkYTBkMGZkYTYxZDU0ZDU2NGI0NGMzMjg3YmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjExYWZkODcwNzQ3Yjc3NWVkOTBiZDg0NmRjOWQ2OWFmNzYzYmEwMTNhNjJlNWQ4ODlhMjA4MDVlYTJjMDUxNjIifQ"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L76-L91",
+          "version": "repo-lines-v1:sha256:258bc68f869b72c9e266f845ff475c5f0cd4c2cdd3610694ca990b29fb4e9d1d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyNDBlZjY3ODAzMjUyYTQxZThmZDJmNzM1ZjE5NjIyZTVhYzdlYmY1MDgyMjIxNWEwN2YxMzQzN2IzMjNkZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5NmM0M2I1MmU4NDk2YTAwMTU4N2UwM2ZjMWEwODMzYzU2ODg1NjA0Yjk4NzEyNDMwNmRkZWM1YmQyMDhkNmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgwYTQxNDgzZDY5NmY5MWEwN2YyNDNmYTQ5YWQ4YTk3OGI1NzVmMTU5MTgwNDA0MzQwYzhlOWJkMjU0MWM2ZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMxYzc5MDNkNjg5YjdmMjcyY2E1ZWEzYmFkZmMyNDkzZmFiMDhkNmM0ZjNjMmNkYzgzZTBjZjFiMTM1ZTAyZTQifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

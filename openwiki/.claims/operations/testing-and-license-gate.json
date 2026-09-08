@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:9caa1e5f039bd319f809239cdf4fe2f9a82f576eee0747d1b4e94a8a56c2eff3",
+  "claims": [
+    {
+      "id": "claim_61dbe115840c46829260248ed0e711c4",
+      "statement": "The test suite relies entirely on pytest default discovery — there is no pytest.ini, conftest.py or [tool.pytest] section — and must be run from the repository root because at least one test opens pyproject.toml by a relative path.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L79-L83",
+          "version": "repo-lines-v1:sha256:faf1abea95410b196960d5ce79514354a2eba63baae7fd6bf2a42ef5bbe6dfa4:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU3ZjRiMzZhYzljZTBkMDZkY2Q3MmNjYzI0ZWIyOTBlY2NhM2RhZGNlZTM2Y2Q2NDE2ODlhMjgwNDhjODU0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdjMDZjNTYxZDVjMzI3MzQzNjg1MjY4YTQ2YjMzOTFmMzk5OGVlZTg5MGQyYmU1MWYwZDIxY2M0YTUzYWU2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzAyMmFmN2E0MjNjZTMyN2JmZTdkZDVkMmNlNWFjZTg2ZjllMDFjMDg4MmZkNDkxOGM0MzNjMDkwNWY5N2YwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzgyZTFiOWQ2MTljMjFjNDNlMmJlMzQ0YTBlOTI2ZTc0OGIxNDlhNGNkNmIwMWIzMGVhZjIyZDk1YTRlMWIxYyJ9"
+        },
+        {
+          "resource": "repo://pyproject.toml#L1-L34",
+          "version": "repo-lines-v1:sha256:b14fc124d411a114d5a18666d6180888ba33d6c74067fdb0c608e915c6345506:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwMmE4MWMzODM2ZWRlZjJkMGJhMTFkMjM1M2ZiNmRhYmM3NzcxNTBhN2NhODNlYTBkOWU5YTcwMzEzZmVhYmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkZmRkZDA4ZWNjYTA1NzVkMDk5OTUwZmJjMDE4MzU4MzNiYjUzYWRiNTQ3YzgwY2Q1NTU0M2VhZWFjYmM3YjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_licenses.py#L18-L23",
+          "version": "repo-lines-v1:sha256:7d27b6708471d95e745e5f6e08edca218820669b2bbd6733d68096d28272ade2:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZlMTUzOTQyNzE3YmE5NzE3NzJhYTZiOGI5ZmRjOGZlMWEzZGNmOGQzNWYyM2ZjZmMwZGU0MmRlZDdjMjQzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTIyODJmMWM4YThhN2Q3YzY4Y2U5Njk5ODEwMzhmZGYyYTc0MDJkOTYwNzk3ZTI4ZTk1MWM3MmJmZDNiM2Q1YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGJmZDhjZDVkMmM5ZjRkM2I4ODY1MmQ5NmZiMDExYjViZGYyMTNlY2E2NjgwNjkzMGFmMjQ4MDJmZjgyNzEzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4e1f32eb833749ce8309ce0b117083ec",
+      "statement": "End-to-end tests build their PDF fixtures at test time with reportlab, which is declared only in the dev extra rather than as a runtime dependency, so no binary fixtures are committed and each test shapes its input precisely.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L21-L24",
+          "version": "repo-lines-v1:sha256:c0a02a49a40bf47286419888f7bdd24b2e64965d787c61ade62cb9ccc949a713:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTkyMThkYzRjZTk3MWNiZTNkMzhkNzc0MzBlNjM5OTE4ODg0ZGQ3N2Q3MTg0YzdiOTNkZmRjMmU5OTg2OTFiNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWZkZDRmZDhiMzViZmU1NDYxMzBlYmZlMWEzZTM3OTJiMGMxMGQxNTFhZGI0ODEzNWY5OGM3YmEyNGI0MmUwNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWYzZGRhYzExZDcwYzUzZTI0M2YyOGIwNDQ5ZDJiNGZjMzhkYjViZGU5ZGI1MTAwMmU2YjFkZDg0NWEyMjAwYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDU2YjZlYzhjNjgxMjJjOGUzNmJmZjMxNDVjYjczZDc1MGMxM2E3ZThkZDRkZjk0NzE4ZDMwYWY3ZmJmNTFiYiJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L4-L22",
+          "version": "repo-lines-v1:sha256:c3bf609b837faf4ff8386ce44fa89f675f23d6186b683b29d8133b7be9eb3102:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlNGY4MjI0MDYzZGNmMWQzZTc4OTJhNzMyZTkxNDZlMGJhMjM4NjNhZjg2ZTBkZGIxZTExMzk0NTkzMWY2YzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI1MGNmYTQ4NzY5M2UwOWEzN2ZmMjE2ZDZlYzg4MGM0MWJkODc2Y2ZjODQ4NDQ3NzQzYjg2MWM0Y2E3NzQ2OTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlhODIyMmUxZmU5MzA0MzYwNGI5YzcwMDZiMmQ5ODVhMzk4NDlhZGMyYTIwMzIyNWZlN2EyMmVjMDc4MTFhOWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc1YjI2MDg2NjBlMGQyYWYxZTFmYTE5ZjNjMjEyY2Y4ZDI1Mjc5NDYyNjRlOTRjYzJmZDkyY2Y0ODE5YzRlYzQifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_cli.py#L4-L11",
+          "version": "repo-lines-v1:sha256:e0cd56556c17756adc61218cabbafbd42b9f3832b5d4f0ee55be9b7798b73757:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzRkNzVhYmQ3NTVmNDE1NGVlOTQ1ZWM4Yzc0OTNkYzAyNDg4YTcwYTZiY2Q5OGZlYmIxODQ5N2VmYjJhZDU5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTIyNWFlN2YxNDUyNmRhM2VmNjE0OTAwMGIyYjdiNmIzZTAwYjEzNDhhNWRmYTRmOGY2MTBiMGFiZDhiYWViYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjZhZmM3ODhmNzViNjFhNTQxMjk2MWRjNTUxN2YyNGZiYTQxZjNmNTVlZjdkNjRkMDk1YzkwYTJjZTA2ZGNkZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_bb71a19f0e494570a9d3a4e3cab1ac96",
+      "statement": "End-to-end tests configure the mock provider so the pipeline runs with no network call and no credential and with deterministic responses, and because the mock keys scripted responses on a prompt substring a test can assert behaviour for a specific criterion under a specific model response.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/llm/mock.py#L17-L27",
+          "version": "repo-lines-v1:sha256:e68deef0da0156b25f2756ea6f3806d21396e5cf93e94296c208947dec5c3a4b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0YjAwN2M0Mzc4YmM4NDRlYmEwYWIyZmJiMmM5ZjlkZTIyZDRkOWNhMjkzNjk2YjExODE3NDQ2NTNjZDY1NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNkYmI0Yzg0NTIzN2RkOTVjZmZjZTg4NzMxNzk3ZDliYWQ0N2ZhZTdiYjc1YjFkN2Y5Yzg4ZDI3OWY4YWU3NTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM3ZThkZDlkYmFmNDRlZjJmZDc4NWQ5ODAyZTBhM2M2OThmNzY2OWI5YzVkNDZmYTM2ZmE4Yzc1YWU4ZWE1MDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2ZGRkZTgyMDhjNWE0OTY3MjcyNjc0ZWRlMGU5OGVkNGRiNzcwMzA1MDU1NzI0YTNmN2I4MzU5ZTI5Njg4MjMifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L13-L20",
+          "version": "repo-lines-v1:sha256:e1402b6b3337815d47b7b45693722b8f39fae7ab9b19c7e176e13bd7a11b5581:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDUwNmUzZTViZTJhNDliNTczOWEwNGIzYmFiODY3ZmM0NDRkMzYzZTQ3ZDZjMjU2YzFlZjVjMDFjNDAyNzA4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA0ZWEyOWIwMDg3MTNiMWNmNzk1OWFlMDQ5MjljYWMyOTBiMWYzNWQ5MGQ2MTZlMmQ0MDU4MzQ3OTFjMmQ3MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjZkNWI3NGJhMzAyMmM1NGUxNGFhMjBkZjYwMTExOWRlOWEzMzdkMWI2NTMzMjM4YTlmZDc5NTBiYjE0NGMyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk0NjViZTQzMjg3NTJkNTM4OWI5YTcxNTI3MjM5NGU1MWE2ZmZjNjUyNTk3Y2RmYzM3MjUxODQ4ZjZhNDdhMyJ9"
+        },
+        {
+          "resource": "repo://tests/test_judge_batch.py#L91-L106",
+          "version": "repo-lines-v1:sha256:5acf8d901a77e1b0fb57af9971db3122edf4da3eaa5cd4057516bf70915c4cb9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5YTJkYTU2YjY5NmYxNWE4ZGIyNTRjYzM4NGNjNjBjZDc5N2VmMzIxODJkMTA0N2QxNjhiZGU4NDYzNmY1MjkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg3MTAwZDA1MDAxMTU0MTEyYjM5NjMzMjU4YjhlZWFmNGI0ODI5ZDA2OWUxZmUzMGEyOGQ2MGExZmM1NmJmMzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2ZmZiZDY3NzMxYWJjYWJhZDYzOGFjNGU3NzBkZDMxNWRjYjVkNDAxMjcyZDI0Y2UzYzIyNGJlZjlkYzI4ZjEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_836ee990f6034e98a3174a38a8ac088a",
+      "statement": "Every end-to-end and CLI test explicitly sets parsing.parser to legacy, bypassing Docling so the suite avoids loading machine-learning models and a per-batch subprocess while still exercising the same interfaces and producing the same ParsedDoc.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L197-L212",
+          "version": "repo-lines-v1:sha256:cd7248b247e3ba0d4c50ca0db69568a35dd3578f769072562133f027d2080334:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNmU3NjZkNWIzNWU3OThjOTU5NDNjMzgwYzRmN2UxNDRhMWVhNjE4YWQ2NDNlOThmYzAxNGM4ZjVjZjliOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkYTVjNjZlMTdiMTQ1Mzk3ODM0YjhjODU0ZGM0MTkzZTIxMjUxODBhODk5NmExNGMzMTg4MzMyNmIyZWZiY2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhZDIzY2VjZWNjMjE5MWQ3ZDE5NDBhYjI3Mjk0MTgzMjA1OWJlZjhlMzYzZGZiODIwOTNiNzc0MzUyNGRjNDgifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L13-L15",
+          "version": "repo-lines-v1:sha256:c368f7f9bab7a130a379fa589039296275e4239254784a09c5bf30ab17b1abeb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDUwNmUzZTViZTJhNDliNTczOWEwNGIzYmFiODY3ZmM0NDRkMzYzZTQ3ZDZjMjU2YzFlZjVjMDFjNDAyNzA4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWMzZmI3NmU0OWM0OWMxMjRhNzUzYzAzOGNmM2YzOTg0ZDY0OThlOWVmYjYzNDU2MGQ1NDNlZTNlMjU5NGQwNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjZkNWI3NGJhMzAyMmM1NGUxNGFhMjBkZjYwMTExOWRlOWEzMzdkMWI2NTMzMjM4YTlmZDc5NTBiYjE0NGMyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWFhOWU4NmMyNmE0YWYyOWRlOTNmNGYzNGQxZDY3MmZkMTg4YWE5YjJhZTFhYjAxNGZmMWI2MmNhOTIwNTA0NSJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L33-L36",
+          "version": "repo-lines-v1:sha256:49ac0f460f0ee6fa5ae5aea4d0423b7543cf57f48ac032a0cf338f843626dc65:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDUwNmUzZTViZTJhNDliNTczOWEwNGIzYmFiODY3ZmM0NDRkMzYzZTQ3ZDZjMjU2YzFlZjVjMDFjNDAyNzA4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E1NGFlNDhjNzIyMjA5OTVhZGNlNmU5ZTk0NWQxOTYzZTJjZDliMGM4MzdhZGRhODI5MWVjNDFjZDM0ZmU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODA3NDE4NDM3NTFjODA3ZTA0NDE1ODYxYjA2OTljYmE4OTVlM2NmNGY3NmNhM2MzODUxYjI0OTU2ZTEzYTFiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzIwZGM0NDMzYjg5MWM2ZDA4ZjQyODIzMGJmNDNlZDIxMTcxYjQ3ZmMyNzhkZDIzMGVmNTQ3NjE2ODMxNmFkNiJ9"
+        },
+        {
+          "resource": "repo://tests/test_golden_cli.py#L17-L23",
+          "version": "repo-lines-v1:sha256:201113c6ae369bf351ed95e7aaceb0312ca7bfd13f1bcb12a176ee6bb9b87e87:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDUwNmUzZTViZTJhNDliNTczOWEwNGIzYmFiODY3ZmM0NDRkMzYzZTQ3ZDZjMjU2YzFlZjVjMDFjNDAyNzA4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E1NGFlNDhjNzIyMjA5OTVhZGNlNmU5ZTk0NWQxOTYzZTJjZDliMGM4MzdhZGRhODI5MWVjNDFjZDM0ZmU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODA4MzA4MTZiMjE5NGRkMjAzMGQ3MTM0YzRiNWUyZTg4N2JkMGU3OWNhMGIzM2U0MTI2ZWY0NmE5NGQxYmU3OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGQyZTQ2MjM1MjIyZTI4N2NkNWE5M2QzZDNhZTcwZThhZGM3YmFjZDdjNGQyOWYxNTBkZTM2YTVmYzg1MjVkNyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_781ab09d2c764d89822a70b79effa602",
+      "statement": "Docling's batching and OOM-fallback behaviour is tested deterministically by monkeypatching subprocess.run rather than by invoking the real converter, which is what lets the suite assert one subprocess per page and a return-code-137 degradation without installing the heavy parser.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_parse.py#L175-L215",
+          "version": "repo-lines-v1:sha256:af18e893fb9ca42ab04d0ac0265ed758f6543bbb0cf10a0f6776cb4c4ea5bd89:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2YzM5OTU4YWM4ZTVjMDk1ODhmZDlhNTUyYTJjMWEyMDFlZWZmZWJjNjk1MDRhYTAwMWU0NGI2OTliOTg0MTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRkNTdiOGQzMTU3MTUyYzg1NzE1NmVhODNiYjA0NTMxMzM3Y2JlMTFiMTM2YmFjODIxZDdjNzJmOTBjOTBhMmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxMTA1MGMzMTQ5MzY1ZWM4YWVhNWFiZmExNTcwNTkyZTVlODliZWZhMTNjYWZmM2M0NTU4ODc3Y2MyY2E4ZjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fe58ae69f79f498ab4be56ad243ee80a",
+      "statement": "A single opt-in test gated behind the CQG_TEST_DOCLING environment variable is the only one requiring the real Docling parser installed, and it verifies structured extraction by asserting pipe characters appear in the markdown for a drawn table.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_parse.py#L241-L263",
+          "version": "repo-lines-v1:sha256:9ed0cfe7129c5960ffe8021981a8ae2d64af35cf11fb54b9cda18476bd45d8c5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2Y2Q4MDg4NDA1MzEzZWRiNTYwMGEwYTQ5YTYyOTkwN2I1MjRiOTY0OWJlNTIwZjhhMjJiNjI5M2MyMGVmNjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3ZDBkMDgzOTZjNDQ2OWFlODI2YjA4NTgxM2FiZjQ2MTJhM2ZiMjBhMmZlNWYxZGI5MDNhZjBkOGNmMzJmYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkZmE1ODZhZDk5MWExOGExZmU0YWU5NzMwMzlkOWFmYjMzNWQ5NTI4YTFkNzgxYzQwZDQyY2M0ZDU5ZWI0ZmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eba2f26f32f647229f8b9eb511f578f0",
+      "statement": "Table-detection fixtures must draw explicit GRID and BOX borders because pdfplumber's table finder detects vector lines rather than text layout, so a table laid out with text alone would not be identified.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_parse.py#L217-L239",
+          "version": "repo-lines-v1:sha256:8a47fe0abe4d3b24fbfd5aea30228afd1a067f0d4b98d8360d708b4e716b50ac:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmODQ3YzExNjE2NDFjZDFmNjVkMGFiY2M1Nzc0MTdjYjYwNmFmNTgzM2I4NjA5Yjc5NGVkZDBjNjI5ODNkNDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5ZjJhZmM3NmNhNGY4YzZkMTYyMTZkYTE5YjNhNDMzMmNjNjFmMmJhOTk5YzVhMzlhMTYzOThjYzdkZTEwY2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY1NDBiMTgwZDc0ZTdlYTk0N2U2NjYxYjRiMjgzODkwZmQ5Y2RmY2EzNGQ3MzExM2RjNWU2OWU4ZjM4ODg3OTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1db2dd892fdb4fca9e36d67cd9e6f681",
+      "statement": "Both output families independently pin export safety: the corpus report and the golden set each have tests for delimiter, quote and newline escaping and for spreadsheet formula-injection neutralization.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L56-L72",
+          "version": "repo-lines-v1:sha256:2183afad72fd51109a91c0e5ff530d697ee94f81256041b9d9a530b706d9ef6d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4OTA1OTM2NDMyNGExY2YxMDBhYjg0NTAzOTllM2Q3YjNhOGM1ZWI5NDM3MzY5MDMxZjgzOWU0ZWI0ZTQ2OTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlNWQ2YTYyYTg4OTdiZjQ5M2Y3MzJmMDhhMDVlZjdlODgzZDI2NzFiOTE3YzQ0ZjMxZTI2NjRjM2YwNzgyMjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0NDIyZTMzNDk0ZWNiNWU0YWJmNWE3Y2NjOTJmODg2MjJhNWNjNjY0MDJmNzZiZmMwNzdhM2RjOWM4ODE5MTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwYTQxNDgzZDY5NmY5MWEwN2YyNDNmYTQ5YWQ4YTk3OGI1NzVmMTU5MTgwNDA0MzQwYzhlOWJkMjU0MWM2ZTQifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L89-L107",
+          "version": "repo-lines-v1:sha256:cbcf61d5aac8e832126bbcd1736b0564b9e62f7186084c93c1b895298fbcf7d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3NmE2YTM5YTIzZDgzMThlMTI0NzQ0N2VhYzhiNGUzMDM3NDc2YjUzOWE3ZWFlYjIxOTU0MjdiOWZjNjBlMTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3NGU1NDA0NTAzZTJjNzYzODg0N2VhNDA5MGIyZDc1MzM1ODg3ZjdiZmFlNDk4OGE3MzNlZmMxYjMwOGE0MzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU5NGZkODFlN2MyMDI5ZWUyNmYwOGZkYmFhZDM4ZWQ1MjMzZTdjOGI5MjQzM2FlYzM4NTE2ZWM0OWQwM2YzOTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_report_export.py#L24-L46",
+          "version": "repo-lines-v1:sha256:e518183ec32d40dd3b2df07237c40e6a4b5bba1fbd5c0dd071b647ae8030297b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1NGY4OWZlYTczZjU0ZWE5OTUwZGE3YTA3ODI2Y2NlMTg3MDdkMjY4MDNjZDk1NWY5MzNjOTkwYzJlYjljNzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUzYmQ5NmQ1NTNiOTFiNDRmZDk1YWUxYmIwMzU0ODg2NWRjYTgwOGM2ODlmYjNmOTBkN2EwMDYwNzdlMWU1MDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyMWIxOTZjNmE5NGYwNTlmMzI2MjIwZjQ5NmM5YTY0ZjRmNGM1ZGY4OWM5ODZhZWQ4NjU1MDRkYjljNTlkYzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2fbbc3457fd64ceeba3379bcbe5cb646",
+      "statement": "The license constraint restricting the project to MIT / Apache-2.0 / BSD dependencies for commercial use is enforced by a denylist script that enumerates INSTALLED distributions via importlib.metadata rather than declared ones, so a forbidden package pulled in transitively is still caught.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L15-L16",
+          "version": "repo-lines-v1:sha256:2e8875200fe21accb403dccb7249c6917b6ada582240faf89aa22807ae067e37:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA1NTExOTgyNDc1ZDljZDljYzBkZjJhODU3MWRhYWE3M2FjNDBjODY2NjBlNjU2ODZhYTZlYTM1MzY4ZWM5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2M1MmU3YWFhY2RhNzg3NGRhYjExZmMwODJhZGY3YTMzMDk4OTkyYWFiNzcxMjI0MzY5MjQ4Yjg2MzRlN2E4NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJhMDU5NTdkZGY3M2M4OWY2YWE0ZWI5ZGE5NjJhZDAzYzIyMmM1YTcwYjdhZmIzYmNjNWM4MjNmNjE4NmRhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjUxOTBiYjE0NjhhMzE1MzhhMTlhODkxZDg0NTJlMzdhY2JiZDNmMDUxMWU0Mzg1ZWExMDA2ODE4YjUxZjVmOSJ9"
+        },
+        {
+          "resource": "repo://scripts/check_licenses.py#L1-L21",
+          "version": "repo-lines-v1:sha256:3c4f4abbaa5e8408613cd826a8293e7147434b247bfdfc40e0f2dd2bb00ec5e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1MTc1Nzc4NTFjNDg5ZTQ1YWJhZTI1OTEyNTZjNDA0MDRhMDVjNmQxOWNkNGQ1YWU3ZmQyMmIwMDg0Y2VjNmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0OGM4MTE4MWE4ZGRhZmM0YWNkNmY0YmQ4ZGEzYzAxMGRjMTBkNTg4YWNmNjlmZmRjNzlmMTM2OGM3YzRhMjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6aa2ad405d6a4789a50d6dffa26cabd9",
+      "statement": "The license script is usable as a CI gate because it prints \"Licences interdites detectees: [...]\" and exits 1 on a violation, and prints \"Licences OK\" and exits 0 otherwise.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/check_licenses.py#L16-L21",
+          "version": "repo-lines-v1:sha256:7e4700bf12ae2eec531cfd8961449c84108a4f0f34a5205d9ad81584fc0cdc0b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjQ4NmZmNWNmOTM2M2I0NDI5MzM2ODAzYjJjOTYwZTczZGE4YzQ3ZmEwYzZmNjc2NThkMTRiMzIzY2QyMmQzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjQ4YzgxMTgxYThkZGFmYzRhY2Q2ZjRiZDhkYTNjMDEwZGMxMGQ1ODhhY2Y2OWZmZGM3OWYxMzY4YzdjNGEyMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTgzZWFiMDZiNDVjZDc2OWYyNDMwYWYzYzgxNWMxN2EyNjM4ZDdjMmM5MzA2NDAyNGJkY2FiNThhNTlmOTU1MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_587450c8228d404ebc63ac8837dfa0e9",
+      "statement": "tests/test_licenses.py guards the gate from both directions — confirming the denylist flags forbidden packages, that the legitimate parsing stack is not falsely flagged as a guard against an over-broad future denylist, and that pyproject.toml declares Docling as a core rather than optional dependency.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L7-L19",
+          "version": "repo-lines-v1:sha256:f90926c18f72044a02732aa68b17e87b1462a3b707febf8befefb7a98d7a4e2c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOTVmNWU5ZWRlMDE4MTYwNDNjMDc5N2FjZThkYTJhYzRlOTlhOGE2YTYxMGZhOTg1NzBlZjM0YjkzNTYxMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5Yjk3ZmQxNGJlNjg0NTMyZmM1MjU0N2RlODU5ZWEzMGIzOWRjMDBlZGI5YjAwZDcwZGRiMjIxYjQ2NDY3NjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NWMzMzVmZTQ2YWZmM2RjMTJmZmJhZGM5NmJhNGQyNmMyNDgyMzE0MWQ5ZDU5YmY4ZWZlY2ZmNDdlZmZjOWMifQ"
+        },
+        {
+          "resource": "repo://tests/test_licenses.py#L1-L23",
+          "version": "repo-lines-v1:sha256:c3bf626de3524c61d3076f742dbd98f7642ca76aa9433acb28fa8302f785562d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE5YWQyNjNmOWNhMTIzMjU0MjM5N2ZhMzcxMmIxMDNmNmU2MDI5ZjRiMDU4NTI0ZDdhYThjMmE4YWMyMzliMmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEyMjgyZjFjOGE4YTdkN2M2OGNlOTY5OTgxMDM4ZmRmMmE3NDAyZDk2MDc5N2UyOGU5NTFjNzJiZmQzYjNkNWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2f21b235a0c145d3b0410de098bc6eb7",
+      "statement": "Screening carries two explicit regression guards in its tests: an image-rich document with low block integrity must not be classified as degraded, and a large healthy document must route full despite a low global TTR while a genuinely degraded large document still routes light.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L31-L48",
+          "version": "repo-lines-v1:sha256:0191b9bf2645778ee595280a1609f357040ed9240a1819ff479319b37a000434:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1MTY4MTQ0NGVlNGZlZWIxYTcwNmI4MjM5ZjIzNjQyZTQzY2VmYzBlZGE2NzU0YjEzZGNhZThkYTFlNjkzMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzNzU0NjVlZDlkMjMyYzdkMTdlMzk4ZWEwYTY0ZGE5NjU0ZDFjN2ExYmNlZDQyMTllNmY3MWZmMDE3YmJmYjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZkMzY4YTY4MDZhOWY1NWMzMDU5NGQzMzU0MWNlYjZhMmY5YzM2OTViOThmZDVlZWViZDliMjhmZDY2ODU3ZDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhN2E4ZmY2NmI4Y2FkNzRmODEwMTE3ZWFjMzVhMjZiNjViMGRlOWFmZWIxYmNmYzVhOTM5YmVjOTAyZGJhM2YifQ"
+        },
+        {
+          "resource": "repo://tests/test_screen.py#L40-L68",
+          "version": "repo-lines-v1:sha256:1302fffb3e3026d718930de3a470b1d5d79dfbfcbd61df5de1b1220ede5d64d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3NjkwNzYwOGU3MzExYWEwNmVhODk2NzJjMDE5YWE2MzdlYWFhY2VlNmMzOTAyMzlkNjY5Y2ZjMmFkMmFlOGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxZjE5ZmQyNTQ4NTVmZjVmNWFlMjE1Y2I5ZjM1N2Q3NjI0MTViYmJlZGQyM2I0Zjc2NDk5NWY0ODMzMWVhYzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM5ZGI0ZTZkYjlkM2IxMmIxMDRjODRiOWNlMGRlMjI0MWVjMDRlZmE2YWU1ZWYwODdkNzY0OTk3OTNhNTZlZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

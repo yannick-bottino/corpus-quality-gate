@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:d5122017104d0c0b21c21c9a9d0706af36568418b6e60c123cf82500d9a8c3b4",
+  "claims": [
+    {
+      "id": "claim_bb4cb6fd34e74e2897bb97629fbf5810",
+      "statement": "Both subcommands are runnable with no API key out of the box because --config defaults to config/config.example.yaml, which selects the mock provider, while --out defaults to ./workdir/out and --enrich applies to the run subcommand only.",
+      "evidence": [
+        {
+          "resource": "repo://config/config.example.yaml#L4-L5",
+          "version": "repo-lines-v1:sha256:b1ba38394eaebf24279ac00a4a5d0b0dde609d351eb83ac133f6bff64aebba38:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ2YjE3MWZmNTUxMjc5NmY1NGQ3MDI0Y2QwN2YxNmU1ZjJhMmM5YzllZWMyNjExMDEwYmE2NTVhYmIyMWNhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIxZDlhOGZlNzdmOWI0OGU5YThkMDRkZmY2MjAzNTgyOTQwOWM5MDU4M2M5OWY1ZmQwODAyMmYxMjJkYTMyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I3Yjg1NzgxMjNkMjBmNTVjYTZmNzU4Y2Y0NGVjZTE0ZDk3NGY5YjhmMzM0NzBlYzUwMTUxZjcxYzEyZGYyZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjAzMjhhNTgzMWFiODUzYjYyODExODg4ZDc3ZDk5NmQzN2E1NWNhZjkwMmE1YTk4MDNhMDdjYjc1MzUyZWM3NiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L158-L167",
+          "version": "repo-lines-v1:sha256:74a551ef79d5be464113dad8f3475a6f3a9e8db29b616637c2699d6705fbbcf2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzk3OTMzYTI0YTgwMWVlOTIzMzI3YmQ2OWEwMTA0OWMwNzc5MTUwMjFjZjJlYzM5ZGRhNGY4MWFhODM3ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjExNTFhODVlZTkzNGU0YTFlYWE2ZDZjMTJlOWEzYWUxNThlZWQxOTA3YjVhZTdhOGYzMmEwN2JlYmNlMmUwYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzNDExNGYyNzI3NWRkZjQ5NDE1YzQ4ZmRkNmEwZGU1ODAxZThlNzMxM2E5NzdkZDE4ZGU0MjQ1NzZlOWM2Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzMDEzOTdiZTE0N2YxYzAxODU5ZTc1ZjAwMzM4NmY1NGRkNDIyZDNlZDQwNzMyODgwNTRiNmQ1ODRhZDU0YTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8582d62b0cca4476a8267abbb2a35b60",
+      "statement": "A run writes a fixed artifact set into the output directory: the corpus_report.xlsx workbook, three CSV mirrors, a per-document score JSON, corpus_redundancy.json and cost.json, plus an enriched markdown file per document when enrichment is active.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L56-L62",
+          "version": "repo-lines-v1:sha256:061cd715c26b2e29576f2e74752145111e7fd570c84f1e61a847e971aa503c72:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWY1NTcxMzRlYTY3ZjRjN2NlMjhlN2Y5ZjQzNDJkNzhlMTBkOGEzMDRhZmEzOTg5N2RhN2YzYWVlN2U0YWNkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2M1ZjY3ODlhNDYxNTE1OTQ3ZTQ1OTJjYWU4ZDRkMzJhODBhNzUwMDYwYTYxZTA2YTRlNmNiMzg3ZTdhZDU2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQwMTk4ZjdjMWFkM2I3MzMxYTExZWI0YjFiYzBiMTJjYTA0NTQxYWU1MWU3Y2FiMmIyYjBjZWQ5OWUzMGI4MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzA3ODJiOGM2N2U5ODVkZTUyNTY0NGZhYjYwZGVhOGEzMWM5M2UzZmU5NmZlNGE1ODFhNmNhMzFiM2M3ZjU4ZSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L108-L111",
+          "version": "repo-lines-v1:sha256:690f159fd60050d126de96fb3ea1be1e1a0fee9d3c44e48be5ddc73d0fd6f09a:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ1ODJhMGQ0ZjEwNDJkN2U0MjgxZWMwOGVhYzg1NjIxOWY4OTRmZDM0NGFiNGNjM2M2NmU4MjMzZjlmYjdkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdjMmQxMzYzOTdmZDk2N2ZlM2I2ODc1NjczMTcwZjA4YTA1Y2ZlZjNmYWYxMTRjZjQ5ZmMzMTNhZTNhZWFjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDBlMWMxYjY1ZDNjMDU0YjViODllN2ZlMzhjMjk5NzRjNTczYzFkZDNkNmYxYTQ2YzIyNjA5NjY1YWFhMDg0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBjOTM0OTJkZTZiNjEwMTkyNTdmMmZlOGYxMDcyMjY4MjAxZTI1MjljZjc0NDA4YzZiMmU5OTVkNWRkYThhMCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L143-L151",
+          "version": "repo-lines-v1:sha256:58f83a56eb0571e3d579830ed389f000611c0d2a77ef7f624c4cd4ede06379e7:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmYwZDA3OGViYjE1OGM4MzNjMzdlNWU2ODZjNmI4MTM2MTkyMTI5NTZhYWM2Y2Y3YmQxZmMyZDVlNGQ5NGQ1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVlOWYwOGQ3MDMzMTRjOWNkMGI0MTk0YTU4MTVlZDk0MDE3MzgwMmM2MmM4YzlmOTM0NzY2ODFmNjdhMzU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmE3Y2M4YTZkMGQyOTBjZWQ0Nzg5OWMzMzhiZjdlMzRhZDNkZWM1OTVmZTJkNThmZmE3ZmM2NjQzNTkxZDQxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk3MzJmYjFkMTExYmIzZDgyMGUxNmYxM2VhMmVkMGE4ZWI0NjJlZmNmZmM0ODRlNzQ5MzM2YjM5NTgxYTYxYyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L98-L105",
+          "version": "repo-lines-v1:sha256:76e18d3b862830c75d5cfdb1dd847bf9b2b5abc2ccff791eb5027b1d890c42ef:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjg1ZTVkNDc1OWUzYWRlZjk0Yzc2NTFjMzc2YTUxNTc0MzU2NmQ5YTA2Nzg3N2MzYzllZDNjOTM2Y2JjN2E5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBhOWRkNGYxMjFlZTE1NmU0OGY3OTAyNjQ2YzZkNWQ3NTk0MzUzNjgxNzllYTA1MDE2YWFkYTQ1ZGZhZDAxZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjliOGVhZWFhMGI5YjNkMWI4ZmQ2MTRkNDhmNWI4ZjQ4YWU5ZWQxNGViODU1YzIzZWQ2NTkzMTI3NDcwYzIzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e527afd977a54a7ab4f73f361f1109d2",
+      "statement": "Every document carries two figures that must be read together — a global score computed only over judged criteria and a coverage percentage reporting how many applicable criteria were judged — so a high score paired with low coverage indicates few criteria were judged rather than good quality.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L12-L37",
+          "version": "repo-lines-v1:sha256:779428e5c675d347f2ee18116e733e2ece88ad2264ec141965b23213016cbb69:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5MTEyMzkwMzE2YjEzMDRkYjc1ZTZkZGNjNWU4ZWU0OGU4YzNjOGQxNzJmNTk3YmUyOGRjZWQ1ODVmZmEyYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczYjJkODcyZThhZjIxY2ZmNWU5ZmIyZTRkYTBlNzQ3OTU1NmQzNmE2YWZhOTEwMmNjZGQ5YzJjZmIzOTZjY2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI1YTY4NDE4ZjNkMzY4NTg0YjdkNWJiMGJlMzQ0MWIzZjM2NWU0YmEwNDRhMjc1NTY0ZWU3NDE2Njc2OGFkNmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ5NDNkZjhkM2EyMjQwODMyM2NkYjg1Y2NmNWIzM2I5NjcwZDI0YTU0MDU1N2EzNDNhYzMxZWJiNGYyNjEzYzAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L79-L83",
+          "version": "repo-lines-v1:sha256:5d18bd1f96ab4c46245828ff677a6c988f7d35378f4c889bee939f36372eebf2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2JiMGUzOWMwNWE1YmIzY2NiYzdmMTA1MWY3MzUwNDU1NzFlNzYxMTI2ZWJhNjgxNDBiNDA1ZWMyODVkYjBkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjNkMGMyOWVjNGIyZDVkYmY0N2ZhM2ZiMjUwNjk5NzU3YWFhOTAzZDQxYjgxOTA3YmUyNGJkMmVkZWYyNTM3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWRjNjQ3ZTQ3MDkyZmRmNDdhOTNiMjI2ZGMyZDBhYjg4MTlkZTFkNjU5OWZmODJkM2MzNjRkOGRmMjBkMTQ5YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDE1NmFiY2NiM2EwMzA0MWQ4NTg4MTk2MWEzMDVhMmQxMGIyNzAxOTIxY2JjZDkwYTVjZjBiNzVkZmJmYzYxNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_14703a82933647ac9ddd4ad9583d2dcb",
+      "statement": "The default parser is deliberately conservative rather than fast: Docling runs one subprocess per page batch with a default batch size of one page tuned for a memory-constrained machine, and setting parsing.parser to legacy bypasses it entirely for a fast pass.",
+      "evidence": [
+        {
+          "resource": "repo://config/config.example.yaml#L22-L24",
+          "version": "repo-lines-v1:sha256:c995e5d50b517403b55ca6bfce7c89f53c445993510b029a550c50f89f408731:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FlNjEwYTNkYWJhNDEzY2M0OTRkOTRmZGQxZmRiZTBjMzI3OTAxOGY1YWExY2EyNDliOWMzMDJhOGQwNjc3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjZjNTMyYjVlMmVmMWE3MjAyMGNlNTg1MzcwYTI4OWZmMDljN2I2NWU5ZmFhMTRmYjMwMzQ1NDE1MTM1OTMyNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTE1MzYzOWM1OGVkYjBlN2E0ZGI0NDVlYTg4OTAxNTQzZWE2ODhiODQ1ODJiYTA2ZjgzNjhkYjQ2NmM0NTQ1OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjBjMGQzZGE1ZjFmZTk2YTE2OWJiOWNiZTk2ZTgyOTdlNTE0MGZjODI3MTMzZGU1ZGVhODg3MDA1ZTM5NjZmNCJ9"
+        },
+        {
+          "resource": "repo://docs/GUIDE-run-docling-complet.md#L18-L25",
+          "version": "repo-lines-v1:sha256:7b44ca5de2fdfbba3bf837b233a277dcb249ca4e5c194a4beb4daa40d07c12ab:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWQyZThjMGVmZjAyYWE1NjY2ZmVhMzFiN2JiYTkwYjNjMWY2OTQxYjUzN2IwYjI5YzM5Y2QyMWUxZGE0MmU0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWRlMmY1MzI4ZWU2ZTgwNTBlOGFhZmQ4ZGM4NjlhMDY5Y2Q5NTg0ZWRhYWY1NGZlNTg5ZDczYzNiN2RjZDc5OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDhhN2YwYzU0MmEwNWRlMDkzZTkzMDgzMDZhMTMyOTExNGY0ZTBhNmMyMmUyMDMxYzRhMTA5NDgwMWU2MTA2ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWNkYWQ0MTVkMTU2Y2ExZGQ0MWZiMTMwOTgxY2U4YjhiYWVlNDBjNTVmYzZiMWIzOWFkZDIwOGFhNDljNTgzYSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L128-L133",
+          "version": "repo-lines-v1:sha256:546f2d490a81113cb10095e105b79b513a3e4c7f4b15e637e89e93685ebc0204:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzJmZjcwN2U5MDRhZTQ3YzAwNmRjNGVkOTQ3ZDI3YjllODhlMDc5ZmU5N2IwMjA4NWUxNDJjNzNlYmM5ZjBmMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTM1YTg5Njc5MWE5NzdkZmMzMTYwYWM2ZThhYjEyZTkxZDFlZTZjYzM0YmFlNDlkOTkyNTQwYzViYTRkMDNlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM2YTA4ODUwYzg0MzU5YTA4OGYyMjEwYjY2Nzk1N2FjZjJiYmI0NDUxYzY1MjQyMDQ1Y2VjNWM4YzkyYTY0YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjJlNzkzNWZjNWNjYTVkYWZlZTdkZmNlMzc1OWMxMDRkM2VjYmU3OWIzNzE2NGQ5NjgwMWM1NThkOGQwMzFiNSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L197-L212",
+          "version": "repo-lines-v1:sha256:cd7248b247e3ba0d4c50ca0db69568a35dd3578f769072562133f027d2080334:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNmU3NjZkNWIzNWU3OThjOTU5NDNjMzgwYzRmN2UxNDRhMWVhNjE4YWQ2NDNlOThmYzAxNGM4ZjVjZjliOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkYTVjNjZlMTdiMTQ1Mzk3ODM0YjhjODU0ZGM0MTkzZTIxMjUxODBhODk5NmExNGMzMTg4MzMyNmIyZWZiY2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhZDIzY2VjZWNjMjE5MWQ3ZDE5NDBhYjI3Mjk0MTgzMjA1OWJlZjhlMzYzZGZiODIwOTNiNzc0MzUyNGRjNDgifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

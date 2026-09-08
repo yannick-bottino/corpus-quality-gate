@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:e67d5a5c6fcf0ad6c74c97731c2d55019edfa7560ee931968b1c7977c3bc19cf",
+  "claims": [
+    {
+      "id": "claim_9dd3abbfc4a14c86845fd3430ee6c5da",
+      "statement": "Screening is a deterministic gate that decides whether to spend the LLM budget on a document at all, routing both manifestly degraded and manifestly clean documents to a light path while reserving full judgment for genuinely ambiguous cases.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L1-L12",
+          "version": "repo-lines-v1:sha256:6364d8fa7ad5367013fce24946b1e93d33f86f05e0972610e19f4e5aee2c18e1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1NGJkZDRlMTlhZWUyMmZhNDllZmQzNjMzMTY3M2MzNGEyMGQwOTE0ZjgxMmI5NGZiZmZkYTVjOWRhZGU2ZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEzMDNlY2RkNGE0ZDEwZjE5YzczZmQ0MmZkMTI0MzdmZDMzNTRhODI2ODE2MDVkYTUyNTVhOTdhMzkwNjhkYmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhlN2VhYjBlYjc3ZmM4MmRjMDQwZjk0MDYyYTY4NzYxZjE2NzgxNzUzZGYzYTQ1ZjhmZGI2NTA1Yjg4MGZiOTIifQ"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L21-L64",
+          "version": "repo-lines-v1:sha256:23579cef7e2b721ae7973dfb15549bd13653518de0b4f556d52b5bb07a03a584:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDM3OWZmNmE0ZThkNWE0ZDhiYjk2ZTUwYjkyYjZiM2UzNmZiMTUwNzViYmVhMDlhNjQzM2UwOGFhZjg4NjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0NjhjYTk4MTcxNmY5OGQ4ZDkyNWNjZjA0YzU3MmQwOWU3ZGE5N2FkMDVlZWRhZDNkNTMzNzMyNGQ5MDM2Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjEwYmM0MWUyM2U0MWQ0YzM0YTE3ZDc0N2NkZjc2YTY4MzcyYzNlYzliMDJjMTM1MGRkMWEzMzcwMjgyNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_screen.py#L16-L38",
+          "version": "repo-lines-v1:sha256:1f97d69ff582d086b8bad09d1a70279c29a93244720a89ab802ba36828268114:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzOTJmYmM5YjY3YTBjODdmN2YzYTU1NGM2NTM1NzVkZDE3MzU4ZWQzMDJkMWUxYTM5ZGUyOTY5ZjNkMjBmMjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlNjYyMzVlOWIyNGUwNTVjNmNlMmNmMjYzMWRkODhhMTEwMWU1ZTEzNTIzZWNmMjJkNGY4ZjIzZWYwOWMxMzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI2ZWE4MDM1ZWZlM2VlZTIwNTM1OGVmZmJlM2Q3YmJmMDY4ZDdhMDYzMDZkMGI5ODdlMjkyNjU5YjQzYmM4OGYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0d9c3f423ffc47ef9377bafa4dc4baf0",
+      "statement": "The screen's four outcomes carry verbatim French reason strings — gros_document_extraction_saine, extraction_degradee, signaux_propres and cas_limite — and the degradation and large-document reasons interpolate the measured signal values so the report shows the numbers behind the decision.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L130-L131",
+          "version": "repo-lines-v1:sha256:7ea56563e8627cff74f33be2c08b43c4aad2a83a842a55056898caf518201023:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk5NTdjNzEyMDYzZjgyODEyNjA5NjFiYzBkNDM0YjJlM2YwNzg1MTkxZTk0Nzk2MTM5MGY4NTNjYjc1MDA5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzMyZjZiNzNhNWI1NWNmYjU0OTE1MTQ0ZjRmZDcwY2Y3Yzg5YmMzNzg0OGNhYzkwNWExMzU5NDQ5ZTU1ZTAyNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjhiOWI4MGY1NjJkODU5YTEwMWM2ZDRjZDE1NTk5YTgzMmNiZTdhNDZlYWU4ODAxMjk3MzlkYjczODA4M2NlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDNkYWI2NTgzZGRlMmI4MjhiNTA0MDAwZjg2ZDhmN2IzODM4ZmQwMjBlMmNmNDMxNTUyZTIzZmM5NzEwMGNmNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L44-L64",
+          "version": "repo-lines-v1:sha256:36cffab506836871a1b236680478a74a831916d8fa3e7f4d94b80287f600cb88:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjMWVlMTFhYjY2NDkwNmJmNDYwZDc5ODdmOWJmNmY2NGI4Yzg4NGMyZjg5OTk0ODBlYzU3ZTAyYjQ4OTE4ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0NjhjYTk4MTcxNmY5OGQ4ZDkyNWNjZjA0YzU3MmQwOWU3ZGE5N2FkMDVlZWRhZDNkNTMzNzMyNGQ5MDM2Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5MWRjYTY1NDBkZDVkZDllMWEzMWM2ODg4NjM2NzUyMGY5ZTAzNTVjZTg5MTk5M2YxNTVlNmQ1MmIwYjc4MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b4758ff762b64e79bdd943be4d0ac7da",
+      "statement": "The large-document guardrail is evaluated first and requires several concordant healthy signals — token count above the large threshold together with acceptable parse confidence, bounded non-alpha fraction and healthy window-normalized TTR — routing such a document to full judgment because a low global TTR at that length is a length artifact rather than evidence of degradation.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L16-L48",
+          "version": "repo-lines-v1:sha256:23a88f370074df7caedec7f97632702038ad5ba472d2490801d953ca5dc351e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5ZDdhZWQ0NTUwNGRiY2U0ODU3ODI1YThiNDhmZDg0YjllYzU0ZmFkNDNlZmVlMTVkNGU3MTM1MmJhZDk1ZGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzNzU0NjVlZDlkMjMyYzdkMTdlMzk4ZWEwYTY0ZGE5NjU0ZDFjN2ExYmNlZDQyMTllNmY3MWZmMDE3YmJmYjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlN2VhYjBlYjc3ZmM4MmRjMDQwZjk0MDYyYTY4NzYxZjE2NzgxNzUzZGYzYTQ1ZjhmZGI2NTA1Yjg4MGZiOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhN2E4ZmY2NmI4Y2FkNzRmODEwMTE3ZWFjMzVhMjZiNjViMGRlOWFmZWIxYmNmYzVhOTM5YmVjOTAyZGJhM2YifQ"
+        },
+        {
+          "resource": "repo://tests/test_screen.py#L47-L58",
+          "version": "repo-lines-v1:sha256:367196538166943b6573dfc8f3eca9689040d3b3de039849748f1a956a605f62:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmMDE3NjZmMWE1ZDU3YTdiYmRjNTQyMzEwOWEyMDc5Zjk1MjZjZmU0ZTY4MjRiMGJjMzlhYTI5ZWJhYzhiMmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM5ZGI0ZTZkYjlkM2IxMmIxMDRjODRiOWNlMGRlMjI0MWVjMDRlZmE2YWU1ZWYwODdkNzY0OTk3OTNhNTZlZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzODBlNzA4ZTYwZGM4NWIwMWI3YmVhZDgyODAyYmQxMjFmYWFmZmMzYmNiZTU1MWQ5MTk5YzM2Mjk4OTI1N2UifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f5ea4b2e18df471e9f561c84bb24dad2",
+      "statement": "The large-document guardrail short-circuits the clean-signals shortcut as well as the degradation rule, so a large document is never skipped for being too clean either — it always receives a complete judgment.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L38-L48",
+          "version": "repo-lines-v1:sha256:e91d879fa0058907fc54de5d0c10d354fc92b071466d5f45a5ec74201403f876:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0MmRjNzY2MDUxN2Q0NWQ4YTQ2MDU0NzAyY2E1Njk4ODg0MTJiNDBiZjYxODQ4NzY0ODk3ODlhOTEzZmMzM2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzNzU0NjVlZDlkMjMyYzdkMTdlMzk4ZWEwYTY0ZGE5NjU0ZDFjN2ExYmNlZDQyMTllNmY3MWZmMDE3YmJmYjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZmM2I4OGRkYTU4NmNjNTNhMjFjOTRlMGRiM2E2OTU1NjI2ZjMyNmJjMTQ5NzE1Mjg4NjA2MzlmOGQ1YTg1OGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhN2E4ZmY2NmI4Y2FkNzRmODEwMTE3ZWFjMzVhMjZiNjViMGRlOWFmZWIxYmNmYzVhOTM5YmVjOTAyZGJhM2YifQ"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L60-L62",
+          "version": "repo-lines-v1:sha256:2d49a16ce0d9d0ee2e15772ab184ee5076960514f3cf6b88f04dc283a23d7a23:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjJjNjk0OTBlMmY3MjI4ZmI5NjE2MGEzOTUyY2U3NjQxZTk1ZDg0NzEwNTQ4MmQ3NDFkYzJiNDMzZDU0NmZjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWYzYzhjNzRiMzBhYWE1NWIyZWYzNWQ4NDQzNmY1ODRhOWE0YzVhZDkyNGI5MmFmYjlhZjA4ZTcxYjc2YTQ0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWUxNjQyZGQ0NDkyN2U4OTBmODYwYTRlMjAwYjlkZGFkN2M5YzQ5OGMyZGJkNTA5NDM4MWY5ODU2OTYxOTgzOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWZkYzE1ZDlhZWRlNTgxNWQ4NmZhNTQwZTlkZTU3ODAyYjU0NTU3ZWJiYzgwNDMyZjc5YWJkMjZkY2IxMjhlZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_884da4dd34d9486985adec5441b7d5e2",
+      "statement": "A genuinely degraded large document still routes light because its window-normalized TTR fails the guardrail's condition and falls through to the degradation rule, a behaviour pinned by a test paired with the healthy-large-document case.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L44-L58",
+          "version": "repo-lines-v1:sha256:8efabb1bb3fb8a09fd5050a9a8b124c925f9adc3a1f2846d59b5efcc5b874d7c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVjMWVlMTFhYjY2NDkwNmJmNDYwZDc5ODdmOWJmNmY2NGI4Yzg4NGMyZjg5OTk0ODBlYzU3ZTAyYjQ4OTE4ZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxODQ5NjkzNDUzMjNlOWM3MGU0OGM2YjBkNDA0MzBkNTYwM2U0ZDY1MzZmN2U3Y2E0YmFhMzMyNzczN2RmY2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI5MWRjYTY1NDBkZDVkZDllMWEzMWM2ODg4NjM2NzUyMGY5ZTAzNTVjZTg5MTk5M2YxNTVlNmQ1MmIwYjc4MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1YTRmOGUyMGQ5MWQ1MzEwZmFlNmQ5NmU5YzkxZjA3MjQwZGQ5Yjc4YWYxNzU1ZjFlNmM3OTJmNmJmMTI4MDQifQ"
+        },
+        {
+          "resource": "repo://tests/test_screen.py#L60-L68",
+          "version": "repo-lines-v1:sha256:67b83ca5d06c405065ea87f970e5e03bc63159004d4ff1e33e87a8ea38f93a48:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmJiZjRjYzE5YmQ2ZGRhZmUyMDBmYTNhMzMzZGZiOWI1N2Y0NTc2M2ExNTFhNDdlNDBiOTcyNzRlZjViM2NhYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODFmMTlmZDI1NDg1NWZmNWY1YWUyMTVjYjlmMzU3ZDc2MjQxNWJiYmVkZDIzYjRmNzY0OTk1ZjQ4MzMxZWFjOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzQ1NzRlZTkyNjIwNWEyM2FhMTY2MjNhZTI2MzI4ZDc0ZTMyNDljOWQ3YTRkODQwMGI4MjI5YTY3NWRlMTQzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_33ea6d23d96b4d0395c3fbac7799971a",
+      "statement": "The degradation rule triggers on any one of three independent signals — parse confidence below 0.5, non-alpha fraction above 0.40, or window-normalized TTR below 0.05 — so a single sufficient indication of a broken extraction is enough to divert the document.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L50-L58",
+          "version": "repo-lines-v1:sha256:f58204477b7e506114e07fa7fd0838f322a1f2fbe818d5a71e60021b9b8df1d9:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZkNmI2ZGM2MjkyODZlOGNmMzY2ODk1ZjQ1OWQ3M2FiY2I0ZmM0ZGQ0YzlhZDIxYTI4ZGZhNDE1YjdjNzlmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE4NDk2OTM0NTMyM2U5YzcwZTQ4YzZiMGQ0MDQzMGQ1NjAzZTRkNjUzNmY3ZTdjYTRiYWEzMzI3NzM3ZGZjZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjY1MTEwN2EzMDMyZWFhYzMxNzlhNjA2MjYyMzE2YmMzZDMyODU4ZmNkMDUwNTQ5ZmRlZjFiMTA4OTgyMjBmOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTVhNGY4ZTIwZDkxZDUzMTBmYWU2ZDk2ZTljOTFmMDcyNDBkZDliNzhhZjE3NTVmMWU2Yzc5MmY2YmYxMjgwNCJ9"
+        },
+        {
+          "resource": "repo://tests/test_screen.py#L16-L27",
+          "version": "repo-lines-v1:sha256:f3eb37599abf43cb3c1aef1ece5c1c0c4d79cd3a82dce305f6556ce1b9de6764:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzOTJmYmM5YjY3YTBjODdmN2YzYTU1NGM2NTM1NzVkZDE3MzU4ZWQzMDJkMWUxYTM5ZGUyOTY5ZjNkMjBmMjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNlNjYyMzVlOWIyNGUwNTVjNmNlMmNmMjYzMWRkODhhMTEwMWU1ZTEzNTIzZWNmMjJkNGY4ZjIzZWYwOWMxMzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5NjkwNzY1NjY4ZDkxNWNiMjFlM2RjMzBjMWU2NTQ4ZWNlZDU0NGYwMWQwM2MxYmViM2MzNjRmYmU4ODY2OTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2d5cfbb3d8de41e18f31b7e69bf23a0a",
+      "statement": "Every screening rule uses the window-normalized MATTR rather than the global type-token ratio, with the global ratio read only as a fallback default when MATTR is absent, specifically to avoid confusing a long document with one having near-zero vocabulary.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L24-L28",
+          "version": "repo-lines-v1:sha256:7ce827fd3f2a4ce51b5d926e3829589591f3b98119e397798289ec49eccabbb9:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjg1OThlM2EzODUyOGM0MzNmYjE2NzU1MTg3MjM0MDRjNzkxODI1YmIxZjMzOGM4MTgxOTZjYTAxYWYwYmFlNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTExNDIzYmJjZDUxYTVjYzliNjM2NzY4NDk3NGMzMGZmYTRjOTdhOGRjNzlkMDFmNDI4OTVmNDI4OWQ4NTRlNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzAyODk3YWJlOTM5ZjIxNmU1MTk4MDA4Zjk0OTI5NjY4NzRkMWRhMjA4OGM0MjcwZjliN2JhNTJmODkxMjdmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjVmNDU1MzlkN2IwYmY3ZmI1MWE3NzUyZDgwM2M2ODA3YjZlOTYwNjliNDVkZGVhZDNkMzFkYmU0YzFhNmI2NSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L50-L58",
+          "version": "repo-lines-v1:sha256:f58204477b7e506114e07fa7fd0838f322a1f2fbe818d5a71e60021b9b8df1d9:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2ZkNmI2ZGM2MjkyODZlOGNmMzY2ODk1ZjQ1OWQ3M2FiY2I0ZmM0ZGQ0YzlhZDIxYTI4ZGZhNDE1YjdjNzlmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzE4NDk2OTM0NTMyM2U5YzcwZTQ4YzZiMGQ0MDQzMGQ1NjAzZTRkNjUzNmY3ZTdjYTRiYWEzMzI3NzM3ZGZjZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjY1MTEwN2EzMDMyZWFhYzMxNzlhNjA2MjYyMzE2YmMzZDMyODU4ZmNkMDUwNTQ5ZmRlZjFiMTA4OTgyMjBmOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTVhNGY4ZTIwZDkxZDUzMTBmYWU2ZDk2ZTljOTFmMDcyNDBkZDliNzhhZjE3NTVmMWU2Yzc5MmY2YmYxMjgwNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/signals.py#L52-L75",
+          "version": "repo-lines-v1:sha256:5f835cfc77d11216613b25ebc8f270f2ba189fcf330c19589a9bf5fff609fb11:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMjRmM2ZjNDVkNjJlZTllMDhhYmMwMWNhMGE0MmJkZjAwNTU2NGZkNzIxZWNhODdhY2E3MmEwYzkzZTk0YjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMwNThmY2MxMmJjOGQ4ZTRjMjQzY2MyMmY2YmY3ZmVjMzVkNWMyZGI5Y2QyYmUxYzExNzRmMDEyOTRjZTg4YjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI4MWVjN2QzZTdlMTIwOTFlNWM4MmJjZjNlMTdhOGY1YWMyNzlmYjhkZmVmMjYxYTIyYjg0NDM3NzkwYmVlYTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQzNGU4NTY3ZTRjYWYyNGJhNDQ0Y2NhOGEyNWNhMWZjODFmMjY4NzU0ZjJiNDVjNDhkMmMyMzVkYTU4MDY5YmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7514e804e983455ab520f434eb1ef9a6",
+      "statement": "block_integrity is deliberately excluded from the screen because image and table blocks legitimately carry no text, so an illustrated document has a low ratio by construction; using it would route essentially every illustrated document to light, and a regression test asserts an image-rich low-block-integrity document is not classified as degraded.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/screen.py#L31-L35",
+          "version": "repo-lines-v1:sha256:9fc302546e12adde69520fa0046d59ba51aebcb2bcfae9fa0639e223174dd66d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjUxNjgxNDQ0ZWU0ZmVlYjFhNzA2YjgyMzlmMjM2NDJlNDNjZWZjMGVkYTY3NTRiMTNkY2FlOGRhMWU2OTMzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmQzNjhhNjgwNmE5ZjU1YzMwNTk0ZDMzNTQxY2ViNmEyZjljMzY5NWI5OGZkNWVlZWJkOWIyOGZkNjY4NTdkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTg1YTYyYWRkYjI1NDI2YjgyNjFhM2VlMmMxZjM0NGE4MjBlMWI0NDBhMjdmNDY0MDc2NTc3NWQ2MDg2OWI4ZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/signals.py#L82-L86",
+          "version": "repo-lines-v1:sha256:898a52455c9f5b28d49479bb1f58899832b351241a3d3322668839dccc64ac7b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWY0ZGUzMTA0YzJiNDVkYWIwZjlkYmNjZDE0NjYzMzNhOGMxYTAzYTMxZTQ3ZGRkZWU3NjI3ZDU5YWYwNTE3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDczMjM1NzBhYTAxOGJkMWZkOWEwNWEzZTQyODYxMTNhZmE3Mzk2YWI0ZWIxMzlhMjk3NmM3ZmIxYWQ4NmVmOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODFjOTU1ZWM0ZDU3NzQzMmE1YjA0NDE4MTgyMzUxZjg0MWY1OTkxNTE0ZDI1ODI5YjA4N2FiYWM4ODFkNTFkNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://tests/test_screen.py#L40-L45",
+          "version": "repo-lines-v1:sha256:c6a934a7d3f3a220b9bdbf33de7680015978fd4657fb8b2732e9458299bb7dfa:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTc2OTA3NjA4ZTczMTFhYTA2ZWE4OTY3MmMwMTlhYTYzN2VhYWFjZWU2YzM5MDIzOWQ2NjljZmMyYWQyYWU4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzlkYjRlNmRiOWQzYjEyYjEwNGM4NGI5Y2UwZGUyMjQxZWMwNGVmYTZhZTVlZjA4N2Q3NjQ5OTc5M2E1NmVlNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2U4YjA1YTZmYmRhZGJkMTU2MzA4NGY2NWU3N2E2ODI2OTNkNDVkMzFlZjRiNjYxNDgxYjBhMTQ4NDU5YmIzYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1198ea554c444c79999445e64e504063",
+      "statement": "The light route never deletes or downgrades: it skips the LLM call while still producing inventory and deterministic verdicts, emits qualitative criteria as not_evaluated, and attaches a screen:light flag carrying the reasons, so the omission is visible to the reviewer.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L125-L131",
+          "version": "repo-lines-v1:sha256:45553d6cc03aa09ab172ee2ff0ff7c01ecbb368de69cec7c0a1f0394e6c0a037:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWFmNWZkNDM5ZjA2Mzc1ODU2ZmFiYWMyNTVjNDg1MTliZjU4ZjM5OGIxZGRiN2M3NTgwNWY1MTM3OTkzODYyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzMyZjZiNzNhNWI1NWNmYjU0OTE1MTQ0ZjRmZDcwY2Y3Yzg5YmMzNzg0OGNhYzkwNWExMzU5NDQ5ZTU1ZTAyNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTFjNzdkODI1NGY5ZGMzMjkzNWY1MDY3NWU0YzRhNDhkYmQ1N2E5ODkyYjViZGFlMmY3MjU5MzEzMDMxNDVkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDNkYWI2NTgzZGRlMmI4MjhiNTA0MDAwZjg2ZDhmN2IzODM4ZmQwMjBlMmNmNDMxNTUyZTIzZmM5NzEwMGNmNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L158-L180",
+          "version": "repo-lines-v1:sha256:41c3e17731dacc29a7074586a43e9cca58ebd942c6f67afc343c4a0039a58cc8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxNmYyNzNiYzg4MGZmYzZkMjU0Mjc2YTkzMWUzZjg0NTlhNDI2MjU3YzY1NWFmYzEyZTAwYmJhNjIyMzFlNWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2YWQwNTJjNDRiOTUzZjBkODMyODZhMmRkZGVjMjE4NWU3ZjE4OWRiMGU0ZjUwMmM2ZjA2ZjM0NzU4NDU0YTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkZGY0Y2ZiNjIzZjNjNTBhZWY2MGM3ODQ3NzU2NWE5YjhjZTFlMzIxNWU2N2ZiNWI0OTk5NmEyM2NhYWE4NjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyNWIxYzE2MTlmZTEyNzJlMWQ2NmEwNDQ5ZGE4Mjg5Yjc4ZmY3NzAxMzcwODQyYmY2M2IxYjRlYzMxMmY2ZDMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L11-L11",
+          "version": "repo-lines-v1:sha256:638bbe6b664e0990814a8cd418db27083ca4a08dc331c60ddf190cc722ce7c67:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM4YmJlNmI2NjRlMDk5MDgxNGE4Y2Q0MThkYjI3MDgzY2E0YTA4ZGMzMzFjNjBkZGYxOTBjYzcyMmNlN2M2NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM4YmJlNmI2NjRlMDk5MDgxNGE4Y2Q0MThkYjI3MDgzY2E0YTA4ZGMzMzFjNjBkZGYxOTBjYzcyMmNlN2M2NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzUyYzFkMDA3ZGUwN2NjNWU4YzI2YjU5NDNiMTdiYmI0MDE5YThjZjg5ODU0MjhiNjkzNzczZTE2MTg0ODRjMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmRhN2FiZDQ2MDAzNjY4MzZkYzYxMDVmMzMxNWIxMjMxNjMyYWM4YTA1Mzk5MzRhMDBjOGJmYmQ4ODJjYmU5MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0ba00539bd104aacb2c1978f6b53dcf7",
+      "statement": "Because not_evaluated criteria form the coverage denominator, a light-route document's coverage collapses and typically raises the low_coverage flag, which is how the routing decision surfaces quantitatively in the report.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L175-L180",
+          "version": "repo-lines-v1:sha256:94836a16b14d0024550b1aaeda907043fa454dad8a29c8ca2b094a5950b92843:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmJjMTE1MmYwOWYwOTAwMDZhNzk1NDA5NzQ2MWU2MDBkMDJjMjAxM2YwOWE5Y2UxNWIzYjI3NzUxMzhlZmM5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmQ3ZWM3ZjI2MjAwNTE3ZjE0MGI5NzhhMzhlMDg3N2Q4NDNhYjAyOTQ5ZWFlYjkzZjdkNjEwYzYwMmZjYTM3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzI1YjFjMTYxOWZlMTI3MmUxZDY2YTA0NDlkYTgyODliNzhmZjc3MDEzNzA4NDJiZjYzYjFiNGVjMzEyZjZkMyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L30-L37",
+          "version": "repo-lines-v1:sha256:995eacf987175476f109e634064a3d9e2f6bf78769719c559310e4d1506ffbc2:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMzZDY0NDEyZDcxYzBkM2MwZDJkMDcwMjFmNTRhMjJiZGNkY2Q5ZWI1Y2M3M2EzNjUzYWVjYmEwMTM2ZTljOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNiMmQ4NzJlOGFmMjFjZmY1ZTlmYjJlNGRhMGU3NDc5NTU2ZDM2YTZhZmE5MTAyY2NkZDljMmNmYjM5NmNjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTBjY2IyZWZlZGEzYjEzMmFhMzE1YmZkZjA2ZGJhM2Q4NGQzOTRkNjdlOTczOTQ3MjA5ZDYwZmExODNkN2Q3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk0M2RmOGQzYTIyNDA4MzIzY2RiODVjY2Y1YjMzYjk2NzBkMjRhNTQwNTU3YTM0M2FjMzFlYmI0ZjI2MTNjMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fff8ccc444b94c24b5a3aad3351b4c31",
+      "statement": "screen_document is pure and side-effect-free — it takes a ParsedDoc and the metrics dict and returns only a route and its reasons — with flag attachment left to the run orchestration and LLM skipping left to the judge's skip_llm argument, which is why the rules are testable in isolation with a synthetic metrics dict.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L122-L131",
+          "version": "repo-lines-v1:sha256:e391d8b180642f5a8ef1a2162ff39bba5399ea18f859ccc75a56f0cd2748b077:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5YjgwNWNkODk0NjZkNTcxNjIwNGU4MDU3MjViNjBlZTlkYmZjZWE4YTdkZmQyOWE3YTZhNGRmNDZjODM4OGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzMmY2YjczYTViNTVjZmI1NDkxNTE0NGY0ZmQ3MGNmN2M4OWJjMzc4NDhjYWM5MDVhMTM1OTQ0OWU1NWUwMjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImViYjBiNGY0NGE0YTRjMzFmMjg5ZTQ0MzM1YjJhNGQwOWFkZGYwMDVlNGE1MTU3ZWJkZTcwZWQyYTUzMTc4MWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQzZGFiNjU4M2RkZTJiODI4YjUwNDAwMGY4NmQ4ZjdiMzgzOGZkMDIwZTJjZjQzMTU1MmUyM2ZjOTcxMDBjZjQifQ"
+        },
+        {
+          "resource": "repo://src/cqg/screen.py#L21-L30",
+          "version": "repo-lines-v1:sha256:796b8bbd9315f428d678815f4b27ccace5a319854ab87e23e4f567c6bc328fa0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDM3OWZmNmE0ZThkNWE0ZDhiYjk2ZTUwYjkyYjZiM2UzNmZiMTUwNzViYmVhMDlhNjQzM2UwOGFhZjg4NjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNzA0OGJkZGY1NTY4ZTMwM2U3ZGVmMmFhMTc4NGMxM2UzYzI0NDQ2ZDI3NzkzYWI4MDQ1NzgyOGU5MWVjMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjEwYmM0MWUyM2U0MWQ0YzM0YTE3ZDc0N2NkZjc2YTY4MzcyYzNlYzliMDJjMTM1MGRkMWEzMzcwMjgyNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcxYzNjNzZkNGU5NzMzODZlNzhmNGY0NWZhMWUxODg2OGQ3MzJiMzVkMTI1N2JlYTNjYWU1Njc0NjEyMTViOTIifQ"
+        },
+        {
+          "resource": "repo://tests/test_screen.py#L1-L38",
+          "version": "repo-lines-v1:sha256:73a44a56132787931e5105e55d61892ae624bb3d73841f88a43d8565bfb0fd01:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY4ZDU5NDY2OTU1OGVjYjYwZDc4NDEwNzI3ZDE0ZWVlZDkyZTgyNTYxNDQwNTEzNjViZTg1ZDAzZmU1YWU1YzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImI2ZWE4MDM1ZWZlM2VlZTIwNTM1OGVmZmJlM2Q3YmJmMDY4ZDdhMDYzMDZkMGI5ODdlMjkyNjU5YjQzYmM4OGYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}

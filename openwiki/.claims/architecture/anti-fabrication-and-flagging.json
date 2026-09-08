@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:f295eac0b97d74a595ff6f03dbb5830a7827146cbc35ad8d6a5ddaa58db56036",
+  "claims": [
+    {
+      "id": "claim_562b7a8218aa430e920000574f6d6e6e",
+      "statement": "Every criterion in cqg resolves to exactly one of three states declared as a closed Literal type — scored, na, or not_evaluated — so the model layer rejects any other status at construction time rather than letting it reach the report.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/models.py#L1-L4",
+          "version": "repo-lines-v1:sha256:c36b36e1ffbf6b0f57d5d2ec1f121296a3ca0f1408373fa122f512544d58e0fb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGMwMmZiNzEyMWNlMzZlYjBhY2Q2NTYzNGM3ODcwNzQyNmM3OTEwNWI4NTg1MDQ5ZjU3Zjc5Y2IxNjBjYTZmYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2QwOWI2ZjhjODM1YWU5ZmY1ZGNiMTZkMDkyZTU4YmYyODc1MWVhMThlYTFiYzM1MjRmMDY4Y2E2ZGIwZWFkNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTRkMDE0MmVhZmU4ZmEyN2RlOGU3ZGIzY2UzNjJiZWZiYzc2MjBiOTdlYTdkYjU5MjE0ZDRmNzU4ZGRiY2VmNyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/models.py#L28-L35",
+          "version": "repo-lines-v1:sha256:6cc861837a0346e9db689eff8eb16d605c76a59939ea86058307a00165589f50:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTQyYjI0NDIwZmYyZTRlYThjZTE0MTdkMDkzZGI5ZjE3ZDM1MWNhNmI0NmIxNDFhODEyYmE3MWZmMDRkY2ViZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTBiYzFlYTQxNjQyYjA3YzhjMmY0MDQ5NmUyMDY5MjJiMTc0NzlhYzBjNTBjOGUxMzlmNTg3YWQ2NDQ3MDQ3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzgyODM0NGNkZDE1YTU3OWE1YThhOGYyMzJkOWNmYjhlOTFhMzYxNjI5OTc5YTI1M2VkZDNmMjI0YjExMjAzYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWUxMmQ1ZjE1YTE1ZGE2MzgwMjQ1ZjA5ZGJhYmQ0ZmMwYzQ5NmQxNWY5YTQ5OGM1OTQxZGMyNmMwYzAwNzM0ZiJ9"
+        },
+        {
+          "resource": "repo://tests/test_models.py#L5-L18",
+          "version": "repo-lines-v1:sha256:7dc816b88232edd071bc9da016fc9d7583f1327de969dc64a5e88043dac47d91:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2NDFmYjQ5ZDU0YjI5MGM3MjEwYWRkMzJiN2U3ODgxNTMyMWFiYzIxNjBjNWI4NDMyODJjOTdhZDdlMTNmZDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjNDlhMmQ5ZTJhMWQzNmE2OTg1ZjAzZmVmNGZmNWIzY2Y1YWMzODM2NDcyZTUwZDZhZjA5NWYzMjYxNjExMDMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNiMDMzYzgwZWU0YWQ1Y2Q2ZjA0YTczZjdjN2UzYjkxNTI4NzBkMDRmOWY4NzFkYTRhMGFkYzI4YzFlNmZlNjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ0OGI1ZjBhYmQ2MjY0MTgwZjZiYzQ0MmM0ZDE5Njc3NTE3MjJmOTZiMzUyZGE4MmE4NTFjZGFkZTIxNGM0NWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d3b001be42f04286b44ffcf4fb91ae36",
+      "statement": "A criterion may become `scored` only through the `_valid_scored` predicate, which simultaneously requires status scored, an integer score that is explicitly not a bool, a score within the registry scale, and a non-empty justification; any response failing one of these is demoted to not_evaluated.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L81-L89",
+          "version": "repo-lines-v1:sha256:c78950521733b03255bd6a2f0658c43a886e6c29690b14d8b2d595148fea5c49:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWQyOWYxZTU4YzViNjYzYWRlYmFiZGVlZGJiZmFkZGY5NTM1MjE2ODU0OTQyNjM0YTZkMWFlZGMyNDRhZTE5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBjMWYxODhmMTQyZWQ3YTgyNDY4MGIyMDcxNzJjNTUxOWJjNjE0YTQ4ZmRhN2NmMTY3ZWRiOGRkZjc5OTU2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGNjNGE3ZDFjYzc5NmFiYTNlNDY3MjMzMjdmNTE3ZTlmODExOTgyZDI1MGYwNzAyOTg2ZTRiNTc2NGFkOTU4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzMwOGI3ZjZiNjI1Nzk2Njc0MDVjOWExOTQ0YzNkNWEzZDAxNjZjMWI4MzliOTY5NDMxYzU3YWMyM2VkMmI4NSJ9"
+        },
+        {
+          "resource": "repo://tests/test_judge.py#L65-L79",
+          "version": "repo-lines-v1:sha256:0b997f6a35aad94292cc1a331eb9d3f5d92bbaa4c4e40cccf1916e9c2af77354:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNjdmZDU1MzVlYjg3MzhjYmY5ZmQ3MTc1ODY0OTQ3ZjgxOGZkYmNkYjQ1ZWM2MWQ5ZGVlMWRjYzJhZjZkYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiNzdjNDQ5MWFjNjMyOGNmMDI5ZGE1OGE2OWQwM2FmN2E5ZmFkM2I5MzY0NDYzZjViNTBjNDdhY2Y5MTJhNzYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMxOTc2YTllMGEyNmE1YTIzNmYzM2M2MjM0Y2VhYjA0ZTkxM2MyOWQ0NDZjZGY3ZGJjMzA5ZDZiMzZhN2NmYmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkyZDI0N2I5NjZjYzdjY2UzMmYxMWQ5M2Y5ZjM1YzVhMjdhNzZiYTI0OWIyOTk5N2Y5M2MzNzc1MWI0YTZkMTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_67ff2ad719074c83941035d49bb1a864",
+      "statement": "The judge ignores an `na` status asserted by the LLM and demotes it to not_evaluated, because `na` is a decision owned by the deterministic inventory rather than by the model.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/inventory.py#L23-L35",
+          "version": "repo-lines-v1:sha256:ab07131595a7e386d19cfbc6e91f7a3e5494625638cbf837e25175c09334792e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiZjA5YzFmMTAzMmJmMzhmMDAyZGIwMTJkNTU2MTM4OTJhNDE5MzQ0NTRkNDU5OGY1MjY3ZWIxNDJiZWU5NzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDAwOTMzZTg3YzBkMmI2ZjkyZjhmZDA2OWVmZDMwYjJmZDllNDQ3ZWQ2OTFjZDk4MGVlNDU2NjAwNGE0MzUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhhOWMzNDM0NTEyMDEzNWRmMmM1YzcyMjVkNTE2NDBmYWE2NjA4MjdmNDg0ZjViNDkxM2I1NTZmYWEyY2RlMmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L92-L113",
+          "version": "repo-lines-v1:sha256:9b3fe5d65775b98d022703686be9dfd26ca5c5f060c30ee328a9e5cf622483b5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NWY4NDljYjgwMjFlM2FiYmJlYjcwZTEzYTU0NTU0ZTljNjg4YWZlYzk1OWRlM2FiOTAxY2UyZTA3ZWNhMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAyZTQ3YTE3ODM1MzA1Y2ExYzFhNzNmYTIzOWJkYjBmNzcyZTdlYjMxYTQzOWMyMjY4ZGQ1MjMzOGJiNDJmMTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM4ZjUyYzNkM2Q3NmJmMDkwNGVkYTBmNDM1OGVkNmNiYmRlNGZiMDJhMGUwZWFmNjk4YzA3ZDk1NjkzYzIyZmQifQ"
+        },
+        {
+          "resource": "repo://tests/test_judge.py#L77-L79",
+          "version": "repo-lines-v1:sha256:2fcf1477e8dba8e02aa8a5e2e6d4f7bb44e66f4aefd89cbba6b8bf6d99c94d0b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2VjOTU3ZTM0NmRjMzc3YmZlNzI1YzI5YzJjODk3Yjg5NzM3Yzg5Y2JmMGE2NmQ0ZjMxOGExNGJiY2NlNDhjYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI3N2M0NDkxYWM2MzI4Y2YwMjlkYTU4YTY5ZDAzYWY3YTlmYWQzYjkzNjQ0NjNmNWI1MGM0N2FjZjkxMmE3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODRkNTgwYjdkMmY1ZmJmMmJiZDNiMmVlOTU5ZGQ5Y2E5YjdmM2I2MDllMTJkMDkxMmUyZDZjZGZjYjhlMjg3ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTJkMjQ3Yjk2NmNjN2NjZTMyZjExZDkzZjlmMzVjNWEyN2E3NmJhMjQ5YjI5OTk3ZjkzYzM3NzUxYjRhNmQxOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_92fa29b7fb3c477cb97e580376e4ed1c",
+      "statement": "Cross-section aggregation applies the anti-fabrication predicate twice — once to filter contributing sections and once to re-validate the aggregated result as a deliberate safety net — and returns not_evaluated with an explicit French justification when no section produced a compliant score.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L92-L121",
+          "version": "repo-lines-v1:sha256:837974d8a1a0dc11123b9807fa39290785526222cf618f5dd708e13eaa5adc70:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3NWY4NDljYjgwMjFlM2FiYmJlYjcwZTEzYTU0NTU0ZTljNjg4YWZlYzk1OWRlM2FiOTAxY2UyZTA3ZWNhMjIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4NWViZDRlZDYxNDg4MGI1MTcwYTM0YzFkMDlhZWU3ODBlZGUzZTdkMjVlZTE3ODg1ZjgyMWQ4YzdiYWU4OGEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMzOGZiNWUzYWU0NGFkYjIwNTAxYTc1MTdkNzJlNDRiZTU3NzhmZmFjZGQxYzE3Mjc0MzViOWE3NWFiOWZmYTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_403c9277ea374b9d9ae882fe7ba94d75",
+      "statement": "When the screening stage routes a document to the light path, score_document makes no LLM call at all and emits every qualitative criterion as not_evaluated rather than inferring a score, a behaviour pinned by a test that verifies zero calls even though the mock provider was configured to return a valid score.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L124-L137",
+          "version": "repo-lines-v1:sha256:b13a5a1c5f5a25823e85ba076e374e836cf43c5a0919bdd9d366ed3464739c67:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxY2JkYzFmYzMyZjQwYjk0NzI4OWNjZTdiNjkxOTI5MzAyZjg5ZTIzOGZjMDgxZmRkNWNjMGFjYTdkYzk3ZGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhNjljYzk1YTgwNWVlYmYzYTE4YTM0YjgwMjczYTQwYTBjNjIyYzY4NjcyNjNlODcyMzE0ODRjMmNjMzQ2ODUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0NjA0ZTUwMTA1YzM2MWJkNmNkYmUyYzYwMWZhZmY0NzA3NGVlMDA0ZWJlYzFhM2Y3MWQ0YzA1YjYwOTE4NjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNmNTQ5NzM2OGQ4ZDMyYjMwMmIzNjliYzAyYWMxYzZiYzU0NGU1NmVkOGMxNmJmNGQxM2MxZGQ3ZTNmYmM5ZDEifQ"
+        },
+        {
+          "resource": "repo://src/cqg/judge.py#L175-L180",
+          "version": "repo-lines-v1:sha256:94836a16b14d0024550b1aaeda907043fa454dad8a29c8ca2b094a5950b92843:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmJjMTE1MmYwOWYwOTAwMDZhNzk1NDA5NzQ2MWU2MDBkMDJjMjAxM2YwOWE5Y2UxNWIzYjI3NzUxMzhlZmM5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmQ3ZWM3ZjI2MjAwNTE3ZjE0MGI5NzhhMzhlMDg3N2Q4NDNhYjAyOTQ5ZWFlYjkzZjdkNjEwYzYwMmZjYTM3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzI1YjFjMTYxOWZlMTI3MmUxZDY2YTA0NDlkYTgyODliNzhmZjc3MDEzNzA4NDJiZjYzYjFiNGVjMzEyZjZkMyJ9"
+        },
+        {
+          "resource": "repo://tests/test_judge.py#L38-L54",
+          "version": "repo-lines-v1:sha256:4b4bda2c52568dd52e6a020b53345b9c200456135ad792242da3301f4d0b73f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliNjU2YzIxNzUwM2ZmMWViMjYwY2M4NzZiMDYzYzViMDg5N2RjZWEyMTJlODNmZTg5M2FlMjlhYjYyZDg4MzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4NzU1ZjAzYjFlNDlhYmRiYjBiYzIwOWE5YzM2Nzk0Y2NkYTNjODFmYTEzOGIzM2E5Yjg2Y2RmYWFiNzM2OTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlYzAzMjM5Zjk4Zjg5MzE0MzE2ZGJlYzJlNDMxMDQ1YjQwNDkxZGI4M2I2YWUxZjFiOTVjYjFmMmRhMjdjYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRhNzMwYWMyZjhkNWNmZjdjNTlhMzlmZmE2MjZjYWJjOTkxN2FhNWEyMjMwNTM3NDJlMmMzMjc3OGIwMGE3YzkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fd1358c03e0649c08b4967a9763115a4",
+      "statement": "Each non-judged criterion state carries a distinct justification string recording how the value was obtained — \"Signal deterministe.\" for deterministic scores, \"Objet absent du document (inventaire).\" for inventory exclusions, \"Referentiel de questions/cas d'usage absent.\" for criteria depending on an unshipped external reference grid, and \"Route light (crible) : jugement LLM non execute.\" for the light route.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/judge.py#L158-L180",
+          "version": "repo-lines-v1:sha256:41c3e17731dacc29a7074586a43e9cca58ebd942c6f67afc343c4a0039a58cc8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxNmYyNzNiYzg4MGZmYzZkMjU0Mjc2YTkzMWUzZjg0NTlhNDI2MjU3YzY1NWFmYzEyZTAwYmJhNjIyMzFlNWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2YWQwNTJjNDRiOTUzZjBkODMyODZhMmRkZGVjMjE4NWU3ZjE4OWRiMGU0ZjUwMmM2ZjA2ZjM0NzU4NDU0YTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVkZGY0Y2ZiNjIzZjNjNTBhZWY2MGM3ODQ3NzU2NWE5YjhjZTFlMzIxNWU2N2ZiNWI0OTk5NmEyM2NhYWE4NjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyNWIxYzE2MTlmZTEyNzJlMWQ2NmEwNDQ5ZGE4Mjg5Yjc4ZmY3NzAxMzcwODQyYmY2M2IxYjRlYzMxMmY2ZDMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_465e6763d1da4cc7ba1bd8e1e294c7ee",
+      "statement": "The golden Q&A workflow keeps a generated answer only when the model explicitly marked it covered with `oui` and the answer text is non-empty; every other case collapses to the marker \"Non couvert par le document\" with couvert forced to \"non\", and this fallback is applied independently on both the per-document and the retrieval-grounded corpus-wide paths.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L139-L153",
+          "version": "repo-lines-v1:sha256:7d81fc17984ac21a4e5a61cd35c657422196275f2626d20e4ac5c523bc4de378:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhiZjA3MjE3NDAzYmE4ZWI2NDVjYWY5MmZmMmE1NDI3ZGVmMGFjMzdlZWNmMmRkZmE3ZWIxMmRlMTJkNDQ4MGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjE5ODJlOGRkNzQ4MTE4MTQ2YjM5YTJkMDA2MmY0MDgxZTM0Nzc5Yjg2NzVjMjM0YzRmYjEyNGRjMzkzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5MjE4OTM4NGJmZDUwZTk5OGFhYThkMTgzZWM2OWIwYTA0NWU0MDE5M2RiZDZiYmViZTNmZjY1YzFiNWZjM2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyYjIzY2YyNTRjYjc1NGI0NGNiMTFjNWRlOTE2ODY3ZDJhODExMjc0MjQxMmVlZmE2MjFhZDUxM2QwMTZmYWMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L84-L103",
+          "version": "repo-lines-v1:sha256:2bbb85ac15c68a77c9dabc9fa0dcdc79d0f14eb38e42db6d2339c9f4f78be9f6:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4MjU4MDBhNWViM2UxYzc4YWRhNTZlMGVkMzhiZTQzZjA4MjEwNDE5NzI0M2VhNDMxNDFjMzkzMTY4MmYxOGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyN2UyMjdhMjg2NTIyOTU0Mjk1MDFkNmEwMDhiNDAxYTM1NjUyZDRjMzFjNmRkYWFmOTk1N2M3ZGUwMzU1ZGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhjYzRhN2QxY2M3OTZhYmEzZTQ2NzIzMzI3ZjUxN2U5ZjgxMTk4MmQyNTBmMDcwMjk4NmU0YjU3NjRhZDk1ODkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFhOTcxOTBkNTIyOWEwYmY1NTMyM2E4NWI1N2RhNWU4ZjFhNjZlNjdiZWVjYTQ2YWFhNTQ1NzUzYjNhNjhkNGYifQ"
+        },
+        {
+          "resource": "repo://tests/test_golden_qa.py#L81-L88",
+          "version": "repo-lines-v1:sha256:1717764539f77c03f295e92fc32ee409e63c7fecf5e363d387a44ced5dbf01b4:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBkMDAwYzI4MWIzNjRlODQ3YjAzZDU1MWY5MDlhYTY4Y2QzMzNlNjNlNWE5NDExMTY4MzY4ZjlmY2NlZTFlNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDU3YThkNjllMWI2Y2UyODJiYWRkYmZjOGVmYTY5M2IzYjAzYjIxMWJlNGY4MWZjNGZlNTRmNTlhMzM4NWE5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY0Nzc0ZmY5YzMxMjc4ZTI1YzRkNzcxNWI0YjgyMTkzOWE3ZWNkYjE5ZDZkODg5NWQ3YzQ5NDU5NGZlY2E3NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_228b51905c6e4db59fca6788cdedf549",
+      "statement": "Every golden Q&A row is emitted with statut_validation set to \"a_valider\", making the generated set a proposal awaiting human validation rather than established truth.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L144-L153",
+          "version": "repo-lines-v1:sha256:7744c76296e9af612753c126690538a3211143d6f841247d182ad64a28c52d22:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhZDM2NDUzZjQ0NjJkZGMxZGQzMGJkZWM0NTAwM2I0MjZhMTJmMzA1YWY5OGZhMWI2Mzk5NTA2N2E3YjNjYWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjE5ODJlOGRkNzQ4MTE4MTQ2YjM5YTJkMDA2MmY0MDgxZTM0Nzc5Yjg2NzVjMjM0YzRmYjEyNGRjMzkzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhOTA1MDk0OTI1ZjUyM2Q0N2UwMDFmYzI3MDI2NDE0MTUxY2ZjNThiMjExZDdkZGIyMjcxYTIwMzVkMTgwZWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyYjIzY2YyNTRjYjc1NGI0NGNiMTFjNWRlOTE2ODY3ZDJhODExMjc0MjQxMmVlZmE2MjFhZDUxM2QwMTZmYWMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/golden_qa.py#L93-L102",
+          "version": "repo-lines-v1:sha256:db800c82e009b42330e0c0bbb4d3895d1cfb6f085d7911f9c80e017847e541d5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhZDM2NDUzZjQ0NjJkZGMxZGQzMGJkZWM0NTAwM2I0MjZhMTJmMzA1YWY5OGZhMWI2Mzk5NTA2N2E3YjNjYWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5YjE5ODJlOGRkNzQ4MTE4MTQ2YjM5YTJkMDA2MmY0MDgxZTM0Nzc5Yjg2NzVjMjM0YzRmYjEyNGRjMzkzOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdkMGIzNGEzNDFjMmNmMDgwZDE5NWU0MjFhNmIxMDZhNTIzYTgzOGE2ZDY3MTQxMDdhNGE3Y2Q1ODE5MzA0ZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI0YjJhNDRhNjYyOTk5MTY3NDYxNjZhMjY5OTA1OTJmZGZmYmY3YTNhMzAxMzQ0ZDYxNDkyMjBlMzc4YzBkMTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a22313e459574c8c854e925cfe7d7b32",
+      "statement": "VLM-generated image descriptions injected into the evaluated markdown are wrapped in a tag naming them unverified, and the run counts those occurrences and attaches the count to the document as an `auto_descriptions:<n>` flag so a reviewer can see how much evaluated text was machine-written.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L112-L117",
+          "version": "repo-lines-v1:sha256:149a5fcfb1be33fd609129fd4759b4f50c88261881348000f8456f30e07f5bf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTAxMGU0MmJlOTA2MzdmMWY3NzI3MWQzZDRkMTMyYzMyZmY0YzRiMmFlZmM4NjA1OTEyMDNjYmNjOTc0NGUxZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ3YWFmZWEyNzc5MTdhZWU5ZTBlNjI0ZjNjZjIyYmExOGZkNDRlNzNkMTg2Njc3MmRmYjkzMGU3MzllMjU0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODM1NmQ1MDA3MzNhNWUxMWUwYTBkYjVjNWIzZTE1MzRiMjRmM2RjNTVkNjM5YTQ5MDdhYTRiYjk1MzhjZGExNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODg3OTY1NzAwZmVlNmQxMDJhMTU1ZTkzMzMxMmQ2ZTc1ZmQ5MmEyY2EzOTQwZjc0MzZkYTgxYTY0OGJjOGMyYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L132-L133",
+          "version": "repo-lines-v1:sha256:2052136f45502331956cb776b81fcbef25374e1b0cb756f16fd16aac3156b145:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE3ZTNkNTMwMTBmYWUzNmM2MDY4NGMzNDhjMzliODFmMDA4YzJmNjIxMzYzMjk1NGUzODczNjZhYTU4YTk5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTRiMjgxMzljNjU4Mjc1ZGNhMTE3NGYyODVmZWQ0NWNmYWFlMzJlMTg0OWI3YjU5MmEwZmNlMmU4NTM4YzRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQ1YjNiOGE1Y2IwYzcxMWE0MWJlMGM1OGIwZTRiZWMxOWEyYTQ4ZWEzYmQ3ZTIzYTkzNjBmMGNmMzQwMGYyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzhiZTJkYWJiZmExN2ZiNGNhMDdiYjU5NTM0MWQxZTE2ODY3YTEyNGYyZjkxZTIwMWVkN2EyYmIwOWY3MzRhNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/enrich.py#L23-L24",
+          "version": "repo-lines-v1:sha256:5bda07270fb930a208411778923b251023ac6ce68cc157c4dc478ad230ac8a32:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTExZWQ4MjE1NGIyNmE2ZDZmMGNhM2M2ZTNmYjI1MWYyOTAwMjlmMjYwNjA0M2FhNWFiM2EwODUxMWNkODdmYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDRhMzE0MWMyMjRkNDIzOGRkMTk5NDI5MWI2NjNjNDA3MmM4NzhjODA5M2JiMWVhMWJkMjI0NTdmY2YzZWU0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzdmMTNhNTQ4MTg3ZWYxNGVmMDcyODA5MjlkYWNjZDJjZjg2NjgzYzU5ZTBkOTBmMmQ2NjYzY2RiZTk4MWMyYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWI0NzRmYmFkOTNjYTQwM2Q3MmNjZDk4YWM3NGRmZDRmZjBmNjE5YjU0YzFmNzc4YjNkMmE3MzdhMGMxZjM4MyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/enrich.py#L40-L44",
+          "version": "repo-lines-v1:sha256:dc78bd392e3a829e1686ca612e1397cf1cae5705e6e3c2d546136223f2623346:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTU1ZmYwOTlkMDQyZjc1OTFjZjc0NmU1NzkyZGY4MmIzNDgyMzYwNWI4MDFhMDczODI1MDgwNDg4Mzk0YzZjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjM1NTBjOGVkODRhZWVmMzYxZGE2M2JmMmE3Y2U3Y2IxYjBlMDc1YmQ3NmQ2OGQ2YTJlMWIwNTRkMzk2ZWIxMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDFkMDk0ZGVmZDI1Y2VmOTRhM2YzN2I3MzE0NDVmZjQyMWY2NTkzNTFkY2ZlNzJmNjFiZmU4YWJiZDBiYTkyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE2ODczMWMxZjMwOWEyNzQwNzZjOTlhMDUzMjZmZjY0MTdmZTQ5YThmMGM4YzRmMDJmZmY4NjUyMDI5NmNmYiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2b17249796de4cdb837cfb51b6ac820b",
+      "statement": "A document whose parsing yields no usable text short-circuits to a DocScore of 0.0 flagged `unreadable`, deliberately skipping metric computation and LLM judgment so no call is spent on empty content.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L96-L105",
+          "version": "repo-lines-v1:sha256:e228fb68c8c7e0c4b2357560aac611777361200d29554581c4cecf3c827ba85f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZDk0ODk2OWVmNThkNGUxMzQ3Y2M2YWQ4NTUxODIxNWNkMDMwOGMwYTI5ZDFjZGY1MWMxNzI3M2M2NjM4OWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2MWNlOGQ4OTIyOWE5NTllNzYxNmY0ZGRmZWI1NDU5M2Q2MDhhYTNhMWQwMzE1NGM4MmIwNjE0Y2ViNTM3MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L25-L46",
+          "version": "repo-lines-v1:sha256:b69c0522d35475044401c167c5b7a1d241a0472ed1301d2303689263cee25dd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5ZTFlOTY2ZThiMDFmNWExZmQ1YzJjODUyNWY5YjE1YjIwODAyOGJlMmU3MGUxMGE4NGUxYTc4YmUxNWMxZWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE4ODdiNWYzMmQ4YjM0N2UxMjJmMTBlZTJjOWMxZWM4YmVlMGRjMjY1MWNhMzE0NmJiNDA0MDE2MmJmMmY4N2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMwODk2ZGQ3NmJmNTc3ZjNmODg3YWQ5MTBlNmNlYjNkOTg4MDcxZDlhNWYwYjVmNjhiMjkyZmY2YmI1M2E2YTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3ba588d61dc34f47b7774a1a4abc824b",
+      "statement": "Only documents with non-empty markdown are appended to the list handed to corpus redundancy detection, which keeps unreadable documents from registering as a cluster of identical documents.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L118-L119",
+          "version": "repo-lines-v1:sha256:15ca4be6672438eccd5e1635776fa66fdf598ec6f2498be8ff523c85d64166e8:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmE4NzA1OWIzMjY0MjdiNjExOWYzNmRjYzRlZTlkODExNjIyZjdiOWIyNzZlZDgxZDEwNDc4NTM3ZWRjY2MwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzAwMmM2Mjg0MjNmOGQ4ODJmM2FmODUyZDU4MDljNmQzYzBjNjMyNWE3YmMxZjhiNzUzMzVlMThiZmJhMjNlOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGMyZDU0NjliM2M5YThiMGE0MjE3YmZjNzJkMDBhMWQ3ZWY4MWFjOTA4ODk0NTRmNTFhZTczYzg1OTYxOWUzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmUxMDRhOWM4ZjU2ZTk2NTY5YjU4NjczNWFhNDAzMTc5MjY1NTkxY2I4ZTY0ZWIzMWViZGE3MTg0ZjhkNTNiNSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L143-L146",
+          "version": "repo-lines-v1:sha256:89020259a67e377f5c067b9dcf1c9b2cb3e15995d7007037bcb7c61f8f0a0dda:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmYwZDA3OGViYjE1OGM4MzNjMzdlNWU2ODZjNmI4MTM2MTkyMTI5NTZhYWM2Y2Y3YmQxZmMyZDVlNGQ5NGQ1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ2ZDIxOTlmYjMwZWFhOGUzNzNjYWViODc5OGNmMGY1MzljOThmOWU0NTQxNDdkODQwNTU1OGMyYjkxNmJmOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmE3Y2M4YTZkMGQyOTBjZWQ0Nzg5OWMzMzhiZjdlMzRhZDNkZWM1OTVmZTJkNThmZmE3ZmM2NjQzNTkxZDQxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjBiNjQzMGY5OTYzOTY1NmE5M2IyNzYxZjgyNGIwMGMwOGVjNDk1NjZkYTcyOTkwN2I4MTdiZTJkZDZmMWE0ZSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L96-L99",
+          "version": "repo-lines-v1:sha256:9dfff62e28e14be55ba12a2276e78dde8f77cd0dbd5abb62436623f2fe0aee0f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNkOTQ4OTY5ZWY1OGQ0ZTEzNDdjYzZhZDg1NTE4MjE1Y2QwMzA4YzBhMjlkMWNkZjUxYzE3MjczYzY2Mzg5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjQ2ZDNhNTAyMjVjYTQ3ZGQ1NzY5MGUyNTE3ZmNiZWQ3NDM5ZTJlZDY4MWRmZDA4MDUyZDI1NjUyN2E5MzBkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTYxY2U4ZDg5MjI5YTk1OWU3NjE2ZjRkZGZlYjU0NTkzZDYwOGFhM2ExZDAzMTU0YzgyYjA2MTRjZWI1MzcyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2JhMDU3ZDMyOGJjNjNlNDAxYzliNTgxZjc3MzBjNzNiOTZiZDg3OTQzNzAwNDZiZmJiM2VjYTgxMzcyNmVlZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_491cbf1c522d4cfab2bf7b2d3d18945f",
+      "statement": "Each document is processed inside its own try/except so that any failure is converted into a persisted DocScore flagged `processing_error: <ExceptionType>` and recorded in the run result, meaning one failing document never aborts the corpus run.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L134-L142",
+          "version": "repo-lines-v1:sha256:4c3300774e60e5abc4a17ca66ee9dff426f83005fd149a58a86cba1e75a9b2b4:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU5ZTQxOWU1Y2ZhZGJkNjdjMDgxODFkOTU5MTc1YjJkZTdlOGJjYTIwZTg3MDlmOTk2NDhmZWJkYzgzMjg0OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU1NTExMjljYWZlMWU3NzI5MGM2NDM3ODRiMDllZWY5YTdmZjk2NWQ3NzU4MjQ2MTI0NWM2NmJiNjkwMDAyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU1OGJkYThjMTQxYjI1YWNmYTg0ZDlhYzUzNmU1Yzk0MDc3ZGY4MmM5NGQzYTJlNzZmMWUzY2NkOGRiY2NmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzJmMTJmMTZiMDdiNjJiMjcwOWUwOGQ5ZWQwMzAwYjZmNzVjYmEzNDFlN2Q4OGM3MmU3OWMzNDg4MmIyMTBkZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L149-L151",
+          "version": "repo-lines-v1:sha256:041ca1838ef144a190664532379aa975ab90bcea043ecb2981179e6b09ab988d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjg3OTcwYjFhNmEyNWJkMTZlYmU4YzcwNTQ4MjU3MDlmYTU0ZmEyZTkyOWIyM2Q3MTBjMDQ5OGQ3YjZlOWU2OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVlOWYwOGQ3MDMzMTRjOWNkMGI0MTk0YTU4MTVlZDk0MDE3MzgwMmM2MmM4YzlmOTM0NzY2ODFmNjdhMzU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2U4NzRiZWZmY2E3N2FjM2I1YTM2YTVlYTk4YjMxMmYwY2IwNzM3ODNhYjQ2YjdhYjliMmM3ZGFmODdhZjYyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk3MzJmYjFkMTExYmIzZDgyMGUxNmYxM2VhMmVkMGE4ZWI0NjJlZmNmZmM0ODRlNzQ5MzM2YjM5NTgxYTYxYyJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L25-L46",
+          "version": "repo-lines-v1:sha256:b69c0522d35475044401c167c5b7a1d241a0472ed1301d2303689263cee25dd4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM5ZTFlOTY2ZThiMDFmNWExZmQ1YzJjODUyNWY5YjE1YjIwODAyOGJlMmU3MGUxMGE4NGUxYTc4YmUxNWMxZWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE4ODdiNWYzMmQ4YjM0N2UxMjJmMTBlZTJjOWMxZWM4YmVlMGRjMjY1MWNhMzE0NmJiNDA0MDE2MmJmMmY4N2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMwODk2ZGQ3NmJmNTc3ZjNmODg3YWQ5MTBlNmNlYjNkOTg4MDcxZDlhNWYwYjVmNjhiMjkyZmY2YmI1M2E2YTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_002516e4bfed4c858ad623c3d4f50355",
+      "statement": "The report surfaces a fixed flag vocabulary as the contract with the human reviewer — `unreadable`, `processing_error: <ExceptionType>`, `screen:light (<reasons>)` and `auto_descriptions:<n>` attached by the run orchestration, plus `low_coverage` and `low_parse_confidence` attached during document scoring — joined with `|` into the report's flags column.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L100-L102",
+          "version": "repo-lines-v1:sha256:7ba057d328bc63e401c9b581f7730c73b96bd8794370046bfbb3eca813726eee:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDgzZDZkNjJmYTI0OTRiYzM5ZTY3MWFiYjllZTY5YWUyOTNkNjkxMDQ3YjlkYTg0MDY4ZmNkMTFjMTI1NGQwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNhYjNhNWYyY2Y4NzQyMzlmOTkyYmZmYzhhYmJkMzM2MzM3NmU4MjlmMTMxYmM5NzhiM2JiMWMwNWVlYzYwYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDI5YmQ1YzcxNGM5ODk4YjJkNzQ0ZDZkY2MyMDYyNDk4ZTczN2YwMDNmYzVlMGIwMzExZGE4MjY5NDBkYjJiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDJlZDkzYjY2OTkwYTMzMDE2YjUwZDU2ZDg2ODczNzU0Y2UwNjE5MWZkYjYxZTBlZmVkZGI4YmEwOGEzZWE4YyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L130-L133",
+          "version": "repo-lines-v1:sha256:c8f4b77faeea36c062f181a924bd1cfd414885c6c597d039b81cd4d1976fa499:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk5NTdjNzEyMDYzZjgyODEyNjA5NjFiYzBkNDM0YjJlM2YwNzg1MTkxZTk0Nzk2MTM5MGY4NTNjYjc1MDA5ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTRiMjgxMzljNjU4Mjc1ZGNhMTE3NGYyODVmZWQ0NWNmYWFlMzJlMTg0OWI3YjU5MmEwZmNlMmU4NTM4YzRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjhiOWI4MGY1NjJkODU5YTEwMWM2ZDRjZDE1NTk5YTgzMmNiZTdhNDZlYWU4ODAxMjk3MzlkYjczODA4M2NlNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzhiZTJkYWJiZmExN2ZiNGNhMDdiYjU5NTM0MWQxZTE2ODY3YTEyNGYyZjkxZTIwMWVkN2EyYmIwOWY3MzRhNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L137-L139",
+          "version": "repo-lines-v1:sha256:01864bca2d97e6c9e8e7696f3676aafe50aa584291328fffe019b3f2c726eeeb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmIwOWNjOWFiYTE0YjIyN2E0YTEyY2I3NDg0YmVjM2FiMGM3ZDY1NzM1YzI1ZmRlOTllN2Q2NDM4YjBlZDg3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkZTFhNmU2MmU2YmNkZTNjM2Q2OWU1ODI5YWE1N2JiMDQwYjQ2NzRjN2ZmMTMzNDBhNmIwMGEyZDJiNWNjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzhiZTJkYWJiZmExN2ZiNGNhMDdiYjU5NTM0MWQxZTE2ODY3YTEyNGYyZjkxZTIwMWVkN2EyYmIwOWY3MzRhNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmE3Y2M4YTZkMGQyOTBjZWQ0Nzg5OWMzMzhiZjdlMzRhZDNkZWM1OTVmZTJkNThmZmE3ZmM2NjQzNTkxZDQxNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L35-L39",
+          "version": "repo-lines-v1:sha256:f35222b67c71f0ac34e969d59e2354454144491cd595f89b7842e317b022af46:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGIxNzYzNTFlYTc0ZDdjNTUyZGI3OWY5ZDljMWU2OTQ5ZjZiZDZiNmMzY2NkZDZhY2FhYTRmOTdiYzVlNGQ1ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTJmZmUxODc2NmY1MjFjMTZlNTYwNDQ2NDcxZGM5NDM2MzMyZTI1OWM1ODYzYzExYTg0Njk0YzUwODViMjQwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjM5NWMwMTE2MDk5ZjBmMGE4NTA5MzE0ZmRiMGM5NjM1NmYzZWI1YTE2MzA0MjczNDA2NzRkNWJkZWNmMDA2NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWNmY2EyNWJmZDZlMDc1MWY3ODQyODliODkxNGI0ZDExNjk2MWZlYzBiMTU5OTYzMjIxZTc3NjRiYjc5MTNlMiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/report.py#L79-L83",
+          "version": "repo-lines-v1:sha256:5d18bd1f96ab4c46245828ff677a6c988f7d35378f4c889bee939f36372eebf2:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2JiMGUzOWMwNWE1YmIzY2NiYzdmMTA1MWY3MzUwNDU1NzFlNzYxMTI2ZWJhNjgxNDBiNDA1ZWMyODVkYjBkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjNkMGMyOWVjNGIyZDVkYmY0N2ZhM2ZiMjUwNjk5NzU3YWFhOTAzZDQxYjgxOTA3YmUyNGJkMmVkZWYyNTM3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWRjNjQ3ZTQ3MDkyZmRmNDdhOTNiMjI2ZGMyZDBhYjg4MTlkZTFkNjU5OWZmODJkM2MzNjRkOGRmMjBkMTQ5YiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDE1NmFiY2NiM2EwMzA0MWQ4NTg4MTk2MWEzMDVhMmQxMGIyNzAxOTIxY2JjZDkwYTVjZjBiNzVkZmJmYzYxNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6a0008a4b9ab4eaea398a42b96997854",
+      "statement": "not_evaluated criteria are counted rather than hidden: they form the denominator of the coverage figure, so declining to guess mechanically lowers coverage and raises the low_coverage flag instead of being averaged away.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L30-L37",
+          "version": "repo-lines-v1:sha256:995eacf987175476f109e634064a3d9e2f6bf78769719c559310e4d1506ffbc2:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmMzZDY0NDEyZDcxYzBkM2MwZDJkMDcwMjFmNTRhMjJiZGNkY2Q5ZWI1Y2M3M2EzNjUzYWVjYmEwMTM2ZTljOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNiMmQ4NzJlOGFmMjFjZmY1ZTlmYjJlNGRhMGU3NDc5NTU2ZDM2YTZhZmE5MTAyY2NkZDljMmNmYjM5NmNjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTBjY2IyZWZlZGEzYjEzMmFhMzE1YmZkZjA2ZGJhM2Q4NGQzOTRkNjdlOTczOTQ3MjA5ZDYwZmExODNkN2Q3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk0M2RmOGQzYTIyNDA4MzIzY2RiODVjY2Y1YjMzYjk2NzBkMjRhNTQwNTU3YTM0M2FjMzFlYmI0ZjI2MTNjMCJ9"
+        },
+        {
+          "resource": "repo://tests/test_report_scoring.py#L25-L33",
+          "version": "repo-lines-v1:sha256:cb0792419ac32b622eb34f58e6827bd247eca8b94cdc69f4acb50f15fac24364:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUyYWExOThmYmMxYzE5MTAxNmU1ZGVkZjBhOWQxZGI0ZmQ2MGMyZGZkNDFhMWY2ZDdiNmQxOTkwZDk5MzZjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg3NDZlOGYxODMxZTllNDE4MjRkN2ZlOTU3NTgwNjAzYWEwMzhlMDZlMGNiODc3OTNhMzU4Njk3YmQ1NDY5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTRmMWJhMzNiMDAyOGFjMzlhOGRhZGI1OTBkY2Y4N2IyNTM4ZWNmOGQ5MGQyOGM3MTcxZDMxOTA0ZWE0ZGExZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGJjODRiYTMwNjIxOTAzNzc3NjQ3NzY0N2QwZmI3ZmFjOGYwNGY4NTUzMmVlODc5MGJkMzRjYTM1NmRhNzAzZSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-08T21:30:42.164Z"
+  }
+}
