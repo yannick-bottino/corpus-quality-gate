@@ -1,80 +1,80 @@
 # Corpus Quality Gate (cqg)
 
-Evaluateur de qualite intrinseque de documents AVANT ingestion RAG. Score et flag chaque
-document (reference-free, document-level : ni verite terrain ni requetes requises), agrege au
-niveau corpus. Principe : **score-and-flag, human-in-the-loop** (rien n'est supprime, tout est
-signale pour revue). Corpus cible : PDF numeriques heterogenes et multimodaux, bilingue FR/EN.
+Intrinsic document quality evaluator, run BEFORE RAG ingestion. Scores and flags each
+document (reference-free, document-level: neither ground truth nor queries required), aggregated
+at corpus level. Principle: **score-and-flag, human-in-the-loop** (nothing is deleted, everything
+is flagged for review). Target corpus: heterogeneous and multimodal digital PDFs, bilingual FR/EN.
 
 ## Installation
 
 ```bash
-python -m venv .venv && . .venv/Scripts/activate   # Windows ; sous Unix : source .venv/bin/activate
+python -m venv .venv && . .venv/Scripts/activate   # Windows ; on Unix: source .venv/bin/activate
 pip install -e .
 ```
 
-Python 3.11+. Dependances MIT / Apache-2.0 / BSD uniquement (usage commercial). Le gate de
-licences est verifiable : `python scripts/check_licenses.py`.
+Python 3.11+. MIT / Apache-2.0 / BSD dependencies only (commercial use). The license
+gate is verifiable: `python scripts/check_licenses.py`.
 
-## Utilisation
+## Usage
 
-Deux sous-commandes. Aucune cle API en clair : les cles sont lues via des variables d'environnement
-(champs `*_api_key_env` de la config).
+Two subcommands. No API key in plain text: keys are read from environment variables
+(`*_api_key_env` fields of the config).
 
 ```bash
-# 1) Verdict qualite du corpus
+# 1) Corpus quality verdict
 python main.py run    <dossier_pdf> --config config/config.example.yaml --out <sortie> --enrich
 
-# 2) Jeu de questions/reponses de reference (golden set) a faire valider par le metier
+# 2) Reference question/answer set (golden set) for business validation
 python main.py golden <dossier_pdf> --config config/config.example.yaml --out <sortie>
 ```
 
-(Apres `pip install -e .`, la commande `cqg run ...` / `cqg golden ...` est aussi disponible.)
+(After `pip install -e .`, the `cqg run ...` / `cqg golden ...` command is also available.)
 
 ## Pipeline
 
 ```
 triage (pypdf)
-  -> parse (pdfminer.six + pdfplumber, fallback cid)     # extraction fidele, detection d'echec cid
-  -> enrich (image -> texte, VLM, injecte AVANT l'eval)  # optionnel (--enrich)
-  -> screen (triage a deux vitesses)                     # doc degrade/propre -> route "light"
-  -> metriques deterministes (Gopher/RedPajama, integrite de blocs, redondance de contenu)
-  -> jugement LLM par sections (couverture 100% du document, appel batche par section)
-  -> rapport Excel/CSV + redondance de corpus
+  -> parse (pdfminer.six + pdfplumber, fallback cid)        # faithful extraction, cid failure detection
+  -> enrich (image -> text, VLM, injected BEFORE the eval)  # optional (--enrich)
+  -> screen (two-speed triage)                              # degraded/clean doc -> "light" route
+  -> deterministic metrics (Gopher/RedPajama, block integrity, content redundancy)
+  -> sectioned LLM judgment (100% document coverage, one batched call per section)
+  -> Excel/CSV report + corpus redundancy
 ```
 
-Points cles integres :
-- **Robustesse du parsing** : detection des echecs de mapping police `(cid:NNN)` et penalisation
-  de `parse_confidence` (un document a moitie illisible ne sort plus avec une confiance elevee),
-  avec tentative de reextraction pdfplumber.
-- **Jugement par sections avec recouvrement** : le document est decoupe en sections a
-  recouvrement (facon chunking RAG, reglable) et juge a 100%, au lieu d'un simple extrait.
-- **Triage a deux vitesses** : un document manifestement degrade ou manifestement propre est
-  route en jugement leger (flague, sans depenser le budget LLM complet).
-- **Anti-fabrication** : trois etats `scored | na | not_evaluated`. Une note n'est retenue
-  qu'entiere, dans le bareme, ET justifiee. Jamais de note devinee.
+Key points built in:
+- **Parsing robustness**: detection of `(cid:NNN)` font-mapping failures and penalization
+  of `parse_confidence` (a half-unreadable document no longer comes out with high confidence),
+  with a pdfplumber re-extraction attempt.
+- **Sectioned judgment with overlap**: the document is split into overlapping
+  sections (RAG-chunking style, tunable) and judged at 100%, instead of a single excerpt.
+- **Two-speed triage**: a manifestly degraded or manifestly clean document is
+  routed to light judgment (flagged, without spending the full LLM budget).
+- **Anti-fabrication**: three states `scored | na | not_evaluated`. A score is retained
+  only if whole, within the scale, AND justified. Never a guessed score.
 
-## Sorties
+## Outputs
 
-`run` (dans `--out`) :
-- `corpus_report.xlsx` : onglets **Synthese** (note, niveau, couverture, flags par document),
-  **Detail** (les 57 criteres avec statut / note / justification / preuve), **Remediation**.
+`run` (in `--out`):
+- `corpus_report.xlsx`: tabs **Synthese** (score, level, coverage, flags per document),
+  **Detail** (the 57 criteria with status / score / justification / evidence), **Remediation**.
 - `synthese.csv`, `detail.csv`, `remediation.csv`, `<doc>.score.json`, `<doc>.enriched.md`,
-  `corpus_redundancy.json`, `cost.json` (appels LLM et volume de prompt par document).
+  `corpus_redundancy.json`, `cost.json` (LLM calls and prompt volume per document).
 
-`golden` (dans `--out`) :
-- `golden_qa.xlsx` / `golden_qa.csv` : questions/reponses de reference, colonnes
-  `question / reponse / sources / couvert / statut_validation / commentaire_beta`. Questions en
-  langage naturel d'usager. Nombre variable (auto selon la densite d'information, ou fixe via la
-  config). Inclut des questions **transverses au corpus** (reponse croisant plusieurs documents),
-  ancrees par retrieval sur le texte integral. Reponse conservee seulement si couverte par les
-  documents, sinon "Non couvert par le document".
+`golden` (in `--out`):
+- `golden_qa.xlsx` / `golden_qa.csv`: reference Q&A set, columns
+  `question / reponse / sources / couvert / statut_validation / commentaire_beta`. Questions in
+  natural end-user language. Variable count (auto according to information density, or fixed via
+  the config). Includes **corpus-wide** questions (answer crossing several documents),
+  anchored by retrieval over the full text. Answer kept only if covered by the
+  documents, otherwise "Non couvert par le document".
 
 ## Configuration
 
-Modele documente : `config/config.example.yaml`. Sections : `llm` (provider mock / openai /
-azure_openai / anthropic + `api_key_env`), `judge` (taille et recouvrement des sections),
-`enrichment` (VLM images), `golden` (profil, politique, nombre de questions, questions
-transverses + parametres de retrieval).
+Documented template: `config/config.example.yaml`. Sections: `llm` (provider mock / openai /
+azure_openai / anthropic + `api_key_env`), `judge` (section size and overlap),
+`enrichment` (image VLM), `golden` (profile, policy, number of questions, corpus-wide
+questions + retrieval parameters).
 
 ## Tests
 
@@ -82,4 +82,4 @@ transverses + parametres de retrieval).
 python -m pytest -q
 ```
 
-Portable en batch (ex. Azure OpenAI) via le champ `llm.provider` de la configuration.
+Portable in batch (e.g. Azure OpenAI) via the `llm.provider` field of the configuration.

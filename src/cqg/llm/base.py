@@ -5,8 +5,8 @@ class LLMClient(ABC):
     def judge(self, prompt: str, schema: dict) -> dict: ...
 
     def judge_batch(self, prompt: str, schema: dict) -> dict[str, dict]:
-        # Levier A : juge tous les criteres qualitatifs d'une section en un seul appel.
-        # Renvoie {crit_id: {status, score, justification, evidence}}.
+        # Lever A: judges all the qualitative criteria of a section in a single call.
+        # Returns {crit_id: {status, score, justification, evidence}}.
         raise NotImplementedError("Ce provider LLM ne supporte pas le jugement batche")
 
     def describe_image(self, image_path: str, context: str = "") -> str:

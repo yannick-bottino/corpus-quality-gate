@@ -1,31 +1,31 @@
-# Autoresearch — optimisation du parsing des tableaux de garanties
+# Autoresearch — optimizing the parsing of guarantee tables
 
-Boucle d'itération autonome (style Karpathy : Goal + métrique mécanique + Verify + boucle
-qui garde ce qui améliore) appliquée au parsing de `Le Cahier Ma Santé (AGA - AEP).pdf`.
+Autonomous iteration loop (Karpathy style: Goal + mechanical metric + Verify + a loop
+that keeps whatever improves) applied to the parsing of `Le Cahier Ma Santé (AGA - AEP).pdf`.
 
-> `/autoresearch` (repo `uditgoenka/autoresearch`) est un **harnais d'itération**, pas un
-> outil PDF. Il n'est pas installé dans cet environnement et sa commande `/autoresearch` ne
-> peut pas être invoquée en direct dans une session (les commandes se chargent au démarrage).
-> On suit donc son protocole manuellement : Goal / Metric / Verify / boucle.
+> `/autoresearch` (repo `uditgoenka/autoresearch`) is an **iteration harness**, not a
+> PDF tool. It is not installed in this environment and its `/autoresearch` command cannot
+> be invoked directly within a session (commands are loaded at startup).
+> We therefore follow its protocol manually: Goal / Metric / Verify / loop.
 
 ## Goal
-Maximiser l'**exploitabilité RAG** des tableaux de garanties : préserver l'association
-libellé→valeur (taux %, montants €), sans perdre de valeurs.
+Maximize the **RAG usability** of the guarantee tables: preserve the
+label→value association (rates %, amounts €), without losing any values.
 
-## Métrique (Verify → nombre)
-Le vrai défaut du parser historique n'est pas la corruption (texte propre, cid≈0) mais
-l'**aplatissement** : les colonnes sont sérialisées séparément, un libellé est séparé de sa
-valeur de ~17 000 caractères. La métrique mesure donc l'**adjacence libellé→valeur** :
+## Metric (Verify → number)
+The real defect of the legacy parser is not corruption (clean text, cid≈0) but
+**flattening**: the columns are serialized separately, a label is separated from its
+value by ~17,000 characters. The metric therefore measures **label→value adjacency**:
 
-- `assoc_rate` = % de lignes portant une valeur qui portent AUSSI un libellé (≥2 mots).
-  `higher_is_better`. Aplati → ~37 % ; tables structurées → ~83 %.
-- Contrainte : `value_recall` ne doit pas régresser (Docling seul perd des valeurs).
+- `assoc_rate` = % of lines carrying a value that ALSO carry a label (≥2 words).
+  `higher_is_better`. Flattened → ~37%; structured tables → ~83%.
+- Constraint: `value_recall` must not regress (Docling alone loses values).
 
-Verify : `python outputs/autoresearch/verify_parse_quality.py <parser>`
-Fixture rapide : `sample_tables.pdf` (5 pages denses : pages 2/42/90/108/217) — évite de
-reparser les 222 pages à chaque itération.
+Verify: `python outputs/autoresearch/verify_parse_quality.py <parser>`
+Fast fixture: `sample_tables.pdf` (5 dense pages: pages 2/42/90/108/217) — avoids
+reparsing the 222 pages at every iteration.
 
-## Invocation type
+## Typical invocation
 ```
 /autoresearch Goal: "maximiser assoc libellé→valeur des tableaux sans perdre de valeurs" \
               Scope: src/cqg/parse.py \
@@ -34,35 +34,35 @@ reparser les 222 pages à chaque itération.
               Guard: ".venv/bin/python -m pytest -q"
 ```
 
-## Résultats
+## Results
 
-### Itération #0 — baseline vs Docling (via `parse_document`)
+### Iteration #0 — baseline vs Docling (via `parse_document`)
 | Parser | assoc | value_recall | distinct |
 |---|---|---|---|
-| legacy (pdfminer, ancien défaut) | 37,3 % | — | 25 |
-| docling (nouveau défaut) | 82,6 % | 85,2 % | 23 |
+| legacy (pdfminer, former default) | 37.3% | — | 25 |
+| docling (new default) | 82.6% | 85.2% | 23 |
 
-Docling **double** l'association. Faiblesse : perd `145% 200% 220% 400%` (taux
-d'hospitalisation) et duplique des libellés de lignes adjacentes.
+Docling **doubles** the association. Weakness: loses `145% 200% 220% 400%` (hospitalization
+rates) and duplicates labels from adjacent rows.
 
-### Itération #1 — combinaison orchestrée
-| Stratégie | assoc | value_recall | distinct |
+### Iteration #1 — orchestrated combination
+| Strategy | assoc | value_recall | distinct |
 |---|---|---|---|
-| docling + merge complétude pdfminer | 78,7 % | **100 %** | 27 |
+| docling + pdfminer completeness merge | 78.7% | **100%** | 27 |
 
-Docling en primaire (structure) + passe de récupération des valeurs manquantes depuis le
-texte pdfminer natif → recall 100 % en gardant assoc >> baseline. **C'est la stratégie
-cible.** Prochaines itérations : rattacher les valeurs récupérées à leur libellé (plutôt
-qu'en annexe) pour remonter l'assoc vers celui de Docling seul ; dédupliquer les libellés.
+Docling as primary (structure) + a pass recovering the missing values from the
+native pdfminer text → 100% recall while keeping assoc >> baseline. **This is the target
+strategy.** Next iterations: attach the recovered values to their label (rather
+than in an appendix) to bring assoc back up towards that of Docling alone; deduplicate the labels.
 
-## État d'intégration
-- Docling = **parser par défaut** (`parsing.parser: docling`), isolé en **sous-processus**
-  (`src/cqg/docling_worker.py`) : un OOM (SIGKILL, ~1,15 Go sur 1,2 Go) est détecté via le
-  returncode et bascule sur `legacy` sans crasher le pipeline.
-- `parser: legacy` = repli léger (pdfminer + pdfplumber), conservé et testé.
-- La combinaison de l'itération #1 (merge) reste à câbler comme stratégie de parser.
+## Integration status
+- Docling = **default parser** (`parsing.parser: docling`), isolated in a **subprocess**
+  (`src/cqg/docling_worker.py`): an OOM (SIGKILL, ~1.15 GB out of 1.2 GB) is detected via the
+  returncode and switches to `legacy` without crashing the pipeline.
+- `parser: legacy` = lightweight fallback (pdfminer + pdfplumber), kept and tested.
+- The iteration #1 combination (merge) still has to be wired in as a parser strategy.
 
-## Fichiers
-- `verify_parse_quality.py` — Verify (métrique).
-- `sample_tables.pdf` — fixture 5 pages.
-- `../benchmark-docling-cahier-ma-sante.md` — benchmark complet (corrigé, honnête).
+## Files
+- `verify_parse_quality.py` — Verify (metric).
+- `sample_tables.pdf` — 5-page fixture.
+- `../benchmark-docling-cahier-ma-sante.md` — full benchmark (corrected, honest).

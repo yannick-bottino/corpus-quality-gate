@@ -18,7 +18,7 @@ def compute_doc_score(doc_id: str, criteria: list[CriterionScore], reg: Registry
         if cs.status != "scored" or cs.score is None:
             continue
         crit = by_id.get(cs.id)
-        if crit is None:  # critere hors registre : ignore plutot que crasher le batch
+        if crit is None:  # criterion outside the registry : ignored rather than crashing the batch
             continue
         dim = crit.dimension
         num[dim] += cs.weight * cs.score
@@ -27,10 +27,10 @@ def compute_doc_score(doc_id: str, criteria: list[CriterionScore], reg: Registry
     gnum = sum(reg.dimension_weights[d] * v for d, v in dims.items())
     gden = sum(reg.dimension_weights[d] for d in dims)
     global_pct = round(gnum / gden, 1) if gden else 0.0
-    # Couverture coherente avec le score : un "scored" sans note (score None) ne compte pas.
+    # Coverage consistent with the score : a "scored" without a score value (score None) does not count.
     scored = sum(1 for c in criteria if c.status == "scored" and c.score is not None)
     not_eval = sum(1 for c in criteria if c.status == "not_evaluated")
-    # denom nul (tout na ou liste vide) : couverture indefinie, on retourne 100.0 par convention.
+    # zero denominator (all na or empty list) : coverage undefined, we return 100.0 by convention.
     coverage = round(scored / (scored + not_eval) * 100, 1) if (scored + not_eval) else 100.0
     flags = []
     if coverage < coverage_flag_below * 100:
@@ -54,8 +54,8 @@ def write_doc_json(ds: DocScore, out_dir: str) -> str:
     return str(path)
 
 def _sanitize_cell(v):
-    # Neutralise l'injection de formule (CSV/Excel) : une valeur textuelle commencant par
-    # = + - @ est prefixee d'une apostrophe pour rester du texte a l'ouverture dans Excel.
+    # Neutralises formula injection (CSV/Excel) : a text value starting with
+    # = + - @ is prefixed with an apostrophe so it stays text when opened in Excel.
     if v is None:
         return ""
     if isinstance(v, str) and v[:1] in ("=", "+", "-", "@"):
@@ -63,8 +63,8 @@ def _sanitize_cell(v):
     return v
 
 def _csv(path: Path, rows: list[list], header: list[str]) -> None:
-    # csv.writer echappe les valeurs contenant ; guillemets ou retours ligne (integrite des colonnes).
-    # utf-8-sig (BOM) pour un rendu correct des accents a l'ouverture dans Excel.
+    # csv.writer escapes values containing ; quotes or line breaks (column integrity).
+    # utf-8-sig (BOM) for correct rendering of accents when opened in Excel.
     with path.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.writer(f, delimiter=";")
         writer.writerow(header)

@@ -3,11 +3,11 @@ from pathlib import Path
 from .base import LLMClient
 
 class ManualVLM(LLMClient):
-    # Rend un manifeste des images a decrire ; les descriptions sont remplies
-    # hors ligne (LLM in-session) puis injectees via enrich.apply_descriptions.
-    # Au chargement, relit un manifeste existant : si des descriptions y ont ete
-    # remplies, describe_image les restitue -> un second run enrichit le markdown
-    # AVANT l'evaluation (enrich-avant-eval), sans passe apply_descriptions separee.
+    # Emits a manifest of the images to describe; the descriptions are filled in
+    # offline (in-session LLM) then injected via enrich.apply_descriptions.
+    # On load, re-reads an existing manifest: if descriptions have been filled
+    # in there, describe_image returns them -> a second run enriches the markdown
+    # BEFORE evaluation (enrich-before-eval), no separate apply_descriptions pass.
     def __init__(self, manifest_path: str):
         self.manifest_path = manifest_path
         self._items: list[dict] = []
@@ -22,7 +22,7 @@ class ManualVLM(LLMClient):
                     if ph and desc:
                         self._filled[ph] = desc
             except (ValueError, OSError):
-                pass  # manifeste illisible : on repart d'un manifeste vide
+                pass  # unreadable manifest: start over from an empty manifest
 
     def judge(self, prompt: str, schema: dict) -> dict:
         raise RuntimeError("ManualVLM ne juge pas de texte")

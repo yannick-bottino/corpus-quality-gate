@@ -1,56 +1,56 @@
-# Guide — exécuter le parsing Docling complet + couverture LLM
+# Guide — running the full Docling parsing + LLM coverage
 
-Tout est intégré et testé (123 tests). Ce qui suit permet de lancer le run **complet**
-(222 pages) + le jugement LLM de fond (critère 3b du handoff) — idéalement sur une machine
-**≥ 8 Go de RAM** (le bac à sable d'origine, ~1,2 Go, ne peut faire tourner Docling qu'à
-batch=1 et tue les runs > ~2 min).
+Everything is integrated and tested (123 tests). What follows runs the **full** run
+(222 pages) + the substantive LLM judgment (criterion 3b of the handoff) — ideally on a machine
+with **≥ 8 GB of RAM** (the original sandbox, ~1.2 GB, can only run Docling at
+batch=1 and kills runs > ~2 min).
 
-## Pré-requis (déjà faits dans ce dépôt, à refaire ailleurs)
+## Prerequisites (already done in this repo, to redo elsewhere)
 ```bash
 cd corpus-quality-gate
 export VIRTUAL_ENV="$PWD/.venv"
 uv pip install --python .venv/bin/python "torch==2.13.0" "torchvision==0.28.0" \
     --index-url https://download.pytorch.org/whl/cpu
-uv pip install --python .venv/bin/python opencv-python-headless   # serveur headless : évite libGL.so.1
-uv pip install --python .venv/bin/python -e ".[dev]"              # docling est désormais dep cœur
+uv pip install --python .venv/bin/python opencv-python-headless   # headless server: avoids libGL.so.1
+uv pip install --python .venv/bin/python -e ".[dev]"              # docling is now a core dependency
 ```
 
-## 1. Régler la taille de lot selon la RAM
-`config/config.claude_cli.yaml` → `parsing.docling_batch_pages` :
-- **1** (défaut) : ~1,1 Go de pic, sûr sous ~1,2 Go, mais lent (~37 min / 222 p, rechargement modèles par page).
-- **10–20** sur machine ≥ 8 Go : bien plus rapide (un seul chargement de modèles par lot).
-Repère mesuré : 1 p = 1092 Mo, 5 p = 1708 Mo, 10 p = 1625 Mo (frais). Prendre une marge.
+## 1. Set the batch size according to RAM
+`config/config.claude_cli.yaml` → `parsing.docling_batch_pages`:
+- **1** (default): ~1.1 GB peak, safe under ~1.2 GB, but slow (~37 min / 222 p, models reloaded per page).
+- **10–20** on a machine ≥ 8 GB: much faster (a single model load per batch).
+Measured reference: 1 p = 1092 MB, 5 p = 1708 MB, 10 p = 1625 MB (fresh). Leave a margin.
 
-## 2. Lancer le pipeline complet (parsing Docling + jugement LLM sans clé API)
+## 2. Run the full pipeline (Docling parsing + LLM judgment without an API key)
 ```bash
 cd corpus-quality-gate && . .venv/bin/activate
 python main.py run ../test_data --config config/config.claude_cli.yaml --out ../outputs/run_docling
 ```
-- `parser: docling` est déjà le défaut dans cette config → le parsing utilise Docling
-  (sous-processus par lot, repli pdfminer par page si un lot OOM).
-- Le jugement de fond est délégué au CLI `claude` (provider `claude_cli`, ~0,30 $/appel,
-  ~45 appels). Le triage corrigé route « Le Cahier Ma Santé » en **full** → il est bien jugé.
+- `parser: docling` is already the default in this config → parsing uses Docling
+  (subprocess per batch, per-page pdfminer fallback if a batch OOMs).
+- The substantive judgment is delegated to the `claude` CLI (provider `claude_cli`, ~$0.30/call,
+  ~45 calls). The corrected triage routes « Le Cahier Ma Santé » to **full** → it is indeed judged.
 
-## 3. Vérifier le résultat
+## 3. Check the result
 ```bash
-# Le doc cible doit être jugé (n_calls > 0, couverture > 0), pas "screen:light"
+# The target doc must be judged (n_calls > 0, coverage > 0), not "screen:light"
 cat "../outputs/run_docling/Le Cahier Ma Santé (AGA - AEP).score.json"
-cat ../outputs/run_docling/cost.json          # n_calls par doc
+cat ../outputs/run_docling/cost.json          # n_calls per doc
 ```
-Critère 3b satisfait si `coverage_pct > 0` et `n_calls > 0` sur le doc cible.
+Criterion 3b is satisfied if `coverage_pct > 0` and `n_calls > 0` on the target doc.
 
-## 4. Mesurer la qualité d'extraction (harnais autoresearch)
+## 4. Measure extraction quality (autoresearch harness)
 ```bash
-python outputs/autoresearch/verify_parse_quality.py docling   # assoc libellé→valeur (attendu ~83%)
+python outputs/autoresearch/verify_parse_quality.py docling   # label->value association (expected ~83%)
 python outputs/autoresearch/verify_parse_quality.py legacy    # baseline (~37%)
 ```
 
-## Itération suivante recommandée (autoresearch #2)
-Câbler la stratégie gagnante **Docling + complétude pdfminer** (100 % de recall des valeurs ;
-récupère `145/200/220/400 %`) comme mode de parser, puis relancer `verify_parse_quality.py`.
-Voir `outputs/autoresearch/README.md` (Goal/Metric/Verify) et `benchmark-docling-cahier-ma-sante.md`.
+## Recommended next iteration (autoresearch #2)
+Wire up the winning strategy **Docling + pdfminer completeness** (100% value recall;
+recovers `145/200/220/400 %`) as a parser mode, then re-run `verify_parse_quality.py`.
+See `outputs/autoresearch/README.md` (Goal/Metric/Verify) and `benchmark-docling-cahier-ma-sante.md`.
 
-## Rappel des faits mesurés
-- Docling : association libellé→valeur **37 % → 83 %** ; sortie en tables Markdown structurées.
-- Faiblesse Docling seul : perd quelques valeurs (`55/145/200/220/400 %`) → corrigée par le merge.
-- Le parser legacy (pdfminer) reste disponible (`parsing.parser: legacy`) comme repli léger.
+## Recap of the measured facts
+- Docling: label→value association **37% → 83%**; output as structured Markdown tables.
+- Weakness of Docling alone: loses a few values (`55/145/200/220/400 %`) → corrected by the merge.
+- The legacy parser (pdfminer) remains available (`parsing.parser: legacy`) as a lightweight fallback.

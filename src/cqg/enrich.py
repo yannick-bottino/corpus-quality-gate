@@ -12,7 +12,7 @@ def render_image(pdf_path: str, ref: ImageRef, out_dir: str, scale: float = 2.0)
         page.close()
     finally:
         pdf.close()
-    # bbox pdfplumber en points (origine haut-gauche) -> pixels au facteur d'echelle.
+    # pdfplumber bbox in points (top-left origin) -> pixels at the scale factor.
     box = (int(ref.x0 * scale), int(ref.top * scale),
            int(ref.x1 * scale), int(ref.bottom * scale))
     crop = pil.crop(box)
@@ -39,18 +39,18 @@ def enrich_document(doc: ParsedDoc, pdf_path: str, llm: LLMClient, out_dir: str,
             continue
         if desc:
             md = md.replace(ref.placeholder, _TAG.format(desc=desc))
-        # desc vide (sentinelle mode manual, ou provider sans reponse) : le placeholder
-        # est laisse intact pour apply_descriptions / remplissage in-session ulterieur.
-        # Une description vide ne signifie jamais "decoratif" (decide uniquement par la taille).
+        # empty desc (manual-mode sentinel, or provider with no response): the placeholder
+        # is left intact for apply_descriptions / later in-session filling.
+        # An empty description never means "decorative" (decided solely by size).
     return md
 
 def apply_descriptions(markdown: str, manifest: list[dict]) -> str:
-    # Mode manual : le manifeste porte {placeholder, description} remplis in-session.
+    # Manual mode: the manifest carries {placeholder, description} filled in-session.
     for item in manifest:
         ph = item.get("placeholder")
         desc = (item.get("description") or "").strip()
         if ph and desc:
             markdown = markdown.replace(ph, _TAG.format(desc=desc))
-        # desc vide : le placeholder est laisse intact (pas encore rempli). Une
-        # description vide ne signifie jamais "decoratif" (decide uniquement par la taille).
+        # empty desc: the placeholder is left intact (not yet filled). An
+        # empty description never means "decorative" (decided solely by size).
     return markdown

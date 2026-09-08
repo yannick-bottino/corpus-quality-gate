@@ -1,46 +1,46 @@
-# Modele de configuration cqg (a copier puis remplir). Aucune cle en clair : les cles API
-# sont lues via des variables d'environnement (champs *_api_key_env).
+# cqg configuration template (copy then fill in). No key in plain text: the API keys
+# are read from environment variables (*_api_key_env fields).
 
-llm:                          # LLM de JUGEMENT (evalue la qualite des documents)
+llm:                          # JUDGE LLM (evaluates the quality of the documents)
   provider: mock              # mock | anthropic | openai | azure_openai
-  base_url: ""                # azure_openai : URL du endpoint ; sinon laisser vide
-  model: "claude-opus-4-8"    # ex. deploiement Azure, ou modele openai/anthropic
+  base_url: ""                # azure_openai: endpoint URL; otherwise leave empty
+  model: "claude-opus-4-8"    # e.g. Azure deployment, or openai/anthropic model
   temperature: 0
-  api_key_env: "CQG_LLM_API_KEY"   # NOM de la variable d'env contenant la cle (jamais la cle)
-  max_doc_chars: 24000        # budget d'extrait (compatibilite ; le jugement par sections couvre 100%)
+  api_key_env: "CQG_LLM_API_KEY"   # NAME of the env variable holding the key (never the key)
+  max_doc_chars: 24000        # excerpt budget (compatibility; sectioned judgment covers 100%)
 
-judge:                        # Jugement par sections (couverture 100% du document, levier A)
-  section_chars: 8000         # taille d'une section jugee en un appel LLM
-  section_overlap: auto       # auto (10% de section_chars) | entier (recouvrement facon chunking RAG)
+judge:                        # Sectioned judgment (100% coverage of the document, lever A)
+  section_chars: 8000         # size of a section judged in one LLM call
+  section_overlap: auto       # auto (10% of section_chars) | integer (RAG-chunking-style overlap)
 
 paths:
   workdir: "./workdir"
 
 thresholds:
-  coverage_flag_below: 0.7    # en dessous : le document est flague pour revue (couverture)
+  coverage_flag_below: 0.7    # below this: the document is flagged for review (coverage)
 
-parsing:                      # docling (defaut) ; fallback auto sur legacy pdfminer+pdfplumber
+parsing:                      # docling (default); auto fallback to legacy pdfminer+pdfplumber
   parser: docling             # docling | legacy
-  docling_batch_pages: 1      # lot d'1 page = pic RSS ~1,1 Go, sur sous ~1,2 Go ; augmenter sur machine a RAM confortable
+  docling_batch_pages: 1      # 1-page batch = peak RSS ~1.1 GB, safe under ~1.2 GB; increase on a machine with comfortable RAM
 
 enrichment:
-  enabled: false              # true : produit <doc>.enriched.md (descriptions d'images avant eval)
-  min_side_pts: 24.0          # images plus petites = decoratives, ignorees
-  vlm:                        # client de description d'images (independant du LLM de jugement)
+  enabled: false              # true: produces <doc>.enriched.md (image descriptions before eval)
+  min_side_pts: 24.0          # smaller images = decorative, ignored
+  vlm:                        # image description client (independent of the judge LLM)
     provider: mock            # mock | anthropic | openai | azure_openai | manual
     model: "claude-opus-4-8"
     api_key_env: "CQG_LLM_API_KEY"
-    manifest_path: "workdir/image_manifest.json"   # utilise seulement si provider=manual
+    manifest_path: "workdir/image_manifest.json"   # used only if provider=manual
 
-# Jeu de questions/reponses de reference (sous-commande `cqg golden`), a faire VERIFIER par
-# le metier (colonne statut_validation). Reference-free, anti-fabrication.
+# Reference Q&A set (`cqg golden` subcommand), to be VERIFIED by the
+# business (statut_validation column). Reference-free, anti-fabrication.
 golden:
-  profile: "conseiller / gestionnaire AXA"   # point de vue de l'usager qui pose les questions
-  policy: |                                  # politique de reponse imposee au generateur
+  profile: "conseiller / gestionnaire AXA"   # point of view of the user asking the questions
+  policy: |                                  # answering policy imposed on the generator
     Repondre uniquement a partir du document. Citer la source. Si l'information n'est pas
     presente, repondre 'Non couvert par le document'.
-  n_questions: auto           # auto (le LLM decide selon la densite) OU un entier (ex. 8)
-  corpus_level: true          # ajoute des Q/R transverses (reponse croisant >= 2 documents)
-  k: 6                        # Q/R transverses : nb de chunks recuperes par question (retrieval)
-  chunk_chars: 1000           # taille des chunks pour le retrieval transverse
-  chunk_overlap: 100          # recouvrement des chunks pour le retrieval transverse
+  n_questions: auto           # auto (the LLM decides based on density) OR an integer (e.g. 8)
+  corpus_level: true          # adds corpus-wide Q&A (answer crossing >= 2 documents)
+  k: 6                        # corpus-wide Q&A: nb of chunks retrieved per question (retrieval)
+  chunk_chars: 1000           # chunk size for corpus-wide retrieval
+  chunk_overlap: 100          # chunk overlap for corpus-wide retrieval

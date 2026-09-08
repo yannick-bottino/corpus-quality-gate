@@ -1,4 +1,4 @@
-"""Test du branchement CLI des golden Q/R (sous-commande `cqg golden`)."""
+"""Test of the CLI wiring for golden Q/A (`cqg golden` subcommand)."""
 import os
 
 
@@ -25,10 +25,10 @@ def test_golden_subcommand_writes_qr_files(tmp_path):
     from cqg.cli import run_golden
     res = run_golden(str(corpus), str(cfg), str(out))
 
-    # Le pipeline golden produit un classeur Excel + un CSV partageables au metier.
+    # The golden pipeline produces an Excel workbook + a CSV shareable with the business.
     assert os.path.exists(res["xlsx"])
     assert os.path.exists(res["csv"])
-    # En-tete attendu (colonnes de validation metier).
+    # Expected header (business validation columns).
     with open(res["csv"], encoding="utf-8-sig") as f:
         header = f.readline()
     for col in ("question", "reponse", "couvert", "statut_validation"):

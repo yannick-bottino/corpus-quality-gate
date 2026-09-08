@@ -26,10 +26,10 @@ def corpus_redundancy(docs: list[tuple[str, str]]) -> dict:
             from semhash import SemHash
             records = [t for _, t in docs]
             ids = [d for d, _ in docs]
-            # SemHash charge/telecharge un modele d'embedding (model2vec) : si le modele
-            # n'est pas disponible (hors ligne, telechargement echoue), la detection de
-            # quasi-doublons est desactivee proprement plutot que de faire tomber tout le
-            # batch (coherent avec l'intention "semhash optionnel, degradation silencieuse").
+            # SemHash loads/downloads an embedding model (model2vec) : if the model
+            # is not available (offline, download failed), near-duplicate detection
+            # is disabled cleanly rather than bringing down the whole
+            # batch (consistent with the intent "semhash optional, silent degradation").
             result = SemHash.from_records(records=records).self_deduplicate()
             for dr in getattr(result, "duplicates", []):
                 try:

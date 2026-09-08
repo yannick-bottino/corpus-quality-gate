@@ -52,18 +52,18 @@ def test_confidence_signals():
     full = "phrase complete. " * 200
     good = _confidence(full, [Block(kind="text", text=full, page=1)], pages=1, fallback_used=False)
     assert good >= 0.8
-    # fallback secondaire -> plafond a 0.6
+    # secondary fallback -> capped at 0.6
     fb = _confidence(full, [Block(kind="text", text=full, page=1)], pages=1, fallback_used=True)
     assert fb <= 0.6
-    # texte tres court sur beaucoup de pages -> faible
+    # very short text over many pages -> low
     assert _confidence("ok", [Block(kind="text", text="ok", page=1)], pages=50, fallback_used=False) <= 0.4
 
 
 def test_confidence_penalized_by_cid_failure():
     from cqg.parse import _confidence
     from cqg.models import Block
-    # Texte a moitie compose de jetons (cid:NNN) non mappes : la confiance ne doit
-    # PAS rester elevee (cas CG Auto qui sortait a 0.947 malgre l'echec d'extraction).
+    # Text half composed of unmapped (cid:NNN) tokens: the confidence must
+    # NOT stay high (CG Auto case which came out at 0.947 despite the extraction failure).
     clean = "phrase lisible et complete. " * 100
     cid = "(cid:114)(cid:97)(cid:103)(cid:101) " * 100
     mixed = clean + cid
@@ -116,8 +116,8 @@ def test_parse_document_unreadable_never_raises(tmp_path):
 
 
 def test_legacy_parser_does_not_use_docling(tmp_path, monkeypatch):
-    # Invariant : parser="legacy" n'appelle jamais Docling et parse via pdfminer/pdfplumber.
-    # (Docling est desormais le parser PAR DEFAUT ; le mode legacy reste le repli leger.)
+    # Invariant: parser="legacy" never calls Docling and parses via pdfminer/pdfplumber.
+    # (Docling is now the DEFAULT parser; legacy mode remains the lightweight fallback.)
     import cqg.parse as parse
 
     def _boom(*a, **k):
@@ -130,7 +130,7 @@ def test_legacy_parser_does_not_use_docling(tmp_path, monkeypatch):
 
 
 def test_parser_docling_dispatches_to_docling_extraction(tmp_path, monkeypatch):
-    # parser="docling" -> l'extraction Docling est bien appelee et son resultat utilise.
+    # parser="docling" -> the Docling extraction is indeed called and its result used.
     import cqg.parse as parse
     from cqg.models import Block
     called = {}
@@ -147,8 +147,8 @@ def test_parser_docling_dispatches_to_docling_extraction(tmp_path, monkeypatch):
 
 
 def test_parser_docling_falls_back_to_default_on_failure(tmp_path, monkeypatch):
-    # Robustesse (score-and-flag) : si Docling echoue (import/OOM/erreur), on retombe sur
-    # la chaine par defaut plutot que d'abandonner le document.
+    # Robustness (score-and-flag): if Docling fails (import/OOM/error), we fall back to
+    # the default chain rather than giving up on the document.
     import cqg.parse as parse
 
     def _boom(path, pages=None, batch_pages=None):
@@ -157,11 +157,11 @@ def test_parser_docling_falls_back_to_default_on_failure(tmp_path, monkeypatch):
     monkeypatch.setattr(parse, "_docling_extraction", _boom)
     p = tmp_path / "d.pdf"; _make_pdf(p, ["Contenu de repli."])
     doc = parse.parse_document(str(p), "born_digital", parser="docling")
-    assert "Contenu de repli" in doc.markdown  # chaine par defaut a pris le relais
+    assert "Contenu de repli" in doc.markdown  # the default chain took over
 
 
 def _make_pdf_pages(path, page_lines):
-    # PDF multi-pages : une entree de page_lines = les lignes d'une page (showPage par page).
+    # Multi-page PDF: one page_lines entry = the lines of one page (showPage per page).
     from reportlab.pdfgen import canvas
     c = canvas.Canvas(str(path))
     for lines in page_lines:
@@ -173,8 +173,8 @@ def _make_pdf_pages(path, page_lines):
 
 
 def test_docling_extraction_batches_one_subprocess_per_page(tmp_path, monkeypatch):
-    # Batching : batch_pages=1 -> un sous-processus FRAIS par page. subprocess.run est
-    # mocke (aucun vrai docling) et ecrit un markdown fixe dans le fichier de sortie.
+    # Batching: batch_pages=1 -> a FRESH subprocess per page. subprocess.run is
+    # mocked (no real docling) and writes a fixed markdown into the output file.
     import cqg.parse as parse
     from pathlib import Path
     calls = {"n": 0}
@@ -197,8 +197,8 @@ def test_docling_extraction_batches_one_subprocess_per_page(tmp_path, monkeypatc
 
 
 def test_docling_extraction_per_page_pdfminer_fallback_on_oom(tmp_path, monkeypatch):
-    # Repli par lot : returncode 137 (OOM) -> chaque page bascule sur pdfminer sans faire
-    # tomber le document. Le PDF a du vrai texte, donc pdfminer produit du contenu.
+    # Per-batch fallback: returncode 137 (OOM) -> each page switches to pdfminer without
+    # dropping the document. The PDF has real text, so pdfminer produces content.
     import cqg.parse as parse
 
     class _Proc:
@@ -223,10 +223,10 @@ def test_typing_pdfplumber_detects_table(tmp_path):
     c = canvas.Canvas(str(p))
     data = [["A", "B", "C"], ["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]]
     table = Table(data, colWidths=80, rowHeights=24)
-    # GRID (toutes les bordures internes et externes) + BOX (contour epais) sont
-    # necessaires : pdfplumber.find_tables() detecte des lignes vectorielles, pas
-    # une simple mise en page de texte. Sans bordures dessinees, aucune table
-    # n'est identifiee.
+    # GRID (all inner and outer borders) + BOX (thick outline) are
+    # necessary: pdfplumber.find_tables() detects vector lines, not
+    # a simple text layout. Without drawn borders, no table
+    # is identified.
     table.setStyle(TableStyle([
         ("GRID", (0, 0), (-1, -1), 1.5, colors.black),
         ("BOX", (0, 0), (-1, -1), 2, colors.black),
@@ -241,8 +241,8 @@ def test_typing_pdfplumber_detects_table(tmp_path):
 @pytest.mark.skipif(os.getenv("CQG_TEST_DOCLING") != "1",
                     reason="test docling reel opt-in (CQG_TEST_DOCLING=1), lourd (torch)")
 def test_docling_real_extraction(tmp_path):
-    # Opt-in : verifie que le vrai worker Docling extrait bien un markdown structure
-    # (table rendue en pipes). Ignore par defaut pour garder la suite rapide.
+    # Opt-in: checks that the real Docling worker does extract a structured markdown
+    # (table rendered with pipes). Skipped by default to keep the suite fast.
     from cqg.parse import parse_document
     from reportlab.pdfgen import canvas
     from reportlab.platypus import Table, TableStyle

@@ -18,8 +18,8 @@ def test_level_and_coverage():
         else:
             crits.append(_cs(c.id, c.tag, c.weight, "scored", 5))
     ds = compute_doc_score("d", crits, reg, 0.9, "h")
-    assert ds.level == "Excellent"           # quasi tout à 5
-    assert 0.0 < ds.coverage_pct < 100.0     # un not_evaluated présent
+    assert ds.level == "Excellent"           # almost everything at 5
+    assert 0.0 < ds.coverage_pct < 100.0     # one not_evaluated present
     assert "low_coverage" in ds.flags or ds.coverage_pct >= 70
 
 def test_low_coverage_flag_raised():
@@ -36,7 +36,7 @@ def test_scored_none_excluded_from_coverage():
     reg = load_registry()
     a, b, c = reg.criteria[0], reg.criteria[1], reg.criteria[2]
     crits = [_cs(a.id, a.tag, a.weight, "scored", 4),
-             _cs(b.id, b.tag, b.weight, "scored", None),        # malforme : exclu du calcul
+             _cs(b.id, b.tag, b.weight, "scored", None),        # malformed: excluded from the computation
              _cs(c.id, c.tag, c.weight, "not_evaluated", None)]
     ds = compute_doc_score("d", crits, reg, 0.9, "h")
-    assert ds.coverage_pct == 50.0  # 1 scored valide / (1 scored + 1 not_evaluated)
+    assert ds.coverage_pct == 50.0  # 1 valid scored / (1 scored + 1 not_evaluated)

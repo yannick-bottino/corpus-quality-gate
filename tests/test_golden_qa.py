@@ -9,7 +9,7 @@ def test_prompt_exige_des_questions_naturelles_utilisateur():
     doc = ParsedDoc(doc_id="d", markdown="texte", blocks=[Block(kind="text", text="t")],
                     parse_confidence=1.0)
     p = _prompt(doc, "gestionnaire sinistres", "POLICY").lower()
-    # Les questions doivent etre des phrases naturelles d'usager (style chatbot), pas des mots-cles.
+    # Questions must be natural user sentences (chatbot style), not keywords.
     assert "phrase" in p
     assert "chatbot" in p or "utilisateur" in p
     assert "mot-cle" in p or "mots-cles" in p
@@ -19,15 +19,15 @@ def test_prompt_auto_count_pilote_par_densite():
     doc = ParsedDoc(doc_id="d", markdown="texte", blocks=[Block(kind="text", text="t")],
                     parse_confidence=1.0)
     p = _prompt(doc, "p", "POL", n_questions="auto").lower()
-    assert "densite" in p            # auto : le LLM choisit selon la densite d'information
-    assert "fixe" in p               # consigne de ne pas imposer un nombre fixe
+    assert "densite" in p            # auto: the LLM chooses based on information density
+    assert "fixe" in p               # instruction not to impose a fixed number
 
 
 def test_prompt_nombre_fixe_reglable():
     doc = ParsedDoc(doc_id="d", markdown="texte", blocks=[Block(kind="text", text="t")],
                     parse_confidence=1.0)
     p = _prompt(doc, "p", "POL", n_questions=7).lower()
-    assert "7 question" in p          # nombre reglable a la main
+    assert "7 question" in p          # number adjustable by hand
 
 
 def _char_encoder(texts):
@@ -37,8 +37,8 @@ def _char_encoder(texts):
 
 
 def test_generate_corpus_golden_qa_v2_ancre_par_retrieval():
-    # V2 : questions transverses ancrees par retrieval sur le texte integral du corpus.
-    # Deux etages LLM : proposition des questions, puis reponse ancree sur les chunks recuperes.
+    # V2: cross-cutting questions grounded by retrieval over the full text of the corpus.
+    # Two LLM stages: proposing the questions, then answering grounded on the retrieved chunks.
     from cqg.golden_qa import generate_corpus_golden_qa
     d1 = ParsedDoc(doc_id="contratA", markdown="aaaa le contrat couvre l'incendie",
                    blocks=[Block(kind="text", text="x")], parse_confidence=1.0)
@@ -55,7 +55,7 @@ def test_generate_corpus_golden_qa_v2_ancre_par_retrieval():
     assert rows and rows[0]["origine"] == "corpus"
     assert rows[0]["id"].startswith("corpus-")
     assert rows[0]["couvert"] == "oui"
-    assert ";" in rows[0]["sources"]          # sources = doc_ids recuperes (>= 2 documents)
+    assert ";" in rows[0]["sources"]          # sources = retrieved doc_ids (>= 2 documents)
     assert "contratA" in rows[0]["sources"] and "contratB" in rows[0]["sources"]
     assert rows[0]["statut_validation"] == "a_valider"
 

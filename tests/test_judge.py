@@ -14,10 +14,10 @@ def test_na_external_and_llm_states():
     scores = score_document(doc, reg, metrics, llm, "hash123")
     by_id = {c.id: c for c in scores}
     assert by_id["3.1"].status == "na"
-    assert by_id["2.7"].status == "not_evaluated"      # external_dep sans referentiel
+    assert by_id["2.7"].status == "not_evaluated"      # external_dep with no external reference
     assert by_id["1.3"].status == "scored" and by_id["1.3"].score == 5
-    assert by_id["2.5"].status == "not_evaluated"      # L, mock renvoie not_evaluated
-    assert len(scores) == len(reg.criteria)            # couverture totale, un score par critere
+    assert by_id["2.5"].status == "not_evaluated"      # L, mock returns not_evaluated
+    assert len(scores) == len(reg.criteria)            # full coverage, one score per criterion
 
 def _doc_and_metrics():
     doc = ParsedDoc(doc_id="d", markdown="para", blocks=[Block(kind="text", text="p")],
@@ -36,9 +36,9 @@ class _CountingMock(MockLLM):
 
 
 def test_skip_llm_makes_no_llm_calls_and_never_fabricates():
-    # Levier C, route light : jugement LLM saute. Les criteres deterministes (na, d_scores)
-    # restent scores/na ; les criteres LLM deviennent not_evaluated (anti-fabrication),
-    # jamais une note devinee.
+    # Lever C, light route: LLM judgment skipped. The deterministic criteria (na, d_scores)
+    # stay scored/na; the LLM criteria become not_evaluated (anti-fabrication),
+    # never a guessed score.
     reg = load_registry()
     doc = ParsedDoc(doc_id="d", markdown="para", blocks=[Block(kind="text", text="p")],
                     parse_confidence=1.0)
@@ -50,15 +50,15 @@ def test_skip_llm_makes_no_llm_calls_and_never_fabricates():
     assert llm.calls == 0
     assert by_id["3.1"].status == "na"
     assert by_id["1.3"].status == "scored" and by_id["1.3"].score == 5
-    assert by_id["2.5"].status == "not_evaluated"      # critere L -> non evalue (pas de LLM)
+    assert by_id["2.5"].status == "not_evaluated"      # criterion L -> not evaluated (no LLM)
     assert len(scores) == len(reg.criteria)
 
 
 def _scored(resp_25):
     reg = load_registry()
     doc, metrics = _doc_and_metrics()
-    # Levier A : le jugement passe par judge_batch (une reponse multi-criteres par section).
-    # On seed la reponse batche du critere 2.5 pour la section unique ("para").
+    # Lever A: judgment goes through judge_batch (one multi-criteria response per section).
+    # We seed the batched response of criterion 2.5 for the single section ("para").
     llm = MockLLM(batch_responses={"para": {"2.5": resp_25}})
     return {c.id: c for c in score_document(doc, reg, metrics, llm, "h")}
 
@@ -84,7 +84,7 @@ def test_representative_excerpt_covers_whole_document():
     ex = _representative_excerpt(md, budget=8000)
     assert len(ex) <= 8000 + 200
     assert "DEBUT" in ex
-    assert "FIN_UNIQUE_MARQUEUR" in ex  # la fin du document est echantillonnee, pas seulement le debut
+    assert "FIN_UNIQUE_MARQUEUR" in ex  # the end of the document is sampled, not only the beginning
 
 def test_short_document_returned_whole():
     from cqg.judge import _representative_excerpt

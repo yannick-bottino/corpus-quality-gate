@@ -9,12 +9,12 @@ def _has(text: str, pattern: str) -> bool:
     return bool(re.search(pattern, text, re.IGNORECASE))
 
 def _content_duplicate_fraction(text: str) -> float:
-    # Doublons de contenu, en excluant le boilerplate (en-tetes/pieds repetes sur toutes
-    # les pages) et les lignes tres courtes. Corrige le faux positif du critere 4.5.
+    # Content duplicates, excluding boilerplate (headers/footers repeated on every
+    # page) and very short lines. Fixes the false positive of criterion 4.5.
     from collections import Counter
     lines = [l.strip() for l in text.splitlines() if len(l.strip()) >= 15]
     counts = Counter(lines)
-    kept = [l for l in lines if counts[l] <= 3]  # >3 occurrences = boilerplate, exclu
+    kept = [l for l in lines if counts[l] <= 3]  # >3 occurrences = boilerplate, excluded
     if not kept:
         return 0.0
     seen, dup = set(), 0
@@ -60,5 +60,5 @@ def compute_metrics(doc: ParsedDoc, reg: Registry) -> dict:
         "na": sorted(na_decisions(doc, reg)),
         "signals": sig,
         "d_scores": {k: v for k, v in d_scores.items()},
-        "h_signals": {},  # rempli en enrichissant plus tard ; le LLM ajuste les H
+        "h_signals": {},  # filled in by later enrichment ; the LLM adjusts the H
     }

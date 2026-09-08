@@ -1,4 +1,4 @@
-"""Tests de l'instrumentation de cout de la couche LLM (compteur appels + chars)."""
+"""Tests of the cost instrumentation of the LLM layer (call counter + chars)."""
 from cqg.llm.mock import MockLLM
 from cqg.llm.instrument import CountingLLM
 

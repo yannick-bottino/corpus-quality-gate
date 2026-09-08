@@ -13,15 +13,15 @@ def test_cid_failure_fraction_empty_is_zero():
 
 
 def test_cid_failure_fraction_high_when_cid_dominates():
-    # texte majoritairement compose de jetons (cid:NNN) non mappes
+    # text mostly composed of unmapped (cid:NNN) tokens
     cid = "(cid:114)(cid:97)(cid:103) " * 50
     frac = cid_failure_fraction(cid + "un peu de texte")
     assert frac > 0.5
 
 
 def test_cid_failure_fraction_counts_replacement_char():
-    # U+FFFD (caractere de remplacement) = glyphe non mappe
-    text = "abcd" + "�" * 6  # 6 sur 10
+    # U+FFFD (replacement character) = unmapped glyph
+    text = "abcd" + "�" * 6  # 6 out of 10
     assert cid_failure_fraction(text) > 0.5
 
 def test_non_alpha_fraction():
@@ -39,16 +39,16 @@ def test_block_integrity_all_good():
 
 
 def test_mattr_falls_back_to_global_when_shorter_than_window():
-    # Texte plus court que la fenetre -> MATTR se reduit au TTR global.
-    text = "un deux trois deux un"  # 5 tokens, 3 uniques
+    # Text shorter than the window -> MATTR reduces to the global TTR.
+    text = "un deux trois deux un"  # 5 tokens, 3 unique
     assert mattr(text, window=1000) == type_token_ratio(text)
 
 
 def test_mattr_stays_high_on_long_repetitive_document():
-    # Vocabulaire sain repete sur un long document : le TTR global s'effondre
-    # (denominateur = longueur totale) alors que chaque fenetre reste variee.
-    # C'est le cas "Le Cahier Ma Sante" : 222 pages, ttr global=0.0042, vocabulaire sain.
-    passage = " ".join(f"mot{i}" for i in range(300))  # 300 tokens uniques
-    text = (passage + " ") * 200                        # 60000 tokens, 300 uniques
-    assert type_token_ratio(text) < 0.01               # TTR global ecrase par la longueur
-    assert mattr(text, window=1000) > 0.05             # TTR fenetre reste sain
+    # Healthy vocabulary repeated over a long document: the global TTR collapses
+    # (denominator = total length) while each window stays varied.
+    # This is the "Le Cahier Ma Sante" case: 222 pages, global ttr=0.0042, healthy vocabulary.
+    passage = " ".join(f"mot{i}" for i in range(300))  # 300 unique tokens
+    text = (passage + " ") * 200                        # 60000 tokens, 300 unique
+    assert type_token_ratio(text) < 0.01               # global TTR crushed by the length
+    assert mattr(text, window=1000) > 0.05             # windowed TTR stays healthy

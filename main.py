@@ -1,5 +1,5 @@
-"""Point d'entree racine : permet `python main.py run|golden <corpus> --config ...`
-sans installation prealable (ajoute src/ au chemin d'import)."""
+"""Root entry point: allows `python main.py run|golden <corpus> --config ...`
+without prior installation (adds src/ to the import path)."""
 import os
 import sys
 

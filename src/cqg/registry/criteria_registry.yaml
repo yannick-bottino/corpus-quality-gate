@@ -1,20 +1,20 @@
 # src/cqg/registry/criteria_registry.yaml
 #
-# Registre des 57 criteres d'evaluation (source de verite de la grille).
-# Copie fidele depuis "ragdoc readiness simplified/SKILL.md",
+# Registry of the 57 evaluation criteria (source of truth for the grid).
+# Faithful copy from "ragdoc readiness simplified/SKILL.md",
 # section "Registre des 57 criteres (source de verite)".
 #
-# Tags : D = deterministe, H = hybride (signal + jugement), L = jugement pur.
-# external_dep : true si le critere depend d'un referentiel externe
-#   (questions typiques du RAG / cas d'usage metier) non fourni par defaut.
-# na_possible : true si le critere peut etre N/A selon l'inventaire du document
-#   (ex : absence d'images, de tableaux, de liens, de formules).
+# Tags: D = deterministic, H = hybrid (signal + judgment), L = pure judgment.
+# external_dep: true if the criterion depends on an external reference grid
+#   (typical RAG questions / business use case) not provided by default.
+# na_possible: true if the criterion can be N/A depending on the document inventory
+#   (e.g. no images, no tables, no links, no formulas).
 
 scale_max: 5
 dimension_weights: { "1": 2, "2": 5, "3": 4, "4": 4, "5": 5, "6": 5, "7": 3, "8": 3 }
 
 criteria:
-  # Dimension 1, Metadonnees (poids 2)
+  # Dimension 1, Metadata (weight 2)
   - id: "1.1"
     dimension: "1"
     label: "Titre explicite et representatif du contenu"
@@ -93,7 +93,7 @@ criteria:
     external_dep: false
     na_possible: false
 
-  # Dimension 2, Qualite du contenu (poids 5)
+  # Dimension 2, Content quality (weight 5)
   - id: "2.1"
     dimension: "2"
     label: "Phrases completes, ponctuees et concises"
@@ -158,7 +158,7 @@ criteria:
     external_dep: true
     na_possible: false
 
-  # Dimension 3, Lisibilite (poids 4), tous na_possible selon inventaire sauf 3.7
+  # Dimension 3, Readability (weight 4), all na_possible depending on inventory except 3.7
   - id: "3.1"
     dimension: "3"
     label: "Images accompagnees d'une description textuelle"
@@ -223,7 +223,7 @@ criteria:
     external_dep: false
     na_possible: true
 
-  # Dimension 4, Structure (poids 4)
+  # Dimension 4, Structure (weight 4)
   - id: "4.1"
     dimension: "4"
     label: "Hierarchie des titres logique et coherente"
@@ -267,7 +267,7 @@ criteria:
     external_dep: false
     na_possible: false
 
-  # Dimension 5, Fragmentabilite / chunking (poids 5)
+  # Dimension 5, Fragmentability / chunking (weight 5)
   - id: "5.1"
     dimension: "5"
     label: "Chaque section comprehensible sans lire le reste"
@@ -311,7 +311,7 @@ criteria:
     external_dep: false
     na_possible: false
 
-  # Dimension 6, Fiabilite et Temporalite (poids 5)
+  # Dimension 6, Reliability and Temporality (weight 5)
   - id: "6.1"
     dimension: "6"
     label: "Chaque regle metier porte une date d'entree en vigueur"
@@ -355,7 +355,7 @@ criteria:
     external_dep: false
     na_possible: false
 
-  # Dimension 7, Desambiguisation (poids 3), jugement pur
+  # Dimension 7, Disambiguation (weight 3), pure judgment
   - id: "7.1"
     dimension: "7"
     label: "Termes polysemiques explicitement distingues"
@@ -392,7 +392,7 @@ criteria:
     external_dep: false
     na_possible: false
 
-  # Dimension 8, Interrogeabilite (poids 3)
+  # Dimension 8, Queryability (weight 3)
   - id: "8.1"
     dimension: "8"
     label: "Presence de formats question/reponse ou FAQ"

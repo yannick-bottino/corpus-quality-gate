@@ -8,9 +8,9 @@ class MockLLM(LLMClient):
                                    "justification": "mock: non evalue", "evidence": None}
         self.responses = responses or {}
         self.image_desc = image_desc
-        # Levier A : reponses batchees. batch_responses est indexe par sous-chaine de prompt
-        # (typiquement un marqueur present dans le contenu de la section) et vaut un dict
-        # {crit_id: reponse}. batch_default s'applique si aucune cle ne correspond.
+        # Lever A: batched responses. batch_responses is indexed by prompt substring
+        # (typically a marker present in the section content) and holds a dict
+        # {crit_id: response}. batch_default applies if no key matches.
         self.batch_default = batch_default if batch_default is not None else {}
         self.batch_responses = batch_responses or {}
 

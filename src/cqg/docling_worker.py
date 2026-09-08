@@ -1,9 +1,9 @@
-"""Worker Docling isole en sous-processus : un OOM (SIGKILL 137) tue le worker sans
-faire tomber le pipeline parent, qui detecte le returncode et bascule sur le legacy.
+"""Docling worker isolated in a subprocess: an OOM (SIGKILL 137) kills the worker without
+bringing down the parent pipeline, which detects the returncode and switches to legacy.
 
-Usage : python -m cqg.docling_worker <pdf_path> <out_markdown_path> [start] [end]
-start/end : plage de pages 1-based inclusive (traitement par lots). Absents = document entier.
-Sortie 0 en cas de succes, non-zero sur toute erreur.
+Usage: python -m cqg.docling_worker <pdf_path> <out_markdown_path> [start] [end]
+start/end: 1-based inclusive page range (batch processing). Absent = whole document.
+Exit 0 on success, non-zero on any error.
 """
 import sys
 from pathlib import Path

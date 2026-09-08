@@ -8,8 +8,8 @@ from .signals import cid_failure_fraction
 
 
 def _nfkc(s: str) -> str:
-    # Normalisation compatibilite : ecrase les ligatures (U+FB01 fi, U+FB02 fl) et
-    # autres formes de compatibilite. Sans effet sur les lettres accentuees francaises.
+    # Compatibility normalisation: flattens ligatures (U+FB01 fi, U+FB02 fl) and
+    # other compatibility forms. No effect on French accented letters.
     return unicodedata.normalize("NFKC", s or "")
 
 
@@ -40,9 +40,9 @@ def _typing_pdfplumber(path: str) -> tuple[list[Block], dict[int, list[dict]]]:
                                   "x1": float(im["x1"]), "bottom": float(im["bottom"])})
             if page_imgs:
                 images_by_page[i] = sorted(page_imgs, key=lambda d: d["top"])
-            # pdfplumber conserve le cache d'objets de chaque page : sur un gros PDF
-            # (des centaines de pages) l'accumulation sature la memoire (OOM). On libere
-            # le cache par page, l'empreinte reste bornee.
+            # pdfplumber keeps the object cache of every page: on a large PDF
+            # (hundreds of pages) the accumulation saturates memory (OOM). We free
+            # the cache per page, so the footprint stays bounded.
             page.flush_cache()
     return blocks, images_by_page
 
@@ -70,22 +70,22 @@ def _confidence(markdown: str, blocks: list[Block], pages: int | None,
     non_empty = sum(1 for b in blocks if b.text.strip())
     ratio = (non_empty / len(blocks)) if blocks else 1.0
     conf = 0.5 * length_ok + 0.5 * ratio
-    # Detection de perte de contenu : une extraction anormalement faible par page
-    # (ex. parser qui echoue silencieusement sur des pages) plafonne la confiance.
+    # Content loss detection: an abnormally low extraction per page
+    # (e.g. parser silently failing on some pages) caps the confidence.
     if pages and pages > 0 and (len(markdown) / pages) < 200:
         conf = min(conf, 0.4)
     if fallback_used:
         conf = min(conf, 0.6)
-    # Echec de mapping police : le texte est present en volume (length_ok haut) mais
-    # illisible (jetons (cid:NNN), glyphes non mappes). La confiance longueur/blocs ne
-    # le voit pas (cas CG Auto a 0.947). Penalite proportionnelle a la part perdue.
+    # Font-mapping failure: the text is present in volume (high length_ok) but
+    # unreadable ((cid:NNN) tokens, unmapped glyphs). The length/block confidence does
+    # not see it (CG Auto case at 0.947). Penalty proportional to the lost share.
     cid_frac = cid_failure_fraction(markdown)
     conf = conf * (1.0 - cid_frac)
     return round(conf, 3)
 
 
 def _pdfplumber_only(path: str) -> tuple[str, list[Block], list[ImageRef]]:
-    # Fallback 1 : pdfplumber pour le texte ET le typage (0 artefact natif).
+    # Fallback 1: pdfplumber for the text AND the typing (0 native artefact).
     import pdfplumber
     pages_text, blocks, images_by_page = [], [], {}
     with pdfplumber.open(path) as pdf:
@@ -100,7 +100,7 @@ def _pdfplumber_only(path: str) -> tuple[str, list[Block], list[ImageRef]]:
                                   "x1": float(im["x1"]), "bottom": float(im["bottom"])})
             if page_imgs:
                 images_by_page[i] = sorted(page_imgs, key=lambda d: d["top"])
-            # Idem _typing_pdfplumber : cache par page libere pour borner la memoire.
+            # Same as _typing_pdfplumber: per-page cache freed to bound memory.
             page.flush_cache()
     md, refs = _assemble(pages_text, images_by_page)
     for i, t in enumerate(pages_text):
@@ -110,40 +110,40 @@ def _pdfplumber_only(path: str) -> tuple[str, list[Block], list[ImageRef]]:
 
 
 def _better_extraction(primary, fallback):
-    """Choisit l'extraction la moins degradee (plus faible fraction cid).
+    """Picks the least degraded extraction (lowest cid fraction).
 
-    primary/fallback : tuples (markdown, blocks, refs). Retourne (choisi, fallback_used).
-    Ne bascule sur le fallback que s'il reduit strictement la fraction cid.
+    primary/fallback: (markdown, blocks, refs) tuples. Returns (chosen, fallback_used).
+    Switches to the fallback only if it strictly reduces the cid fraction.
     """
     if cid_failure_fraction(fallback[0]) < cid_failure_fraction(primary[0]):
         return fallback, True
     return primary, False
 
 
-# Au-dela de ce seuil de fraction cid, on tente une reextraction pdfplumber : pdfminer
-# a produit du texte en volume mais illisible (mapping police echoue).
+# Above this cid fraction threshold, we attempt a pdfplumber re-extraction: pdfminer
+# produced text in volume but unreadable (font mapping failed).
 _CID_FALLBACK_THRESHOLD = 0.1
 
-# Timeout genereux du worker Docling (gros documents). Un depassement leve et bascule legacy.
+# Generous Docling worker timeout (large documents). An overrun raises and switches to legacy.
 _DOCLING_TIMEOUT = 1800
 
-# Traitement Docling par lots de pages, chaque lot dans un sous-processus FRAIS : les modeles
-# rechargent a chaque lot mais la RAM est liberee a la sortie du process (un convert whole-doc
-# OOM sous ~1,2 Go de baseline). 1 page = pic RSS ~1,1 Go, seul lot sur ~1,2 Go de baseline.
+# Docling processing in page batches, each batch in a FRESH subprocess: the models
+# reload on each batch but RAM is freed when the process exits (a whole-doc convert
+# OOMs on a ~1.2 GB baseline). 1 page = RSS peak ~1.1 GB, the only batch on a ~1.2 GB baseline.
 _DOCLING_BATCH_PAGES = 1
 
 
 def _docling_extraction(path: str, pages: int | None = None,
                         batch_pages: int | None = None) -> tuple[str, list[Block], list[ImageRef]]:
-    # Docling isole en sous-processus : un OOM (SIGKILL -9/137) est vu via returncode et
-    # bascule sur legacy au lieu de crasher le pipeline. Leve RuntimeError sur tout echec.
-    # Traitement par lots de pages (process frais par lot) pour borner la RAM. Repli par lot
-    # sur pdfminer si un lot echoue (OOM/rc!=0/vide) : on garde du contenu sans perdre le doc.
+    # Docling isolated in a subprocess: an OOM (SIGKILL -9/137) is seen via returncode and
+    # switches to legacy instead of crashing the pipeline. Raises RuntimeError on any failure.
+    # Page-batch processing (fresh process per batch) to bound RAM. Per-batch fallback
+    # to pdfminer if a batch fails (OOM/rc!=0/empty): we keep content without losing the doc.
     if batch_pages is None:
         batch_pages = _DOCLING_BATCH_PAGES
     from pypdf import PdfReader
     n = len(PdfReader(path).pages)
-    pm_pages: list[str] | None = None  # texte pdfminer calcule paresseusement au 1er echec
+    pm_pages: list[str] | None = None  # pdfminer text computed lazily on the 1st failure
     md_parts: list[str] = []
     for start in range(1, n + 1, batch_pages):
         end = min(start + batch_pages - 1, n)
@@ -162,7 +162,7 @@ def _docling_extraction(path: str, pages: int | None = None,
             except OSError:
                 pass
         if proc.returncode != 0 or not batch_md:
-            # Repli du lot en echec : texte pdfminer des pages concernees (1-based -> index 0-based).
+            # Failed-batch fallback: pdfminer text of the pages involved (1-based -> 0-based index).
             if pm_pages is None:
                 pm_pages = _pages_text_pdfminer(path)
             fb = [_nfkc(pm_pages[i]).strip() for i in range(start - 1, end) if i < len(pm_pages)]
@@ -172,15 +172,15 @@ def _docling_extraction(path: str, pages: int | None = None,
     md = "\n\n".join(md_parts)
     if not md:
         raise RuntimeError("markdown docling vide")
-    # Typage (tables/images) + coords images : reutilise pdfplumber, ce qui garde le
-    # chemin image -> enrichissement VLM fonctionnel. Les blocs texte viennent du markdown
-    # docling (structure), decoupes sur les lignes vides.
+    # Typing (tables/images) + image coords: reuses pdfplumber, which keeps the
+    # image -> VLM enrichment path functional. Text blocks come from the docling
+    # markdown (structure), split on blank lines.
     type_blocks, images_by_page = _typing_pdfplumber(path)
     blocks = list(type_blocks)
     for para in md.split("\n\n"):
         if para.strip():
             blocks.append(Block(kind="text", text=para.strip(), page=0))
-    # Placeholders images groupes par page, meme format que _assemble, appendus en fin de md.
+    # Image placeholders grouped by page, same format as _assemble, appended at the end of md.
     refs: list[ImageRef] = []
     ph_parts: list[str] = []
     for i in sorted(images_by_page):
@@ -199,8 +199,8 @@ def parse_document(path: str, category: str, pages: int | None = None,
                    docling_batch_pages: int | None = None) -> ParsedDoc:
     doc_id = Path(path).stem
     fallback_used = False
-    # Docling est le parser par defaut. Sur toute exception (import/OOM/erreur), on retombe
-    # sur la chaine legacy (pdfminer + pdfplumber) : robustesse score-and-flag, jamais de crash.
+    # Docling is the default parser. On any exception (import/OOM/error), we fall back
+    # to the legacy chain (pdfminer + pdfplumber): score-and-flag robustness, never a crash.
     if parser == "docling":
         try:
             md, blocks, refs = _docling_extraction(path, pages=pages, batch_pages=docling_batch_pages)
@@ -219,8 +219,8 @@ def parse_document(path: str, category: str, pages: int | None = None,
                 blocks.append(Block(kind="text", text=t, page=i + 1))
         if not md.strip():
             raise ValueError("texte primaire vide")
-        # Fallback cid : pdfminer a extrait du volume mais illisible (jetons cid). On tente
-        # pdfplumber et on garde l'extraction la moins degradee. Ne leve jamais (chaine S14).
+        # cid fallback: pdfminer extracted volume but unreadable (cid tokens). We try
+        # pdfplumber and keep the least degraded extraction. Never raises (S14 chain).
         if cid_failure_fraction(md) > _CID_FALLBACK_THRESHOLD:
             try:
                 alt = _pdfplumber_only(path)

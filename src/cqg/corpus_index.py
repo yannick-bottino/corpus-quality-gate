@@ -1,9 +1,9 @@
-"""Index de corpus pour la generation de golden Q/R transverses (V2, retrieval texte integral).
+"""Corpus index for generating cross-document golden Q/A (V2, full-text retrieval).
 
-Chunke tous les documents, embarque chaque chunk (model2vec, hors ligne) en gardant son
-doc_id d'origine, et permet de recuperer les chunks les plus proches d'une question A TRAVERS
-tout le corpus. C'est ce qui permet d'ancrer une reponse transverse sur le contenu reel de
-plusieurs documents (et pas sur un simple synopsis tronque).
+Chunks all documents, embeds each chunk (model2vec, offline) while keeping its
+source doc_id, and allows retrieving the chunks closest to a question ACROSS
+the whole corpus. This is what grounds a cross-document answer on the real content of
+several documents (and not on a mere truncated synopsis).
 """
 import numpy as np
 
@@ -22,7 +22,7 @@ def _default_encoder(texts):
 
 
 def _chunk(text: str, chunk_chars: int, overlap: int) -> list[str]:
-    # Fenetres de chunk_chars avec recouvrement (meme logique que le decoupage du levier A).
+    # Windows of chunk_chars with overlap (same logic as the lever A splitting).
     if not text:
         return []
     size = max(1, int(chunk_chars))

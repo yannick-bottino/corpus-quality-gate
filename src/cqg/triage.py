@@ -20,10 +20,10 @@ def triage_file(path: str) -> dict:
             try:
                 images += len(pg.images)
             except (KeyError, AttributeError, TypeError, ValueError, OSError):
-                # pypdf peut lever sur des PDF mal formes ; l'inventaire d'images reste best-effort.
+                # pypdf can raise on malformed PDFs; the image inventory stays best-effort.
                 pass
     except Exception:
-        # PDF illisible/corrompu : ne casse pas le triage du corpus ; flague en aval.
+        # Unreadable/corrupted PDF: does not break corpus triage; flagged downstream.
         return {**base, "pages": None, "category": "unreadable"}
     wpp = words / pages if pages else 0
     ipp = images / pages if pages else 0

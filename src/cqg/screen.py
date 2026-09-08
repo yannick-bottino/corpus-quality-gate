@@ -1,20 +1,20 @@
-"""Levier C : triage a deux vitesses.
+"""Lever C: two-speed triage.
 
-Crible deterministe qui route chaque document AVANT le jugement LLM couteux :
-- extraction degradee (non_alpha eleve, confiance de parsing basse, vocabulaire quasi nul)
-  -> route "light" : on flague pour revue humaine sans depenser ~45 appels LLM sur du
-  texte illisible.
-- document manifestement propre (tous les signaux au vert) -> route "light" : jugement
-  LLM reduit, on fait confiance aux signaux deterministes.
-- cas limite -> route "full" : jugement LLM complet.
+Deterministic screen that routes each document BEFORE the expensive LLM judgment:
+- degraded extraction (high non_alpha, low parse confidence, near-zero vocabulary)
+  -> "light" route: we flag for human review without spending ~45 LLM calls on
+  unreadable text.
+- manifestly clean document (all signals green) -> "light" route: reduced LLM
+  judgment, we trust the deterministic signals.
+- borderline case -> "full" route: complete LLM judgment.
 
-Score-and-flag, human-in-the-loop : "light" ne supprime jamais, il oriente et flague.
+Score-and-flag, human-in-the-loop: "light" never deletes, it routes and flags.
 """
 from .models import ParsedDoc
 
 
-# Au-dela de ce volume, un document est "gros" : le TTR global y devient un artefact de
-# longueur (le vocabulaire sature) et le raccourci "signaux propres" n'a plus de sens.
+# Above this volume, a document is "large": the global TTR becomes a length artefact
+# there (vocabulary saturates) and the "clean signals" shortcut no longer makes sense.
 LARGE_DOC_TOKENS = 10_000
 
 
@@ -23,41 +23,41 @@ def screen_document(doc: ParsedDoc, metrics: dict) -> dict:
     non_alpha = s.get("non_alpha_fraction", 0.0)
     dup = s.get("duplicate_line_fraction", 0.0)
     ttr = s.get("type_token_ratio", 1.0)
-    # TTR normalise par fenetre : robuste a la longueur, contrairement au TTR global.
-    # Fallback sur le TTR global s'il est absent (compat. appels/tests historiques).
+    # Window-normalised TTR: robust to length, unlike the global TTR.
+    # Falls back to the global TTR if absent (compat. with legacy calls/tests).
     mattr = s.get("mattr", ttr)
     n_tokens = s.get("n_tokens", 0)
     pc = doc.parse_confidence
-    # NB : block_integrity n'est PAS un signal de degradation ici. Il mesure la part de
-    # blocs texte parmi tous les blocs, or les docs riches en images/tableaux ont
-    # beaucoup de blocs typees vides (image/table) : block_integrity bas y est normal,
-    # pas une degradation. L'utiliser comme crible route a tort tout doc illustre en light.
+    # NB: block_integrity is NOT a degradation signal here. It measures the share of
+    # text blocks among all blocks, yet docs rich in images/tables have
+    # many empty typed blocks (image/table): a low block_integrity is normal there,
+    # not a degradation. Using it as a screen wrongly routes every illustrated doc to light.
 
-    # Garde-fou metadonnees. Le TTR global chute mecaniquement avec la longueur : un gros
-    # document (ex. "Le Cahier Ma Sante", 222 pages, ttr global=0.0042) au vocabulaire
-    # pourtant sain serait ecarte du jugement LLM par ce seul artefact. On exige donc, pour
-    # un gros document, la concordance de plusieurs signaux avant tout declassement : tant
-    # que l'extraction est saine (confiance de parsing correcte, non_alpha raisonnable, TTR
-    # *fenetre* sain), le document est juge sur le fond ("full"). Cela court-circuite aussi
-    # le raccourci "signaux propres" (qui saute le jugement) : un gros doc merite un jugement
-    # complet. Un gros document REELLEMENT degrade a un TTR fenetre bas et retombe plus bas.
+    # Metadata guardrail. The global TTR drops mechanically with length: a large
+    # document (e.g. "Le Cahier Ma Sante", 222 pages, global ttr=0.0042) with a nonetheless
+    # healthy vocabulary would be excluded from LLM judgment by this artefact alone. So for
+    # a large document we require several concordant signals before any downgrade: as long
+    # as the extraction is healthy (correct parse confidence, reasonable non_alpha, healthy
+    # *window* TTR), the document is judged on substance ("full"). This also short-circuits
+    # the "clean signals" shortcut (which skips the judgment): a large doc deserves a
+    # complete judgment. A REALLY degraded large doc has a low window TTR and falls below.
     extraction_saine = pc >= 0.5 and non_alpha <= 0.40 and mattr >= 0.05
     if n_tokens >= LARGE_DOC_TOKENS and extraction_saine:
         return {"route": "full",
                 "reasons": [f"gros_document_extraction_saine (n_tokens={n_tokens}, "
                             f"parse_confidence={pc}, non_alpha={non_alpha}, mattr={mattr})"]}
 
-    # Extraction degradee -> flag direct, pas de jugement complet. Signaux fiables :
-    # confiance de parsing basse (cf. levier E), fraction non-alpha elevee (jetons cid,
-    # symboles), vocabulaire quasi nul (texte repete/illisible). On s'appuie sur le TTR
-    # *fenetre* (mattr) et non sur le TTR global, pour ne pas confondre "document long" et
-    # "vocabulaire quasi nul".
+    # Degraded extraction -> direct flag, no complete judgment. Reliable signals:
+    # low parse confidence (cf. lever E), high non-alpha fraction (cid tokens,
+    # symbols), near-zero vocabulary (repeated/unreadable text). We rely on the
+    # *window* TTR (mattr) and not on the global TTR, so as not to confuse "long document"
+    # with "near-zero vocabulary".
     if pc < 0.5 or non_alpha > 0.40 or mattr < 0.05:
         return {"route": "light",
                 "reasons": [f"extraction_degradee (parse_confidence={pc}, "
                             f"non_alpha={non_alpha}, mattr={mattr})"]}
 
-    # Tous les signaux au vert -> document manifestement propre, jugement reduit.
+    # All signals green -> manifestly clean document, reduced judgment.
     if non_alpha < 0.30 and dup < 0.15 and mattr > 0.15:
         return {"route": "light", "reasons": ["signaux_propres"]}
 

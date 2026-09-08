@@ -1,128 +1,128 @@
-# Benchmark parsing — "Le Cahier Ma Santé (AGA - AEP).pdf" (222 pages)
+# Parsing benchmark — "Le Cahier Ma Santé (AGA - AEP).pdf" (222 pages)
 
-Objectif : préserver les tableaux de garanties comme texte **structuré et récupérable** (RAG).
-Environnement : ~1,2 Go RAM libre, sans swap, sans clé API. Docling installé (CPU, ocr=off).
+Objective: preserve the guarantee tables as **structured and retrievable** text (RAG).
+Environment: ~1.2 GB free RAM, no swap, no API key. Docling installed (CPU, ocr=off).
 
 ## Ground truth
-Valeurs de garanties (montants €, taux %) reconstruites depuis le flux de **caractères**
-(propre, vérifié) via `extract_words` position-aware, sur 5 pages échantillon (2, 42, 90,
-108, 217). GT = 19 montants distincts + 13 taux distincts.
+Guarantee values (amounts in €, rates in %) reconstructed from the **character** stream
+(clean, verified) via position-aware `extract_words`, on 5 sample pages (2, 42, 90,
+108, 217). GT = 19 distinct amounts + 13 distinct rates.
 
-## Résultat décisif : APLATISSEMENT (association label→valeur détruite)
+## Decisive result: FLATTENING (label→value association destroyed)
 
-> Correction (data integrity) : une première version de cette note attribuait au parser
-> actuel un taux de "lettres doublées" de 31 % (`HHOonSoPrIaTiArLeIsSATION`). C'était une
-> ERREUR de mesure : ce chiffre venait de `pdfplumber.extract_text()`, PAS du parser réel
-> (`_pages_text_pdfminer`, pdfminer). Le parser réel n'est **pas** corrompu.
+> Correction (data integrity): a first version of this note attributed to the current
+> parser a "doubled letters" rate of 31% (`HHOonSoPrIaTiArLeIsSATION`). That was a
+> measurement ERROR: this figure came from `pdfplumber.extract_text()`, NOT from the real parser
+> (`_pages_text_pdfminer`, pdfminer). The real parser is **not** corrupted.
 
-Le vrai défaut est celui diagnostiqué dans le handoff : le parser actuel (pdfminer)
-**aplatit les tableaux**. Le texte est propre (cid≈0, lettres doublées = 1,4 %) mais les
-colonnes sont sérialisées séparément : tous les libellés d'abord, toutes les valeurs
-ensuite. **L'association libellé→valeur est perdue.**
+The real defect is the one diagnosed in the handoff: the current parser (pdfminer)
+**flattens the tables**. The text is clean (cid≈0, doubled letters = 1.4%) but the
+columns are serialized separately: all the labels first, all the values
+after. **The label→value association is lost.**
 
-Preuve : dans la sortie du parser actuel, le libellé « Honoraires des médecins » et sa
-valeur « 100 % » sont séparés de **17 005 caractères**. En RAG, un chunk contenant le
-libellé ne contient pas le taux → la garantie n'est pas récupérable en contexte.
+Evidence: in the output of the current parser, the label « Honoraires des médecins » and its
+value « 100 % » are separated by **17,005 characters**. In RAG, a chunk containing the
+label does not contain the rate → the guarantee is not retrievable in context.
 
-| Candidat | Lettres doublées | Valeurs propres | Association libellé→valeur (RAG) | Verdict |
+| Candidate | Doubled letters | Clean values | Label→value association (RAG) | Verdict |
 |---|---|---|---|---|
-| **pdfminer (parser actuel)** | 1,4 % | oui (montants + %) | ❌ **détruite** (aplatissement, ~17k car.) | inexploitable en RAG sur tableaux |
-| pdfplumber `extract_tables` | — | non (9/19 montants, `3327,,5500 €€`) | ❌ cellules mélangées (grilles A/D) | pire |
-| **Docling (ocr=off, tables=on)** | 1,34 % | oui (19/19 montants ; perd `55%`, `000%`) | ✅ **préservée** (Markdown `\| … \|`) | ✅ retenu |
+| **pdfminer (current parser)** | 1.4% | yes (amounts + %) | ❌ **destroyed** (flattening, ~17k chars.) | unusable in RAG on tables |
+| pdfplumber `extract_tables` | — | no (9/19 amounts, `3327,,5500 €€`) | ❌ mixed-up cells (A/D grids) | worse |
+| **Docling (ocr=off, tables=on)** | 1.34% | yes (19/19 amounts; loses `55%`, `000%`) | ✅ **preserved** (Markdown `\| … \|`) | ✅ retained |
 
-### Preuve visuelle
+### Visual evidence
 
-Parser actuel (pdfminer) — libellés et valeurs séparés (aplatissement) :
+Current parser (pdfminer) — labels and values separated (flattening):
 ```
 HOSPITALISATION
 Honoraires des médecins
 Frais de séjour
    - En établissement conventionné
-...   (les taux 100 % correspondants apparaissent ~17 000 caractères plus loin)
+...   (the matching 100 % rates appear ~17,000 characters further down)
 ```
 
-Docling — association libellé → valeur préservée :
+Docling — label → value association preserved:
 ```
 | Médicaments à service médical rendu majeur ou important (ex-vignette blanche) | 100 % |
 | Médicaments à service médical rendu modéré (ex-vignette bleue)                | 100 % |
 ```
 
-Sur la grille optique A/D (page 217), Docling récupère **19/19** montants proprement
-(`32,50 € 75,00 € 37,50 € 90,00 €…`), structurés en table.
+On the A/D optical grid (page 217), Docling recovers **19/19** amounts cleanly
+(`32,50 € 75,00 € 37,50 € 90,00 €…`), structured as a table.
 
-### Nuance honnête sur le gain
-Le gain de Docling n'est **pas** "corrige du texte illisible" (le parser actuel est propre)
-mais "**préserve la structure table → association libellé/valeur exploitable en RAG**", ce
-que l'aplatissement détruit. Contreparties réelles : Docling perd quelques valeurs isolées
-(`55%`, `000%`) et duplique certains libellés de lignes adjacentes — faiblesses que
-l'orchestration `/autoresearch` doit cibler (ex. compléter Docling par les valeurs pdfminer).
+### Honest nuance on the gain
+Docling's gain is **not** "fixes unreadable text" (the current parser is clean)
+but "**preserves the table structure → label/value association usable in RAG**", which
+flattening destroys. Real trade-offs: Docling loses a few isolated values
+(`55%`, `000%`) and duplicates some labels from adjacent rows — weaknesses that
+the `/autoresearch` orchestration must target (e.g. complete Docling with the pdfminer values).
 
-## Passage à l'échelle — plancher mémoire mesuré (décisif)
+## Scaling up — measured memory floor (decisive)
 
-Pic RSS d'un convert Docling **frais** (process neuf) selon le nombre de pages :
+Peak RSS of a **fresh** Docling convert (brand-new process) by number of pages:
 
-| Pages / convert | Pic RSS | Tient sous 1,2 Go ? |
+| Pages / convert | Peak RSS | Fits under 1.2 GB? |
 |---|---|---|
-| 1 | **1092 Mo** | ✅ (marge ~110 Mo) |
-| 2 | 1249 Mo | ❌ |
-| 3 | 1274 Mo | ❌ |
-| 5 | 1708 Mo | ❌ |
+| 1 | **1092 MB** | ✅ (margin ~110 MB) |
+| 2 | 1249 MB | ❌ |
+| 3 | 1274 MB | ❌ |
+| 5 | 1708 MB | ❌ |
 
-- Convert du **doc entier** : OOM (SIGKILL).
-- Batch à **convertisseur réutilisé** : fuite 1625→2225 Mo sur 100 pages (RAM libérée
-  seulement à la sortie du process).
-- **Seul batch=1 en sous-processus frais tient** (~1092 Mo). L'empreinte des modèles seule
-  est ~1 Go → 2 pages débordent déjà.
+- Convert of the **whole doc**: OOM (SIGKILL).
+- Batch with a **reused converter**: leak 1625→2225 MB over 100 pages (RAM released
+  only when the process exits).
+- **Only batch=1 in a fresh subprocess fits** (~1092 MB). The footprint of the models alone
+  is ~1 GB → 2 pages already overflow.
 
-**Design retenu (validé par mesure)** : `docling_worker` traite un `page_range` ; `parse.py`
-boucle **1 page par sous-processus frais** (batch configurable via `parsing.docling_batch_pages`,
-défaut **1** ici), avec **repli pdfminer par page** si un lot OOM (dégradation gracieuse, jamais
-de crash). Coût : ~37 min pour 222 pages (rechargement modèles par page). Sur machine ≥8 Go,
-augmenter `docling_batch_pages` (ex. 20) pour la vitesse.
+**Retained design (validated by measurement)**: `docling_worker` handles a `page_range`; `parse.py`
+loops **1 page per fresh subprocess** (batch configurable via `parsing.docling_batch_pages`,
+default **1** here), with a **per-page pdfminer fallback** if a batch OOMs (graceful degradation, never
+a crash). Cost: ~37 min for 222 pages (models reloaded per page). On a machine ≥8 GB,
+increase `docling_batch_pages` (e.g. 20) for speed.
 
-## Coût / faisabilité (contrainte 1,2 Go RAM)
-- Docling : **pic RSS 1158 Mo** sur 1202 Mo dispo (fits, mais marge quasi nulle, pas de swap).
-- ⚠️ **OOM = SIGKILL (137), NON rattrapable par try/except.** Un fallback `try/except → legacy`
-  ne couvre PAS l'OOM (le process meurt). Pour un parser par défaut : isoler Docling en
-  **sous-processus** (détecter la mort → repli legacy), ou documenter + garder legacy joignable.
-- Vitesse : ~8–20 s/page → **~30–60 min** pour les 222 pages.
-- `ocr=false` (demandé) allège les deps (pas de moteur OCR) ; vision image = chemin LLM existant.
-- Correctifs d'install nécessaires : torch **CPU** + torchvision **+cpu** appariés ;
-  `opencv-python-headless` (libGL absent sur serveur headless).
+## Cost / feasibility (1.2 GB RAM constraint)
+- Docling: **peak RSS 1158 MB** out of 1202 MB available (fits, but almost no margin, no swap).
+- ⚠️ **OOM = SIGKILL (137), NOT catchable by try/except.** A `try/except → legacy` fallback
+  does NOT cover OOM (the process dies). For a default parser: isolate Docling in a
+  **subprocess** (detect the death → legacy fallback), or document it + keep legacy reachable.
+- Speed: ~8–20 s/page → **~30–60 min** for the 222 pages.
+- `ocr=false` (requested) lightens the deps (no OCR engine); image vision = existing LLM path.
+- Required install fixes: matched torch **CPU** + torchvision **+cpu**;
+  `opencv-python-headless` (libGL absent on a headless server).
 
-## Métrique autoresearch proposée (Verify → nombre)
-Le défaut réel étant l'**aplatissement** (association détruite), la métrique pertinente
-mesure l'**adjacence libellé→valeur**, PAS les lettres doublées (parser actuel et Docling
-sont à égalité ≈1,4 % là-dessus). `Metric: proportion de paires (libellé de garantie, taux/€)
-co-occurrentes dans une fenêtre de N caractères (higher_is_better)`. Le parser aplati score
-~0 (séparation ~17k car.) ; Docling score haut (table `\| libellé \| valeur \|`). Complément :
-recall de valeurs propres vs GT (Docling ne doit pas régresser en couverture de valeurs).
+## Proposed autoresearch metric (Verify → number)
+The real defect being **flattening** (association destroyed), the relevant metric
+measures **label→value adjacency**, NOT doubled letters (the current parser and Docling
+are tied at ≈1.4% there). `Metric: proportion of (guarantee label, rate/€) pairs
+co-occurring within a window of N characters (higher_is_better)`. The flattened parser scores
+~0 (separation ~17k chars.); Docling scores high (table `\| libellé \| valeur \|`). In addition:
+recall of clean values vs GT (Docling must not regress on value coverage).
 
-## Itération autoresearch #1 : combinaison orchestrée (résultat)
+## Autoresearch iteration #1: orchestrated combination (result)
 
-Métrique = **adjacence libellé→valeur** (assoc) + **recall de valeurs** (ne pas régresser),
-sur les pages échantillon. Baseline pdfminer extraite directement.
+Metric = **label→value adjacency** (assoc) + **value recall** (must not regress),
+on the sample pages. pdfminer baseline extracted directly.
 
-| Stratégie | assoc (libellé→valeur) | value_recall | valeurs distinctes |
+| Strategy | assoc (label→value) | value_recall | distinct values |
 |---|---|---|---|
-| pdfminer (actuel) | 37,3 % | 92,6 % | 25 |
-| Docling seul | 82,6 % | 85,2 % | 23 |
-| **Docling + merge pdfminer** | **78,7 %** | **100,0 %** | **27** |
+| pdfminer (current) | 37.3% | 92.6% | 25 |
+| Docling alone | 82.6% | 85.2% | 23 |
+| **Docling + pdfminer merge** | **78.7%** | **100.0%** | **27** |
 
-- Docling seul **double** l'association (37→83 %) mais **perd 4 valeurs** : `145%, 200%,
-  220%, 400%` — précisément les **taux d'hospitalisation** cités dans le handoff (`220%(1)
-  400%(1)`). Faiblesse réelle, pas cosmétique.
-- **Combinaison gagnante** : Docling en primaire (structure) + passe de complétude des
-  valeurs manquantes récupérées du texte pdfminer natif → **100 % de recall** tout en
-  gardant une association élevée (78,7 % >> 37,3 %). C'est la stratégie que la boucle
-  `/autoresearch` doit retenir et raffiner (itérations suivantes : réduire la duplication
-  de libellés Docling, rattacher les valeurs récupérées à leur libellé plutôt qu'en annexe).
+- Docling alone **doubles** the association (37→83%) but **loses 4 values**: `145%, 200%,
+  220%, 400%` — precisely the **hospitalization rates** cited in the handoff (`220%(1)
+  400%(1)`). A real weakness, not a cosmetic one.
+- **Winning combination**: Docling as primary (structure) + a completeness pass for the
+  missing values recovered from the native pdfminer text → **100% recall** while
+  keeping a high association (78.7% >> 37.3%). This is the strategy that the
+  `/autoresearch` loop must retain and refine (next iterations: reduce the duplication
+  of Docling labels, attach the recovered values to their label rather than in an appendix).
 
-Harnais reproductible : `scratchpad/assoc_metric.py` (Verify), `scratchpad/combo.py`
-(comparaison de stratégies). Métrique `higher_is_better` sur `assoc`, contrainte
+Reproducible harness: `scratchpad/assoc_metric.py` (Verify), `scratchpad/combo.py`
+(strategy comparison). `higher_is_better` metric on `assoc`, constraint
 `value_recall == 100 %`.
 
-## Politique existante du repo (à arbitrer)
-Docling a été **délibérément retiré** des dépendances `cqg` et verrouillé par 3 tests
+## Existing repo policy (to be arbitrated)
+Docling was **deliberately removed** from the `cqg` dependencies and locked down by 3 tests
 (`test_parse_document_no_docling_symbols`, `test_docling_removed_from_declared_deps`,
-allowlist de parsers). Cœur volontairement léger (pas de torch/modèles). PyMuPDF banni (AGPL).
+parser allowlist). Deliberately lightweight core (no torch/models). PyMuPDF banned (AGPL).

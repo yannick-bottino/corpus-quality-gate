@@ -18,7 +18,7 @@ def test_write_corpus_report(tmp_path):
     paths = write_corpus_report([_ds("d1"), _ds("d2")], load_registry(), str(tmp_path))
     assert os.path.exists(paths["xlsx"])
     assert "d1" in open(paths["csv_synthese"], encoding="utf-8").read()
-    # remediation : critere score<=2 present
+    # remediation: criterion with score<=2 present
     assert "1.3" in open(paths["csv_remediation"], encoding="utf-8").read()
 
 def test_csv_escapes_special_chars(tmp_path):

@@ -1,4 +1,4 @@
-"""Tests du levier C : triage a deux vitesses (crible deterministe -> full | light)."""
+"""Tests of lever C: two-speed triage (deterministic screen -> full | light)."""
 from cqg.screen import screen_document
 from cqg.models import ParsedDoc, Block
 
@@ -14,7 +14,7 @@ def _metrics(non_alpha=0.25, dup=0.1, ttr=0.2, bi=0.95):
 
 
 def test_degraded_extraction_routes_light_without_full_judge():
-    # Extraction degradee (cas CG Auto : non_alpha eleve) -> flag direct, pas de jugement complet.
+    # Degraded extraction (CG Auto case: high non_alpha) -> direct flag, no full judgment.
     res = screen_document(_doc(), _metrics(non_alpha=0.47, ttr=0.04))
     assert res["route"] == "light"
     assert any("degrad" in r for r in res["reasons"])
@@ -32,23 +32,23 @@ def test_clean_document_routes_light():
 
 
 def test_borderline_document_routes_full():
-    # Ni degrade ni manifestement propre (doublons eleves) -> jugement complet.
+    # Neither degraded nor obviously clean (high duplicates) -> full judgment.
     res = screen_document(_doc(), _metrics(non_alpha=0.26, dup=0.26, ttr=0.17, bi=0.9))
     assert res["route"] == "full"
 
 
 def test_image_rich_low_block_integrity_not_flagged_degraded():
-    # Regression : un doc riche en images (block_integrity bas) mais au texte correct
-    # NE doit PAS etre route light-degrade. block_integrity ne pilote pas le crible.
+    # Regression: a document rich in images (low block_integrity) but with correct text
+    # must NOT be routed light-degraded. block_integrity does not drive the screen.
     res = screen_document(_doc(pc=0.7), _metrics(non_alpha=0.27, dup=0.2, ttr=0.16, bi=0.13))
     assert res["route"] == "full"
 
 
 def test_large_healthy_doc_routes_full_despite_low_global_ttr():
-    # Cas "Le Cahier Ma Sante" : 222 pages, TTR global ecrase par la longueur (0.0042)
-    # mais extraction SAINE (parse_confidence, non_alpha, TTR fenetre tous au vert).
-    # Garde-fou metadonnees : un gros document sain doit etre juge sur le fond (route
-    # "full"), jamais ecarte du jugement LLM sur le seul artefact du TTR global.
+    # "Le Cahier Ma Sante" case: 222 pages, global TTR crushed by the length (0.0042)
+    # but HEALTHY extraction (parse_confidence, non_alpha, windowed TTR all green).
+    # Metadata safeguard: a large healthy document must be judged on substance (route
+    # "full"), never excluded from LLM judgment on the sole artifact of the global TTR.
     metrics = {"signals": {"non_alpha_fraction": 0.2298, "duplicate_line_fraction": 0.30,
                            "type_token_ratio": 0.0042, "mattr": 0.1725, "n_tokens": 227792,
                            "block_integrity": 0.5}}
@@ -58,8 +58,8 @@ def test_large_healthy_doc_routes_full_despite_low_global_ttr():
 
 
 def test_large_but_genuinely_degraded_doc_still_routes_light():
-    # Garde-fou : le garde-fou metadonnees ne doit PAS sur-declencher. Un gros document
-    # REELLEMENT degrade (TTR fenetre effondre lui aussi) reste flague en light.
+    # Safeguard: the metadata safeguard must NOT over-trigger. A large document
+    # REALLY degraded (windowed TTR collapsed too) stays flagged as light.
     metrics = {"signals": {"non_alpha_fraction": 0.20, "duplicate_line_fraction": 0.30,
                            "type_token_ratio": 0.001, "mattr": 0.02, "n_tokens": 227792,
                            "block_integrity": 0.5}}

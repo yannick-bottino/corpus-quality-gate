@@ -6,12 +6,12 @@ _CID_RE = re.compile(r"\(cid:\d+\)")
 
 
 def cid_failure_fraction(text: str) -> float:
-    """Proportion de contenu perdu a l'extraction : jetons (cid:NNN) et glyphes non mappes.
+    """Proportion of content lost during extraction : (cid:NNN) tokens and unmapped glyphs.
 
-    Un echec de mapping police (frequent sur les PDF anciens) laisse pdfminer emettre
-    des jetons '(cid:NNN)' au lieu des caracteres, ou des caracteres de remplacement
-    U+FFFD. Ce signal mesure la part du texte occupee par ces artefacts, rapportee a la
-    longueur totale. 0.0 sur du texte propre ; eleve sur une extraction degradee.
+    A font mapping failure (frequent on old PDFs) makes pdfminer emit
+    '(cid:NNN)' tokens instead of the characters, or U+FFFD replacement
+    characters. This signal measures the share of the text taken up by these artefacts, relative to the
+    total length. 0.0 on clean text ; high on a degraded extraction.
     """
     if not text:
         return 0.0
@@ -50,18 +50,18 @@ def type_token_ratio(text: str) -> float:
     return round(len(set(tokens)) / len(tokens), 4)
 
 def mattr(text: str, window: int = 1000) -> float:
-    """TTR normalise par fenetre (Mean Segmental TTR) : robuste a la longueur.
+    """TTR normalised by window (Mean Segmental TTR) : robust to length.
 
-    Le TTR global (type_token_ratio) decroit mecaniquement avec la longueur : sur un
-    document long, le vocabulaire sature et le denominateur (nombre total de tokens)
-    ecrase le ratio, quel que soit l'etat reel de l'extraction. Exemple mesure sur "Le
-    Cahier Ma Sante" (222 pages) : ttr global=0.0042 alors que le vocabulaire est sain.
+    The global TTR (type_token_ratio) mechanically decreases with length : on a
+    long document, the vocabulary saturates and the denominator (total number of tokens)
+    crushes the ratio, whatever the real state of the extraction. Example measured on "Le
+    Cahier Ma Sante" (222 pages) : global ttr=0.0042 although the vocabulary is healthy.
 
-    On decoupe donc le texte en segments de `window` tokens, on calcule le TTR de chaque
-    segment et on renvoie la moyenne. Un texte au vocabulaire sain garde un TTR de segment
-    eleve meme sur des centaines de pages ; une extraction reellement degradee (texte
-    repete/illisible) reste basse sur chaque fenetre. Pour un texte plus court que
-    `window`, se reduit au TTR global.
+    We therefore split the text into segments of `window` tokens, compute the TTR of each
+    segment and return the mean. A text with a healthy vocabulary keeps a high segment TTR
+    even over hundreds of pages ; a genuinely degraded extraction (repeated/unreadable
+    text) stays low on every window. For a text shorter than
+    `window`, reduces to the global TTR.
     """
     tokens = re.findall(r"\w+", text.lower())
     if not tokens:
@@ -75,8 +75,8 @@ def mattr(text: str, window: int = 1000) -> float:
     return round(sum(ratios) / len(ratios), 4)
 
 def token_count(text: str) -> int:
-    """Nombre de tokens mots (meme tokenisation que le TTR). Sert de proxy de taille
-    pour le garde-fou metadonnees du triage (cf. screen.py)."""
+    """Number of word tokens (same tokenisation as the TTR). Serves as a size proxy
+    for the metadata safeguard of the triage (cf. screen.py)."""
     return len(re.findall(r"\w+", text.lower()))
 
 def block_integrity(doc: ParsedDoc) -> float:

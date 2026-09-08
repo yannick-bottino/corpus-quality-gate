@@ -56,9 +56,9 @@ def test_manual_vlm_writes_manifest(tmp_path):
     assert data[0]["image_path"] == "a.png" and data[0]["context"] == "p1"
 
 def test_manual_vlm_reloads_filled_descriptions(tmp_path):
-    # Manifeste-aware : un manifeste deja rempli hors ligne / in-session est relu, et
-    # describe_image restitue la description -> un second run enrichit le markdown AVANT
-    # l'evaluation, sans passe apply_descriptions separee.
+    # Manifest-aware: a manifest already filled offline / in-session is re-read, and
+    # describe_image returns the description -> a second run enriches the markdown BEFORE
+    # the evaluation, without a separate apply_descriptions pass.
     import json
     from cqg.llm.manual import ManualVLM
     man = tmp_path / "m.json"

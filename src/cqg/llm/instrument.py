@@ -1,9 +1,9 @@
-"""Instrumentation de cout de la couche LLM.
+"""Cost instrumentation for the LLM layer.
 
-Enveloppe un LLMClient et compte le nombre d'appels de jugement et le total de
-caracteres de prompt envoyes. Sert de critere central aux leviers A (batche) et
-C (triage) : nb d'appels LLM/doc et chars de prompt/doc, a consigner par run.
-Les appels de description d'image (VLM) ne sont pas comptes comme appels de jugement.
+Wraps an LLMClient and counts the number of judgment calls and the total prompt
+characters sent. Serves as the central criterion for levers A (batched) and
+C (triage): number of LLM calls/doc and prompt chars/doc, to be logged per run.
+Image description calls (VLM) are not counted as judgment calls.
 """
 from .base import LLMClient
 
@@ -20,8 +20,8 @@ class CountingLLM(LLMClient):
         return self.inner.judge(prompt, schema)
 
     def judge_batch(self, prompt: str, schema: dict) -> dict[str, dict]:
-        # Levier A : un appel batche = une section. Compte comme un appel de jugement
-        # (nouveau driver de cout : appels/doc = nb de sections).
+        # Lever A: one batched call = one section. Counts as one judgment call
+        # (new cost driver: calls/doc = number of sections).
         self.n_calls += 1
         self.total_prompt_chars += len(prompt)
         return self.inner.judge_batch(prompt, schema)

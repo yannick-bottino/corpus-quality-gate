@@ -36,11 +36,11 @@ def test_run_isolates_and_flags_bad_document(tmp_path):
     out = tmp_path / "out"
     result = run(str(corpus), str(cfg), str(out))
     assert result["n_docs"] == 2
-    # parse_document est resilient (jamais de crash) : le PDF corrompu n'est plus un
-    # processing_error, il est court-circuité avec flag unreadable.
+    # parse_document is resilient (never crashes): the corrupt PDF is no longer a
+    # processing_error, it is short-circuited with an unreadable flag.
     bad = json.loads((out / "corrupt.score.json").read_text(encoding="utf-8"))
     assert "unreadable" in bad["flags"]
-    # document valide doit être présent et scorer normalement
+    # the valid document must be present and score normally
     good = json.loads((out / "good.score.json").read_text(encoding="utf-8"))
     assert "level" in good
 
@@ -66,9 +66,9 @@ def test_cli_enrich_writes_enriched_md(tmp_path, monkeypatch):
 
 
 def test_cli_enrich_manual_writes_manifest(tmp_path):
-    # Mode manual : run() doit flush() le manifeste des images a decrire, sinon aucune
-    # trace n'existe pour completer l'enrichissement in-session. Le placeholder reste
-    # intact dans le .enriched.md tant que la description n'est pas remplie.
+    # Manual mode: run() must flush() the manifest of images to describe, otherwise no
+    # trace exists to complete the enrichment in-session. The placeholder stays
+    # intact in the .enriched.md as long as the description is not filled in.
     from reportlab.pdfgen import canvas
     from reportlab.lib.utils import ImageReader
     from PIL import Image
@@ -98,9 +98,9 @@ def test_cli_enrich_manual_writes_manifest(tmp_path):
 
 
 def test_cli_enrich_feeds_eval_and_flags_auto_descriptions(tmp_path):
-    # Enrich-avant-eval : le markdown ENRICHI (descriptions injectees) est ce qui est note,
-    # et la presence de descriptions auto-generees est remontee en flag garde-fou pour la
-    # revue humaine (anti-fabrication : le score s'appuie en partie sur du non-verifie).
+    # Enrich-before-eval: the ENRICHED markdown (injected descriptions) is what gets scored,
+    # and the presence of auto-generated descriptions is surfaced as a safeguard flag for
+    # human review (anti-fabrication: the score relies in part on unverified content).
     from reportlab.pdfgen import canvas
     from reportlab.lib.utils import ImageReader
     from PIL import Image
@@ -120,8 +120,8 @@ def test_cli_enrich_feeds_eval_and_flags_auto_descriptions(tmp_path):
 
 
 def test_cli_enrich_config_only_with_separate_vlm(tmp_path):
-    # Chemin config-only : enrichment.enabled: true pilote l'enrichissement sans passer
-    # enrich=True, avec un client vlm distinct du llm de jugement (enrichment.vlm).
+    # Config-only path: enrichment.enabled: true drives enrichment without passing
+    # enrich=True, with a vlm client distinct from the judgment llm (enrichment.vlm).
     from reportlab.pdfgen import canvas
     from reportlab.lib.utils import ImageReader
     from PIL import Image

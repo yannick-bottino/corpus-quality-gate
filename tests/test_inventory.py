@@ -10,7 +10,7 @@ def test_no_images_marks_image_criteria_na():
     doc = _doc([Block(kind="text", text="para")])
     na = na_decisions(doc, load_registry())
     assert {"3.1", "3.2", "3.3"} <= na
-    assert "1.1" not in na  # 1.1 n'est pas na_possible : jamais marque N/A
+    assert "1.1" not in na  # 1.1 is not na_possible: never marked N/A
 
 def test_inventory_counts_tables():
     doc = _doc([Block(kind="table", text="a"), Block(kind="text", text="b")])

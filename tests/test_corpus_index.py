@@ -1,4 +1,4 @@
-"""Tests de l'index de corpus (chunk + embed + retrieve, offline model2vec)."""
+"""Corpus index tests (chunk + embed + retrieve, offline model2vec)."""
 import numpy as np
 
 from cqg.models import ParsedDoc, Block

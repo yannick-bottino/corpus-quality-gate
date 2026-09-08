@@ -1,7 +1,7 @@
-# Config de test SANS cle API : jugement delegue au CLI `claude` (souscription Claude Code).
+# Test config WITHOUT an API key: judgment delegated to the `claude` CLI (Claude Code subscription).
 llm:
   provider: claude_cli
-  model: "sonnet"             # alias CLI (claude-sonnet-5) ; "opus"/"haiku" possibles
+  model: "sonnet"             # CLI alias (claude-sonnet-5); "opus"/"haiku" also possible
   temperature: 0
   cli_timeout: 300
   max_doc_chars: 24000
@@ -18,10 +18,10 @@ thresholds:
 
 parsing:
   parser: docling
-  docling_batch_pages: 1     # lot d'1 page = pic RSS ~1,1 Go, sur sous ~1,2 Go ; augmenter sur machine a RAM confortable
+  docling_batch_pages: 1     # 1-page batch = peak RSS ~1.1 GB, safe under ~1.2 GB; increase on a machine with comfortable RAM
 
 enrichment:
-  enabled: false             # VLM image via CLI hors perimetre de ce test
+  enabled: false             # image VLM via the CLI is out of scope for this test
   min_side_pts: 24.0
   vlm:
     provider: mock

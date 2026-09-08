@@ -46,9 +46,9 @@ def test_enrich_skips_decorative(tmp_path):
     assert "decorative ignoree" in md
 
 def test_empty_description_leaves_placeholder(tmp_path):
-    # Une image NON decorative dont la description revient vide ne doit jamais
-    # etre mislabel "decorative" : le placeholder reste intact pour un remplissage
-    # ulterieur (apply_descriptions ou re-run).
+    # A NON-decorative image whose description comes back empty must never
+    # be mislabeled "decorative": the placeholder stays intact for a later
+    # fill-in (apply_descriptions or re-run).
     from cqg.enrich import enrich_document
     from cqg.models import ParsedDoc, ImageRef
     from cqg.llm.mock import MockLLM
@@ -67,9 +67,9 @@ def test_empty_description_leaves_placeholder(tmp_path):
     assert "decorative ignoree" not in md
 
 def test_apply_descriptions_empty_leaves_placeholder():
-    # Un item de manifeste avec description vide (image non decrite par l'humain, mais
-    # deja passee le filtre de taille donc PAS decorative) ne doit jamais devenir
-    # "decorative ignoree" : le placeholder reste intact pour remplissage ulterieur.
+    # A manifest item with an empty description (image not described by the human, but
+    # already past the size filter so NOT decorative) must never become
+    # "decorative ignored": the placeholder stays intact for a later fill-in.
     from cqg.enrich import apply_descriptions
     markdown = "Avant\n\n[[IMAGE:p=1;idx=1]]\n\n[[IMAGE:p=1;idx=2]]\n\nApres"
     manifest = [
@@ -83,9 +83,9 @@ def test_apply_descriptions_empty_leaves_placeholder():
     assert "[[IMAGE:p=1;idx=2]]" not in result
 
 def test_manual_roundtrip(tmp_path):
-    # Mode manual : enrich_document laisse le placeholder intact (sentinelle "" de
-    # ManualVLM.describe_image), flush() ecrit le manifeste, puis apply_descriptions
-    # injecte la description remplie hors ligne sans laisser de placeholder residuel.
+    # Manual mode: enrich_document leaves the placeholder intact ("" sentinel from
+    # ManualVLM.describe_image), flush() writes the manifest, then apply_descriptions
+    # injects the offline-filled description without leaving a residual placeholder.
     import json
     from cqg.enrich import enrich_document, apply_descriptions
     from cqg.models import ParsedDoc, ImageRef

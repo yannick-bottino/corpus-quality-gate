@@ -9,7 +9,7 @@ from .report import _sanitize_cell
 _COLS = ["id", "origine", "question", "reponse", "sources", "couvert",
          "statut_validation", "commentaire_beta"]
 
-# Style impose a TOUTES les questions (par document et corpus) : phrase naturelle d'usager.
+# Style imposed on ALL questions (per document and corpus) : natural user sentence.
 _STYLE = (
     "STYLE DES QUESTIONS (imperatif) : chaque question doit etre une PHRASE COMPLETE et "
     "NATURELLE, telle qu'un utilisateur reel la taperait a un chatbot d'assistance. Langage "
@@ -21,8 +21,8 @@ _STYLE = (
 
 
 def _count_instruction(n_questions) -> str:
-    # Nombre de questions : soit fixe (regle a la main via la config), soit "auto" (le LLM
-    # choisit selon la DENSITE d'information du document ou du corpus).
+    # Number of questions : either fixed (set by hand via the config), or "auto" (the LLM
+    # chooses according to the information DENSITY of the document or the corpus).
     if n_questions is None or str(n_questions).strip().lower() == "auto":
         return ("Choisis TOI-MEME le nombre de questions selon la DENSITE d'information : un "
                 "document pauvre en informations -> peu de questions (3 a 4) ; un document dense "
@@ -51,8 +51,8 @@ def _prompt(doc: ParsedDoc, profile: str, policy: str, n_questions="auto") -> st
 
 def _corpus_questions_prompt(docs: list[ParsedDoc], profile: str, policy: str,
                              n_questions="auto", synopsis_chars: int = 1200) -> str:
-    # Etage 1 (proposition) : a partir d'une carte du corpus (id + synopsis), PROPOSE des
-    # questions transverses dont la reponse exige d'au moins DEUX documents.
+    # Stage 1 (proposal) : from a map of the corpus (id + synopsis), PROPOSE
+    # cross-cutting questions whose answer requires at least TWO documents.
     carte = "\n\n".join(f"[{d.doc_id}]\n{d.markdown[:synopsis_chars]}" for d in docs)
     return (
         "PROPOSE des questions transverses au corpus : chacune doit exiger d'au moins DEUX "
@@ -68,8 +68,8 @@ def _corpus_questions_prompt(docs: list[ParsedDoc], profile: str, policy: str,
 
 
 def _corpus_answer_prompt(question: str, contexte: str, policy: str) -> str:
-    # Etage 2 (reponse ancree) : reponds a la question transverse en t'appuyant UNIQUEMENT sur
-    # les extraits recuperes (retrieval sur le texte integral), qui portent leur doc_id.
+    # Stage 2 (grounded answer) : answer the cross-cutting question relying ONLY on
+    # the retrieved excerpts (retrieval over the full text), which carry their doc_id.
     return (
         "Reponds a la question suivante en t'appuyant UNIQUEMENT sur les extraits fournis "
         "(chacun prefixe par son identifiant de document entre crochets).\n"
@@ -84,8 +84,8 @@ def _corpus_answer_prompt(question: str, contexte: str, policy: str) -> str:
 def _rows_from_response(resp: dict, id_prefix: str, origine_defaut: str) -> list[dict]:
     rows = []
     for i, q in enumerate(resp.get("questions", []), start=1):
-        # Anti-fabrication : seule une reponse explicitement couverte ("oui") ET non vide est
-        # conservee ; tout le reste bascule sur le marqueur "Non couvert par le document".
+        # Anti-fabrication : only an answer explicitly covered ("oui") AND non-empty is
+        # kept ; everything else falls back to the "Non couvert par le document" marker.
         couvert = (q.get("couvert") or "non").strip().lower()
         reponse = (q.get("reponse") or "").strip()
         if couvert != "oui" or not reponse:
@@ -113,12 +113,12 @@ def generate_corpus_golden_qa(docs: list[ParsedDoc], profile: str, llm: LLMClien
                               policy: str, n_questions="auto", k: int = 6,
                               chunk_chars: int = 1000, overlap: int = 100,
                               encoder=None) -> list[dict]:
-    # V2 : questions transverses ANCREES PAR RETRIEVAL sur le texte integral du corpus.
-    #  Etage 1 : proposer les questions transverses (carte du corpus).
-    #  Etage 2 : pour chaque question, recuperer les chunks les plus proches DANS TOUT LE CORPUS,
-    #            puis repondre en s'appuyant uniquement sur eux. Les sources sont les doc_ids
-    #            reellement recuperes (donc multi-documents par construction), pas un synopsis.
-    # Anti-fabrication : reponse gardee seulement si couverte par les extraits, sinon marqueur.
+    # V2 : cross-cutting questions GROUNDED BY RETRIEVAL over the full text of the corpus.
+    #  Stage 1 : propose the cross-cutting questions (map of the corpus).
+    #  Stage 2 : for each question, retrieve the closest chunks ACROSS THE WHOLE CORPUS,
+    #            then answer relying only on them. The sources are the doc_ids
+    #            actually retrieved (hence multi-document by construction), not a synopsis.
+    # Anti-fabrication : answer kept only if covered by the excerpts, otherwise the marker.
     if len(docs) < 2:
         return []
     from .corpus_index import build_index, retrieve
@@ -131,7 +131,7 @@ def generate_corpus_golden_qa(docs: list[ParsedDoc], profile: str, llm: LLMClien
     for i, question in enumerate(questions, start=1):
         hits = retrieve(index, question, k=k, encoder=encoder)
         contexte = "\n\n".join(f"[{h['doc_id']}] {h['text']}" for h in hits)
-        # sources = doc_ids effectivement mobilises par le retrieval, ordre stable.
+        # sources = doc_ids actually mobilised by the retrieval, stable order.
         src_docs, seen = [], set()
         for h in hits:
             if h["doc_id"] not in seen:
@@ -161,7 +161,7 @@ def write_golden_qa(rows: list[dict], out_dir: str) -> dict:
         ws.append([_sanitize_cell(r[c]) for c in _COLS])
     xlsx = out / "golden_qa.xlsx"; wb.save(xlsx)
     csv_path = out / "golden_qa.csv"
-    # csv.writer echappe ; guillemets et retours ligne ; utf-8-sig pour les accents dans Excel.
+    # csv.writer escapes ; quotes and line breaks ; utf-8-sig for accents in Excel.
     with csv_path.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.writer(f, delimiter=";")
         writer.writerow(_COLS)

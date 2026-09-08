@@ -7,12 +7,12 @@ from .providers import _extract_json
 
 
 class ClaudeCLILLM(LLMClient):
-    """Provider SANS cle API : delegue le jugement au CLI `claude` (souscription Claude
-    Code). Chaque appel = un sous-processus `claude -p --output-format json`, le prompt
-    passe par stdin (pas de limite d'argv). L'enveloppe renvoyee par le CLI expose le
-    texte du modele dans le champ `result`, qu'on parse avec le meme `_extract_json` que
-    le provider API. Utile quand aucune cle n'est disponible mais qu'une session Claude
-    Code authentifiee l'est (l'auth de la souscription n'est pas exposee comme cle API).
+    """Provider with NO API key: delegates judgment to the `claude` CLI (Claude Code
+    subscription). Each call = a `claude -p --output-format json` subprocess, the prompt
+    goes through stdin (no argv limit). The envelope returned by the CLI exposes the
+    model text in the `result` field, which we parse with the same `_extract_json` as
+    the API provider. Useful when no key is available but an authenticated Claude Code
+    session is (subscription auth is not exposed as an API key).
     """
 
     def __init__(self, cfg: dict | None = None):
@@ -26,7 +26,7 @@ class ClaudeCLILLM(LLMClient):
         if self.model:
             cmd += ["--model", self.model]
         env = dict(os.environ)
-        # Evite tout garde-fou d'imbrication de session lors de l'appel en sous-processus.
+        # Avoids any session-nesting guard when calling out as a subprocess.
         env.pop("CLAUDE_CODE_CHILD_SESSION", None)
         proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True,
                               timeout=self.timeout, env=env)

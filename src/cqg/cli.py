@@ -22,17 +22,17 @@ _GOLDEN_POLICY_DEFAUT = (
 )
 
 def run_golden(corpus_dir: str, config_path: str, out_dir: str) -> dict:
-    # Sous-commande `cqg golden` : produit un jeu de questions/reponses de reference par
-    # document (golden set), a faire VERIFIER par le metier (colonne statut_validation).
-    # Reference-free et anti-fabrication : une reponse n'est retenue que si le document la
-    # couvre explicitement, sinon 'Non couvert par le document'. Le LLM vient de la config
-    # (endpoint reel chez AXA, ou jugement in-session hors ligne).
+    # `cqg golden` subcommand: produces a reference question/answer set per
+    # document (golden set), to be VERIFIED by the business (statut_validation column).
+    # Reference-free and anti-fabrication: an answer is kept only if the document
+    # covers it explicitly, otherwise 'Non couvert par le document'. The LLM comes from
+    # the config (real endpoint at AXA, or offline in-session judgment).
     cfg = load_config(config_path)
     llm = from_config(cfg.get("llm", {"provider": "mock"}))
     golden_cfg = cfg.get("golden", {})
     profile = golden_cfg.get("profile", "utilisateur metier")
     policy = golden_cfg.get("policy", _GOLDEN_POLICY_DEFAUT)
-    # n_questions : "auto" (le LLM decide selon la densite) ou un entier (reglable a la main).
+    # n_questions: "auto" (the LLM decides from the density) or an integer (set by hand).
     n_questions = golden_cfg.get("n_questions", "auto")
     corpus_level = golden_cfg.get("corpus_level", True)
     parser = cfg.get("parsing", {}).get("parser", "docling")
@@ -47,9 +47,9 @@ def run_golden(corpus_dir: str, config_path: str, out_dir: str) -> dict:
             rows.extend(generate_golden_qa(doc, profile, llm, policy, n_questions))
             docs.append(doc)
         except Exception:
-            # Score-and-flag : un document en echec ne fait pas tomber le reste du corpus.
+            # Score-and-flag: a failing document does not bring down the rest of the corpus.
             continue
-    # Q/R transverses au corpus (reponse croisant plusieurs documents), ancrees par retrieval.
+    # Corpus-wide Q/A (answer spanning several documents), grounded by retrieval.
     if corpus_level and len(docs) >= 2:
         try:
             rows.extend(generate_corpus_golden_qa(
@@ -64,15 +64,15 @@ def run_golden(corpus_dir: str, config_path: str, out_dir: str) -> dict:
 def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -> dict:
     cfg = load_config(config_path)
     reg = load_registry()
-    # Instrumentation de cout (Partie 2 du plan leviers) : compte les appels de
-    # jugement et les chars de prompt par doc, critere central des leviers A et C.
+    # Cost instrumentation (Part 2 of the levers plan): counts the judgment
+    # calls and the prompt chars per doc, central criterion of levers A and C.
     llm = CountingLLM(from_config(cfg.get("llm", {"provider": "mock"})))
     cost = {}
     chash = config_hash(cfg, registry_version="v1", policy_version="v1")
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     threshold = cfg.get("thresholds", {}).get("coverage_flag_below", 0.7)
     max_doc_chars = cfg.get("llm", {}).get("max_doc_chars", 24000)
-    # Jugement par sections (levier A) : taille et recouvrement configurables.
+    # Section-based judgment (lever A): configurable size and overlap.
     judge_cfg = cfg.get("judge", {})
     section_chars = int(judge_cfg.get("section_chars", 8000))
     _ov = judge_cfg.get("section_overlap", "auto")
@@ -83,8 +83,8 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
     parser = cfg.get("parsing", {}).get("parser", "docling")
     docling_batch_pages = cfg.get("parsing", {}).get("docling_batch_pages")
     if enrich_on:
-        # VLM d'enrichissement decouple du LLM de jugement : construit seulement si
-        # l'enrichissement est actif, pour ne pas exiger sa cle API sinon.
+        # Enrichment VLM decoupled from the judgment LLM: built only if
+        # enrichment is active, so as not to require its API key otherwise.
         evlm_cfg = cfg.get("enrichment", {}).get("vlm") or cfg.get("llm", {"provider": "mock"})
         vlm = from_config(evlm_cfg)
     scores, parsed, errors = [], [], []
@@ -94,9 +94,9 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
             doc = parse_document(item["path"], item["category"], pages=item.get("pages"), parser=parser,
                                  docling_batch_pages=docling_batch_pages)
             if not doc.markdown.strip():
-                # Score-and-flag : document illisible (parsing S14 ne leve jamais) signale
-                # pour revue humaine sans passer par compute_metrics/score_document (pas
-                # d'appel LLM sur du vide) et sans polluer la detection de doublons.
+                # Score-and-flag: unreadable document (S14 parsing never raises) flagged
+                # for human review without going through compute_metrics/score_document (no
+                # LLM call on empty content) and without polluting duplicate detection.
                 ds = DocScore(doc_id=doc_id, global_pct=0.0, level="Inadapté", coverage_pct=0.0,
                               dimensions={}, criteria=[], worst_sections=[],
                               flags=["unreadable"], config_hash=chash)
@@ -109,17 +109,17 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
                 enriched_md = enrich_document(doc, item["path"], vlm, img_dir,
                                               min_side_pts=min_side_pts)
                 (out / f"{doc.doc_id}.enriched.md").write_text(enriched_md, encoding="utf-8")
-                # Enrich-avant-eval : la qualite est notee sur le markdown ENRICHI (ce qui sera
-                # reellement ingere en RAG), pas sur le texte brut avec placeholders. Garde-fou
-                # anti-fabrication : les descriptions gardent le tag 'non verifiee' et leur
-                # presence est remontee en flag pour la revue humaine (score-and-flag).
+                # Enrich-before-eval: quality is scored on the ENRICHED markdown (what will
+                # really be ingested into RAG), not on the raw text with placeholders.
+                # Anti-fabrication guard: descriptions keep the 'non verifiee' tag and their
+                # presence is surfaced as a flag for human review (score-and-flag).
                 n_auto_desc = enriched_md.count("description automatique, non verifiee")
                 doc = doc.model_copy(update={"markdown": enriched_md})
             if doc.markdown.strip():
                 parsed.append((doc.doc_id, doc.markdown))
             metrics = compute_metrics(doc, reg)
-            # Levier C : triage a deux vitesses. Un doc degrade ou manifestement propre
-            # est route "light" (jugement LLM saute, doc flague) ; sinon jugement complet.
+            # Lever C: two-speed triage. A degraded or obviously clean doc is
+            # routed "light" (LLM judgment skipped, doc flagged); otherwise full judgment.
             screen = screen_document(doc, metrics)
             llm.reset()
             criteria = score_document(doc, reg, metrics, llm, chash, max_doc_chars=max_doc_chars,
@@ -132,8 +132,8 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
             if n_auto_desc:
                 ds.flags.append(f"auto_descriptions:{n_auto_desc}")
         except Exception as exc:
-            # Score-and-flag : un document en echec est signale pour revue humaine, jamais
-            # abandonne en silence et ne fait jamais tomber le reste du corpus.
+            # Score-and-flag: a failing document is flagged for human review, never
+            # dropped silently, and never brings down the rest of the corpus.
             ds = DocScore(doc_id=doc_id, global_pct=0.0, level="Inadapté", coverage_pct=0.0,
                           dimensions={}, criteria=[], worst_sections=[],
                           flags=[f"processing_error: {type(exc).__name__}"], config_hash=chash)
@@ -150,8 +150,8 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
               "errors": errors, "redundancy": str(out / "corpus_redundancy.json"),
               "cost": str(out / "cost.json")}
     if vlm is not None and hasattr(vlm, "flush"):
-        # Mode manual : persiste le manifeste des images a decrire (rempli in-session
-        # ou hors ligne), sinon aucune trace n'existe pour completer l'enrichissement.
+        # Manual mode: persists the manifest of images to describe (filled in-session
+        # or offline), otherwise no trace exists to complete the enrichment.
         result["image_manifest"] = vlm.flush()
     return result
 

@@ -6,7 +6,7 @@ from .base import LLMClient
 
 
 def _extract_json(text: str) -> dict:
-    """Extrait un objet JSON d'une reponse LLM, meme entouree de prose ou de balises code."""
+    """Extracts a JSON object from an LLM response, even wrapped in prose or code fences."""
     text = (text or "").strip()
     fence = re.search(r"```(?:json)?\s*(\{.*\})\s*```", text, re.DOTALL)
     if fence:
@@ -56,9 +56,9 @@ class ProviderLLM(LLMClient):
         return _extract_json(msg.content[0].text)
 
     def judge_batch(self, prompt: str, schema: dict) -> dict[str, dict]:
-        # Levier A : un seul appel couvre tous les criteres qualitatifs d'une section.
-        # La reponse attendue est un objet JSON {crit_id: {status, score, justification,
-        # evidence}}. Meme transport que judge, seul le prompt et le parsing different.
+        # Lever A: a single call covers all the qualitative criteria of a section.
+        # The expected response is a JSON object {crit_id: {status, score, justification,
+        # evidence}}. Same transport as judge, only the prompt and the parsing differ.
         if self.api_key is None:
             raise RuntimeError(
                 f"Cle API absente: definir la variable d'environnement {self.api_key_env}")
