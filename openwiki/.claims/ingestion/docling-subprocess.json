@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:275f5a9e69c21776b72275b4bec9c4ba2d8c8a9242d158da0ab7e2617270e272",
+  "pageVersion": "sha256:ca057fd318526f2b77814083adde3c8175d88fa0be617d62bd3ede55506de9c7",
   "claims": [
     {
       "id": "claim_b37e275d9ed54498992244e4d06c1603",
@@ -147,10 +147,42 @@
           "version": "repo-lines-v1:sha256:9c4af41688a5be6354acaff7d4dff9a2a197089d4487388c35fd0a49b8642812:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyYTMxMmRkYjUxNTk1ODllZjhiM2QwN2EyNGYzMGU1N2M5ODA4NzQ4ZmNkOThjMzEwMzJiMjMyOTc2ZTBiM2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZWM1MGM5NjU0NDFlMGUxNWQ3ZjI3ZDc5M2QxZTg0NjhjY2M5MzczMWI5OGJiNDFhOWEwYzY2MDUxMDhjNWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkMjIyOWQ3YTQ1ZDkxZGVlNWUwNjBiMzRhNTJlNWMyNzFkNmMxODE5ZDgyNmU3ZDMzMWNlYjZhZTQwZmFjMmUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmNGY2MzU1YzVlNTg3ZjY3MjM4NjFhYmExOTMwNjU2Yjc0NDJiZjFkY2FlYmIyYTY2ZDA0ZjRlMDU3NmNiZjcifQ"
         }
       ]
+    },
+    {
+      "id": "claim_0f7c674c862e4d64a1bf39c89a322ad8",
+      "statement": "The recorded parsing benchmark shows the legacy pdfminer path extracts clean text yet flattens guarantee tables by serializing columns separately — measuring one label separated from its own value by roughly 17,000 characters — which destroys the label-to-value association a RAG chunk needs while Docling preserves it as Markdown table rows; this is the evidence justifying table-structure recognition as the reason to prefer Docling despite its cost.",
+      "evidence": [
+        {
+          "resource": "repo://docs/benchmark-docling-cahier-ma-sante.md#L1-L36",
+          "version": "repo-lines-v1:sha256:8d37a128d2e40e514ec838068a7d4162b426312380b20f6b8f865355513f8ced:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ2ODE2YWRjNGQzMjE3YTBkNTIwNzA3NTIzNmY1ZmM3NmNmMDM1ZWUzMzU3YjcyYmJlNDljOTZjYzRlY2RmNjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2OWNhNzI2NGJlNDVjNzM3NWIwYTk2YzRjY2M2NWEzNDA2MWZhMmM0MjRjZDViNzU2NDllZmU2OGZiNjgzODYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/docling_worker.py#L21-L27",
+          "version": "repo-lines-v1:sha256:6acfbf8ee2d7d1581dbb950b039a3354696942f3b5181fad680a5a59a04fe2c3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmYyZjk3NTZiYTc3NzhmNTcwM2JlNmNlZWJkZDY2MWQ2MzVhNmU0ZDIyYzM2ZGRiMzdkNGZkOWViOWRhMmVkZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDhlZjEzMThjMzAzNGZiMTNiMGJkNWJjZGMwYTY2ODU3NjA2ZGIxYmIwMzQ1NjcyZDNiZGI4MzJhMzRmOTA5ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDEzNTQ0NTZhZGQ2MjhhMWUxMTc5YWJlODQwZjhlODdjMDNkNzNiNzViYjFjY2FkNjI3M2VkYWI0Nzc4MWE2YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzg4NjY3YzlmY2E3ZWJjNmIyMTczNzYwMDdkYzU1NDg5YzdmOTQ4MWJhYzEyYWYyZjgzYjZhOWNkOTE5OWNkYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e25943c7f44d452b87b78855fd96e157",
+      "statement": "Table flattening is invisible to every text-quality measure cqg computes — the flattened output shows negligible cid corruption and otherwise healthy signals — so the parser choice cannot be substituted for by the confidence and signal machinery.",
+      "evidence": [
+        {
+          "resource": "repo://docs/benchmark-docling-cahier-ma-sante.md#L18-L36",
+          "version": "repo-lines-v1:sha256:555ffee30479c888888e4a78519d9756c35ddb1aa8b8127e2f754b70dfadacac:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2ZTZiOGRhMDNiYjBlOGQwN2FmOGU1YTVjOTM1MjlmOWMyZDY0YTdlZTMyMzlkZmIxYjhiOTdjZGQ5M2Q3ZTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YzA2YzU2MWQ1YzMyNzM0MzY4NTI2OGE0NmIzMzkxZjM5OThlZWU4OTBkMmJlNTFmMGQyMWNjNGE1M2FlNmQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZmQ2MTM5YTc2M2UwMTZhYzE2N2IyMjU1YjVlMDhmYjE5MWRkNmJmNjRlMGU3NDUxMTc1NjBkZTZkZDMwZDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM2OWNhNzI2NGJlNDVjNzM3NWIwYTk2YzRjY2M2NWEzNDA2MWZhMmM0MjRjZDViNzU2NDllZmU2OGZiNjgzODYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L65-L84",
+          "version": "repo-lines-v1:sha256:cb73d086e729227b89997ef8335f5e62850bf68759d9986380d09d4b2d24785c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjMDNhMTExOThhY2YwNTkxNzJkZDkzMjllZTBhMWVhODlhOTU5YzQ5NmFiNWQ0YWFjOGM2N2I0MjgwODQwZGMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdhZGNkODIzOWE3NzA4OWM5OTA4ZjliNDgzYTExM2Q2YjFiMzVkOGZjZTc1ZDE4NTM1MDRhMTQ2ODljYWMyMTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMxMTc5ZDg3NGY0YjMxODkwN2ZmMDA4OGU3YjA2YmQwNDUxM2E3MWMzMmY0YjU0MjJhNzczYTUzMjFkODRjMzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ1MzllZDEzMDhlMTM4NGQ4MGEyZTM2ZjJjMTdlMTg3OTIxMjJmODE5MGI2NTRiODI2Zjk0ZjRiMDc2YzA2OTcifQ"
+        },
+        {
+          "resource": "repo://src/cqg/signals.py#L5-L21",
+          "version": "repo-lines-v1:sha256:3a6b8a0303948b9d51043f0e4c39051eb9a56611d33344d2bea213244011625a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAyZmFkODMzM2M2NWI4ZjczM2FkNTJhMDJhODc2MzAzZGRmNDg2ODY2NDNjNjJlMWZmYTRiOTJiNDMyZTg2ZTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4NzIyOWRhNTg4YTkxMjQyMGZjODhmNmM3YjE1MDg0ZTQ2ODM2MDIyNzY0OThhYjdhOWNiZTE1ZDA4ZmYyNWIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyNWRhNDY1NGY4OWJkNmQyZWI5ZDE4MjM5YmRmNzMzMzQwMzNiYmJjODM3ZWYyMjU1MDhiOWViMzk4ZGFlZTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjNjFkOGYxZDkxZDU4Mjk4N2I4OGY2OGM0ODEyNWE5YmU1ZmFkZjBmZDIxZWYyYWU2MjEwM2YwZWVlM2RhYTgifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-08T21:30:42.164Z"
+    "at": "2026-09-08T22:00:47.651Z"
   }
 }

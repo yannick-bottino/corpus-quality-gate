@@ -5,10 +5,12 @@ description: Why cqg's default parser runs out-of-process in page batches — pr
 tags: [parsing, docling, subprocess, memory, failure-containment, operations]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
+    at: 2026-09-08T22:00:47.651Z
 sources:
   - id: openwiki-source-bf4bd188e5cad9eab90456b4
     resource: repo://config/config.example.yaml
+  - id: openwiki-source-8fc8d14f7ab12ca5833bc793
+    resource: repo://docs/benchmark-docling-cahier-ma-sante.md
   - id: openwiki-source-152a88b414832cd1539f749f
     resource: repo://docs/GUIDE-run-docling-complet.md
   - id: openwiki-source-453c0952dd215ca017137f07
@@ -17,9 +19,11 @@ sources:
     resource: repo://src/cqg/enrich.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
+  - id: openwiki-source-978bdc187683aafb96b74a0e
+    resource: repo://src/cqg/signals.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-08T22:00:47.651Z" }
 ---
 
 # The Docling Subprocess Boundary
@@ -87,6 +91,27 @@ identified upstream by [triage](document-parsing.md) instead), table-structure r
 is **enabled** (table fidelity is the reason to prefer Docling at all), and page and
 picture image generation are both **disabled**, since images are handled separately through
 the pdfplumber coordinate path.
+
+### Why table structure justifies the cost
+
+Docling is markedly more expensive than the legacy chain, so the table-structure option is
+what earns it its place. The evidence is recorded in
+[`docs/benchmark-docling-cahier-ma-sante.md`](../../docs/benchmark-docling-cahier-ma-sante.md),
+a parsing benchmark run against a 222-page insurance guarantee document.
+
+Its decisive finding concerns not text *cleanliness* but **label-to-value association**. The
+legacy pdfminer path extracts clean text — negligible `(cid:NNN)` corruption — yet
+*flattens* guarantee tables: columns are serialized separately, so every label is emitted
+first and every value long afterwards. The benchmark measures one guarantee label separated
+from its own rate by roughly **17,000 characters**. For a RAG pipeline that is fatal in a way
+no text-quality metric detects: a chunk containing the label does not contain the value, so
+the guarantee is not retrievable in context. Docling preserves the association by emitting
+the table as Markdown rows.
+
+This is why the [confidence and signal machinery](document-parsing.md) cannot substitute for
+the parser choice — the flattened output scores as healthy on every measure `cqg` computes.
+Consult the benchmark for the per-candidate measurements and the ground-truth methodology;
+they are not reproduced here.
 
 ## Batching and the memory/latency tradeoff
 
@@ -160,6 +185,8 @@ cannot tell which parser produced the document.
 ## Related
 
 - [Corpus Triage and Document Parsing](document-parsing.md) — the surrounding extraction chain and the legacy fallback
+- [`docs/benchmark-docling-cahier-ma-sante.md`](../../docs/benchmark-docling-cahier-ma-sante.md) — the parsing benchmark behind the table-fidelity argument
+- [`docs/GUIDE-run-docling-complet.md`](../../docs/GUIDE-run-docling-complet.md) — setup and measured batch-size figures
 - [Image Enrichment](image-enrichment.md) — the consumer of the pdfplumber coordinates
 - [Configuration and Secrets](../operations/configuration-and-secrets.md) — where `parsing.parser` and `parsing.docling_batch_pages` are set
 - [The run Pipeline](../workflows/run-pipeline.md) — how parser settings reach this stage
