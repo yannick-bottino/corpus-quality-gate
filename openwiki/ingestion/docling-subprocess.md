@@ -3,9 +3,6 @@ type: process-boundary
 title: The Docling Subprocess Boundary
 description: Why cqg's default parser runs out-of-process in page batches — process isolation converts an out-of-memory kill into a detectable return code, per-batch fallback preserves content, and batch size is a tuned RAM/latency tradeoff.
 tags: [parsing, docling, subprocess, memory, failure-containment, operations]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T22:00:47.651Z
 sources:
   - id: openwiki-source-bf4bd188e5cad9eab90456b4
     resource: repo://config/config.example.yaml
@@ -23,7 +20,10 @@ sources:
     resource: repo://src/cqg/signals.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
-generated: { by: "claude-code", at: "2026-09-08T22:00:47.651Z" }
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # The Docling Subprocess Boundary
@@ -32,6 +32,10 @@ Docling is the default parser. Unlike every other component in `cqg`, it is **no
 in-process**. Each page batch is converted by a freshly spawned `python -m
 cqg.docling_worker` subprocess, and the parent communicates with it only through argv, a
 temporary file, and an exit code.
+
+Only PDFs reach this boundary: `parse_document` dispatches plain-text formats to a
+separate path before the parser choice is consulted, so a `.txt` or `.md` document never
+spawns a worker.
 
 That indirection is not incidental. It exists because Docling loads machine-learning
 models that dominate the process's memory footprint, and because an out-of-memory kill is

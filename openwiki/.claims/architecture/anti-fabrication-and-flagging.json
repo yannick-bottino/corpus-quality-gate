@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:f295eac0b97d74a595ff6f03dbb5830a7827146cbc35ad8d6a5ddaa58db56036",
+  "pageVersion": "sha256:8a6d337487ba445bbab8577e2bd565d61f73892f25f15ced0dad7dbb696198b6",
   "claims": [
     {
       "id": "claim_562b7a8218aa430e920000574f6d6e6e",
@@ -233,10 +233,64 @@
           "version": "repo-lines-v1:sha256:cb0792419ac32b622eb34f58e6827bd247eca8b94cdc69f4acb50f15fac24364:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNGUyYWExOThmYmMxYzE5MTAxNmU1ZGVkZjBhOWQxZGI0ZmQ2MGMyZGZkNDFhMWY2ZDdiNmQxOTkwZDk5MzZjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg3NDZlOGYxODMxZTllNDE4MjRkN2ZlOTU3NTgwNjAzYWEwMzhlMDZlMGNiODc3OTNhMzU4Njk3YmQ1NDY5NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTRmMWJhMzNiMDAyOGFjMzlhOGRhZGI1OTBkY2Y4N2IyNTM4ZWNmOGQ5MGQyOGM3MTcxZDMxOTA0ZWE0ZGExZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGJjODRiYTMwNjIxOTAzNzc3NjQ3NzY0N2QwZmI3ZmFjOGYwNGY4NTUzMmVlODc5MGJkMzRjYTM1NmRhNzAzZSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_882b90099d79422983dc8e3dd076ec83",
+      "statement": "A file in a format cqg cannot open (.docx, .pptx) is short-circuited before parsing to a DocScore flagged `unsupported_format:<ext>` without the file ever being opened, keeping 'cannot open this format' distinct from 'opened it and got nothing usable' — two findings that call for different reviewer actions.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L98-L107",
+          "version": "repo-lines-v1:sha256:0b9ab4494d686cac1f2c2d140943a14ba4ec8b507a36615b0d59c29270028958:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjhmOGQyMzc1Nzc1NTk2MjFjODI2MTViMjA1Y2FiNjk5NmY1MzEwNWFkZThkYmQ0NGRjMDVhZWM4OGNkOGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L23-L26",
+          "version": "repo-lines-v1:sha256:3435e48707ae28f201a98f124fa2d7904cb7824d46e44e1c69c2ac11792a5cfe:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDVlMmYzNDZkMTJlZGViMWY3NThjN2FiNjY3NDEzMjUzNzg0ZDFkOWI1YzIwOWMzZmVhOWNjN2I2YjRhYjQ4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGY3MjQ0MTI2MjE1NTc5MTUzZTA4ZWIyMGIwNmE1ZjVlYjMzMTZlZjU0MGQ5MTdiNDI0YzhmNDU2NzkxNGNlZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGI4MjljZjY4Nzc2OGYxYTQyZWQzZjg3NTM5Yzk5NDU3MDUyNWZhMTNjYzM2MDczZDRlMmY3MmFmODZmYjlkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDgzZjRiMjI5NmRiZDIzZWZkY2QyMWJlMGJlM2E4ZDg2NjU1Mjc2MDgzMTc1YjFlY2NjMjgyZWZhMzAxMzgxZCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
+          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7a1fb0c597ee467e880d8623d6baa419",
+      "statement": "Unsupported formats stay in the accepted extension set rather than being filtered out of the corpus, because excluding them would be a silent loss that score-and-flag forbids: they are admitted to be visible, flagged to be actionable, and never opened.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L98-L107",
+          "version": "repo-lines-v1:sha256:0b9ab4494d686cac1f2c2d140943a14ba4ec8b507a36615b0d59c29270028958:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjhmOGQyMzc1Nzc1NTk2MjFjODI2MTViMjA1Y2FiNjk5NmY1MzEwNWFkZThkYmQ0NGRjMDVhZWM4OGNkOGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L45-L48",
+          "version": "repo-lines-v1:sha256:aa4923339d13b452104d0f793333d94bcaeafb44db48cb43788768e3646014c7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmRkODYzY2ZlNmYzOGIxYjQzNmU1ZjZmNzZhYjczODQ1Y2FkMWM2MTk0NTNlNzkxMTNhMzk1ODEyYmQwNzQ5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTljNzE0OTdjZmM4MmU2ZmUwZmZmZjBiMDYyMzY1ZWY0OTcxNTM4OGE2NTQ3Yjk3YTEzMDBmN2VlYTI4ZjAyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMGY5NzU3MWIwMWRhNDIzMjEzYTNmOGQwNTYyZmQwMTVjMWMxMTllOTA2OGE3Y2VkMDlmZDAwNzc3NDJhZGQ1NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzI5MzQyY2FmZWQ1ODdkODdkMTE5MzkxZjQ5NjZkOTVjMjU0ZDgyYjk4YTgwZTgyZDUyMDQ1MTUzYjFkNjJkOSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L7-L16",
+          "version": "repo-lines-v1:sha256:bc7499331546a9d3aa4768961cd87d4834596620e6092fd97d619e69fa587c13:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4YTE2NTVjMjY0MzIzZmViMjU2Yzk1YWE5MWFlNGQ5YTZmNzUwMDgwNjY5MTFkNDZmMmJiNDg1OTFlYzY1ZmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiMzIzZWQxOTA1NWVjZWE1MmQ0ZGZiMGU4MzhkN2VkODdlMGJhY2I0YTZjNTY3MTUzNWRlZjk4YWQ2M2JmMTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk1ODU3ZDEwN2ViZTVmNWQ1NzA5OTlkMjAzNTg3YWMxMzVjZjcwNjIyYTZlNjdiNjk4YjU0Y2FmMGRkMjI5ZTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d0fb405d98224edf8670cd6539d128c2",
+      "statement": "The run's error tally counts only the exception path, so neither an unsupported format nor an unreadable document registers as an error — a run reporting zero errors can still contain documents that were never scored, which is why the flags carry the reason.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L148-L155",
+          "version": "repo-lines-v1:sha256:2ced38c3e1f2b43b1df6c765cca49dbd154f959afa8fead6563020f932c6d89a:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU5ZTQxOWU1Y2ZhZGJkNjdjMDgxODFkOTU5MTc1YjJkZTdlOGJjYTIwZTg3MDlmOTk2NDhmZWJkYzgzMjg0OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDljYjkzY2NhMzliYzFlOGRlZWUwZTI3OTRkZTE1NjNjYjBhMWU0YjNmYThjMGEyMzA3NjM1OWU3NmJjNjZhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU1OGJkYThjMTQxYjI1YWNmYTg0ZDlhYzUzNmU1Yzk0MDc3ZGY4MmM5NGQzYTJlNzZmMWUzY2NkOGRiY2NmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDU5ZTY4NTBmMmJmNzc4MzA1ZjY5NDM5MGIyN2MwZGMzM2IxOTgxNjdjN2E3YjYxMmMwODFhZjNkNDk5NjkwOSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L98-L118",
+          "version": "repo-lines-v1:sha256:e6ee881bcad7e7f60c992bc22c6c713ed3fdb353a367d4be217f9e9d41bf6645:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMzY4MDhmZDJiNTM4OGYwZjBhYjY0NmRlYTU0NjE3ZWUzYWRjZTc3MTAyNGU1YTA5ZTc5OTE4NjdlZGQ5ZjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwZTFjMWI2NWQzYzA1NGI1Yjg5ZTdmZTM4YzI5OTc0YzU3M2MxZGQzZDZmMWE0NmMyMjYwOTY2NWFhYTA4NDIifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
+          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-08T21:30:42.164Z"
+    "at": "2026-09-09T21:41:51.597Z"
   }
 }

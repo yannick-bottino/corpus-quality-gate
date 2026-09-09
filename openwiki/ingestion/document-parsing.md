@@ -3,9 +3,6 @@ type: pipeline-stage
 title: Corpus Triage and Document Parsing
 description: How a folder of files becomes ParsedDoc objects — enumeration and classification, the layered Docling/pdfminer/pdfplumber extraction chain, (cid:NNN) font-mapping failure detection with its re-extraction attempt, and how parse_confidence is computed and penalized.
 tags: [parsing, triage, ingestion, pdf, extraction, confidence, robustness]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -19,13 +16,18 @@ sources:
     resource: repo://src/cqg/signals.py
   - id: openwiki-source-f2e05a5624d52b19421cdd43
     resource: repo://src/cqg/triage.py
+  - id: openwiki-source-15ffe11df9b60121e2241bb7
+    resource: repo://tests/test_cli_e2e.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
   - id: openwiki-source-348912dd3d0e7f05ba63cd33
     resource: repo://tests/test_signals.py
   - id: openwiki-source-f5f06ff27486b680ea499ebd
     resource: repo://tests/test_triage.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # Corpus Triage and Document Parsing
@@ -40,8 +42,16 @@ The stage has four steps: **enumerate → classify → extract → score confide
 ## Enumerate and classify
 
 Triage walks the corpus directory **non-recursively** in sorted order, giving a stable,
-reproducible document order across runs. It admits five extensions: `.pdf`, `.docx`,
-`.pptx`, `.txt`, `.md`.
+reproducible document order across runs. The admitted extensions are declared in
+`triage.py` as canonical sets — the single source of truth, shared with the parser:
+
+| Set | Extensions | Meaning |
+|---|---|---|
+| `PDF_EXTS` | `.pdf` | The full extraction chain |
+| `TEXT_EXTS` | `.txt`, `.md` | Text carried directly; parsed without PDF machinery |
+| `UNSUPPORTED_EXTS` | `.docx`, `.pptx` | Admitted so they are visible, but never opened |
+
+`SUPPORTED_EXTS` is their union and is what the directory walk filters on.
 
 Every file yields a record with a `doc_id` (the filename stem), a type, a **SHA-256 hash of
 the full file bytes**, and a path. Note that `doc_id` is the *stem*, so two files differing
@@ -57,37 +67,71 @@ images to assign a category from words-per-page (`wpp`) and images-per-page (`ip
 | `born_digital` | `wpp > 100` **and** `ipp < 25` | Text-rich, lightly illustrated |
 | `mixed` | everything else | Text-and-image heavy, or in the ambiguous middle band |
 
+Non-PDF input is classified before any of that, by extension alone:
+
+| Category | Extensions | Meaning |
+|---|---|---|
+| `text` | `.txt`, `.md` | Parseable; scored like any other document |
+| `unsupported_format` | `.docx`, `.pptx` | Admitted and flagged; the file is never opened |
+
 The image count is deliberately best-effort: pypdf can raise on malformed image
 dictionaries, so that inner loop swallows a specific set of exceptions and continues with
 a lower count rather than failing the document. Likewise a PDF that pypdf cannot open at
 all returns the `unreadable` category instead of raising — corpus triage never breaks on
 one bad file.
 
-### Classification is advisory at the parsing boundary
+### The parser takes no category
 
-`parse_document` accepts a `category` argument and **never reads it**. The parameter
-appears only in the signature; the extraction strategy is chosen from the `parser`
-configuration setting and from runtime failures, not from the triage verdict.
+`parse_document` used to accept a `category` argument that appeared only in its signature
+and was never read. It has been removed: the extraction strategy is chosen from the
+`parser` setting and from runtime failures, never from the triage verdict.
 
-This is worth stating plainly because the call site looks like classification drives
-extraction, and it does not. In practice, of triage's outputs only `path` and `pages` reach
-parsing (`pages` feeds a confidence cap), and only `path` and `doc_id` are used elsewhere in
-the run. The SHA-256 hash is computed for every file but no consumer reads it today — it is
-available for future deduplication or caching, and content-level duplicate detection is
-currently done separately over extracted text in
+Everything past `path` is now **keyword-only**, and that is not cosmetic. Both call sites
+previously passed `item["category"]` *positionally* as the second argument, so dropping the
+parameter alone would have silently bound a category string to `pages` — a failure that
+surfaces far from its cause, since the resulting `TypeError` inside `_confidence` is
+swallowed by the Docling fallback handler. Keyword-only makes that class of positional
+drift impossible rather than merely fixed once, and a test pins the signature.
+
+The triage category is no longer unconsumed, though: it routes the unsupported-format case
+in the [run orchestration](../workflows/run-pipeline.md). That is the right layer for it —
+classification decides *whether to attempt* extraction, not *how* to extract.
+
+The SHA-256 content hash triage computes for every file still has no consumer. It remains
+available for future deduplication or caching; content-level duplicate detection is done
+separately over extracted text in
 [corpus redundancy](../reporting/document-scoring-and-reports.md).
 
-### What happens to the non-PDF extensions
+### The non-PDF extensions
 
-Triage admits `.docx`, `.pptx`, `.txt` and `.md` and labels them `non_pdf`, but the
-extraction chain is PDF-only. Traced end to end, such a file fails every extraction attempt
-in turn and reaches the terminal branch, which returns a `ParsedDoc` with **empty markdown,
-`parse_confidence` 0.0, and a single block of kind `unreadable`**.
+`.txt` and `.md` are **parsed and scored like any other document**. They need no PDF
+machinery: `_plain_text_extraction` reads the file, applies the same NFKC normalization,
+and splits it on blank lines into text blocks. No new dependency was required.
 
-The run orchestration then sees empty markdown and short-circuits the document with the
-flag **`unreadable`** — *not* `processing_error`, because nothing raised. The practical
-consequence: dropping a `.docx` into the corpus does not crash the run and does not go
-unnoticed, but it is not evaluated either. Only PDFs are actually scored today.
+The decoding choice carries a quiet design win. The file is read as `utf-8-sig` — which
+strips a BOM — with `errors="replace"`, so decoding damage becomes U+FFFD replacement
+characters. Those are *already counted* by `cid_failure_fraction`, the same signal built for
+PDF font-mapping failures. A mis-decoded text file therefore has its `parse_confidence`
+penalized and is flagged for review by the existing mechanism, instead of passing as clean
+text. One mechanism, two failure modes.
+
+A text `ParsedDoc` traverses the rest of the pipeline safely because the downstream stages
+operate on a markdown string, not on a PDF. Two details make it work: `pages` is `None`, so
+the per-page confidence cap simply does not apply; and the image list is empty, which makes
+[enrichment](image-enrichment.md) a no-op. A test asserts that a text document never reaches
+Docling, pdfminer or pdfplumber.
+
+`.docx` and `.pptx` are a different matter: `cqg` cannot open them. They are still admitted
+by triage — dropping them would be a silent loss, which
+[score-and-flag](../architecture/anti-fabrication-and-flagging.md) forbids — but they are
+short-circuited in the run orchestration with the flag `unsupported_format:<ext>` **before**
+any parsing is attempted, so the file is never opened. That is deliberately distinct from
+`unreadable`, which means the document *was* opened and yielded nothing.
+
+Supporting them properly would require `python-docx` and `python-pptx` as runtime
+dependencies, which is a decision with
+[license-gate](../operations/testing-and-license-gate.md) consequences and was left out of
+scope.
 
 ## The extraction chain
 

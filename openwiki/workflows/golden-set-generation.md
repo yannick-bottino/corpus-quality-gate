@@ -3,9 +3,6 @@ type: workflow
 title: Golden Q&A Set Generation
 description: The cqg golden subcommand — producing a reference question/answer set for business validation, with a density-driven question count, corpus-wide questions grounded by retrieval over full text, and a coverage fallback that refuses to fabricate an answer.
 tags: [golden-set, qa-generation, retrieval, embeddings, business-validation, anti-fabrication]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-2b78d174ffa5735999d50b8b
     resource: repo://config/golden_qa_policy.md
@@ -17,13 +14,18 @@ sources:
     resource: repo://src/cqg/golden_qa.py
   - id: openwiki-source-f3839253c7c5e3d67e28a4ad
     resource: repo://src/cqg/judge.py
+  - id: openwiki-source-b6095db5ec5025983f3c1227
+    resource: repo://src/cqg/parse.py
   - id: openwiki-source-b5bb35ef6f2a60707bddb75d
     resource: repo://tests/test_corpus_index.py
   - id: openwiki-source-81792d29bf652c27ca85a4c6
     resource: repo://tests/test_golden_cli.py
   - id: openwiki-source-96f4e8eabb9c2b7186fe059b
     resource: repo://tests/test_golden_qa.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # Golden Q&A Set Generation
@@ -63,11 +65,14 @@ main report — formula-injection neutralization, `;` delimiter with proper quot
 ## The orchestration
 
 `run_golden` triages and parses the corpus, generates per-document questions for each
-document that yielded text, then optionally adds corpus-wide questions.
+document that yielded text, then optionally adds corpus-wide questions. Plain-text documents
+(`.txt`, `.md`) are parsed like PDFs and are therefore perfectly good golden-set sources.
 
 Two robustness properties, both consistent with
 [score-and-flag](../architecture/anti-fabrication-and-flagging.md):
 
+- **A format `cqg` cannot open is skipped before parsing** — the loop checks the triage
+  category and moves on, rather than attempting an extraction that can only yield nothing.
 - **A document that fails or parses empty is skipped**, not fatal — the `continue` is
   commented as exactly that: a failing document does not bring down the rest of the corpus.
 - **The whole corpus-level stage is wrapped**, so a failure there still returns the

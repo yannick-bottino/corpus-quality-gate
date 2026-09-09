@@ -3,9 +3,6 @@ type: quickstart
 title: Quickstart
 description: Entry point to the Corpus Quality Gate wiki — what cqg does, how to install and run both subcommands, what artifacts they produce, and which page answers each common question.
 tags: [quickstart, getting-started, cli, navigation, installation]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-bf4bd188e5cad9eab90456b4
     resource: repo://config/config.example.yaml
@@ -19,7 +16,14 @@ sources:
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
     resource: repo://src/cqg/report.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+  - id: openwiki-source-f2e05a5624d52b19421cdd43
+    resource: repo://src/cqg/triage.py
+  - id: openwiki-source-15ffe11df9b60121e2241bb7
+    resource: repo://tests/test_cli_e2e.py
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # Quickstart
@@ -46,7 +50,8 @@ python -m pytest -q                  # run from the repository root
 
 ## The two commands
 
-Both take a corpus directory. After `pip install -e .` the `cqg` console script works
+Both take a corpus directory. PDFs and plain-text files (`.txt`, `.md`) are scored;
+`.docx`/`.pptx` are listed and flagged without being opened. After `pip install -e .` the `cqg` console script works
 identically to `python main.py`.
 
 ```bash
@@ -95,8 +100,8 @@ Two numbers per document, and they must be read together:
 - **`couverture_%`** — how many applicable criteria were actually judged.
 
 **A high score with low coverage is a weak signal, not a good result.** Check the `flags`
-column: `unreadable`, `processing_error:`, `screen:light (…)`, `auto_descriptions:`,
-`low_coverage`, `low_parse_confidence`.
+column: `unsupported_format:`, `unreadable`, `processing_error:`, `screen:light (…)`,
+`auto_descriptions:`, `low_coverage`, `low_parse_confidence`.
 
 ## Where to read next
 
@@ -127,7 +132,9 @@ sizing and measured figures are in
 [`docs/GUIDE-run-docling-complet.md`](../docs/GUIDE-run-docling-complet.md); set
 `parsing.parser: legacy` for a fast pass without it.
 
-**The run fingerprint does not cover everything.** `config_hash` stamps each score file but
-excludes the `judge`, `parsing` and `enrichment` blocks — so two runs with different section
-sizing or a different parser can share a hash while producing different scores. See
-[Configuration and Secrets](operations/configuration-and-secrets.md) before comparing runs.
+**Every input produces a row.** Nothing is silently dropped: a `.docx` is flagged
+`unsupported_format:docx` without being opened, a broken PDF is flagged `unreadable`, and a
+document that raised is flagged `processing_error:`. None of the three counts as a run
+error, so read the `flags` column rather than the error count to see what was actually
+scored. See
+[Anti-Fabrication and Score-and-Flag](architecture/anti-fabrication-and-flagging.md).

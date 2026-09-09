@@ -3,9 +3,6 @@ type: operations-guide
 title: Testing and the License Gate
 description: How cqg verifies itself — the invariants each area of the pytest suite pins, the synthetic-PDF and mock-provider fixtures that keep end-to-end runs hermetic, and the permissive-license dependency constraint enforced by a checkable script.
 tags: [testing, pytest, quality-gates, licensing, compliance, ci]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-05ccef8d4cf1698187f20464
     resource: repo://pyproject.toml
@@ -13,6 +10,8 @@ sources:
     resource: repo://README.md
   - id: openwiki-source-a008312c35a1268ab293d5cb
     resource: repo://scripts/check_licenses.py
+  - id: openwiki-source-f677215832a3297e22304de0
+    resource: repo://src/cqg/config.py
   - id: openwiki-source-32ae41a9ecb698838dd793e6
     resource: repo://src/cqg/llm/mock.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
@@ -23,6 +22,8 @@ sources:
     resource: repo://src/cqg/screen.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
+  - id: openwiki-source-81af13fa7982f0b3becf1286
+    resource: repo://tests/test_config.py
   - id: openwiki-source-81792d29bf652c27ca85a4c6
     resource: repo://tests/test_golden_cli.py
   - id: openwiki-source-96f4e8eabb9c2b7186fe059b
@@ -35,9 +36,16 @@ sources:
     resource: repo://tests/test_parse.py
   - id: openwiki-source-1fb869e707757275b0a8994a
     resource: repo://tests/test_report_export.py
+  - id: openwiki-source-9fc38c4696400c0068133e6e
+    resource: repo://tests/test_report_scoring.py
   - id: openwiki-source-81cf9f57b4380dad067c7e02
     resource: repo://tests/test_screen.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+  - id: openwiki-source-f5f06ff27486b680ea499ebd
+    resource: repo://tests/test_triage.py
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # Testing and the License Gate
@@ -46,7 +54,7 @@ generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
 python -m pytest -q
 ```
 
-The suite currently reports **123 passed, 1 skipped in about 6 seconds**. That combination —
+The suite currently reports **137 passed, 1 skipped in about 4 seconds**. That combination —
 a full end-to-end pipeline suite that runs in seconds with no network and no credentials —
 is a deliberate design outcome, and this page explains how it is achieved and what it
 actually guarantees.
@@ -75,6 +83,11 @@ code, the table below points at the test that will notice.
 | **Error isolation** | `tests/test_cli_e2e.py::test_run_isolates_and_flags_bad_document` runs a good and a corrupt PDF together and asserts both produce score files |
 | **Enrich-before-eval** | `tests/test_cli_e2e.py` asserts the enriched markdown is what gets scored and that `auto_descriptions:` is flagged; `tests/test_enrich.py` pins the empty-description invariant and the manual round trip |
 | **[Registry](../scoring/criteria-registry.md) shape** | `tests/test_registry.py` pins the criteria count, the dimension-weight total, and the presence of external-dependency criteria |
+| **Run-fingerprint coverage** | `tests/test_config.py` asserts the hash changes for every scoring section, ignores `paths`, and covers a section `config_hash` has never heard of — the last one guards against the allowlist failure that caused the original provenance gap |
+| **Parser signature cannot drift** | `tests/test_parse.py::test_parse_document_takes_no_positional_beyond_path` pins that only `path` is positional, so a stray argument can never bind to `pages` |
+| **Plain-text extraction avoids PDF machinery** | `tests/test_parse.py` asserts a text document reaches neither Docling, pdfminer nor pdfplumber, and that decoding damage lowers `parse_confidence` |
+| **Formats are distinguished, not conflated** | `tests/test_triage.py` pins the `text` and `unsupported_format` categories; `tests/test_cli_e2e.py` asserts a `.md` is scored while a `.docx` is flagged `unsupported_format` and is not counted as a processing error |
+| **Level labels stay canonical** | `tests/test_report_scoring.py` asserts the orchestration cannot introduce a second spelling of a level |
 | **[Provider layer](../integrations/llm-providers.md)** | `tests/test_llm.py` covers the factory, the missing-key error, tolerant JSON extraction, and the manual manifest round trip; `tests/test_llm_instrument.py` covers the metering policy |
 
 ## What makes the suite hermetic
@@ -134,6 +147,11 @@ distributions via `importlib.metadata`, and reports the intersection.
 The exit behaviour is what makes it usable as a CI gate: on a violation it prints
 `Licences interdites detectees: [...]` and **exits 1**; otherwise it prints `Licences OK`
 and exits 0.
+
+Support for plain-text documents was added **without any new runtime dependency** — it is
+`read_text()` plus the existing normalization — so it left this constraint untouched.
+Supporting `.docx`/`.pptx` would not: that needs `python-docx` and `python-pptx`, and any
+such addition has to pass this gate.
 
 Checking what is *installed* rather than what is *declared* is the important design choice.
 A forbidden package pulled in transitively by a dependency is caught, which a manifest scan

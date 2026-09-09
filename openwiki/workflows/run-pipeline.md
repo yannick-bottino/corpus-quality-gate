@@ -3,9 +3,6 @@ type: workflow
 title: The run Pipeline
 description: End-to-end orchestration of the cqg run subcommand — how each document is sequenced through triage, parsing, optional enrichment, deterministic metrics, screening, sectioned judgment and scoring, the three exit paths, and the corpus artifacts written at the end.
 tags: [pipeline, orchestration, workflow, control-flow, error-handling, cost]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -15,13 +12,22 @@ sources:
     resource: repo://src/cqg/llm/manual.py
   - id: openwiki-source-bf3b15b22d143311cdbe443a
     resource: repo://src/cqg/llm/providers.py
+  - id: openwiki-source-b6095db5ec5025983f3c1227
+    resource: repo://src/cqg/parse.py
+  - id: openwiki-source-9d2f2d9e2d1816a6a6d4bd67
+    resource: repo://src/cqg/registry/loader.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
     resource: repo://src/cqg/report.py
+  - id: openwiki-source-f2e05a5624d52b19421cdd43
+    resource: repo://src/cqg/triage.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
   - id: openwiki-source-81cf9f57b4380dad067c7e02
     resource: repo://tests/test_screen.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # The run Pipeline
@@ -46,7 +52,8 @@ The orchestration reads configuration once and builds everything the loop needs.
 - **The judge LLM** is built from the `llm` block, defaulting to `mock`, and immediately
   wrapped in the counting instrument that meters judgment spend.
 - **The run fingerprint** `config_hash` is computed once and stamped into every document's
-  score — including documents that never reach scoring.
+  score — including documents that never reach scoring. Its registry component is derived
+  from the criteria file's *content*, so an edited grid produces a different fingerprint.
 - **The output directory** is created up front, so partial results survive an interrupted run.
 - **Configuration values are read at this level** and passed down as arguments: the coverage
   threshold, `max_doc_chars`, `section_chars` and `section_overlap`, the parser choice and
@@ -120,19 +127,26 @@ document records zero.
 appends its own flags: `screen:light (<reasons>)` if the document took the light route, and
 `auto_descriptions:<n>` if machine descriptions entered the text.
 
-## Three exit paths
+## Four exit paths
 
-Every document leaves the loop by exactly one of three routes, and **all three write a score
+Every document leaves the loop by exactly one of four routes, and **all four write a score
 file**. This is [score-and-flag](../architecture/anti-fabrication-and-flagging.md) made
 concrete: no input is ever silently dropped.
 
 | Path | Trigger | Result | Also |
 |---|---|---|---|
+| **Unsupported format** | Triage category is `unsupported_format` | `DocScore` at 0.0, level `Inadapté`, flag `unsupported_format:<ext>` | Checked **before** parsing — the file is never opened |
 | **Unreadable** | Empty markdown after parsing | `DocScore` at 0.0, level `Inadapté`, flag `unreadable` | Skips metrics, screening and judgment entirely — **no LLM call on empty content**; excluded from duplicate detection |
 | **Processing error** | Any exception in the block | `DocScore` at 0.0, level `Inadapté`, flag `processing_error: <ExceptionType>` | Appended to the run's `errors` list with the message |
 | **Normal** | Everything succeeded | Full `DocScore` with dimensions, criteria and flags | — |
 
-Two details worth noting.
+Three details worth noting.
+
+The unsupported-format path is what finally gives the **triage category a real consumer**.
+The classification was previously computed and read by nothing — `parse_document` accepted
+it and never looked at it. Routing lives here instead, which is the right layer: the
+category decides *whether to attempt* extraction, while the parser decides *how* to extract.
+The file is never opened, so no archive is unpacked to reach that verdict.
 
 The unreadable path is a deliberate short-circuit rather than a consequence: it is commented
 as skipping metrics and judgment *specifically* to avoid spending an LLM call on empty
@@ -140,9 +154,10 @@ content, and it appends nothing to the parsed-text list, so a corpus of unreadab
 cannot register as a cluster of identical documents in
 [redundancy detection](../reporting/document-scoring-and-reports.md).
 
-And **`n_errors` counts only the exception path**. An `unreadable` document is a normal,
-expected outcome, not an error — so a run reporting zero errors may still contain unreadable
-documents. Read the flags, not just the error count.
+And **`n_errors` counts only the exception path**. An `unreadable` document and an
+unsupported format are both normal, expected outcomes rather than errors — so a run
+reporting zero errors may still contain documents that were never scored. Read the flags,
+not just the error count.
 
 An end-to-end test drives both failure paths together: a valid PDF and a corrupt one in one
 corpus, asserting two score files, and that the corrupt one carries `unreadable` while the
@@ -174,7 +189,7 @@ path.
 
 | Artifact | When |
 |---|---|
-| `<doc_id>.score.json` | Every document, on all three exit paths |
+| `<doc_id>.score.json` | Every document, on all four exit paths |
 | `corpus_report.xlsx`, `synthese.csv`, `detail.csv`, `remediation.csv` | Always |
 | `corpus_redundancy.json`, `cost.json` | Always |
 | `<doc_id>.enriched.md`, `images/<doc_id>/*.png` | Enrichment active and the document has images |

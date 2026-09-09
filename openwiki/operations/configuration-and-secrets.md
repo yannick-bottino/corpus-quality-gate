@@ -3,9 +3,6 @@ type: operations-guide
 title: Configuration and Secrets
 description: The YAML configuration surface that parameterizes every cqg stage, the rule that no API key is ever stored in plaintext, the difference between the two shipped configurations, and the run fingerprint stamped into every scored document — including what that fingerprint does not cover.
 tags: [configuration, secrets, operations, provenance, yaml, credentials]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-3c31ddb57801e0f385098e58
     resource: repo://config/config.claude_cli.yaml
@@ -25,13 +22,18 @@ sources:
     resource: repo://src/cqg/llm/claude_cli.py
   - id: openwiki-source-bf3b15b22d143311cdbe443a
     resource: repo://src/cqg/llm/providers.py
-  - id: openwiki-source-b6095db5ec5025983f3c1227
-    resource: repo://src/cqg/parse.py
+  - id: openwiki-source-9d2f2d9e2d1816a6a6d4bd67
+    resource: repo://src/cqg/registry/loader.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
   - id: openwiki-source-81af13fa7982f0b3becf1286
     resource: repo://tests/test_config.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+  - id: openwiki-source-5fa58a97f0a0e23a76dda820
+    resource: repo://tests/test_registry.py
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # Configuration and Secrets
@@ -141,37 +143,43 @@ stamped into every document's score file. Its purpose is provenance: to tell whe
 score files are comparable.
 
 The digest is built from a canonical JSON payload — sorted keys, non-ASCII preserved — so it
-is stable across dictionary ordering. Tests confirm it is deterministic for identical input
-and changes when the model changes.
+is stable across dictionary ordering. Tests confirm it is deterministic for identical input,
+changes when the model changes, changes for every scoring section, ignores `paths`, and
+covers a section the function has never heard of.
 
-### What the fingerprint does not cover — a real limitation
+### What the fingerprint covers
 
-The payload contains exactly four things: the `llm` block, the `thresholds` block, and two
-version strings. **`judge`, `parsing`, and `enrichment` are excluded.**
+The payload is the **whole configuration except the non-scoring sections** — currently just
+`paths`, which only says where output lands and cannot move a score. So `llm`, `thresholds`,
+`judge`, `parsing`, `enrichment` and `golden` all change the hash, and a configuration
+section added later is fingerprinted **without editing `config_hash`**.
 
-This is verifiable directly: two configurations differing in `judge.section_chars`,
-`parsing.parser`, *and* `enrichment.enabled` simultaneously produce an **identical**
-`config_hash`.
+That last property is the point. The previous design was an explicit allowlist naming `llm`
+and `thresholds`, and it silently omitted `judge`, `parsing` and `enrichment` — so two runs
+differing in section sizing, parser and enrichment simultaneously produced an *identical*
+hash while producing different scores. An allowlist has to be remembered every time the
+schema grows; a denylist of things that provably cannot matter does not.
 
-That is a genuine provenance gap, because all three settings change scoring outcomes:
+**The remaining tradeoff, stated plainly:** whole-config coverage is deliberately
+*over*-sensitive. `config_hash` is only used by `run`, so changing `golden.profile` alters a
+run fingerprint even though golden settings cannot affect run scoring. That direction was
+chosen on purpose — a false *different* makes someone look twice at two comparable runs; a
+false *same* silently licenses comparing two runs that are not. Only one of those errors is
+recoverable by a careful reader.
 
-- `judge.section_chars` and `section_overlap` change how many sections a document is split
-  into, and the score is a **median across sections** — different sectioning can produce a
-  different score from identical inputs and an identical model.
-- `parsing.parser` changes the extracted text itself, and therefore every deterministic
-  signal and every judgment built on it.
-- `enrichment.enabled` changes whether machine-written image descriptions are part of the
-  scored text at all.
+The `registry_version` component is now derived from the registry file's **content** via
+`registry_fingerprint()`, so editing the criteria grid changes the run fingerprint. It
+previously was the hardcoded literal `"v1"`, which meant an edited grid — the thing that
+drives every score — shared a fingerprint with the old one. `policy_version` became
+redundant once `golden.policy` entered the payload; it survives as an optional parameter for
+signature stability.
 
-So two score files bearing the same `config_hash` are **not** necessarily comparable. When
-comparing runs, verify the sectioning, parser, and enrichment settings separately —
-`cost.json` is a useful cross-check, since a change in sectioning shows up directly as a
-change in calls per document.
+### Migration consequence
 
-Additionally, the `registry_version` and `policy_version` components are passed as the
-hardcoded literal `"v1"` at the call site rather than derived from the registry or policy
-files. Editing the criteria registry or the answering policy therefore does not change the
-hash either.
+Existing `config_hash` values **changed** with this fix. Score files produced before it carry
+the old fingerprint and will not match a re-run of the same configuration. That is the
+visible cost of closing the gap: a one-time discontinuity, in exchange for fingerprints that
+mean what they claim from here on.
 
 ## Related
 

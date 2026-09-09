@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:9caa1e5f039bd319f809239cdf4fe2f9a82f576eee0747d1b4e94a8a56c2eff3",
+  "pageVersion": "sha256:827db4e8f52ce29b7e7dee93c6ae822e73775ee682939800a40f949200c77548",
   "claims": [
     {
       "id": "claim_61dbe115840c46829260248ed0e711c4",
@@ -61,16 +61,12 @@
       "statement": "Every end-to-end and CLI test explicitly sets parsing.parser to legacy, bypassing Docling so the suite avoids loading machine-learning models and a per-batch subprocess while still exercising the same interfaces and producing the same ParsedDoc.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/parse.py#L197-L212",
-          "version": "repo-lines-v1:sha256:cd7248b247e3ba0d4c50ca0db69568a35dd3578f769072562133f027d2080334:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmNmU3NjZkNWIzNWU3OThjOTU5NDNjMzgwYzRmN2UxNDRhMWVhNjE4YWQ2NDNlOThmYzAxNGM4ZjVjZjliOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkYTVjNjZlMTdiMTQ1Mzk3ODM0YjhjODU0ZGM0MTkzZTIxMjUxODBhODk5NmExNGMzMTg4MzMyNmIyZWZiY2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhZDIzY2VjZWNjMjE5MWQ3ZDE5NDBhYjI3Mjk0MTgzMjA1OWJlZjhlMzYzZGZiODIwOTNiNzc0MzUyNGRjNDgifQ"
+          "resource": "repo://src/cqg/parse.py#L226-L240",
+          "version": "repo-lines-v1:sha256:578b87766980e83d88a24e2f2c8ac36f8588cc1841286577e80d1aedef1a9b3f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlYzIwOTkxMzUwNmY2YmYwZWFiNzk3OGI4MWRhYzFkOTEyOWNkNTY4MzlmYzBkOTllMDhjNDRlYTRjZjcxNTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0MDQzZTRmNzNjMDY4YmNmNzBhZTVmZmExODdkZmQ0Yzc4NzIzNTNkOTJhMDdmYTFhNTgwYjMyMzE5OWI0ZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijg5NDYzN2I5MDVlMTU2MmRiZDhmNzgxNWEwNmFkZGEyZTc3OTQzNzRkMzE4OWM4Y2I3ZmRlZmExZWZiOTFmOWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFlMDE4NTVlZWFmZTllMWU4ZDVmMjU3MDIwM2Q1N2ZhNjAwM2U5NmFmY2MwMGMxODhiYzE0NjRkMGI1ZmRiMjcifQ"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L13-L15",
           "version": "repo-lines-v1:sha256:c368f7f9bab7a130a379fa589039296275e4239254784a09c5bf30ab17b1abeb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDUwNmUzZTViZTJhNDliNTczOWEwNGIzYmFiODY3ZmM0NDRkMzYzZTQ3ZDZjMjU2YzFlZjVjMDFjNDAyNzA4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWMzZmI3NmU0OWM0OWMxMjRhNzUzYzAzOGNmM2YzOTg0ZDY0OThlOWVmYjYzNDU2MGQ1NDNlZTNlMjU5NGQwNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjZkNWI3NGJhMzAyMmM1NGUxNGFhMjBkZjYwMTExOWRlOWEzMzdkMWI2NTMzMjM4YTlmZDc5NTBiYjE0NGMyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWFhOWU4NmMyNmE0YWYyOWRlOTNmNGYzNGQxZDY3MmZkMTg4YWE5YjJhZTFhYjAxNGZmMWI2MmNhOTIwNTA0NSJ9"
-        },
-        {
-          "resource": "repo://tests/test_cli_e2e.py#L33-L36",
-          "version": "repo-lines-v1:sha256:49ac0f460f0ee6fa5ae5aea4d0423b7543cf57f48ac032a0cf338f843626dc65:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDUwNmUzZTViZTJhNDliNTczOWEwNGIzYmFiODY3ZmM0NDRkMzYzZTQ3ZDZjMjU2YzFlZjVjMDFjNDAyNzA4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E1NGFlNDhjNzIyMjA5OTVhZGNlNmU5ZTk0NWQxOTYzZTJjZDliMGM4MzdhZGRhODI5MWVjNDFjZDM0ZmU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODA3NDE4NDM3NTFjODA3ZTA0NDE1ODYxYjA2OTljYmE4OTVlM2NmNGY3NmNhM2MzODUxYjI0OTU2ZTEzYTFiZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzIwZGM0NDMzYjg5MWM2ZDA4ZjQyODIzMGJmNDNlZDIxMTcxYjQ3ZmMyNzhkZDIzMGVmNTQ3NjE2ODMxNmFkNiJ9"
         },
         {
           "resource": "repo://tests/test_golden_cli.py#L17-L23",
@@ -93,8 +89,8 @@
       "statement": "A single opt-in test gated behind the CQG_TEST_DOCLING environment variable is the only one requiring the real Docling parser installed, and it verifies structured extraction by asserting pipe characters appear in the markdown for a drawn table.",
       "evidence": [
         {
-          "resource": "repo://tests/test_parse.py#L241-L263",
-          "version": "repo-lines-v1:sha256:9ed0cfe7129c5960ffe8021981a8ae2d64af35cf11fb54b9cda18476bd45d8c5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2Y2Q4MDg4NDA1MzEzZWRiNTYwMGEwYTQ5YTYyOTkwN2I1MjRiOTY0OWJlNTIwZjhhMjJiNjI5M2MyMGVmNjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3ZDBkMDgzOTZjNDQ2OWFlODI2YjA4NTgxM2FiZjQ2MTJhM2ZiMjBhMmZlNWYxZGI5MDNhZjBkOGNmMzJmYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkZmE1ODZhZDk5MWExOGExZmU0YWU5NzMwMzlkOWFmYjMzNWQ5NTI4YTFkNzgxYzQwZDQyY2M0ZDU5ZWI0ZmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://tests/test_parse.py#L241-L264",
+          "version": "repo-lines-v1:sha256:01c480ba6d0385cec4067718714b5bc3cb5ce591ca32f1def80a365fa2d3e1fc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2Y2Q4MDg4NDA1MzEzZWRiNTYwMGEwYTQ5YTYyOTkwN2I1MjRiOTY0OWJlNTIwZjhhMjJiNjI5M2MyMGVmNjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkZmE1ODZhZDk5MWExOGExZmU0YWU5NzMwMzlkOWFmYjMzNWQ5NTI4YTFkNzgxYzQwZDQyY2M0ZDU5ZWI0ZmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE4NzZlNTAwNGIyNTNiMzliZTE2MjMyZTZjOWU0YjA1ODkxNmM4YWY2MzMwNDU5Njk0ZDg4NTQ0OTVlYjJkOGMifQ"
         }
       ]
     },
@@ -177,10 +173,98 @@
           "version": "repo-lines-v1:sha256:1302fffb3e3026d718930de3a470b1d5d79dfbfcbd61df5de1b1220ede5d64d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3NjkwNzYwOGU3MzExYWEwNmVhODk2NzJjMDE5YWE2MzdlYWFhY2VlNmMzOTAyMzlkNjY5Y2ZjMmFkMmFlOGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxZjE5ZmQyNTQ4NTVmZjVmNWFlMjE1Y2I5ZjM1N2Q3NjI0MTViYmJlZGQyM2I0Zjc2NDk5NWY0ODMzMWVhYzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM5ZGI0ZTZkYjlkM2IxMmIxMDRjODRiOWNlMGRlMjI0MWVjMDRlZmE2YWU1ZWYwODdkNzY0OTk3OTNhNTZlZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
+    },
+    {
+      "id": "claim_338e190eca214ecc9b7cf014cbdc4e58",
+      "statement": "The suite pins run-fingerprint coverage from three directions — that the hash changes for every scoring section, ignores the non-scoring paths section, and covers a section config_hash has never heard of — the last guarding directly against the allowlist failure that caused the original provenance gap.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/config.py#L7-L28",
+          "version": "repo-lines-v1:sha256:8f7529beab3bc96852cb20bee44f5102cc0e401b785a726823a0ec2541864085:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZjMWQ2MTczNjFiMDZkMzQ5OGFlODYxYjQ2YjU3ZTJhNzg5YjMwYjc2ZGI5MzEwY2FhNDVhYzhhMzA4MDI5MTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxMzcyMTU5MzU0MzBhNzg0NGExZjExNzUzNjg1Njc0ZTIzYjllMjI5ZmMyZGQ2NDYyMmZiYzFlYmM5ODljZjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdiZjU2MmY3NzRiZmNlZDE5MGVjNTU5NDJmM2MzNzhmNzZjY2FjMjk5NDAyZTBmYTBhODllNDQwMWViMDM2MDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_config.py#L18-L52",
+          "version": "repo-lines-v1:sha256:b55daea7620c872e94ee8d1b0db44aff89f65ea029fb49feb162af499d2715d2:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2NTA5YWI2YzBiYWZmNGUzYTIxZjQ4MzVhYzI2NTExNjRmNGFkMThjOTkzNjU0NzE2Y2MzYmI5ODRhNWI5NDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIxZjExZDk2ZmU3MjBkZGIzM2E2ZGE4NTFjOTNjMWVhM2FlZTA2YWJlMmJmYWExNzEzZTU2ZmJlOTk1NGFjZTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE3NDA2NmExNzFmMzQ5ZTM5ZDA3Y2JhZDAzNTg5ZWI4Njg0ZGQwOGYzOTNmMDJhMDFlNDk2ZjZmMGZiYzcyMmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyYjExY2YyNjM1NTNmNjhlYzkyNzg4ZDA3NTcwMmI4MDZkNzliNzExNDY2ZGNhZTQ1Njk0ZGVjNzU5NWE5MGEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_47d4711fd6974647858b04c7efbcae60",
+      "statement": "A test pins that parse_document exposes only `path` positionally, so the class of positional-argument drift that removing its unread category parameter could have introduced is prevented by the signature rather than merely fixed once.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L209-L215",
+          "version": "repo-lines-v1:sha256:6e305edd554f9fe3c55ea31856e2dd06061df22cd4cb89347bf21f0d52ce025c:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIyNDcwZTMzZGZhYzc0OTBkMjgzYWQ2YThjMWIzNjRiNmQzMzFjZjg4ZGIxN2QwYTk4ZDA2ZDFhNGM0NTA5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzIwOTUwZjA2MWFjZWUyMTgwY2RiZjcyYTc2MzMwMDJkYmRmZmJiNTUxNTU3OTgzYjI4ZmRjZWVlYzk5ZDMwNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM0MzE1Mzg1YWFjOTI5Mzk5OTFjMjAyNGFlMGU4MGRmZDBmZmMyYzQ5MjhkN2U5ZWZkYjM0MTdmMmJlMzkyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzQ4YTYyNzI5Zjg0ODA0ODlhMmYwMmRmYTIwYjJjNzg0NGM3YjVmZGM4YjE1YjFkOWM2ZDg1M2Q4NTVlZDI3OSJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L266-L281",
+          "version": "repo-lines-v1:sha256:1f1861ad5b441e3a93b6f01040a7d367a98f69c58ba519149f4d6eb060133c2d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmOWU0Y2I5MjMxZjc2MjkxNGJlM2YyZTU5ZWI1ZGQ4ZWNlOWM4NTJmYTgyZmRkNDA5ODMxODRiMzRmMDE5YTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgxMmIxMmNhMmFjMGUwNjJkOTA4NDdlYjc1YjgxMTRmYzk2NzlmMzc1ZDAxYTcyNjM4OTY2MGJmZjc0NzgwM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViMjhkMGQ3NDJjMWE3NjkxNjEwZmQwYmNkZTI2NWZkMzE0NWFlYjMzNTRiN2Q3YTc3Zjg5NTVhOGMwZGE5YjIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_78b25f86f66e43788357a248e916391a",
+      "statement": "Plain-text extraction is guarded by tests asserting a text document reaches neither Docling, pdfminer nor pdfplumber, and that decoding damage lowers parse_confidence relative to a cleanly decoded equivalent.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L198-L206",
+          "version": "repo-lines-v1:sha256:79b6a2af52fc0b561eb088b2feb133b5a4a3de7c3c2765504854720fd6298288:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ1NjYyZjc5NTE3Y2VhYTliZGFlMzQ1Y2JkYWU5NjZhZDI5NDg3OGYxODIyMjc5Mzk4YzAxOTljM2YzNzA3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzg2Yjg1NDhkY2U2N2U2YzU4MmM3ZjJjYzY4YTBkMjUxMDYxOGM3NDZkMDg2Mjg1N2E4M2M3NDFlN2JiYzdhZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM4MThiMzg5MGYwOGE3NTM0OWIwZDRmMzk2MzE5MWExNTk4NWU3NmEwOTUzMmIzZDJjNzgxZjZjZTU3MzUzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWYwNzgwMWVmZjhlOGRkOGJjNDUzYzBjZTJjZWRiMmVmN2I5YmRiYWVhOGEwYzhiZDgyMTg1M2I2MDgwN2I3MSJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L296-L317",
+          "version": "repo-lines-v1:sha256:8e8c160d1c94b7b76e58329a6da0ff6dad1293de58ae32fe5669d307d7e3f3ff:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZjZlM2FlOWYwNDExOGM3NzgzY2JkMTIyMWY1NDg0NWI0MTFiYjY2ZGViYmVmNzBlOThiN2RjMDI4NzI1MjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyNjFjNTE5YTUzMjI4ZWU0YjQyZDM4YTRhZjNiYmMxNDM4NzMyY2I1NDVjOWJiMzBkMDc0YzU1YTEwY2VlNmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3YTY5NTcyZmE1MzJjMjEzZjMzYmNlY2IxNWU2ZGNhZTA2NWZmYjk0ZTM0YjZjZDhjMjAzMWU1Zjc4MDk1ZTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_aedbbdaca6d64fabbe1835ccb24589c8",
+      "statement": "Format handling is pinned end to end: triage tests fix the text and unsupported_format categories, and a CLI test asserts a .md document is scored while a .docx is flagged unsupported_format and is not counted as a processing error.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
+          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
+        },
+        {
+          "resource": "repo://tests/test_triage.py#L17-L33",
+          "version": "repo-lines-v1:sha256:1f796357bccaa726bbd5a52be411f8078a3a83dc789da76bfe93d5fb5cbe2203:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhOWY4Zjc0MGQwMmNlNmFlYjQ0ZWJmZmZlZjE0OGFlMWRlN2JkYjI2MzQwMzA4MDVhMWI3M2M0Zjc5MjMxZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU4ZjI2ZjNlZWY3NWVmOWI4MDRlOWVjOGEyNGQ4ZDJiYmRlZGU4MTYwZTc5ZDBkMjkzNWIxZjUwYmIxMmY2ZDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczNWMxNGUxNTFkZjk5YzZkMTQ3OGM5OTFmYWJkZWNiNTBlOGUwYjU4NGJhYzdlMjI4ODZjMDBmODc0ZjIyZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI5YzVkZjg5M2YxOWExYTIwNWYyMzY3ZjUwNTcwMTljYWM3MGM4ZjRmNDNhMjEzZjJmODQ4ZDU5ZjNjNjU4ZTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d06b11332d934080b9bfc939f1b7f4b1",
+      "statement": "A test asserts the run orchestration cannot introduce a non-canonical spelling of a level label, comparing the literals used in cli.py against the four produced by the report's own level function.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/report.py#L6-L10",
+          "version": "repo-lines-v1:sha256:d6ea35b7cf4aaddb7898a1af61cd5d6fe02048a5b5d759446cc8da4e68fe093c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGM4YWMxYzY3YjMyMjFhODZiNTM0MmQ1OTAzMzAwYzZiZDM0ZjBjYzRkYWYyNzMyYzMwYTYwNzQ0YzgzYWY4MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzVkYjgxNzg1ZTExNDNmYzJiNDk1ZjY1MTUwZTk1YzA4OWZlOWQwNzdiOTYwODI3ZjRmMjEzNDYwODVlNWYxZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzVkZmUyZmFjZTFiMmUxNGVkYzg1YjhlY2Y3YTkxOGJhNmQzZmY4YzJhZDgxZjMyMmJhMGM4ZTM1NjhlOGE1YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU1MDFjNWZlY2Q1MTcxYzAwMGRmNGI5ZTY2N2U4NWRiMGU3M2MwYTY1ZTMzNGRkMGU1NjljMDcwZTcwN2M4MCJ9"
+        },
+        {
+          "resource": "repo://tests/test_report_scoring.py#L44-L55",
+          "version": "repo-lines-v1:sha256:7f90651a0fefdb06c65b8337f8790f8bc4830636be8b963f388b5fe2a6b50d74:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwM2RhNWFkMjhjNGQwMzU2Y2EyNWNiYThkNmE3YTMyNDBlODM2NTE4NTY5NmU0ZDYwNjMwNmU3ZThlY2IxN2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY1NDI2MmM5ZmI5NjhlNzM2NTk2ZWRlYzJiYzE5NDJkOWYzOGMxMGNkYWM5OWE4MDMyZWUxYjg1ZmE1OTU2YWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c595c80283614498a4d2493e7c4a344b",
+      "statement": "Support for plain-text documents was added without any new runtime dependency, leaving the permissive-license constraint untouched; supporting office formats would require python-docx and python-pptx and would have to pass the same gate.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L7-L24",
+          "version": "repo-lines-v1:sha256:7664cdbac7754960954a145d01229667aa2c29902c5477d527fe89ef292ede16:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOTVmNWU5ZWRlMDE4MTYwNDNjMDc5N2FjZThkYTJhYzRlOTlhOGE2YTYxMGZhOTg1NzBlZjM0YjkzNTYxMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmZGQ0ZmQ4YjM1YmZlNTQ2MTMwZWJmZTFhM2UzNzkyYjBjMTBkMTUxYWRiNDgxMzVmOThjN2JhMjRiNDJlMDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5Yjk3ZmQxNGJlNjg0NTMyZmM1MjU0N2RlODU5ZWEzMGIzOWRjMDBlZGI5YjAwZDcwZGRiMjIxYjQ2NDY3NjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1NmI2ZWM4YzY4MTIyYzhlMzZiZmYzMTQ1Y2I3M2Q3NTBjMTNhN2U4ZGQ0ZGY5NDcxOGQzMGFmN2ZiZjUxYmIifQ"
+        },
+        {
+          "resource": "repo://scripts/check_licenses.py#L1-L21",
+          "version": "repo-lines-v1:sha256:3c4f4abbaa5e8408613cd826a8293e7147434b247bfdfc40e0f2dd2bb00ec5e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1MTc1Nzc4NTFjNDg5ZTQ1YWJhZTI1OTEyNTZjNDA0MDRhMDVjNmQxOWNkNGQ1YWU3ZmQyMmIwMDg0Y2VjNmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0OGM4MTE4MWE4ZGRhZmM0YWNkNmY0YmQ4ZGEzYzAxMGRjMTBkNTg4YWNmNjlmZmRjNzlmMTM2OGM3YzRhMjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L198-L206",
+          "version": "repo-lines-v1:sha256:79b6a2af52fc0b561eb088b2feb133b5a4a3de7c3c2765504854720fd6298288:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ1NjYyZjc5NTE3Y2VhYTliZGFlMzQ1Y2JkYWU5NjZhZDI5NDg3OGYxODIyMjc5Mzk4YzAxOTljM2YzNzA3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzg2Yjg1NDhkY2U2N2U2YzU4MmM3ZjJjYzY4YTBkMjUxMDYxOGM3NDZkMDg2Mjg1N2E4M2M3NDFlN2JiYzdhZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM4MThiMzg5MGYwOGE3NTM0OWIwZDRmMzk2MzE5MWExNTk4NWU3NmEwOTUzMmIzZDJjNzgxZjZjZTU3MzUzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWYwNzgwMWVmZjhlOGRkOGJjNDUzYzBjZTJjZWRiMmVmN2I5YmRiYWVhOGEwYzhiZDgyMTg1M2I2MDgwN2I3MSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-08T21:30:42.164Z"
+    "at": "2026-09-09T21:41:51.597Z"
   }
 }

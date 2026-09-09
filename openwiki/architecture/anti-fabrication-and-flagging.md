@@ -5,7 +5,7 @@ description: The two cross-cutting correctness boundaries of cqg — a score is 
 tags: [invariants, anti-fabrication, human-in-the-loop, error-handling, scoring, flags]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
+    at: 2026-09-09T21:41:51.597Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -21,6 +21,8 @@ sources:
     resource: repo://src/cqg/models.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
     resource: repo://src/cqg/report.py
+  - id: openwiki-source-f2e05a5624d52b19421cdd43
+    resource: repo://src/cqg/triage.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
   - id: openwiki-source-96f4e8eabb9c2b7186fe059b
@@ -31,7 +33,7 @@ sources:
     resource: repo://tests/test_models.py
   - id: openwiki-source-9fc38c4696400c0068133e6e
     resource: repo://tests/test_report_scoring.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
 ---
 
 # Anti-Fabrication and Score-and-Flag
@@ -164,8 +166,20 @@ placeholder in place rather than being interpreted as "nothing there".
 ## Per-document error isolation
 
 Score-and-flag also governs failure handling. Each document is processed inside its own
-`try`/`except` in the run orchestration, and there are exactly three exits — all of which
+`try`/`except` in the run orchestration, and there are exactly four exits — all of which
 produce a persisted score record:
+
+**Unsupported format.** A file in a format `cqg` cannot open — currently `.docx` and
+`.pptx` — is short-circuited *before* parsing to a `DocScore` at 0.0 flagged
+`unsupported_format:<ext>`, without the file ever being opened.
+
+This is a distinct finding from the one below, and keeping them apart matters. "I cannot
+open this format" and "I opened this document and got nothing usable" call for different
+actions from a reviewer: the first means convert or export the file, the second means the
+document itself is damaged. Reporting both as `unreadable` told the reviewer the wrong
+thing. Nor are these files simply excluded from the accepted extensions — dropping them
+would be a silent loss, which score-and-flag forbids. They are admitted so they are
+visible, flagged so they are actionable, and never opened.
 
 **Empty extraction.** When parsing yields no usable text, the document short-circuits to a
 `DocScore` at 0.0 with level `Inadapté` and the flag `unreadable`. This path deliberately
@@ -182,6 +196,11 @@ document never brings down the corpus.
 
 **Normal completion.** The document is scored and flagged on its merits.
 
+Only the exception path counts towards the run's error tally: an unsupported format and an
+unreadable document are both expected outcomes, not failures. A run reporting zero errors
+can still contain documents that were never scored, which is exactly why the flags carry
+the reason.
+
 An end-to-end test runs a valid PDF and a deliberately corrupted one through the pipeline
 together and asserts that both produce score files, that the corpus count is 2, and that
 the corrupt file carries `unreadable` — the parsing chain is resilient enough that a
@@ -194,6 +213,7 @@ look at a document. They are joined with `|` into the `flags` column of the repo
 
 | Flag | Attached by | Meaning |
 |---|---|---|
+| `unsupported_format:<ext>` | run orchestration | A format `cqg` cannot open; flagged before parsing, the file is never opened |
 | `unreadable` | run orchestration | Parsing produced no usable text; scored 0.0 without any LLM call |
 | `processing_error: <ExceptionType>` | run orchestration | The document raised; the type is recorded and the run continues |
 | `screen:light (<reasons>)` | run orchestration | The document took the light route; the screen's reasons are inlined |

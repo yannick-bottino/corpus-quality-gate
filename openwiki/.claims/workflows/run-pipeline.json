@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:306a6d67d5414e6a1f93d0fa6dc64d2842b1137003d82a73f1b71b4433c41099",
+  "pageVersion": "sha256:7e6be07008e35468889948e166c9be82add85f682d2a89c0fa616f62bc91a408",
   "claims": [
     {
       "id": "claim_1c21d4a0f5244f089b99131a2d7f0f4a",
       "statement": "The run orchestration performs its setup once before the document loop — loading the registry, building and instrumenting the judge LLM, computing the run fingerprint, and creating the output directory up front so partial results survive an interrupted run.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L64-L74",
-          "version": "repo-lines-v1:sha256:d11d44d819f5b7f6b9d5c6998180aa72b03566b3b67ba99a0027001b3a7c411b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhODI1YWE1MTMwMGU3ODM5YTY2OGQ3ODRlODg0NmY0ZWQ3YmFlZTBiZmViOTRkZGY4OGY5NjM4ZmUyOTI2OGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiNTAzODk1NGVkNmNhN2Q2Y2JkZDQ4OGU3YzUxN2Y1MWI5ZDhjNTNmZTE5ZWI4ZjBjY2M4NjIwZDcxNzNmODIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZDM0NmNmMDk2OWNkOWY2MzcxZTljNDg5OGJiNjgxODU0YWZhNWZkMzU3YWIxNDExZDI3ZTJkNGViNTJiNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZkZjJjMDE4OWJjNjI1MGI2ZWQ2ZmVmMTY0MjRkNmFkMzcxNWQ1NmZjMDQwOWY4Yzc2NmQ1NWM5MGY4YmU1N2QifQ"
+          "resource": "repo://src/cqg/cli.py#L66-L77",
+          "version": "repo-lines-v1:sha256:d1baacf3a12c49576e687d9db8576b8600a5b953e28c4d7b9ef49595275ec4e8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhODI1YWE1MTMwMGU3ODM5YTY2OGQ3ODRlODg0NmY0ZWQ3YmFlZTBiZmViOTRkZGY4OGY5NjM4ZmUyOTI2OGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk5ODYxZjQ5MTQ5Y2ZkM2VlMWJmMDhlZWU0N2IzMGFjOWRmMjMyZWI2M2U5OGFjYTA2OGE4MjFlZDE3NGI1ZjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZDM0NmNmMDk2OWNkOWY2MzcxZTljNDg5OGJiNjgxODU0YWZhNWZkMzU3YWIxNDExZDI3ZTJkNGViNTJiNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljMWE4ZDBjOTliMmUxN2NkODc2ZDEyZmViZTZhNjU5MDdmNmE5NWFiMjY2YTZkNTU2MjY4ZjIyOGMxNzBkMDUifQ"
         }
       ]
     },
@@ -74,11 +74,15 @@
     },
     {
       "id": "claim_47ca746eb5e844c9a5e9acc224359c76",
-      "statement": "Every document leaves the per-document loop by exactly one of three paths — empty markdown flagged unreadable, an exception flagged processing_error, or normal scoring — and all three write a score file so no input is ever silently dropped.",
+      "statement": "Every document leaves the per-document loop by exactly one of four paths — an unsupported format flagged before parsing, empty markdown flagged unreadable, an exception flagged processing_error, or normal scoring — and all four write a score file so no input is ever silently dropped.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L91-L142",
-          "version": "repo-lines-v1:sha256:516f9f5fa28cc28273f8cb523bb227552aaf13c265f674d927c57d117701ad02:eyJzZWxlY3RlZExpbmVDb3VudCI6NTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1NTUxMTI5Y2FmZTFlNzcyOTBjNjQzNzg0YjA5ZWVmOWE3ZmY5NjVkNzc1ODI0NjEyNDVjNjZiYjY5MDAwMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMyZjEyZjE2YjA3YjYyYjI3MDllMDhkOWVkMDMwMGI2Zjc1Y2JhMzQxZTdkODhjNzJlNzljMzQ4ODJiMjEwZGYifQ"
+          "resource": "repo://src/cqg/cli.py#L95-L155",
+          "version": "repo-lines-v1:sha256:b01968a2ef741753abe62357ea41e06c82faee7d0f12846050b4ce433d732956:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Y2I5M2NjYTM5YmMxZThkZWVlMGUyNzk0ZGUxNTYzY2IwYTFlNGIzZmE4YzBhMjMwNzYzNTllNzZiYzY2YTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1OWU2ODUwZjJiZjc3ODMwNWY2OTQzOTBiMjdjMGRjMzNiMTk4MTY3YzdhN2I2MTJjMDgxYWYzZDQ5OTY5MDkifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
+          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L25-L46",
@@ -162,29 +166,61 @@
     },
     {
       "id": "claim_6ba3aac9beb44c6f990181959b4b8a75",
-      "statement": "The run fingerprint is computed once before the loop and stamped into every DocScore, including those produced on the unreadable and processing-error paths that never reach normal scoring.",
+      "statement": "The run fingerprint is computed once before the loop and stamped into every DocScore, including those produced on the unsupported-format, unreadable and processing-error paths that never reach normal scoring.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L100-L102",
+          "resource": "repo://src/cqg/cli.py#L102-L104",
+          "version": "repo-lines-v1:sha256:c1316d81140d11edf353fe74e40a6e445412f81210ba722197a7a0c3745d1a00:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDgzZDZkNjJmYTI0OTRiYzM5ZTY3MWFiYjllZTY5YWUyOTNkNjkxMDQ3YjlkYTg0MDY4ZmNkMTFjMTI1NGQwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjYzNzM1NzQ5MjFiZTk2OTMzYjE0MWFjOGQzMDA4ZjcxY2VlMTI0ODYyMTk1NThlNDZlNDZmNjQ0Zjg2MmY1YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDg3YjE2OTMzN2MxZDA1MDkzMDViNjM4ODcxNjU2OGYwYTE2ODhiZDM1ZThmN2JhN2RhODhhZGQzZmMzYzA0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDJlZDkzYjY2OTkwYTMzMDE2YjUwZDU2ZDg2ODczNzU0Y2UwNjE5MWZkYjYxZTBlZmVkZGI4YmEwOGEzZWE4YyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L114-L116",
           "version": "repo-lines-v1:sha256:7ba057d328bc63e401c9b581f7730c73b96bd8794370046bfbb3eca813726eee:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDgzZDZkNjJmYTI0OTRiYzM5ZTY3MWFiYjllZTY5YWUyOTNkNjkxMDQ3YjlkYTg0MDY4ZmNkMTFjMTI1NGQwZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmNhYjNhNWYyY2Y4NzQyMzlmOTkyYmZmYzhhYmJkMzM2MzM3NmU4MjlmMTMxYmM5NzhiM2JiMWMwNWVlYzYwYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDI5YmQ1YzcxNGM5ODk4YjJkNzQ0ZDZkY2MyMDYyNDk4ZTczN2YwMDNmYzVlMGIwMzExZGE4MjY5NDBkYjJiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDJlZDkzYjY2OTkwYTMzMDE2YjUwZDU2ZDg2ODczNzU0Y2UwNjE5MWZkYjYxZTBlZmVkZGI4YmEwOGEzZWE4YyJ9"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L137-L139",
-          "version": "repo-lines-v1:sha256:01864bca2d97e6c9e8e7696f3676aafe50aa584291328fffe019b3f2c726eeeb:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmIwOWNjOWFiYTE0YjIyN2E0YTEyY2I3NDg0YmVjM2FiMGM3ZDY1NzM1YzI1ZmRlOTllN2Q2NDM4YjBlZDg3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNkZTFhNmU2MmU2YmNkZTNjM2Q2OWU1ODI5YWE1N2JiMDQwYjQ2NzRjN2ZmMTMzNDBhNmIwMGEyZDJiNWNjYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzhiZTJkYWJiZmExN2ZiNGNhMDdiYjU5NTM0MWQxZTE2ODY3YTEyNGYyZjkxZTIwMWVkN2EyYmIwOWY3MzRhNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmE3Y2M4YTZkMGQyOTBjZWQ0Nzg5OWMzMzhiZjdlMzRhZDNkZWM1OTVmZTJkNThmZmE3ZmM2NjQzNTkxZDQxNiJ9"
-        },
-        {
-          "resource": "repo://src/cqg/cli.py#L71-L71",
-          "version": "repo-lines-v1:sha256:2623ba8717facb9a409385141d4536ca13a282605c2f9b68cd840cf4a171ba30:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjYyM2JhODcxN2ZhY2I5YTQwOTM4NTE0MWQ0NTM2Y2ExM2EyODI2MDVjMmY5YjY4Y2Q4NDBjZjRhMTcxYmEzMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjYyM2JhODcxN2ZhY2I5YTQwOTM4NTE0MWQ0NTM2Y2ExM2EyODI2MDVjMmY5YjY4Y2Q4NDBjZjRhMTcxYmEzMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDYwZTBiOTY3MTZhYWMyMjg1OGJmYzcxZTQwYWJkZTk3MjVjYTMyNjQyMjFlOWFmMDhkMmMyOTU4ZWM3N2Q2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA4NDEzYzQwOGQ3YmE5N2Y3NWQ1YTE1ZmViMzNhOGRlZDUyY2JlYmM1MDQ5NDZkODEyOGMyODk4MzFiMzQxYiJ9"
+          "resource": "repo://src/cqg/cli.py#L73-L75",
+          "version": "repo-lines-v1:sha256:a44a6be65dd82230dc66d00d4878014b42ab398d8b4456bb69a00e688dd47e3d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDI3ZDE0MmQ3N2Q4ZGQ5M2Q3MzUwZGQ0MDlhZGYyMDQ5MGFhMWIyYzlkYjBkNzliZTY0OGY5YTg3ODQzN2Q4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFjZmNkNTFmMGFjYWIwOGYxODc5ZTg4NjlmOGNmMWNhMGViMTA1YzU3ZDI0MTYzMjk1MWM3YWVjZjhkNGE1ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDYwZTBiOTY3MTZhYWMyMjg1OGJmYzcxZTQwYWJkZTk3MjVjYTMyNjQyMjFlOWFmMDhkMmMyOTU4ZWM3N2Q2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA4NDEzYzQwOGQ3YmE5N2Y3NWQ1YTE1ZmViMzNhOGRlZDUyY2JlYmM1MDQ5NDZkODEyOGMyODk4MzFiMzQxYiJ9"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L20-L22",
           "version": "repo-lines-v1:sha256:756e1d1ce5224b796e386371b19ea0d85857c82640ed8cc54536f4db35e3ac2b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTA0ZWEyOWIwMDg3MTNiMWNmNzk1OWFlMDQ5MjljYWMyOTBiMWYzNWQ5MGQ2MTZlMmQ0MDU4MzQ3OTFjMmQ3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjUwY2ZhNDg3NjkzZTA5YTM3ZmYyMTZkNmVjODgwYzQxYmQ4NzZjZmM4NDg0NDc3NDNiODYxYzRjYTc3NDY5OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzEyMjA1NzkyZmU2ZDhkOGE0ODczMTk5MTU4Njc3Yjg4ZGNjNDQ5NjdlZWQyOTQyMDAwZWI4ZTZlY2M3MjU4OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzViMjYwODY2MGUwZDJhZjFlMWZhMTlmM2MyMTJjZjhkMjUyNzk0NjI2NGU5NGNjMmZkOTJjZjQ4MTljNGVjNCJ9"
         }
       ]
+    },
+    {
+      "id": "claim_791cd52f331441088a42eda5f3cf77a6",
+      "statement": "The unsupported-format exit gives the triage category its first real consumer at the orchestration layer, where classification decides whether to attempt extraction while the parser decides how — and the file is never opened to reach that verdict.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L95-L107",
+          "version": "repo-lines-v1:sha256:59f2c6d8c8e58c8524eb79222a0d62664e26447d64b7e86c55666c5dfa488fe6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjhmOGQyMzc1Nzc1NTk2MjFjODI2MTViMjA1Y2FiNjk5NmY1MzEwNWFkZThkYmQ0NGRjMDVhZWM4OGNkOGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L209-L217",
+          "version": "repo-lines-v1:sha256:d218d0441488d1f614f5b1fcddbe435d4579081b38760f6c28f76e0407ca7556:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIyNDcwZTMzZGZhYzc0OTBkMjgzYWQ2YThjMWIzNjRiNmQzMzFjZjg4ZGIxN2QwYTk4ZDA2ZDFhNGM0NTA5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTYxOWRjNWU2ODBjZWI3YzhlNmI2MzM3ODM1YmZlY2E3MzVhZDQ1YjNlYzFjMWVmYmFhYzkzY2UyN2VjMTlkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM0MzE1Mzg1YWFjOTI5Mzk5OTFjMjAyNGFlMGU4MGRmZDBmZmMyYzQ5MjhkN2U5ZWZkYjM0MTdmMmJlMzkyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjQ0NGE1MWMwYWM1NmYwMTdmOWFkNjFkMjc0MmU0MGIyZGE2OWI1OTE1YjQ5MWZhNDQ2ZmJiYjljYjFlNjZkNCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L17-L26",
+          "version": "repo-lines-v1:sha256:1544398afc8331bd1581494eb0d9f69143727a551a03d5c5de165fd164d64e77:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxMTM0MjNiZmU0MzlhNjZhNTU1NDJhMTdlNWEwZGZiZDU3OTAzM2FjNzFjYTdhN2JmYzIyNGJiZWNiOGFkNDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNzI0NDEyNjIxNTU3OTE1M2UwOGViMjBiMDZhNWY1ZWIzMzE2ZWY1NDBkOTE3YjQyNGM4ZjQ1Njc5MTRjZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2M2NlNDYwOWE1OWUwZTEzODBjNGI2OTU1NDJlYmZkODllMzQ5ODgzODUzYzFiMzA0MTJjMWJiNTRmYTlkYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4M2Y0YjIyOTZkYmQyM2VmZGNkMjFiZTBiZTNhOGQ4NjY1NTI3NjA4MzE3NWIxZWNjYzI4MmVmYTMwMTM4MWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c2e5699beae4e1e8555d0310984f485",
+      "statement": "The run fingerprint's registry component is derived from the criteria file's content, so an edited grid produces a different fingerprint for every document scored in that run.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L73-L75",
+          "version": "repo-lines-v1:sha256:a44a6be65dd82230dc66d00d4878014b42ab398d8b4456bb69a00e688dd47e3d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDI3ZDE0MmQ3N2Q4ZGQ5M2Q3MzUwZGQ0MDlhZGYyMDQ5MGFhMWIyYzlkYjBkNzliZTY0OGY5YTg3ODQzN2Q4NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzFjZmNkNTFmMGFjYWIwOGYxODc5ZTg4NjlmOGNmMWNhMGViMTA1YzU3ZDI0MTYzMjk1MWM3YWVjZjhkNGE1ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDYwZTBiOTY3MTZhYWMyMjg1OGJmYzcxZTQwYWJkZTk3MjVjYTMyNjQyMjFlOWFmMDhkMmMyOTU4ZWM3N2Q2OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA4NDEzYzQwOGQ3YmE5N2Y3NWQ1YTE1ZmViMzNhOGRlZDUyY2JlYmM1MDQ5NDZkODEyOGMyODk4MzFiMzQxYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/registry/loader.py#L27-L34",
+          "version": "repo-lines-v1:sha256:8bf02bd25ef0c4e7a703988473e4d467ac429d63582a14cdb4f7eac25f2e9e17:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTUwODY1MTE1ZTM0OWZmMGE0YWE1OWYyM2YwYTc4YWY0NzliNDhkYWY0ZDcwM2U3NzhkYTA3ZWM0OWUxZWU3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc1N2E5N2ZhNDdlOTQwZGI3YTA5MGZlMGZlMTFhMjVmODRmNDFkMjVmYjhiMzFlMGM2YjYxNzFhZmMyYTNiOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzgzMGQ4NjBhYTYyYTYzZTQzODFhNTM3ZjliN2JkODA0ZWUxYmM5ZmRkYTA2NmIyZjdkN2Y3MDJlYzUzMDQxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzM0OTA0MTcyOWVmZGU1NDU4YzhiMmM1YWFiOTA4MTRmM2NlNjk2Nzc1ZTk4ODJjYzA5YjMzYzUwNzI2YjNjZSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-08T21:30:42.164Z"
+    "at": "2026-09-09T21:41:51.597Z"
   }
 }

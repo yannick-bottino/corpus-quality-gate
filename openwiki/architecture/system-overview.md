@@ -3,9 +3,6 @@ type: system-architecture
 title: System Overview
 description: What Corpus Quality Gate (cqg) is and how its parts fit together — a reference-free, document-level quality gate run before RAG ingestion, exposing a run and a golden subcommand over a shared parsing and data-model layer.
 tags: [architecture, overview, rag, document-quality, entrypoints, data-model]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-833e692518af9eeaf8564cc6
     resource: repo://main.py
@@ -21,7 +18,14 @@ sources:
     resource: repo://src/cqg/models.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+  - id: openwiki-source-f2e05a5624d52b19421cdd43
+    resource: repo://src/cqg/triage.py
+  - id: openwiki-source-15ffe11df9b60121e2241bb7
+    resource: repo://tests/test_cli_e2e.py
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # System Overview
@@ -31,6 +35,9 @@ they are ingested into a Retrieval-Augmented Generation pipeline. It answers a q
 that comes earlier than retrieval quality: *is this corpus fit to be ingested at all?*
 
 The target corpus is heterogeneous and multimodal digital PDFs, bilingual French/English.
+Plain-text formats (`.txt`, `.md`) are scored alongside them; office formats (`.docx`,
+`.pptx`) are admitted and flagged rather than opened. See
+[Corpus Triage and Document Parsing](../ingestion/document-parsing.md).
 
 ## What "reference-free and document-level" means
 

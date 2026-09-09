@@ -3,9 +3,6 @@ type: contract
 title: The Criteria Registry
 description: The YAML registry that drives cqg's whole evaluation grid — how a criterion is declared, what each field changes downstream in judgment scope, weighted scoring and report columns, how the loader validates it, and where the extension seam is.
 tags: [registry, criteria, contract, yaml, scoring, extension-seam]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -23,7 +20,10 @@ sources:
     resource: repo://src/cqg/report.py
   - id: openwiki-source-5fa58a97f0a0e23a76dda820
     resource: repo://tests/test_registry.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T21:41:51.597Z
 ---
 
 # The Criteria Registry
@@ -164,11 +164,21 @@ rubric, a reduced grid for a fast pass, or a translated one. Because every consu
 the `Registry` object as an argument rather than importing the file, swapping grids requires
 no changes to judgment, scoring, or reporting.
 
-Two caveats for anyone using it: the run orchestration currently calls `load_registry()`
-with no argument, so an alternative grid is not selectable from configuration today; and the
-`registry_version` component of the run fingerprint is a
-[hardcoded literal](../operations/configuration-and-secrets.md), so changing the grid does
-not change the `config_hash`.
+`registry_fingerprint()` sits alongside it and takes the same optional path override,
+returning a short content hash of the grid file. This is what stamps the grid into
+[run provenance](../operations/configuration-and-secrets.md): because the fingerprint
+follows the file's **content**, editing the criteria changes the `config_hash` of every
+document scored afterwards.
+
+That property matters more here than anywhere else in the configuration. The grid drives
+every score — a changed weight, a changed scale, a criterion added or removed — so an edited
+grid must not share a fingerprint with the old one. The component was previously a
+hardcoded literal, which meant exactly that: two runs against materially different grids
+were stamped identically and looked comparable.
+
+One caveat remains for anyone using the seam: the run orchestration calls
+`load_registry()` with no argument, so an alternative grid is not selectable from
+configuration today.
 
 ## How the registry propagates
 
@@ -188,4 +198,4 @@ The criteria are iterated in registry order when building results, so the order 
 - [Sectioned LLM Judgment](llm-judgment.md) — how scope is computed from the registry
 - [Document Scoring and Corpus Outputs](../reporting/document-scoring-and-reports.md) — the two-level weighting
 - [System Overview](../architecture/system-overview.md) — the registry's place in the system
-- [Configuration and Secrets](../operations/configuration-and-secrets.md) — the fingerprint caveat
+- [Configuration and Secrets](../operations/configuration-and-secrets.md) — how the grid fingerprint enters run provenance

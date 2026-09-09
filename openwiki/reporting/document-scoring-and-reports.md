@@ -5,7 +5,7 @@ description: How criterion results become a document verdict and the corpus deli
 tags: [reporting, scoring, excel, csv, aggregation, coverage, redundancy, security]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
+    at: 2026-09-09T21:41:51.597Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -21,13 +21,15 @@ sources:
     resource: repo://src/cqg/registry/loader.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
     resource: repo://src/cqg/report.py
+  - id: openwiki-source-15ffe11df9b60121e2241bb7
+    resource: repo://tests/test_cli_e2e.py
   - id: openwiki-source-414d25e40d7d980f8f1cd5fe
     resource: repo://tests/test_redundancy.py
   - id: openwiki-source-1fb869e707757275b0a8994a
     resource: repo://tests/test_report_export.py
   - id: openwiki-source-9fc38c4696400c0068133e6e
     resource: repo://tests/test_report_scoring.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
 ---
 
 # Document Scoring and Corpus Outputs
@@ -73,7 +75,12 @@ The percentage is bucketed into a level:
 
 These are the verbatim French labels used in the output; note that only `Inadapté` carries
 an accent. `Inadapté` is also the level assigned directly by the run orchestration to
-`unreadable` and `processing_error` documents.
+`unreadable`, `unsupported_format` and `processing_error` documents.
+
+Those documents are not absent from the report: each still produces a `<doc_id>.score.json`
+and a `Synthese` row carrying its flag. A file `cqg` could not open is visible in the
+deliverable rather than missing from it — which is the whole point of
+[score-and-flag](../architecture/anti-fabrication-and-flagging.md).
 
 ### A criterion outside the registry is ignored, not fatal
 
@@ -189,10 +196,12 @@ cannot register as a spurious duplicate cluster.
 
 **`cost.json`.** Per-document `n_calls` and `prompt_chars`, sourced from the counting
 wrapper around the judge LLM and reset before each document. Because sectioned judgment
-makes one call per section, this is a direct readout of the cost model — and, given the
-[fingerprint's blind spot](../operations/configuration-and-secrets.md) around `judge`
-settings, a practical way to detect that sectioning changed between two runs. See
+makes one call per section, this is a direct readout of the judgment cost model. See
 [LLM Provider Abstraction](../integrations/llm-providers.md).
+
+(It once doubled as a way to detect that sectioning had changed between runs, because the
+[run fingerprint](../operations/configuration-and-secrets.md) did not cover `judge`
+settings. That gap is closed — the fingerprint now covers them directly.)
 
 ## Related
 

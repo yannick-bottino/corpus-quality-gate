@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:c562972bf0d922a963aeb085b72cb2674479df02fd46394bdff94d5a0d7b6d18",
+  "pageVersion": "sha256:bd5345dcf113d5145e818eb0867a41c743e5a59e222be7fd54ddcd585d2c3507",
   "claims": [
     {
       "id": "claim_10b153e0d13048009e4cdf03ea3fbce2",
@@ -47,22 +47,22 @@
       "statement": "A document that raises or parses to empty markdown is skipped from golden generation without aborting the corpus, and the entire corpus-level stage is separately wrapped so a failure there still returns the per-document rows already generated.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L40-L62",
-          "version": "repo-lines-v1:sha256:1675697b0cd63fe0f61505050a7e8e994e0b118aeef8f15d94d9f7f11bffac53:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyODBkMWUwNDFlZTE3YmJhNDc2MDY0YWJmODMxNTk3YjYyMzM2YjQ2ZDUyZWQ4YTgyY2M2OGYzNGY3ZjdmMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzYWFmMTgzODhmOWFiZTQzNjAyOWYzMTViYTFlNGJkMjRhYjE3YjhiZDAyOGY5OWYwYTUzNjRjMzg0ZWEzZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+          "resource": "repo://src/cqg/cli.py#L41-L64",
+          "version": "repo-lines-v1:sha256:7fde61eebfe0993c4deee6ed2c9b1d34c7f5a12e5cebaf6313db4e29d09977bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRjNGZkZTIzZDc3YzJjMTJjN2U4MDJhMDY5OTZlMDljMjU1ZGI5YTgzZmIwM2Q0YzVmMDY2M2M5ZDIwNDAxNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
         }
       ]
     },
     {
       "id": "claim_25e47a3127a64e5da5ebe6c30e9866f3",
-      "statement": "Unlike the run workflow, a skipped document leaves no trace in the golden output because the deliverable is a question set with no flag mechanism, so identifying unreadable documents requires the run subcommand.",
+      "statement": "Unlike the run workflow, a skipped document leaves no trace in the golden output because the deliverable is a question set with no flag mechanism, so identifying unreadable or unsupported documents requires the run subcommand.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L40-L62",
-          "version": "repo-lines-v1:sha256:1675697b0cd63fe0f61505050a7e8e994e0b118aeef8f15d94d9f7f11bffac53:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcyODBkMWUwNDFlZTE3YmJhNDc2MDY0YWJmODMxNTk3YjYyMzM2YjQ2ZDUyZWQ4YTgyY2M2OGYzNGY3ZjdmMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzYWFmMTgzODhmOWFiZTQzNjAyOWYzMTViYTFlNGJkMjRhYjE3YjhiZDAyOGY5OWYwYTUzNjRjMzg0ZWEzZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+          "resource": "repo://src/cqg/cli.py#L41-L64",
+          "version": "repo-lines-v1:sha256:7fde61eebfe0993c4deee6ed2c9b1d34c7f5a12e5cebaf6313db4e29d09977bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRjNGZkZTIzZDc3YzJjMTJjN2U4MDJhMDY5OTZlMDljMjU1ZGI5YTgzZmIwM2Q0YzVmMDY2M2M5ZDIwNDAxNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L96-L105",
-          "version": "repo-lines-v1:sha256:e228fb68c8c7e0c4b2357560aac611777361200d29554581c4cecf3c827ba85f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZDk0ODk2OWVmNThkNGUxMzQ3Y2M2YWQ4NTUxODIxNWNkMDMwOGMwYTI5ZDFjZGY1MWMxNzI3M2M2NjM4OWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU2MWNlOGQ4OTIyOWE5NTllNzYxNmY0ZGRmZWI1NDU5M2Q2MDhhYTNhMWQwMzE1NGM4MmIwNjE0Y2ViNTM3MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
+          "resource": "repo://src/cqg/cli.py#L98-L118",
+          "version": "repo-lines-v1:sha256:e6ee881bcad7e7f60c992bc22c6c713ed3fdb353a367d4be217f9e9d41bf6645:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMzY4MDhmZDJiNTM4OGYwZjBhYjY0NmRlYTU0NjE3ZWUzYWRjZTc3MTAyNGU1YTA5ZTc5OTE4NjdlZGQ5ZjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwZTFjMWI2NWQzYzA1NGI1Yjg5ZTdmZTM4YzI5OTc0YzU3M2MxZGQzZDZmMWE0NmMyMjYwOTY2NWFhYTA4NDIifQ"
         }
       ]
     },
@@ -251,10 +251,24 @@
           "version": "repo-lines-v1:sha256:1717764539f77c03f295e92fc32ee409e63c7fecf5e363d387a44ced5dbf01b4:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBkMDAwYzI4MWIzNjRlODQ3YjAzZDU1MWY5MDlhYTY4Y2QzMzNlNjNlNWE5NDExMTY4MzY4ZjlmY2NlZTFlNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDU3YThkNjllMWI2Y2UyODJiYWRkYmZjOGVmYTY5M2IzYjAzYjIxMWJlNGY4MWZjNGZlNTRmNTlhMzM4NWE5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWY0Nzc0ZmY5YzMxMjc4ZTI1YzRkNzcxNWI0YjgyMTkzOWE3ZWNkYjE5ZDZkODg5NWQ3YzQ5NDU5NGZlY2E3NyJ9"
         }
       ]
+    },
+    {
+      "id": "claim_c3fab0025f0e443b85dbfd8f5509d11c",
+      "statement": "The golden loop skips formats cqg cannot open by checking the triage category before parsing, rather than attempting an extraction that could only yield nothing; plain-text documents are parsed like PDFs and are usable golden-set sources.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L41-L48",
+          "version": "repo-lines-v1:sha256:66baa88b222996c1b0ccac45dc91e3069c5789410bc84237ed5ac10f3dc88a08:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc3YzAwYjNmNzc1ZDgwNDE0ZmY1MmYyNGE0MGQ2ZWZmYzVmNjA3M2RlZDkzOTg4ZTIwZGIyN2EwNDlmZDBhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ4YTllOWMzMjUyODIwYzY1YTgxNjUyMGI4ZGI0OTMyMjgwODQ5ZWM4YzdkMmViNjI3MmFmZGZlYmUwNTljMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGM0ZmRlMjNkNzdjMmMxMmM3ZTgwMmEwNjk5NmUwOWMyNTVkYjlhODNmYjAzZDRjNWYwNjYzYzlkMjA0MDE2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQ5NGRkNjMyMzg5MzM5Yzg0ZDhiYTUxYTljODg4MDYyMGUxYWNhYzkwOGQ5ZjQ3ZDdkZmVjNTU3YzM5YmRmMyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L218-L225",
+          "version": "repo-lines-v1:sha256:63dca48384a41ebd7dc9432df6dcd858ad2ae8c8e747cc27b5f7f07e44e132d6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTk5ZDIxODRkZjQ3MTY4ZDRhMzI5YmEzY2EzZjE4OWExNzI0M2ZmZTFiMzRhYjIxODY0YzQxOTg3MTljMTFhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGYwZWVjOTdmMDYyNGVhNzY4OTA5ZWI4OGNmNWUyYzI1OTIzY2QwNGQyYjZjMzJiYmE5N2I4YzEzZDZlNTAxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGMxY2U2YWJmNjU2NDQ2ZDFlNmMwZmIwMmY4MDdmNDNlN2Y2MTE1MmMzNjcyYmEzYWZkY2YyNmE4YzAxMzdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzk3NDBkZDNhMGFlNmM5MjY1MTJjOWQxZjEwOGM1YjcyMjg5ZWJhMWI2NWU1ZmU1MjRiNzA1Y2U4NDcwZTNlYSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-08T21:30:42.164Z"
+    "at": "2026-09-09T21:41:51.597Z"
   }
 }
