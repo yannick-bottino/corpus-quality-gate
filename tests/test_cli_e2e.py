@@ -143,26 +143,61 @@ def test_cli_enrich_config_only_with_separate_vlm(tmp_path):
     assert "description automatique" in enriched.read_text(encoding="utf-8")
 
 
-def test_run_scores_text_documents_and_flags_unsupported_formats(tmp_path):
-    # Score-and-flag across formats: a .md is a real scored document, while a
-    # .docx is surfaced with its own flag instead of being silently dropped or
-    # reported as an unreadable PDF.
+def test_run_scores_text_and_office_documents(tmp_path):
+    # Score-and-flag across formats: .md, .docx and .pptx are all real scored
+    # documents. None of them may land as "unreadable" (a document cqg tried and
+    # failed to extract) or as a processing error.
+    from docx import Document
+    from pptx import Presentation
     corpus = tmp_path / "corpus"; corpus.mkdir()
     (corpus / "note.md").write_text(
         "# Notice\n\nVersion v1.0 du 2026-01-01.\n\n" + "Le contrat couvre l'incendie. " * 30,
         encoding="utf-8")
-    (corpus / "rapport.docx").write_bytes(b"PK\x03\x04 non ouvert")
+
+    d = Document()
+    for _ in range(20):
+        d.add_paragraph("Le contrat couvre l'incendie et le degat des eaux.")
+    d.save(str(corpus / "rapport.docx"))
+
+    prs = Presentation()
+    for i in range(3):
+        s = prs.slides.add_slide(prs.slide_layouts[1])
+        s.shapes.title.text = f"Garantie {i + 1}"
+        s.placeholders[1].text = "Le contrat couvre l'incendie. " * 10
+    prs.save(str(corpus / "deck.pptx"))
+
     cfg = tmp_path / "cfg.yaml"
     cfg.write_text("llm:\n  provider: mock\nparsing:\n  parser: legacy\n", encoding="utf-8")
     out = tmp_path / "out"
     result = run(str(corpus), str(cfg), str(out))
-    assert result["n_docs"] == 2
+    assert result["n_docs"] == 3
+    assert result["n_errors"] == 0
 
-    note = json.loads((out / "note.score.json").read_text(encoding="utf-8"))
-    assert "unreadable" not in note["flags"] and "unsupported_format" not in str(note["flags"])
-    assert note["criteria"], "a text document must be scored like any other"
+    for name in ("note", "rapport", "deck"):
+        ds = json.loads((out / f"{name}.score.json").read_text(encoding="utf-8"))
+        assert ds["criteria"], f"{name} must be scored like any other document"
+        assert "unreadable" not in ds["flags"]
+        assert not any(f.startswith("unsupported_format") for f in ds["flags"])
 
-    docx = json.loads((out / "rapport.score.json").read_text(encoding="utf-8"))
-    assert any(f.startswith("unsupported_format") for f in docx["flags"])
-    assert "unreadable" not in docx["flags"]
+
+def test_run_flags_an_admitted_but_unopenable_format(tmp_path, monkeypatch):
+    # The unsupported_format exit path is the honest landing for a format triage
+    # admits but the parser cannot open. No shipped extension is in that state
+    # today, so the branch is driven through triage directly -- keeping the
+    # contract covered rather than letting it silently stop being exercised.
+    import cqg.cli as cli
+    corpus = tmp_path / "corpus"; corpus.mkdir()
+    (corpus / "classeur.xlsx").write_bytes(b"PK\x03\x04 pas ouvert par cqg")
+    monkeypatch.setattr(cli, "triage_corpus", lambda folder: [
+        {"doc_id": "classeur", "type": "xlsx", "hash": "0" * 64,
+         "path": str(corpus / "classeur.xlsx"), "pages": None,
+         "category": "unsupported_format"}])
+    cfg = tmp_path / "cfg.yaml"
+    cfg.write_text("llm:\n  provider: mock\nparsing:\n  parser: legacy\n", encoding="utf-8")
+    out = tmp_path / "out"
+    result = run(str(corpus), str(cfg), str(out))
+
+    ds = json.loads((out / "classeur.score.json").read_text(encoding="utf-8"))
+    assert any(f.startswith("unsupported_format") for f in ds["flags"])
+    assert "unreadable" not in ds["flags"]
     assert result["n_errors"] == 0, "an unsupported format is not a processing error"

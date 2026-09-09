@@ -315,3 +315,95 @@ def test_parse_document_undecodable_text_lowers_confidence(tmp_path):
     bad = tmp_path / "bad.txt"
     bad.write_bytes(("Le contrat couvre l'incendie. " * 40).encode("utf-16"))
     assert parse_document(str(bad)).parse_confidence < parse_document(str(good)).parse_confidence
+
+
+def _make_docx(path, paragraphs, table=None):
+    from docx import Document
+    d = Document()
+    for para in paragraphs:
+        d.add_paragraph(para)
+    if table:
+        t = d.add_table(rows=len(table), cols=len(table[0]))
+        for i, row in enumerate(table):
+            for j, cell in enumerate(row):
+                t.cell(i, j).text = cell
+    d.save(str(path))
+
+
+def _make_pptx(path, slides):
+    # slides: list of (title, body, notes)
+    from pptx import Presentation
+    prs = Presentation()
+    layout = prs.slide_layouts[1]
+    for title, body, notes in slides:
+        s = prs.slides.add_slide(layout)
+        s.shapes.title.text = title
+        s.placeholders[1].text = body
+        if notes:
+            s.notes_slide.notes_text_frame.text = notes
+    prs.save(str(path))
+
+
+def test_parse_document_extracts_docx_text_and_types_tables(tmp_path):
+    # A .docx is a real scored document, not an admitted-but-unopened format.
+    # Tables must be typed as blocks so the deterministic scorers see them the
+    # same way they see a PDF's tables.
+    from cqg.parse import parse_document
+    p = tmp_path / "rapport.docx"
+    _make_docx(p, ["Notice d'information", "Le contrat couvre l'incendie."],
+               table=[["Garantie", "Plafond"], ["Incendie", "100 000 EUR"]])
+    doc = parse_document(str(p))
+    assert "Le contrat couvre l'incendie." in doc.markdown
+    assert "Incendie" in doc.markdown, "table cell text must reach the markdown"
+    assert any(b.kind == "table" for b in doc.blocks)
+    assert doc.parse_confidence > 0.0
+
+
+def test_parse_document_extracts_pptx_slides_and_speaker_notes(tmp_path):
+    # Speaker notes are prose a RAG system will ingest: they belong in the
+    # extracted text and therefore in the quality verdict.
+    from cqg.parse import parse_document
+    p = tmp_path / "deck.pptx"
+    _make_pptx(p, [("Titre de la slide", "Corps de la slide.", "Note du presentateur.")])
+    doc = parse_document(str(p))
+    assert "Titre de la slide" in doc.markdown
+    assert "Corps de la slide." in doc.markdown
+    assert "Note du presentateur." in doc.markdown
+
+
+def test_parse_document_office_never_uses_pdf_parsers(tmp_path, monkeypatch):
+    # Office formats carry structured text: no PDF machinery must be reached,
+    # including the docling subprocess.
+    import cqg.parse as parse
+    def _boom(*a, **k):
+        raise AssertionError("PDF parser invoked on an office document")
+    monkeypatch.setattr(parse, "_docling_extraction", _boom)
+    monkeypatch.setattr(parse, "_pages_text_pdfminer", _boom)
+    monkeypatch.setattr(parse, "_pdfplumber_only", _boom)
+    docx_path = tmp_path / "d.docx"; _make_docx(docx_path, ["Contenu Word."])
+    pptx_path = tmp_path / "d.pptx"; _make_pptx(pptx_path, [("T", "Contenu slide.", None)])
+    assert "Contenu Word." in parse.parse_document(str(docx_path), parser="docling").markdown
+    assert "Contenu slide." in parse.parse_document(str(pptx_path), parser="docling").markdown
+
+
+def test_parse_document_office_emits_no_image_refs(tmp_path):
+    # ImageRef carries PDF-point geometry consumed by the enrichment cropper.
+    # Office formats have no such geometry, so none is fabricated: images are
+    # counted as blocks only.
+    from cqg.parse import parse_document
+    p = tmp_path / "deck.pptx"
+    _make_pptx(p, [("T", "Corps.", None)])
+    assert parse_document(str(p)).images == []
+
+
+def test_parse_document_corrupt_office_never_raises(tmp_path):
+    # S14 chain: parse_document returns an unreadable document rather than
+    # propagating. A corrupt .docx makes python-docx raise PackageNotFoundError.
+    from cqg.parse import parse_document
+    for name in ("bad.docx", "bad.pptx"):
+        p = tmp_path / name
+        p.write_bytes(b"PK\x03\x04 pas un vrai fichier office")
+        doc = parse_document(str(p))
+        assert doc.markdown == ""
+        assert doc.parse_confidence == 0.0
+        assert any(b.kind == "unreadable" for b in doc.blocks)

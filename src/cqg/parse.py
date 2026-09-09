@@ -5,7 +5,7 @@ import unicodedata
 from pathlib import Path
 from .models import ParsedDoc, Block, ImageRef
 from .signals import cid_failure_fraction
-from .triage import TEXT_EXTS
+from .triage import TEXT_EXTS, OFFICE_EXTS
 
 
 def _nfkc(s: str) -> str:
@@ -206,6 +206,120 @@ def _plain_text_extraction(path: str) -> tuple[str, list[Block], list[ImageRef]]
     return md, blocks, []
 
 
+
+def _md_table(rows: list[list[str]]) -> str:
+    # Rendered as a pipe table so the cell text lands in the markdown that every
+    # downstream stage reads. Dropping it would hide content a RAG system will ingest.
+    if not rows:
+        return ""
+    head, body = rows[0], rows[1:]
+    out = ["| " + " | ".join(head) + " |",
+           "| " + " | ".join("---" for _ in head) + " |"]
+    out += ["| " + " | ".join(r) + " |" for r in body]
+    return "\n".join(out)
+
+
+def _docx_extraction(path: str) -> tuple[str, list[Block], list[ImageRef]]:
+    # Word carries its own structure: headings, paragraphs and tables are read
+    # straight from the package. The body is walked in document order (paragraphs
+    # and tables are separate collections in python-docx) so a table keeps its
+    # position in the text rather than being appended at the end.
+    from docx import Document
+    from docx.oxml.table import CT_Tbl
+    from docx.oxml.text.paragraph import CT_P
+    from docx.table import Table
+    from docx.text.paragraph import Paragraph
+    doc = Document(path)
+    parts: list[str] = []
+    blocks: list[Block] = []
+    for child in doc.element.body.iterchildren():
+        if isinstance(child, CT_P):
+            para = Paragraph(child, doc)
+            text = _nfkc(para.text).strip()
+            if not text:
+                continue
+            # Heading levels are carried into the markdown: the structure criteria
+            # are scored on the markdown, so flattening headings into plain
+            # paragraphs would cost a document points it has earned.
+            style = (para.style.name or "") if para.style is not None else ""
+            if style.startswith("Heading"):
+                level = style.split()[-1]
+                parts.append(("#" * min(int(level), 6) if level.isdigit() else "#") + " " + text)
+            else:
+                parts.append(text)
+            blocks.append(Block(kind="text", text=text, page=0))
+        elif isinstance(child, CT_Tbl):
+            rows = [[_nfkc(c.text).strip() for c in r.cells] for r in Table(child, doc).rows]
+            parts.append(_md_table(rows))
+            blocks.append(Block(kind="table", text="", page=0))
+    for _ in range(_docx_image_count(doc)):
+        blocks.append(Block(kind="image", text="", page=0))
+    return "\n\n".join(x for x in parts if x), blocks, []
+
+
+def _docx_image_count(doc) -> int:
+    # Counted from the package parts so floating images count too, not only the
+    # inline shapes. Best-effort: the count only feeds the image criteria.
+    try:
+        return len(list(doc.part.package.image_parts))
+    except Exception:
+        return len(doc.inline_shapes)
+
+
+def _pptx_extraction(path: str) -> tuple[str, list[Block], list[ImageRef]]:
+    # A deck's text lives in shapes, one slide at a time. Speaker notes are
+    # included: they are prose a RAG system will ingest, so they belong in the
+    # quality verdict rather than being silently dropped.
+    from pptx import Presentation
+    prs = Presentation(path)
+    parts: list[str] = []
+    blocks: list[Block] = []
+    for page, slide in enumerate(prs.slides, start=1):
+        for shape in slide.shapes:
+            if shape.has_table:
+                rows = [[_nfkc(c.text).strip() for c in r.cells] for r in shape.table.rows]
+                parts.append(_md_table(rows))
+                blocks.append(Block(kind="table", text="", page=page))
+                continue
+            if _is_picture(shape):
+                blocks.append(Block(kind="image", text="", page=page))
+                continue
+            if shape.has_text_frame:
+                text = _nfkc(shape.text_frame.text).strip()
+                if text:
+                    parts.append(text)
+                    blocks.append(Block(kind="text", text=text, page=page))
+        if slide.has_notes_slide:
+            notes = _nfkc(slide.notes_slide.notes_text_frame.text).strip()
+            if notes:
+                parts.append(notes)
+                blocks.append(Block(kind="text", text=notes, page=page))
+    return "\n\n".join(x for x in parts if x), blocks, []
+
+
+def _is_picture(shape) -> bool:
+    from pptx.enum.shapes import MSO_SHAPE_TYPE
+    try:
+        return shape.shape_type == MSO_SHAPE_TYPE.PICTURE
+    except (AttributeError, ValueError, KeyError):
+        # python-pptx raises on shape types it cannot map; a shape it cannot
+        # classify is simply not counted as an image.
+        return False
+
+
+def _direct_extraction(path: str) -> tuple[str, list[Block], list[ImageRef]]:
+    # Formats whose text is readable without any PDF machinery. None of them
+    # produces ImageRef geometry: ImageRef carries PDF-point coordinates that the
+    # enrichment cropper reads, and neither Word nor PowerPoint exposes anything
+    # comparable -- filling those fields would produce silently wrong crops.
+    ext = Path(path).suffix.lower()
+    if ext in TEXT_EXTS:
+        return _plain_text_extraction(path)
+    if ext == ".docx":
+        return _docx_extraction(path)
+    return _pptx_extraction(path)
+
+
 def parse_document(path: str, *, pages: int | None = None,
                    parser: str = "docling",
                    docling_batch_pages: int | None = None) -> ParsedDoc:
@@ -215,10 +329,13 @@ def parse_document(path: str, *, pages: int | None = None,
     # stray positional argument to `pages`.
     doc_id = Path(path).stem
     fallback_used = False
-    if Path(path).suffix.lower() in TEXT_EXTS:
+    if Path(path).suffix.lower() in TEXT_EXTS | OFFICE_EXTS:
         try:
-            md, blocks, refs = _plain_text_extraction(path)
-        except OSError:
+            md, blocks, refs = _direct_extraction(path)
+        except Exception:
+            # S14 chain: never propagates. A corrupt or password-protected office
+            # file lands as unreadable -- distinct from unsupported_format, which
+            # means cqg has no parser for the extension at all.
             md, blocks, refs = "", [Block(kind="unreadable", text="", page=0)], []
         return ParsedDoc(doc_id=doc_id, markdown=md, blocks=blocks,
                          parse_confidence=_confidence(md, blocks, pages, fallback_used),

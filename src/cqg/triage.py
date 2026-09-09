@@ -5,10 +5,21 @@ from pathlib import Path
 PDF_EXTS = {".pdf"}
 # Formats carrying directly extractable text (no PDF machinery needed).
 TEXT_EXTS = {".txt", ".md"}
-# Admitted so they are visible and flagged, but cqg cannot open them. Dropping them
-# from the corpus would be a silent loss, which score-and-flag forbids.
-UNSUPPORTED_EXTS = {".docx", ".pptx"}
-SUPPORTED_EXTS = PDF_EXTS | TEXT_EXTS | UNSUPPORTED_EXTS
+# Office formats: structured text extracted directly by python-docx / python-pptx,
+# no PDF machinery and no conversion step.
+OFFICE_EXTS = {".docx", ".pptx"}
+SUPPORTED_EXTS = PDF_EXTS | TEXT_EXTS | OFFICE_EXTS
+
+
+def _slide_count(path: Path) -> int | None:
+    from pptx import Presentation
+    try:
+        return len(Presentation(str(path)).slides)
+    except Exception:
+        # Triage is an inventory, not an extraction verdict: an unreadable deck
+        # degrades to an unknown page count here and gets its unreadable verdict
+        # from the parser, uniformly with .docx (which triage never opens).
+        return None
 
 
 def _sha256(path: Path) -> str:
@@ -20,9 +31,18 @@ def triage_file(path: str) -> dict:
     base = {"doc_id": p.stem, "type": ext.lstrip("."), "hash": _sha256(p), "path": str(p)}
     if ext in TEXT_EXTS:
         return {**base, "pages": None, "category": "text"}
+    if ext in OFFICE_EXTS:
+        # `pages` feeds the per-page density check in parse confidence, so it must
+        # only ever carry a real count. A deck has a true slide count; Word
+        # pagination is a renderer artefact python-docx cannot report, and a
+        # fabricated value would feed that check a meaningless number.
+        return {**base, "pages": _slide_count(p) if ext == ".pptx" else None,
+                "category": "office"}
     if ext not in PDF_EXTS:
         # Named rather than lumped with unreadable PDFs: "cqg cannot open this format"
-        # is a different finding from "this PDF failed to extract".
+        # is a different finding from "this document failed to extract". No shipped
+        # extension lands here today; it is the honest landing for a format admitted
+        # into SUPPORTED_EXTS ahead of its parser.
         return {**base, "pages": None, "category": "unsupported_format"}
     from pypdf import PdfReader
     try:
