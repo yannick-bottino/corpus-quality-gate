@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:827db4e8f52ce29b7e7dee93c6ae822e73775ee682939800a40f949200c77548",
+  "pageVersion": "sha256:1209e701c482701a9f43df1bdd92276acf508b4d7cba36417bceb1c762c6af2d",
   "claims": [
     {
       "id": "claim_61dbe115840c46829260248ed0e711c4",
@@ -11,8 +11,8 @@
           "version": "repo-lines-v1:sha256:faf1abea95410b196960d5ce79514354a2eba63baae7fd6bf2a42ef5bbe6dfa4:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU3ZjRiMzZhYzljZTBkMDZkY2Q3MmNjYzI0ZWIyOTBlY2NhM2RhZGNlZTM2Y2Q2NDE2ODlhMjgwNDhjODU0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdjMDZjNTYxZDVjMzI3MzQzNjg1MjY4YTQ2YjMzOTFmMzk5OGVlZTg5MGQyYmU1MWYwZDIxY2M0YTUzYWU2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzAyMmFmN2E0MjNjZTMyN2JmZTdkZDVkMmNlNWFjZTg2ZjllMDFjMDg4MmZkNDkxOGM0MzNjMDkwNWY5N2YwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzgyZTFiOWQ2MTljMjFjNDNlMmJlMzQ0YTBlOTI2ZTc0OGIxNDlhNGNkNmIwMWIzMGVhZjIyZDk1YTRlMWIxYyJ9"
         },
         {
-          "resource": "repo://pyproject.toml#L1-L34",
-          "version": "repo-lines-v1:sha256:b14fc124d411a114d5a18666d6180888ba33d6c74067fdb0c608e915c6345506:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwMmE4MWMzODM2ZWRlZjJkMGJhMTFkMjM1M2ZiNmRhYmM3NzcxNTBhN2NhODNlYTBkOWU5YTcwMzEzZmVhYmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkZmRkZDA4ZWNjYTA1NzVkMDk5OTUwZmJjMDE4MzU4MzNiYjUzYWRiNTQ3YzgwY2Q1NTU0M2VhZWFjYmM3YjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "resource": "repo://pyproject.toml#L1-L36",
+          "version": "repo-lines-v1:sha256:c132ed753d6a3a9bea0deb674c3d3f97aefa8d34ed29f0c645ce2d4bf13935f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwMmE4MWMzODM2ZWRlZjJkMGJhMTFkMjM1M2ZiNmRhYmM3NzcxNTBhN2NhODNlYTBkOWU5YTcwMzEzZmVhYmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkZmRkZDA4ZWNjYTA1NzVkMDk5OTUwZmJjMDE4MzU4MzNiYjUzYWRiNTQ3YzgwY2Q1NTU0M2VhZWFjYmM3YjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
           "resource": "repo://tests/test_licenses.py#L18-L23",
@@ -151,8 +151,8 @@
       "statement": "tests/test_licenses.py guards the gate from both directions — confirming the denylist flags forbidden packages, that the legitimate parsing stack is not falsely flagged as a guard against an over-broad future denylist, and that pyproject.toml declares Docling as a core rather than optional dependency.",
       "evidence": [
         {
-          "resource": "repo://pyproject.toml#L7-L19",
-          "version": "repo-lines-v1:sha256:f90926c18f72044a02732aa68b17e87b1462a3b707febf8befefb7a98d7a4e2c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOTVmNWU5ZWRlMDE4MTYwNDNjMDc5N2FjZThkYTJhYzRlOTlhOGE2YTYxMGZhOTg1NzBlZjM0YjkzNTYxMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5Yjk3ZmQxNGJlNjg0NTMyZmM1MjU0N2RlODU5ZWEzMGIzOWRjMDBlZGI5YjAwZDcwZGRiMjIxYjQ2NDY3NjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NWMzMzVmZTQ2YWZmM2RjMTJmZmJhZGM5NmJhNGQyNmMyNDgyMzE0MWQ5ZDU5YmY4ZWZlY2ZmNDdlZmZjOWMifQ"
+          "resource": "repo://pyproject.toml#L7-L21",
+          "version": "repo-lines-v1:sha256:0fd584124869e88b4fb9dbf8b41cfc637f9ff65e579bd97fce314fe237636b06:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOTVmNWU5ZWRlMDE4MTYwNDNjMDc5N2FjZThkYTJhYzRlOTlhOGE2YTYxMGZhOTg1NzBlZjM0YjkzNTYxMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5Yjk3ZmQxNGJlNjg0NTMyZmM1MjU0N2RlODU5ZWEzMGIzOWRjMDBlZGI5YjAwZDcwZGRiMjIxYjQ2NDY3NjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NWMzMzVmZTQ2YWZmM2RjMTJmZmJhZGM5NmJhNGQyNmMyNDgyMzE0MWQ5ZDU5YmY4ZWZlY2ZmNDdlZmZjOWMifQ"
         },
         {
           "resource": "repo://tests/test_licenses.py#L1-L23",
@@ -218,15 +218,19 @@
     },
     {
       "id": "claim_aedbbdaca6d64fabbe1835ccb24589c8",
-      "statement": "Format handling is pinned end to end: triage tests fix the text and unsupported_format categories, and a CLI test asserts a .md document is scored while a .docx is flagged unsupported_format and is not counted as a processing error.",
+      "statement": "Format handling is pinned end to end: triage tests fix the text, office and unsupported_format categories together with the pages semantics of each format, parse tests pin both office extractors, and a CLI test scores a .md, a .docx and a .pptx in one corpus with zero processing errors.",
       "evidence": [
         {
-          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
-          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
+          "resource": "repo://tests/test_cli_e2e.py#L146-L203",
+          "version": "repo-lines-v1:sha256:179394b96ab7506cd468a89ff3fc63053de46f10b524de494acb9020ae82f0d9:eyJzZWxlY3RlZExpbmVDb3VudCI6NTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiOGMyYzZkMmNmYmUwMzdlN2U0MGExOWFiOThjY2NiMDVmMGMwZTYyZmZjM2RmODI1M2FmYjc1NDJiNzBkYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwODJiYzI4OGYxMTIzNTgwMzQ2N2QzNjcxYTdmMjgxZDA5NDdmZGNjNjlmZDFlZGYyMGY5YjUzODM5OGMzZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
-          "resource": "repo://tests/test_triage.py#L17-L33",
-          "version": "repo-lines-v1:sha256:1f796357bccaa726bbd5a52be411f8078a3a83dc789da76bfe93d5fb5cbe2203:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhOWY4Zjc0MGQwMmNlNmFlYjQ0ZWJmZmZlZjE0OGFlMWRlN2JkYjI2MzQwMzA4MDVhMWI3M2M0Zjc5MjMxZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU4ZjI2ZjNlZWY3NWVmOWI4MDRlOWVjOGEyNGQ4ZDJiYmRlZGU4MTYwZTc5ZDBkMjkzNWIxZjUwYmIxMmY2ZDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczNWMxNGUxNTFkZjk5YzZkMTQ3OGM5OTFmYWJkZWNiNTBlOGUwYjU4NGJhYzdlMjI4ODZjMDBmODc0ZjIyZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI5YzVkZjg5M2YxOWExYTIwNWYyMzY3ZjUwNTcwMTljYWM3MGM4ZjRmNDNhMjEzZjJmODQ4ZDU5ZjNjNjU4ZTUifQ"
+          "resource": "repo://tests/test_parse.py#L347-L409",
+          "version": "repo-lines-v1:sha256:ffaebb8c37b03e2030f6e90fde92de6bf1de3446eeef4d5bbf0080688e0a5086:eyJzZWxlY3RlZExpbmVDb3VudCI6NjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmYjgxMmFiZDdmNTFmOWM5MDY5YzU1ZjFlZWJmNjRmNGMzYjRjYTNkOGQyMzkwNWVmY2FhNDY3MzE3NDhmN2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4NmU3MGNjYzFlMzgzOTE0MDEyYzUxYmI1NTllY2UxZTc2ZDAzZjZiMmUwZmM3NThlMmQxY2FlMzZhOTZhYTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiY2UwNjgyOTI3MTI1YzA4NGZkMWM5MjAyMmQ0NmQzODNmZWEyOTA1MTJlOTc5N2E2Zjc4YzViYzE4MGNjZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_triage.py#L33-L88",
+          "version": "repo-lines-v1:sha256:c86796a1288a48bc52eccec1089c1b22ae2a98884693f9de3c1777c2c64335a1:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhOWY4Zjc0MGQwMmNlNmFlYjQ0ZWJmZmZlZjE0OGFlMWRlN2JkYjI2MzQwMzA4MDVhMWI3M2M0Zjc5MjMxZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmY2IxNmE4Yjg1YTlhNDYyMmRjYWQ4Y2UwMDAxZDg4ZjNiMzFjZTNkNzhiNzdlMWU0ZmYxOTM0OWI3ODMzNjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiY2UwNjgyOTI3MTI1YzA4NGZkMWM5MjAyMmQ0NmQzODNmZWEyOTA1MTJlOTc5N2E2Zjc4YzViYzE4MGNjZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -246,25 +250,53 @@
     },
     {
       "id": "claim_c595c80283614498a4d2493e7c4a344b",
-      "statement": "Support for plain-text documents was added without any new runtime dependency, leaving the permissive-license constraint untouched; supporting office formats would require python-docx and python-pptx and would have to pass the same gate.",
+      "statement": "Support for plain-text documents was added without any new runtime dependency, while office support added python-docx and python-pptx as declared dependencies; both are MIT, their shared lxml dependency is BSD-3-Clause, and none of the three is in the denylist.",
       "evidence": [
         {
-          "resource": "repo://pyproject.toml#L7-L24",
-          "version": "repo-lines-v1:sha256:7664cdbac7754960954a145d01229667aa2c29902c5477d527fe89ef292ede16:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOTVmNWU5ZWRlMDE4MTYwNDNjMDc5N2FjZThkYTJhYzRlOTlhOGE2YTYxMGZhOTg1NzBlZjM0YjkzNTYxMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmZGQ0ZmQ4YjM1YmZlNTQ2MTMwZWJmZTFhM2UzNzkyYjBjMTBkMTUxYWRiNDgxMzVmOThjN2JhMjRiNDJlMDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5Yjk3ZmQxNGJlNjg0NTMyZmM1MjU0N2RlODU5ZWEzMGIzOWRjMDBlZGI5YjAwZDcwZGRiMjIxYjQ2NDY3NjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1NmI2ZWM4YzY4MTIyYzhlMzZiZmYzMTQ1Y2I3M2Q3NTBjMTNhN2U4ZGQ0ZGY5NDcxOGQzMGFmN2ZiZjUxYmIifQ"
+          "resource": "repo://pyproject.toml#L7-L21",
+          "version": "repo-lines-v1:sha256:0fd584124869e88b4fb9dbf8b41cfc637f9ff65e579bd97fce314fe237636b06:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOTVmNWU5ZWRlMDE4MTYwNDNjMDc5N2FjZThkYTJhYzRlOTlhOGE2YTYxMGZhOTg1NzBlZjM0YjkzNTYxMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5Yjk3ZmQxNGJlNjg0NTMyZmM1MjU0N2RlODU5ZWEzMGIzOWRjMDBlZGI5YjAwZDcwZGRiMjIxYjQ2NDY3NjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NWMzMzVmZTQ2YWZmM2RjMTJmZmJhZGM5NmJhNGQyNmMyNDgyMzE0MWQ5ZDU5YmY4ZWZlY2ZmNDdlZmZjOWMifQ"
         },
         {
           "resource": "repo://scripts/check_licenses.py#L1-L21",
           "version": "repo-lines-v1:sha256:3c4f4abbaa5e8408613cd826a8293e7147434b247bfdfc40e0f2dd2bb00ec5e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1MTc1Nzc4NTFjNDg5ZTQ1YWJhZTI1OTEyNTZjNDA0MDRhMDVjNmQxOWNkNGQ1YWU3ZmQyMmIwMDg0Y2VjNmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0OGM4MTE4MWE4ZGRhZmM0YWNkNmY0YmQ4ZGEzYzAxMGRjMTBkNTg4YWNmNjlmZmRjNzlmMTM2OGM3YzRhMjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
-          "resource": "repo://src/cqg/parse.py#L198-L206",
-          "version": "repo-lines-v1:sha256:79b6a2af52fc0b561eb088b2feb133b5a4a3de7c3c2765504854720fd6298288:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ1NjYyZjc5NTE3Y2VhYTliZGFlMzQ1Y2JkYWU5NjZhZDI5NDg3OGYxODIyMjc5Mzk4YzAxOTljM2YzNzA3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzg2Yjg1NDhkY2U2N2U2YzU4MmM3ZjJjYzY4YTBkMjUxMDYxOGM3NDZkMDg2Mjg1N2E4M2M3NDFlN2JiYzdhZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM4MThiMzg5MGYwOGE3NTM0OWIwZDRmMzk2MzE5MWExNTk4NWU3NmEwOTUzMmIzZDJjNzgxZjZjZTU3MzUzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWYwNzgwMWVmZjhlOGRkOGJjNDUzYzBjZTJjZWRiMmVmN2I5YmRiYWVhOGEwYzhiZDgyMTg1M2I2MDgwN2I3MSJ9"
+          "resource": "repo://src/cqg/parse.py#L198-L207",
+          "version": "repo-lines-v1:sha256:0416ddd3a20c39ac60e8ca6d22bb6eea90dd82a8098db9b1a06e3281cb1929c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkNTY2MmY3OTUxN2NlYWE5YmRhZTM0NWNiZGFlOTY2YWQyOTQ4NzhmMTgyMjI3OTM5OGMwMTk5YzNmMzcwNzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVkZjI0YzFjMGViMmYxZDhlOGNjOThlNmFlNDQ0OWQ1YjRiYjcwNDFhY2FhNmEzN2RmN2Q1MGE5ZTEyMTFhYzcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f8d5ec676ecc4c7a8ce261937b6b4531",
+      "statement": "python-docx and python-pptx were already installed as transitive dependencies of docling-slim, which requires them for its own office backends, so declaring them makes an existing presence explicit rather than enlarging the dependency surface.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L7-L21",
+          "version": "repo-lines-v1:sha256:0fd584124869e88b4fb9dbf8b41cfc637f9ff65e579bd97fce314fe237636b06:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkOTVmNWU5ZWRlMDE4MTYwNDNjMDc5N2FjZThkYTJhYzRlOTlhOGE2YTYxMGZhOTg1NzBlZjM0YjkzNTYxMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc5Yjk3ZmQxNGJlNjg0NTMyZmM1MjU0N2RlODU5ZWEzMGIzOWRjMDBlZGI5YjAwZDcwZGRiMjIxYjQ2NDY3NjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM4NWMzMzVmZTQ2YWZmM2RjMTJmZmJhZGM5NmJhNGQyNmMyNDgyMzE0MWQ5ZDU5YmY4ZWZlY2ZmNDdlZmZjOWMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7479e25168d849c694c45cd66ba33e15",
+      "statement": "The suite reports 146 passed and 1 skipped, running end to end in a few seconds with no network access and no credentials.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_cli_e2e.py",
+          "version": "repo-file-v1:sha256:98e11a92bc4d412b957320f64a8ba6edd3b9ff14ba69ee60dbde3ee521b7e894"
+        },
+        {
+          "resource": "repo://tests/test_parse.py",
+          "version": "repo-file-v1:sha256:eecc7e5404b194081d5f33527494648cf9c8f8591f20a0762105b7f3c8eba70d"
+        },
+        {
+          "resource": "repo://tests/test_triage.py",
+          "version": "repo-file-v1:sha256:98e57337fcbac712bdc9afefb69ead085905d7c2ffcd36b7439d62e3a2bacfeb"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-09T21:41:51.597Z"
+    "at": "2026-09-09T22:03:23.095Z"
   }
 }

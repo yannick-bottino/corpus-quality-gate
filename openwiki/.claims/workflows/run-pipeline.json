@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:7e6be07008e35468889948e166c9be82add85f682d2a89c0fa616f62bc91a408",
+  "pageVersion": "sha256:2178823762aa92a96507c4cdef5f7787a40347a239efe49a17493baa7b061e55",
   "claims": [
     {
       "id": "claim_1c21d4a0f5244f089b99131a2d7f0f4a",
@@ -77,12 +77,12 @@
       "statement": "Every document leaves the per-document loop by exactly one of four paths — an unsupported format flagged before parsing, empty markdown flagged unreadable, an exception flagged processing_error, or normal scoring — and all four write a score file so no input is ever silently dropped.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L95-L155",
-          "version": "repo-lines-v1:sha256:b01968a2ef741753abe62357ea41e06c82faee7d0f12846050b4ce433d732956:eyJzZWxlY3RlZExpbmVDb3VudCI6NjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA5Y2I5M2NjYTM5YmMxZThkZWVlMGUyNzk0ZGUxNTYzY2IwYTFlNGIzZmE4YzBhMjMwNzYzNTllNzZiYzY2YTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1OWU2ODUwZjJiZjc3ODMwNWY2OTQzOTBiMjdjMGRjMzNiMTk4MTY3YzdhN2I2MTJjMDgxYWYzZDQ5OTY5MDkifQ"
+          "resource": "repo://src/cqg/cli.py#L95-L156",
+          "version": "repo-lines-v1:sha256:8edcbf43869cfe4ebb083a44b0e0ed887df62fb86da7a528728a001fbc8160a7:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1NTUxMTI5Y2FmZTFlNzcyOTBjNjQzNzg0YjA5ZWVmOWE3ZmY5NjVkNzc1ODI0NjEyNDVjNjZiYjY5MDAwMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMyZjEyZjE2YjA3YjYyYjI3MDllMDhkOWVkMDMwMGI2Zjc1Y2JhMzQxZTdkODhjNzJlNzljMzQ4ODJiMjEwZGYifQ"
         },
         {
-          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
-          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
+          "resource": "repo://tests/test_cli_e2e.py#L183-L203",
+          "version": "repo-lines-v1:sha256:f990066fcd69c2645506e4b21a53c6c63bd6903ee7a7fd79df92afdbdfba6a33:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwZjI3ZTU1NjlmN2M0ZjA1OWM2ODcyYzkzYjE3NWUzNjI4ZGY5YTA2NTdkN2Y4YmYyODVkYTI4YTU0ZWE5ZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2YTRmOTY1MjAxYmI1OWFkZmI3YmI2YjA0MGMzMmU0YzAzNmVkMjE3OTlmNTBlNGZmNWNmMThjNzgxZGFhNTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L25-L46",
@@ -188,19 +188,19 @@
     },
     {
       "id": "claim_791cd52f331441088a42eda5f3cf77a6",
-      "statement": "The unsupported-format exit gives the triage category its first real consumer at the orchestration layer, where classification decides whether to attempt extraction while the parser decides how — and the file is never opened to reach that verdict.",
+      "statement": "The unsupported-format exit is the only consumer of the triage category and is currently unreachable through a normal corpus walk, since every extension in SUPPORTED_EXTS has a parser; it is retained as the landing for a format admitted ahead of its parser and covered by a test that drives it through triage directly.",
       "evidence": [
         {
           "resource": "repo://src/cqg/cli.py#L95-L107",
           "version": "repo-lines-v1:sha256:59f2c6d8c8e58c8524eb79222a0d62664e26447d64b7e86c55666c5dfa488fe6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjhmOGQyMzc1Nzc1NTk2MjFjODI2MTViMjA1Y2FiNjk5NmY1MzEwNWFkZThkYmQ0NGRjMDVhZWM4OGNkOGYifQ"
         },
         {
-          "resource": "repo://src/cqg/parse.py#L209-L217",
-          "version": "repo-lines-v1:sha256:d218d0441488d1f614f5b1fcddbe435d4579081b38760f6c28f76e0407ca7556:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIyNDcwZTMzZGZhYzc0OTBkMjgzYWQ2YThjMWIzNjRiNmQzMzFjZjg4ZGIxN2QwYTk4ZDA2ZDFhNGM0NTA5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTYxOWRjNWU2ODBjZWI3YzhlNmI2MzM3ODM1YmZlY2E3MzVhZDQ1YjNlYzFjMWVmYmFhYzkzY2UyN2VjMTlkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM0MzE1Mzg1YWFjOTI5Mzk5OTFjMjAyNGFlMGU4MGRmZDBmZmMyYzQ5MjhkN2U5ZWZkYjM0MTdmMmJlMzkyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjQ0NGE1MWMwYWM1NmYwMTdmOWFkNjFkMjc0MmU0MGIyZGE2OWI1OTE1YjQ5MWZhNDQ2ZmJiYjljYjFlNjZkNCJ9"
+          "resource": "repo://src/cqg/triage.py#L4-L11",
+          "version": "repo-lines-v1:sha256:4587c698f6442ea985f4cbeb2eee4881cb90602b6f0df2ddcff42a8170c89432:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFiNTA0MDY2ZTg1ZmZhYzg1ODlkMWVjNDQyMWRjY2Q3MzJjYzQxOTE0OGRkNjdhNTk4OWVlNDQ5NjczODM5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzAxZmEwNGQ1NzAzODE2MDNhYmUxZjcyMmZmNDI5M2VkZTRkMmU4MjEwYzFkMDdmMGZmMWE0YTJmNzI2MjljNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTJkMzQxOWU0YTFkNWYyZDI2ODU4MTkwODE0ZGQ2N2E4NGMwMjU1NDE5ZGQ3NDMxZWMxY2U5MzE3ZDI2MTIxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjIyNWMxNzhjY2MyYzMxNzNmYjk0YTdiZDUxYTdhMjZhM2FjOTA2ZDk3ZjU3ZWJjZGJhMTg3ZWI5NmU1ZjljMCJ9"
         },
         {
-          "resource": "repo://src/cqg/triage.py#L17-L26",
-          "version": "repo-lines-v1:sha256:1544398afc8331bd1581494eb0d9f69143727a551a03d5c5de165fd164d64e77:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxMTM0MjNiZmU0MzlhNjZhNTU1NDJhMTdlNWEwZGZiZDU3OTAzM2FjNzFjYTdhN2JmYzIyNGJiZWNiOGFkNDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNzI0NDEyNjIxNTU3OTE1M2UwOGViMjBiMDZhNWY1ZWIzMzE2ZWY1NDBkOTE3YjQyNGM4ZjQ1Njc5MTRjZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2M2NlNDYwOWE1OWUwZTEzODBjNGI2OTU1NDJlYmZkODllMzQ5ODgzODUzYzFiMzA0MTJjMWJiNTRmYTlkYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4M2Y0YjIyOTZkYmQyM2VmZGNkMjFiZTBiZTNhOGQ4NjY1NTI3NjA4MzE3NWIxZWNjYzI4MmVmYTMwMTM4MWQifQ"
+          "resource": "repo://tests/test_cli_e2e.py#L183-L203",
+          "version": "repo-lines-v1:sha256:f990066fcd69c2645506e4b21a53c6c63bd6903ee7a7fd79df92afdbdfba6a33:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwZjI3ZTU1NjlmN2M0ZjA1OWM2ODcyYzkzYjE3NWUzNjI4ZGY5YTA2NTdkN2Y4YmYyODVkYTI4YTU0ZWE5ZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2YTRmOTY1MjAxYmI1OWFkZmI3YmI2YjA0MGMzMmU0YzAzNmVkMjE3OTlmNTBlNGZmNWNmMThjNzgxZGFhNTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -217,10 +217,28 @@
           "version": "repo-lines-v1:sha256:8bf02bd25ef0c4e7a703988473e4d467ac429d63582a14cdb4f7eac25f2e9e17:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTUwODY1MTE1ZTM0OWZmMGE0YWE1OWYyM2YwYTc4YWY0NzliNDhkYWY0ZDcwM2U3NzhkYTA3ZWM0OWUxZWU3ZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjc1N2E5N2ZhNDdlOTQwZGI3YTA5MGZlMGZlMTFhMjVmODRmNDFkMjVmYjhiMzFlMGM2YjYxNzFhZmMyYTNiOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzgzMGQ4NjBhYTYyYTYzZTQzODFhNTM3ZjliN2JkODA0ZWUxYmM5ZmRkYTA2NmIyZjdkN2Y3MDJlYzUzMDQxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzM0OTA0MTcyOWVmZGU1NDU4YzhiMmM1YWFiOTA4MTRmM2NlNjk2Nzc1ZTk4ODJjYzA5YjMzYzUwNzI2YjNjZSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_5cc271970cc54c6c9dfca433b07d87f1",
+      "statement": "A corrupt or password-protected office file takes the unreadable exit rather than the unsupported-format exit, because parse_document returns empty markdown instead of raising and the run checks the markdown after parsing.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L108-L119",
+          "version": "repo-lines-v1:sha256:3816e15c5515edb3cc2a38ee586f17bb8b4c42b020f53b65cc41350c7ceb56f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0ZGFjN2QzNjQxOTA2YzNhM2ExOTEwYmRlOWJhMWM3NTUwZDdmY2NhNzMzNTE2ZjBmMDZmYmQxZjg3MjAzNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyZWQ5M2I2Njk5MGEzMzAxNmI1MGQ1NmQ4Njg3Mzc1NGNlMDYxOTFmZGI2MWUwZWZlZGRiOGJhMDhhM2VhOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L331-L343",
+          "version": "repo-lines-v1:sha256:2382c9a04d9a30b596eb0d727e46537044f15d5c01ecf0aefaf305f9ec38f97e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2MTlkYzVlNjgwY2ViN2M4ZTZiNjMzNzgzNWJmZWNhNzM1YWQ0NWIzZWMxYzFlZmJhYWM5M2NlMjdlYzE5ZGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlYzIwOTkxMzUwNmY2YmYwZWFiNzk3OGI4MWRhYzFkOTEyOWNkNTY4MzlmYzBkOTllMDhjNDRlYTRjZjcxNTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdjMmMwMjYwMmRhYzZhN2U2MzlhYzhmNWU0YjJiYzgzOGE4MzhiZjIxNTA3OTU3OWZkYzg1ZWE0ZmVkNmZlZTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUxZTZmZDIyZTk5NzJkNWJiN2RjNTUxMzgxYzA0Y2ZmOTUyMzQ5ZDk4Yjc3YWUzYTExOTk2OGY3MjNmY2QzOTMifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L399-L409",
+          "version": "repo-lines-v1:sha256:3283027984221ee8a9899ad4f7ae64ffe21d12d2055478d1105233ed73b48253:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxMTEwYjVmMTE5MjI2YWVhNDczNjUyYTA3YmM5YzdmYmU2ZTVhZTNkNTNjYWYwOGU3ZTlkZDlmYmJhOTI4NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4NmU3MGNjYzFlMzgzOTE0MDEyYzUxYmI1NTllY2UxZTc2ZDAzZjZiMmUwZmM3NThlMmQxY2FlMzZhOTZhYTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwNmU3NDRjNTEyN2Y1ZGFkYTcwMmE3M2E1Njc5MTNlOGIzNWM0MGI5ZjVlMWQxN2QxMGZlMjA1YWJmOGJiZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-09T21:41:51.597Z"
+    "at": "2026-09-09T22:03:23.095Z"
   }
 }

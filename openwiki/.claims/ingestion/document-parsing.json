@@ -1,21 +1,21 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:7146f8e0a6c468350f8be2afc79f4104a302710406ff4082cecc61c4c9e84a02",
+  "pageVersion": "sha256:8b16e3363f31678f2aa5dcf07422f28010a09d6efb5577cc264cd0bb07b53da1",
   "claims": [
     {
       "id": "claim_849893926f3c48d096e1df85fd388c05",
-      "statement": "Triage enumerates the corpus directory non-recursively in sorted order, filtering on canonical extension sets declared in triage.py (PDF_EXTS, TEXT_EXTS, UNSUPPORTED_EXTS and their union SUPPORTED_EXTS) which are the single source of truth shared with the parser.",
+      "statement": "Triage enumerates the corpus directory non-recursively in sorted order, filtering on canonical extension sets declared in triage.py (PDF_EXTS, TEXT_EXTS, OFFICE_EXTS and their union SUPPORTED_EXTS) which are the single source of truth shared with the parser.",
       "evidence": [
         {
           "resource": "repo://src/cqg/parse.py#L8-L8",
-          "version": "repo-lines-v1:sha256:0405e388eddf3d9271ec42f08a7659a84fe77305367d38c3f34081f64c4bbdb7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQwNWUzODhlZGRmM2Q5MjcxZWM0MmYwOGE3NjU5YTg0ZmU3NzMwNTM2N2QzOGMzZjM0MDgxZjY0YzRiYmRiNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQwNWUzODhlZGRmM2Q5MjcxZWM0MmYwOGE3NjU5YTg0ZmU3NzMwNTM2N2QzOGMzZjM0MDgxZjY0YzRiYmRiNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTYyYTk1YWI2NWU2ZGIwY2FhMGY1NjA4OTFkYjY1ZTJjMjAzYmEyNjE1MTU1ZDIwZjU3OTc2ZGNlNDU1MWZkMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTVkMWYyNDlhZWE3ZmVmNTU2MTQ5YWRjMTIxYjhmMTc1Nzc1MzU0MWMyMzc1NWRjY2JmMWUyYzllNjRkYzVhMSJ9"
+          "version": "repo-lines-v1:sha256:6060c44d6b21fa00ad011dfc2ed97493581e907680c6ee55e0ab670c58c0e5e7:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA2MGM0NGQ2YjIxZmEwMGFkMDExZGZjMmVkOTc0OTM1ODFlOTA3NjgwYzZlZTU1ZTBhYjY3MGM1OGMwZTVlNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjA2MGM0NGQ2YjIxZmEwMGFkMDExZGZjMmVkOTc0OTM1ODFlOTA3NjgwYzZlZTU1ZTBhYjY3MGM1OGMwZTVlNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTYyYTk1YWI2NWU2ZGIwY2FhMGY1NjA4OTFkYjY1ZTJjMjAzYmEyNjE1MTU1ZDIwZjU3OTc2ZGNlNDU1MWZkMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTVkMWYyNDlhZWE3ZmVmNTU2MTQ5YWRjMTIxYjhmMTc1Nzc1MzU0MWMyMzc1NWRjY2JmMWUyYzllNjRkYzVhMSJ9"
         },
         {
-          "resource": "repo://src/cqg/triage.py#L5-L11",
-          "version": "repo-lines-v1:sha256:bfd9760b458d609b9703b68862df179186ee8bee898e8711699c42b862857758:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGE1YWZjZTc0M2ZlZjE5YmU5YzM5M2IwNjRkYzJiMDhhNzJmMDFlZDZmNDUyNDQ1NmUxNjU1MzlkNjQ5MGJiNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ2YzNiNjlmZjhmN2RmMTA2NmE4ZjdiZWI5NDVmOWQ4NzRiYjVhZmFmNTYxNmI3YmVlYTNiMDQyZmFkMTFhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTU2NGI0ZmU3YzM0NDU2ZDljMzhkZDgzYmQxNzc4M2EzYmFjZTA2MTEwZjA3YmU4OTkwNTRhNzU4YmFkYmExZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2Q0ZGZiNDU1NmY0OGI5ZTQ4NTVhYTUxMWZiOGY0NzNkMzI3ODRhZmY0Y2FmMzBhYWY5NjdiZWFlY2I5OGVhZCJ9"
+          "resource": "repo://src/cqg/triage.py#L4-L11",
+          "version": "repo-lines-v1:sha256:4587c698f6442ea985f4cbeb2eee4881cb90602b6f0df2ddcff42a8170c89432:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFiNTA0MDY2ZTg1ZmZhYzg1ODlkMWVjNDQyMWRjY2Q3MzJjYzQxOTE0OGRkNjdhNTk4OWVlNDQ5NjczODM5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzAxZmEwNGQ1NzAzODE2MDNhYmUxZjcyMmZmNDI5M2VkZTRkMmU4MjEwYzFkMDdmMGZmMWE0YTJmNzI2MjljNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTJkMzQxOWU0YTFkNWYyZDI2ODU4MTkwODE0ZGQ2N2E4NGMwMjU1NDE5ZGQ3NDMxZWMxY2U5MzE3ZDI2MTIxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjIyNWMxNzhjY2MyYzMxNzNmYjk0YTdiZDUxYTdhMjZhM2FjOTA2ZDk3ZjU3ZWJjZGJhMTg3ZWI5NmU1ZjljMCJ9"
         },
         {
-          "resource": "repo://src/cqg/triage.py#L52-L54",
+          "resource": "repo://src/cqg/triage.py#L72-L74",
           "version": "repo-lines-v1:sha256:122129155e56203506be7d6abebb71a55400c47616af620b7eb018d3a36d77be:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTRhZmQ3YTQzZGI3ZWU3ZWQ3ODZkYTU1MDAzM2YwMTIyMTNjYmExNmFkOWFjNWQ3YjlkYmFlZTc0YzY1MGY5MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGYyNTUzYzQyNzJiZTYwYmI5NGU5MjE0N2FhNjk0YmIyYTAxNDEwN2ZhYTA5NzcxZWNiYjM3YTBhMTc2MjAyYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzI5MzQyY2FmZWQ1ODdkODdkMTE5MzkxZjQ5NjZkOTVjMjU0ZDgyYjk4YTgwZTgyZDUyMDQ1MTUzYjFkNjJkOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         }
       ]
@@ -216,15 +216,19 @@
     },
     {
       "id": "claim_452ce47dce464385b7cad28649cf97eb",
-      "statement": "Non-PDF input is classified by extension alone before any PDF inspection, into `text` for parseable plain-text formats and `unsupported_format` for office formats cqg cannot open.",
+      "statement": "Non-PDF input is classified by extension alone before any PDF inspection, into `text` for plain-text formats and `office` for .docx/.pptx; `unsupported_format` remains for any other extension and is reachable only by calling triage_file directly, since the directory walk filters on SUPPORTED_EXTS.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/triage.py#L17-L26",
-          "version": "repo-lines-v1:sha256:1544398afc8331bd1581494eb0d9f69143727a551a03d5c5de165fd164d64e77:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxMTM0MjNiZmU0MzlhNjZhNTU1NDJhMTdlNWEwZGZiZDU3OTAzM2FjNzFjYTdhN2JmYzIyNGJiZWNiOGFkNDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNzI0NDEyNjIxNTU3OTE1M2UwOGViMjBiMDZhNWY1ZWIzMzE2ZWY1NDBkOTE3YjQyNGM4ZjQ1Njc5MTRjZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2M2NlNDYwOWE1OWUwZTEzODBjNGI2OTU1NDJlYmZkODllMzQ5ODgzODUzYzFiMzA0MTJjMWJiNTRmYTlkYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4M2Y0YjIyOTZkYmQyM2VmZGNkMjFiZTBiZTNhOGQ4NjY1NTI3NjA4MzE3NWIxZWNjYzI4MmVmYTMwMTM4MWQifQ"
+          "resource": "repo://src/cqg/triage.py#L28-L46",
+          "version": "repo-lines-v1:sha256:aebd742c03219b4e8cb2496bb688bbc01d82fc397c3c436bc8140ff1c70b4460:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxMTM0MjNiZmU0MzlhNjZhNTU1NDJhMTdlNWEwZGZiZDU3OTAzM2FjNzFjYTdhN2JmYzIyNGJiZWNiOGFkNDciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNzI0NDEyNjIxNTU3OTE1M2UwOGViMjBiMDZhNWY1ZWIzMzE2ZWY1NDBkOTE3YjQyNGM4ZjQ1Njc5MTRjZWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2M2NlNDYwOWE1OWUwZTEzODBjNGI2OTU1NDJlYmZkODllMzQ5ODgzODUzYzFiMzA0MTJjMWJiNTRmYTlkYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4M2Y0YjIyOTZkYmQyM2VmZGNkMjFiZTBiZTNhOGQ4NjY1NTI3NjA4MzE3NWIxZWNjYzI4MmVmYTMwMTM4MWQifQ"
         },
         {
-          "resource": "repo://tests/test_triage.py#L17-L33",
-          "version": "repo-lines-v1:sha256:1f796357bccaa726bbd5a52be411f8078a3a83dc789da76bfe93d5fb5cbe2203:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhOWY4Zjc0MGQwMmNlNmFlYjQ0ZWJmZmZlZjE0OGFlMWRlN2JkYjI2MzQwMzA4MDVhMWI3M2M0Zjc5MjMxZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU4ZjI2ZjNlZWY3NWVmOWI4MDRlOWVjOGEyNGQ4ZDJiYmRlZGU4MTYwZTc5ZDBkMjkzNWIxZjUwYmIxMmY2ZDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczNWMxNGUxNTFkZjk5YzZkMTQ3OGM5OTFmYWJkZWNiNTBlOGUwYjU4NGJhYzdlMjI4ODZjMDBmODc0ZjIyZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI5YzVkZjg5M2YxOWExYTIwNWYyMzY3ZjUwNTcwMTljYWM3MGM4ZjRmNDNhMjEzZjJmODQ4ZDU5ZjNjNjU4ZTUifQ"
+          "resource": "repo://tests/test_triage.py#L33-L53",
+          "version": "repo-lines-v1:sha256:171d3606b16ff94293a6c7c7cb5914802184378ff36c5a803b2de9738ec515ac:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhOWY4Zjc0MGQwMmNlNmFlYjQ0ZWJmZmZlZjE0OGFlMWRlN2JkYjI2MzQwMzA4MDVhMWI3M2M0Zjc5MjMxZTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiY2UwNjgyOTI3MTI1YzA4NGZkMWM5MjAyMmQ0NmQzODNmZWEyOTA1MTJlOTc5N2E2Zjc4YzViYzE4MGNjZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNmZmVmODQxOGE2M2M4ZWJmYWYyNzRjMjg5MzZmZmIzZWFkYTZjNmUyODM1MmEyNzc3ZTViZDRmMjY3Y2Y3MmQifQ"
+        },
+        {
+          "resource": "repo://tests/test_triage.py#L82-L88",
+          "version": "repo-lines-v1:sha256:b2f2236b16d727cd60def48f0fc3cb19d7bfafe25e2f7ed607b4b9b04c6fb3c0:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjRkNzRmYThlNzBlN2FlMmRlYjc3NmRiOWZiYzkzYWI1ODQ5ODc0YTI3ZGQ1M2Q4N2VmOWFiMjFjOTg5MjZkOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWZjYjE2YThiODVhOWE0NjIyZGNhZDhjZTAwMDFkODhmM2IzMWNlM2Q3OGI3N2UxZTRmZjE5MzQ5Yjc4MzM2MiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmFlNjgwY2M2NTZmYjM1YTAxNzgyNDNmNmIyNTMyNjc0OTlmNGI2YTFmNDE5MmRhYzk5NDQ4ZmNkZjgxNjZlNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         }
       ]
     },
@@ -265,12 +269,12 @@
       "statement": "Plain-text formats are parsed and scored like any other document via a dedicated path that reads the file, applies the same NFKC normalization and splits on blank lines into text blocks, requiring no PDF machinery and no additional dependency.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/parse.py#L198-L206",
-          "version": "repo-lines-v1:sha256:79b6a2af52fc0b561eb088b2feb133b5a4a3de7c3c2765504854720fd6298288:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ1NjYyZjc5NTE3Y2VhYTliZGFlMzQ1Y2JkYWU5NjZhZDI5NDg3OGYxODIyMjc5Mzk4YzAxOTljM2YzNzA3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzg2Yjg1NDhkY2U2N2U2YzU4MmM3ZjJjYzY4YTBkMjUxMDYxOGM3NDZkMDg2Mjg1N2E4M2M3NDFlN2JiYzdhZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM4MThiMzg5MGYwOGE3NTM0OWIwZDRmMzk2MzE5MWExNTk4NWU3NmEwOTUzMmIzZDJjNzgxZjZjZTU3MzUzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWYwNzgwMWVmZjhlOGRkOGJjNDUzYzBjZTJjZWRiMmVmN2I5YmRiYWVhOGEwYzhiZDgyMTg1M2I2MDgwN2I3MSJ9"
+          "resource": "repo://src/cqg/parse.py#L198-L207",
+          "version": "repo-lines-v1:sha256:0416ddd3a20c39ac60e8ca6d22bb6eea90dd82a8098db9b1a06e3281cb1929c0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBkNTY2MmY3OTUxN2NlYWE5YmRhZTM0NWNiZGFlOTY2YWQyOTQ4NzhmMTgyMjI3OTM5OGMwMTk5YzNmMzcwNzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjODE4YjM4OTBmMDhhNzUzNDliMGQ0ZjM5NjMxOTFhMTU5ODVlNzZhMDk1MzJiM2QyYzc4MWY2Y2U1NzM1MzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVkZjI0YzFjMGViMmYxZDhlOGNjOThlNmFlNDQ0OWQ1YjRiYjcwNDFhY2FhNmEzN2RmN2Q1MGE5ZTEyMTFhYzcifQ"
         },
         {
-          "resource": "repo://src/cqg/parse.py#L218-L225",
-          "version": "repo-lines-v1:sha256:63dca48384a41ebd7dc9432df6dcd858ad2ae8c8e747cc27b5f7f07e44e132d6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTk5ZDIxODRkZjQ3MTY4ZDRhMzI5YmEzY2EzZjE4OWExNzI0M2ZmZTFiMzRhYjIxODY0YzQxOTg3MTljMTFhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGYwZWVjOTdmMDYyNGVhNzY4OTA5ZWI4OGNmNWUyYzI1OTIzY2QwNGQyYjZjMzJiYmE5N2I4YzEzZDZlNTAxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGMxY2U2YWJmNjU2NDQ2ZDFlNmMwZmIwMmY4MDdmNDNlN2Y2MTE1MmMzNjcyYmEzYWZkY2YyNmE4YzAxMzdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzk3NDBkZDNhMGFlNmM5MjY1MTJjOWQxZjEwOGM1YjcyMjg5ZWJhMWI2NWU1ZmU1MjRiNzA1Y2U4NDcwZTNlYSJ9"
+          "resource": "repo://src/cqg/parse.py#L310-L321",
+          "version": "repo-lines-v1:sha256:1cf38f70f2b548d29e415059c52a692a9f4658327646704a3c5028fde2da416d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjZmFlMmZkYTljNDkxNjQxOTQ2MWYyZDc5NTFmYWRjZjFhMzI5ZWVmYzlmNmNhNWNmYWU2MWViNDZiNDEwOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5OWVmZWRmZDJkOTcwNmQ4OTFjN2JhOTgzZTdmODRlMDVhZDBlMDE5MWMxMzI3OThiZTVlM2MxY2M1MzA0MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkZmI0YjYzYTc2OGQ2N2ZiZDJiOGE1NWQ2ZWQ2ZjYwNWQ2MzJjM2E5M2Y0NTViYWMzZGVlZTcwZDQ3MmMwYjUifQ"
         },
         {
           "resource": "repo://tests/test_parse.py#L283-L294",
@@ -301,16 +305,12 @@
       "statement": "A text ParsedDoc traverses the remaining pipeline safely because pages is None, which disables the per-page confidence cap, and its empty image list makes enrichment a no-op; a test asserts a text document never reaches Docling, pdfminer or pdfplumber.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L119-L120",
-          "version": "repo-lines-v1:sha256:30b10ac632b6f3d4d1d465586d6508729ce88b77e805322fa9e7635b3cc9a4d9:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ4YTllOWMzMjUyODIwYzY1YTgxNjUyMGI4ZGI0OTMyMjgwODQ5ZWM4YzdkMmViNjI3MmFmZGZlYmUwNTljMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzEzYmRiM2E0MGY2ZjVmMDA4NWYxN2NiNmE1Y2M0YjVmZTlkN2JjMmFjZjQ5Y2QxMjFjZjhiNmY2MGM0YmFhMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzQ4MjIwMTJlOGI5Y2I1MGI1YzgwYzQ0ZTc2NmY2ZmZjMjFiN2U3ZjA3ZjlhNDE0NTliY2NlMGM4YjQ1NzNkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWIyYmY0OWU5OWExNDBjMDIwNjIyODJhZGNjNDgyNWQ2ZTZlYzM0OTdmNGE5NjA2NTM4NWE5YjQ2MDE0MjFkNyJ9"
-        },
-        {
-          "resource": "repo://src/cqg/parse.py#L218-L225",
-          "version": "repo-lines-v1:sha256:63dca48384a41ebd7dc9432df6dcd858ad2ae8c8e747cc27b5f7f07e44e132d6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTk5ZDIxODRkZjQ3MTY4ZDRhMzI5YmEzY2EzZjE4OWExNzI0M2ZmZTFiMzRhYjIxODY0YzQxOTg3MTljMTFhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGYwZWVjOTdmMDYyNGVhNzY4OTA5ZWI4OGNmNWUyYzI1OTIzY2QwNGQyYjZjMzJiYmE5N2I4YzEzZDZlNTAxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGMxY2U2YWJmNjU2NDQ2ZDFlNmMwZmIwMmY4MDdmNDNlN2Y2MTE1MmMzNjcyYmEzYWZkY2YyNmE4YzAxMzdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzk3NDBkZDNhMGFlNmM5MjY1MTJjOWQxZjEwOGM1YjcyMjg5ZWJhMWI2NWU1ZmU1MjRiNzA1Y2U4NDcwZTNlYSJ9"
-        },
-        {
           "resource": "repo://src/cqg/parse.py#L74-L77",
           "version": "repo-lines-v1:sha256:2b39f9bfd1bdc3a5142e86867ccd24e7c5e973247c5f0fbec87e64fc5c19df4d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI5ZDQ0NDFmOTlhMTA2OTJhNTMxNDZhOWM2ZTE2MzJjMGJlNDcyYjNjZjAxMTUyMDQ5NWVjYWVmZDUzY2NiMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTllNjlkNDZkN2ZkYzQwMTMxODY1ZDJlMmI3NjViNjUxMjI4ZDE3NmMxNDRmODEyOTc2YzMyY2VhZGJmODM1YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTY0NmE3Y2U5YmFiYjRhZjY1ZjNjZDYzM2E5OTg2NGYxNTUwOThkNzM3M2QwM2IzYzdmYzRmNTFjMjAwZDUzMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTljYmY3ODE5MjhhYzhmM2JmM2E1NTYxNmQyMzM3NTNjZmFjNTU4MjMzZWFjZjRlODM3ZWRkYjEyOWZkZjAzYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L32-L33",
+          "version": "repo-lines-v1:sha256:b4ad28f80de7eacd493016cb303bb78b72556554508133f19ad14f3b976cacec:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU4ZmJmZDZiMmMzNWRjYzdmMGQxZmIyY2E0Mjk2ZTEwM2Q5YWNjM2NmYTBkMDdjZGMyYWU0OTM0YmU0YzY1ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDdmM2JhMGM5Yjc4YmE0NmRhYjMwYmY1OWExMDYzMmIxMTAxN2JkNjI1MDJlMDVlM2RhN2Q1ODJiMWFiNDQ5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWRiNTc5ZDdmNzgyMjk1YmRkMzE4Y2QwY2U2ZTdmOTQ4NDcwNThiNjUzODYwN2JhNzA4Yzk0N2I3NTNkNjk1MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODJiN2RmNWQ4MmNhODdmNjI2OTFkMjZlOTYzYzhiYzg3MGI3MTE0NTk5Yzc1MWQ3MjZmNTk5MWM1NTRkZjVjMiJ9"
         },
         {
           "resource": "repo://tests/test_parse.py#L296-L306",
@@ -319,26 +319,138 @@
       ]
     },
     {
-      "id": "claim_e2541b717d054af5921ce6440c70b533",
-      "statement": "Office formats cqg cannot open remain admitted by triage but are short-circuited in the run orchestration with an `unsupported_format:<ext>` flag before any parsing is attempted, so the file is never opened — deliberately distinct from `unreadable`, which means the document was opened and yielded nothing.",
+      "id": "claim_6b1acb2b38f4491395453b5d868ad497",
+      "statement": "Word and PowerPoint documents are extracted directly by _docx_extraction and _pptx_extraction, dispatched by extension in _direct_extraction before the parser setting is consulted, so neither format reaches Docling, pdfminer or pdfplumber; a test asserts this by making all three raise.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L95-L107",
-          "version": "repo-lines-v1:sha256:59f2c6d8c8e58c8524eb79222a0d62664e26447d64b7e86c55666c5dfa488fe6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjhmOGQyMzc1Nzc1NTk2MjFjODI2MTViMjA1Y2FiNjk5NmY1MzEwNWFkZThkYmQ0NGRjMDVhZWM4OGNkOGYifQ"
+          "resource": "repo://src/cqg/parse.py#L310-L321",
+          "version": "repo-lines-v1:sha256:1cf38f70f2b548d29e415059c52a692a9f4658327646704a3c5028fde2da416d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjZmFlMmZkYTljNDkxNjQxOTQ2MWYyZDc5NTFmYWRjZjFhMzI5ZWVmYzlmNmNhNWNmYWU2MWViNDZiNDEwOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5OWVmZWRmZDJkOTcwNmQ4OTFjN2JhOTgzZTdmODRlMDVhZDBlMDE5MWMxMzI3OThiZTVlM2MxY2M1MzA0MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkZmI0YjYzYTc2OGQ2N2ZiZDJiOGE1NWQ2ZWQ2ZjYwNWQ2MzJjM2E5M2Y0NTViYWMzZGVlZTcwZDQ3MmMwYjUifQ"
         },
         {
-          "resource": "repo://src/cqg/triage.py#L8-L11",
-          "version": "repo-lines-v1:sha256:811e1039be3bc93bfe2f0804fd246c9f7e1e827daf814d63fadf369d5e37223f:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2I4ZDY3MDdjZTdjNDg1ZTQ2ZmY5MDgwMjE3NTI2NTE4ZTFmMDEwOTM2OTI4N2U1YmMwZDQyNTQxNDQ4ZjRhOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ2YzNiNjlmZjhmN2RmMTA2NmE4ZjdiZWI5NDVmOWQ4NzRiYjVhZmFmNTYxNmI3YmVlYTNiMDQyZmFkMTFhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTRmYzM3ZWI1YzM2YmQ4N2E1ZDI3MWM2OTAzNWJlMTQ0N2E2YjczYjg0ODI1ZTExMTgzNGFiYTYwYzBmOWRhYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2Q0ZGZiNDU1NmY0OGI5ZTQ4NTVhYTUxMWZiOGY0NzNkMzI3ODRhZmY0Y2FmMzBhYWY5NjdiZWFlY2I5OGVhZCJ9"
+          "resource": "repo://src/cqg/parse.py#L323-L349",
+          "version": "repo-lines-v1:sha256:2e18979d5e78174ae808a0c6711f3da80067464f030c9e11c8fb5b259799d5c7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViMjQ3MGUzM2RmYWM3NDkwZDI4M2FkNmE4YzFiMzY0YjZkMzMxY2Y4OGRiMTdkMGE5OGQwNmQxYTRjNDUwOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA0NmI2MTYxNDdhYmYzMzY4MjI2ZTcyY2I3NTc5NmYyYjMyNDVhZGRiYzhkNmFmNzg4N2Q2MjY5MmM4MGMzZGYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIwYmIyNGM0NzIzNWZiMTI3Yjg0ZGExMjQ3ZGRkMDg4YWQzMjQyNzc2MjAyMzMzYjk2MzVjZTA1YTQ4MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg2YmJkMmJlOTMzNjk4NjkwNDNlYTcyNGM5NjkxZWQ4MDg5MGY5NjRjNjY1NDliNmZkY2RjZDJmNDY4MmNmN2YifQ"
         },
         {
-          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
-          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
+          "resource": "repo://tests/test_parse.py#L374-L387",
+          "version": "repo-lines-v1:sha256:4e14668f57845b75d514a7e5efaaaf089b7c77e788d8f0da7637bd46333e75d7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OTQyMmE0OTEwMDA4NDFjNTJkYTQzODBiY2MwNTIzNzQ0NmYxNDVhMTRhNjczMWUxMWMzOGIyZDU4NTZkYWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyYjg3YjJmYTQyNmVjZTQ5NzA3ODQ1NGYwZmNjZjI4YTY5NDgzM2U2OWYyNWVjMzg2ZTNmMGE4MmUzOWNkNjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE5MWEzZjg0YTEwYTg5NGU1YmI3ZjVjZWE1MmY2M2I1N2IyOWIyYmYxZGU2NzMyOGMyNDY2OWZmYjIxYzdlNTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9f4fe0b9c29a41199785c48f82558a04",
+      "statement": "The Word extractor walks the document body's XML children in order rather than reading the paragraphs and tables collections separately, so a table keeps its position in the extracted text instead of being appended at the end.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L222-L258",
+          "version": "repo-lines-v1:sha256:a269a1404099716765bd34ecfcf77cdb39306aa7063f5b1156fea2759ced7903:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMDNhOWFhZTRlNjM4OTQ5ZTkyOWQyMmJiYWY1MGYzM2M1OTQyNDQ5NmUwZjk1MTRkOTY4ZDdmOTNmZmJiOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ0ZTczYTQ4NTU2MjcxNTg2YTRiOWM3NzIyMzgwODViMGE4ZDVlMWEzMTA1NGY1NGNhYTllN2NlMWE3NTU4ODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxNzlkNjZkZjUzMTM5MmY5MmE2YWJjMTY2ZTIyMDY1MDlmY2FmYzljNmEzMjVhNDkzMDFiMTcwNDZhMTlhMjkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_326bd331eb0840c3a9091c9ad8d536cf",
+      "statement": "Word heading levels are carried into the extracted markdown as `#` prefixes rather than flattened into plain paragraphs, because the structure criteria are scored on the markdown.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L232-L248",
+          "version": "repo-lines-v1:sha256:40551953ad34659e2c8fbd6b4aabd0859ebe808be7d55f19f10c9bcf5cacbd0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI0YzI5NWMyZWI3NzBlOGQwMTZiZTRkNzJkODRiZjhlZTc0MjA0YmJhOGRmMjE1ZjVjOGIzZjM5YjkwZjgxNzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE1N2QyYmZkYWI1ZjI1ZTc5ZTIzZWI0MjlhMjg1N2EwYTcxOTc3NTM3NDA0N2ZiNjViZGM1MDU0ODkzMzQyMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVmNWNhM2RjYjg1NThhMmQzYmJmZTZiZGQxMjE4MDYyM2Y1N2MyODBmZDBkMDhiOThmOWM1YzhkY2Y3OTIwMzMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxYjJkN2U2MzQxZGYwNjdlMTgyOTU3MjVhNjY2YWIwOTFlZWI3NTU0NDU0NjE1ZTZiYTE5ZGRhODgyZjNhZTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_22af1f904bb74a339a01c28d4d588b9b",
+      "statement": "PowerPoint speaker notes are included in the extracted text, guarded by slide.has_notes_slide, so prose a RAG system would ingest enters the quality verdict rather than being dropped.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L288-L297",
+          "version": "repo-lines-v1:sha256:59651abb3caf151403f6453f6aaabeea935ffdb294807c4b6dbebefae681cb9a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwMzlkMjkwYjIzMmU3MTRjOWIwNDQ1YTRiMzIzNTBlYzE4NTFiMjVhNjQzOWFlN2NjZmM4ZmVhZDQ4Y2M3ZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhNTU0ZjhjMTI5MzU0MmQ1Y2RkNzhlODA3ZDY2MTUzYTcxMDBjMjE0YzQyNmQ3OTA0YmZlMDY2MGZkNTc5ZGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNhZTkzMWMwZGRjZWExMDUyMzE1NTM3NGJhNmUzYWJjYzM3ZTIyN2NlNTc2YjM0NDg2YmY0Y2JlNGQxNzVkN2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNhYTdkNDNiMDJlMzFiMDUwMDEzMzljZDc1NDdjZGY4NTI1NTg4YjQwMjcwNWY3Y2ZhZGE3YWUwZTNjNzAxYjMifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L362-L372",
+          "version": "repo-lines-v1:sha256:432883c1012a3ed4118bccb97e125d5013392896f73ad9b953813b6dc3347d9e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxOWIzNjQ2YWFiMjcyYmRmZWQyMTFhMjRlMTYwNTUwMjExM2M3ZGRhYjM0MzdjMmVmYmQ5ZmI4MWIxOWZkZjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEzZmVhZmIxMTU5MzdiNWNiYWFhMmZkOWVkNjM3NzBhMmQ1OWQzOTgyOWMyZjM1YzY1NTM2Y2Y3ZDdiMDc4MjMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ1YmVhYzMwYzg2ZmQ4MWJjYzQ1MmQ2MGRlMjAxNDk5YTVlY2QwYjE5ZjhlYWRkYTU2Yzk5NmU5NTRmNWU4ZWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_03d732c13dbd4f3eb4c3cfc1d5804dcc",
+      "statement": "Tables from both office formats are rendered as markdown pipe tables and typed as Block(kind=\"table\"), and pictures as Block(kind=\"image\"), so the deterministic scorers see an office document with the same block vocabulary as a PDF.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L210-L220",
+          "version": "repo-lines-v1:sha256:c9af632687377b4826177f184b9db2bb0ca82bd3954bc562ebfdc5badae5dc5f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc4OWE3MTI3NmUxYmEzNDEyNTExNWZmOTQxODhkNWM2NWVmYjc5ZTcyYTU3YWFiZTdlMWQxNTlkNjkwOGI5MTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZhM2NmNTE5MjM1NGY3MTYxNWFjNTEwMzRiM2U5N2MyMGVkYTk5NjQzZmNhZjViYmU2ZDQxYWQ1OWJkMTIxNjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU4MWNmNGJmNzA2ZThmODRhN2U0Y2VlODY5NWFlY2JjYjQ0MWM3OWU0MDBiNmE1NTFiZTA2ZjZlNDI3MzI2MDcifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L249-L259",
+          "version": "repo-lines-v1:sha256:20bb06bf3e0f4cdf53b2f89bcb5d28c65876c3acb58f4b1fe41449d037ead99a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1ZmU0MGYwYjQwMjQ0Zjk4OTkyNDdmMmM1NjAzMDBjZTg5NWEyOWYyMWY5YTc1OWRhNTcxYzNlYWIyYTQxYjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZkYjJkODNlM2UzOTFmZjQ2ZTYxZGFiMzFlOWQwMTg5NTMzZmU1ZDRhOWI3NTExNDU4ZmI4YTNiYWI2Y2U1ODAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NDg3Yjk4NTI3YWJmYjBlNjhkNjU3ODZmNDhlYzkyOTQzZmQ1YzBiMzgxNGY5ZTIxMTg5ZGEwYzE0NTliOTAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L277-L286",
+          "version": "repo-lines-v1:sha256:9253718f52bc303f9a480bc91acdf72095c040eb981d4fc39e1ec86ebb98780f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZmEzMmY1NjhlYWJmMDE3OTdiYzk5MDU3ZmFkMWRjNGM5NjY5YjlhODhmNGMxZDU5OGM3YTRkMzcyNzQ0MWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjZTE1OWJmMTgzYzQwMzQyMjNkNjhiZmE5M2NmMjUxMDg1NTc3NTkzNmEwM2U5YzUzN2IzMmViNTdhNTdiNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZDE1ODM2MTAzNGZkZDRiNTZiMWEyZTNiOGE2NTQyYzA2NDc3NmRhMTA3M2NmOTA3Y2M0MTFkZDM3NzVjYjgifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L347-L360",
+          "version": "repo-lines-v1:sha256:f2b3eb498c9c7bba276af067af45cc258886292c40997ab633c310bebcddd5d2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmYjgxMmFiZDdmNTFmOWM5MDY5YzU1ZjFlZWJmNjRmNGMzYjRjYTNkOGQyMzkwNWVmY2FhNDY3MzE3NDhmN2EiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiY2UwNjgyOTI3MTI1YzA4NGZkMWM5MjAyMmQ0NmQzODNmZWEyOTA1MTJlOTc5N2E2Zjc4YzViYzE4MGNjZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAwZTc4OGE0ODQ3ZDdlYTE1OTZlZGNhMWQ3MDNlMTI2ZmYwNzdjZWNmN2YzNzRlMjk3Yjc5ZWFhM2M0ZmZlNmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_40e9f7ae5ad04502b21b706f7e00fb7b",
+      "statement": "Office extraction emits no ImageRef at all: ImageRef carries PDF-point geometry read by the enrichment cropper, and neither python-docx nor python-pptx exposes anything comparable, so images are counted as blocks without being located.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L310-L316",
+          "version": "repo-lines-v1:sha256:26b34e5794130ab4f62d879a86b23c9061148aad74433ed89ecc06a14b512193:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmNmYWUyZmRhOWM0OTE2NDE5NDYxZjJkNzk1MWZhZGNmMWEzMjllZWZjOWY2Y2E1Y2ZhZTYxZWI0NmI0MTA4ZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGU4ZmJmZDZiMmMzNWRjYzdmMGQxZmIyY2E0Mjk2ZTEwM2Q5YWNjM2NmYTBkMDdjZGMyYWU0OTM0YmU0YzY1ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjk5ZWZlZGZkMmQ5NzA2ZDg5MWM3YmE5ODNlN2Y4NGUwNWFkMGUwMTkxYzEzMjc5OGJlNWUzYzFjYzUzMDQyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjg0MTI5NzQxYjBhNmJiMGFhOTkyMTAyOTUwZGNiYTY1Y2NlMDIyYTIzYmViNWIzOTBjM2Y4YjQyYTZhMTA4YyJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L389-L397",
+          "version": "repo-lines-v1:sha256:89ed137b721c1355edec57b244fb2318ead176adb6b126ba09a4d768ac5cb8dc:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjMzYWRhZDAyMmI4ZjM2NjZhMmNlZDQyMzNhOTQ4YTQ3NmQxMjZhMzUzZjJmNjQ3YzcwZDNlNzE5YTU0OWVkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWVlMjE1NjUyN2ZiOGI5ZGNmYzA2MTJjNGZjNThhZTcxZTE2MmY4M2Y3YmZiNWZlOTYwNDY0YjYxM2YxNTgyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE5YzlmYWQ5MDMwYTMyZGNlYTBlMDE5ZjkyY2JjY2E1NGU5MzY2NjQxYzBmNTI1MGM4MDE1NDI3MDA5NTM4MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b4a5af5b4db549528f5eb582ef212dba",
+      "statement": "Triage reports the real slide count as `pages` for a .pptx and None for a .docx, because pages feeds the per-page density cap in parse confidence and Word pagination is a renderer artefact python-docx cannot report.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/triage.py#L34-L40",
+          "version": "repo-lines-v1:sha256:faa527538be806ffe6ca9948eb72f12c7455e5394da7da1ad37a7a0689e41445:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTk3ZjNkN2Q0ODVjYzg2NjdkY2Y3YzVhZjlkM2I1YzBlYmZkZTc4MTdlZTNhMDAwYTYyMzBlY2JhMzcyMjdkMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ0NzYxZGQxZDJlODc5ZTE5YTJkYzBiOWJlNGFkNzc5YzdmYjYyMjE1MTc5M2NkNGVmNDlkMjQ1YWU2MzI2ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGI4MjljZjY4Nzc2OGYxYTQyZWQzZjg3NTM5Yzk5NDU3MDUyNWZhMTNjYzM2MDczZDRlMmY3MmFmODZmYjlkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTY4Njk2NDkwMmQzMjVhOWM0MGEzYjdhNTAwMDlhOWI4NGYyYWFhNTBkODljM2Q1MTI5Yjg0ZWFjYTA4NmZiOSJ9"
+        },
+        {
+          "resource": "repo://tests/test_triage.py#L55-L67",
+          "version": "repo-lines-v1:sha256:0f7c293c40595580a6235b3c8a26c4008d2704c8e645d86af023647f1e888c5e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ0YTk0NDJmOTFiZGEyNDc4MWMyNjkzOTQwMTU5MjgwYjM4ZGE3YmNiOGM1ZTgxY2JkMTM3YWJjNDAwMDAwODgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRkZDYzMzUwZGJjOWFlZGJlMDcwM2IxM2M1ZjU5M2E1MzZhMWFjYjQ0NjliMDcwMTRjOGVkYzYyYmU2NzVjMTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4MTgzYTBjZjA0Yzg0YWIwZTY3YWY5NzhmMDkxNTU2YzM2ZjNlZmNkMmVhZjlkNzJmNDdmYmM5NzBiMTc0ZWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_76dfb9e7938d449994cc5741a87b5727",
+      "statement": "A .pptx whose slide count cannot be read degrades to pages=None and keeps the `office` category rather than being pre-judged unreadable at triage, leaving the unreadable verdict to the parser.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/triage.py#L14-L22",
+          "version": "repo-lines-v1:sha256:225888211de7ff602f403bbf2aed0294455b745afad054251282ad6de32974ac:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI3MjQwY2JjNDM0NmRhZTc3YmJlNThlMDg5NTRlZWE1ZjE0NzFkMjc2MGE3MDZmZjc3Mjc5YjUxNzViZjk4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWU3Yzk1N2JjYjQ0ZmI2NzNjOThiMDA1MGE3NWQzODA4MmRiODFkOTE4ZGUzMTNhM2YwN2MxMjM1MzA2ZDdlYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjU2MmJmOWUxNTRiNDU2ZDNhZTcyNDRiYWIzOGY5NzE2NjhiOWM2MWRiOGVjOWI5MzBlZjZhYTZjYTc4NzExOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2Q0ZGZiNDU1NmY0OGI5ZTQ4NTVhYTUxMWZiOGY0NzNkMzI3ODRhZmY0Y2FmMzBhYWY5NjdiZWFlY2I5OGVhZCJ9"
+        },
+        {
+          "resource": "repo://tests/test_triage.py#L69-L80",
+          "version": "repo-lines-v1:sha256:2b45060c1f62787c0ecba7b7e4d2ee2390a713cf4a0aa9604f0a49fed3a20261:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhMzg0OWQxNzc2Zjc4YzQ5MmFjNjQyZTllYzA4Y2VhNjM4NWFiOTVjYjFiMDlmYzRkNTg5Y2E2NjQ2YzZmYTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVkMzg4YmQ0ZDhjYmVlYWJmYmMzOTRlNDA3ODEwNjk5NjQ4ZjA0MDc0NzFlZTg2NTJmODdjMzBmZDEzOTk3YmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkMWI0NWFkODEzMmY2NzZhY2EwODVmY2UyYTcxZGM1ZWFhNDQ1N2ZjNTAyOWY5NzkwYTNjMzIzZGM3YjJkOTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6c66a5516680490a8bc402043a29cd1e",
+      "statement": "A corrupt office file makes the extraction dispatch raise, which parse_document catches to return an empty-markdown ParsedDoc at confidence 0.0 with an unreadable block, so the file lands as `unreadable` rather than propagating an exception.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L331-L343",
+          "version": "repo-lines-v1:sha256:2382c9a04d9a30b596eb0d727e46537044f15d5c01ecf0aefaf305f9ec38f97e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2MTlkYzVlNjgwY2ViN2M4ZTZiNjMzNzgzNWJmZWNhNzM1YWQ0NWIzZWMxYzFlZmJhYWM5M2NlMjdlYzE5ZGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlYzIwOTkxMzUwNmY2YmYwZWFiNzk3OGI4MWRhYzFkOTEyOWNkNTY4MzlmYzBkOTllMDhjNDRlYTRjZjcxNTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdjMmMwMjYwMmRhYzZhN2U2MzlhYzhmNWU0YjJiYzgzOGE4MzhiZjIxNTA3OTU3OWZkYzg1ZWE0ZmVkNmZlZTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUxZTZmZDIyZTk5NzJkNWJiN2RjNTUxMzgxYzA0Y2ZmOTUyMzQ5ZDk4Yjc3YWUzYTExOTk2OGY3MjNmY2QzOTMifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L399-L409",
+          "version": "repo-lines-v1:sha256:3283027984221ee8a9899ad4f7ae64ffe21d12d2055478d1105233ed73b48253:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYxMTEwYjVmMTE5MjI2YWVhNDczNjUyYTA3YmM5YzdmYmU2ZTVhZTNkNTNjYWYwOGU3ZTlkZDlmYmJhOTI4NWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4NmU3MGNjYzFlMzgzOTE0MDEyYzUxYmI1NTllY2UxZTc2ZDAzZjZiMmUwZmM3NThlMmQxY2FlMzZhOTZhYTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwNmU3NDRjNTEyN2Y1ZGFkYTcwMmE3M2E1Njc5MTNlOGIzNWM0MGI5ZjVlMWQxN2QxMGZlMjA1YWJmOGJiZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-09T21:41:51.597Z"
+    "at": "2026-09-09T22:03:23.095Z"
   }
 }

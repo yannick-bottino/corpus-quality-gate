@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:bd5345dcf113d5145e818eb0867a41c743e5a59e222be7fd54ddcd585d2c3507",
+  "pageVersion": "sha256:202898e493c94c86dfc2aa16c1e978e11b201a772f4221edd2742182f21224de",
   "claims": [
     {
       "id": "claim_10b153e0d13048009e4cdf03ea3fbce2",
@@ -254,21 +254,39 @@
     },
     {
       "id": "claim_c3fab0025f0e443b85dbfd8f5509d11c",
-      "statement": "The golden loop skips formats cqg cannot open by checking the triage category before parsing, rather than attempting an extraction that could only yield nothing; plain-text documents are parsed like PDFs and are usable golden-set sources.",
+      "statement": "The golden loop calls the same parse_document as `run`, so every format that stage supports (PDF, .txt, .md, .docx, .pptx) is a usable golden-set source; its triage-category guard against formats cqg has no parser for is currently inert because no shipped extension is in that state.",
       "evidence": [
         {
           "resource": "repo://src/cqg/cli.py#L41-L48",
           "version": "repo-lines-v1:sha256:66baa88b222996c1b0ccac45dc91e3069c5789410bc84237ed5ac10f3dc88a08:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc3YzAwYjNmNzc1ZDgwNDE0ZmY1MmYyNGE0MGQ2ZWZmYzVmNjA3M2RlZDkzOTg4ZTIwZGIyN2EwNDlmZDBhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ4YTllOWMzMjUyODIwYzY1YTgxNjUyMGI4ZGI0OTMyMjgwODQ5ZWM4YzdkMmViNjI3MmFmZGZlYmUwNTljMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGM0ZmRlMjNkNzdjMmMxMmM3ZTgwMmEwNjk5NmUwOWMyNTVkYjlhODNmYjAzZDRjNWYwNjYzYzlkMjA0MDE2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQ5NGRkNjMyMzg5MzM5Yzg0ZDhiYTUxYTljODg4MDYyMGUxYWNhYzkwOGQ5ZjQ3ZDdkZmVjNTU3YzM5YmRmMyJ9"
         },
         {
-          "resource": "repo://src/cqg/parse.py#L218-L225",
-          "version": "repo-lines-v1:sha256:63dca48384a41ebd7dc9432df6dcd858ad2ae8c8e747cc27b5f7f07e44e132d6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTk5ZDIxODRkZjQ3MTY4ZDRhMzI5YmEzY2EzZjE4OWExNzI0M2ZmZTFiMzRhYjIxODY0YzQxOTg3MTljMTFhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGYwZWVjOTdmMDYyNGVhNzY4OTA5ZWI4OGNmNWUyYzI1OTIzY2QwNGQyYjZjMzJiYmE5N2I4YzEzZDZlNTAxNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGMxY2U2YWJmNjU2NDQ2ZDFlNmMwZmIwMmY4MDdmNDNlN2Y2MTE1MmMzNjcyYmEzYWZkY2YyNmE4YzAxMzdhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzk3NDBkZDNhMGFlNmM5MjY1MTJjOWQxZjEwOGM1YjcyMjg5ZWJhMWI2NWU1ZmU1MjRiNzA1Y2U4NDcwZTNlYSJ9"
+          "resource": "repo://src/cqg/parse.py#L310-L321",
+          "version": "repo-lines-v1:sha256:1cf38f70f2b548d29e415059c52a692a9f4658327646704a3c5028fde2da416d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjZmFlMmZkYTljNDkxNjQxOTQ2MWYyZDc5NTFmYWRjZjFhMzI5ZWVmYzlmNmNhNWNmYWU2MWViNDZiNDEwOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5OWVmZWRmZDJkOTcwNmQ4OTFjN2JhOTgzZTdmODRlMDVhZDBlMDE5MWMxMzI3OThiZTVlM2MxY2M1MzA0MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkZmI0YjYzYTc2OGQ2N2ZiZDJiOGE1NWQ2ZWQ2ZjYwNWQ2MzJjM2E5M2Y0NTViYWMzZGVlZTcwZDQ3MmMwYjUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/triage.py#L4-L11",
+          "version": "repo-lines-v1:sha256:4587c698f6442ea985f4cbeb2eee4881cb90602b6f0df2ddcff42a8170c89432:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFiNTA0MDY2ZTg1ZmZhYzg1ODlkMWVjNDQyMWRjY2Q3MzJjYzQxOTE0OGRkNjdhNTk4OWVlNDQ5NjczODM5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzAxZmEwNGQ1NzAzODE2MDNhYmUxZjcyMmZmNDI5M2VkZTRkMmU4MjEwYzFkMDdmMGZmMWE0YTJmNzI2MjljNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTJkMzQxOWU0YTFkNWYyZDI2ODU4MTkwODE0ZGQ2N2E4NGMwMjU1NDE5ZGQ3NDMxZWMxY2U5MzE3ZDI2MTIxZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjIyNWMxNzhjY2MyYzMxNzNmYjk0YTdiZDUxYTdhMjZhM2FjOTA2ZDk3ZjU3ZWJjZGJhMTg3ZWI5NmU1ZjljMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f34800eb071427a9d02876a5d5deab6",
+      "statement": "run_golden computes no config_hash, so the golden Q&A artefacts carry no run fingerprint and two sets generated under different golden.profile, policy or n_questions values cannot be told apart after the fact.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L24-L64",
+          "version": "repo-lines-v1:sha256:7968cf179322385f5c2ff4180ba25deb171dfe205e2ac1a8b8285ddcb7063e3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYTU5ZmFmMzA3ODJhNjMzNjgyZWEwOGQ4OTY2OTE4NzMzMmMwNjZjM2MyZjY5MDlhMWViZDM4NzM1NjA3YmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY1MTAzNTUxMGYyZDkyOGQ1ZGE0Y2Y1NmI3ZWUzMGE1ZDg0MDc1N2Q0MDU2ZDU4ZjVkNjNiZTBjMmE0ZTE2ZTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L66-L76",
+          "version": "repo-lines-v1:sha256:efad77a5583332a82689e70a45c53ed528c0770b6815e2e652f0500010cda593:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhODI1YWE1MTMwMGU3ODM5YTY2OGQ3ODRlODg0NmY0ZWQ3YmFlZTBiZmViOTRkZGY4OGY5NjM4ZmUyOTI2OGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2ZDM4OTA2NjljMDAzNGQzZTNjNDE3Y2JmNWIxMGViYTEwMDZmMmIxMWE4MWE4M2FhZDNiMWVjYWU0ZDYxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZDM0NmNmMDk2OWNkOWY2MzcxZTljNDg5OGJiNjgxODU0YWZhNWZkMzU3YWIxNDExZDI3ZTJkNGViNTJiNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlMzVkOTFkZDUyODY2NzNiODdkNjJiNzYzYjVkYTJmYjY5MTM1NzBhNjkyMWU2NjgwNzk1MTdiMTliMGEwYmMifQ"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-09T21:41:51.597Z"
+    "at": "2026-09-09T22:03:23.095Z"
   }
 }

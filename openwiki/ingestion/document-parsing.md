@@ -1,8 +1,8 @@
 ---
 type: pipeline-stage
 title: Corpus Triage and Document Parsing
-description: How a folder of files becomes ParsedDoc objects — enumeration and classification, the layered Docling/pdfminer/pdfplumber extraction chain, (cid:NNN) font-mapping failure detection with its re-extraction attempt, and how parse_confidence is computed and penalized.
-tags: [parsing, triage, ingestion, pdf, extraction, confidence, robustness]
+description: How a folder of files becomes ParsedDoc objects — enumeration and classification, the direct extractors for text and office formats, the layered Docling/pdfminer/pdfplumber PDF chain, (cid:NNN) font-mapping failure detection with its re-extraction attempt, and how parse_confidence is computed and penalized.
+tags: [parsing, triage, ingestion, pdf, docx, pptx, extraction, confidence, robustness]
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -16,18 +16,16 @@ sources:
     resource: repo://src/cqg/signals.py
   - id: openwiki-source-f2e05a5624d52b19421cdd43
     resource: repo://src/cqg/triage.py
-  - id: openwiki-source-15ffe11df9b60121e2241bb7
-    resource: repo://tests/test_cli_e2e.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
   - id: openwiki-source-348912dd3d0e7f05ba63cd33
     resource: repo://tests/test_signals.py
   - id: openwiki-source-f5f06ff27486b680ea499ebd
     resource: repo://tests/test_triage.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # Corpus Triage and Document Parsing
@@ -49,7 +47,7 @@ reproducible document order across runs. The admitted extensions are declared in
 |---|---|---|
 | `PDF_EXTS` | `.pdf` | The full extraction chain |
 | `TEXT_EXTS` | `.txt`, `.md` | Text carried directly; parsed without PDF machinery |
-| `UNSUPPORTED_EXTS` | `.docx`, `.pptx` | Admitted so they are visible, but never opened |
+| `OFFICE_EXTS` | `.docx`, `.pptx` | Structured text read directly, no PDF machinery |
 
 `SUPPORTED_EXTS` is their union and is what the directory walk filters on.
 
@@ -72,7 +70,12 @@ Non-PDF input is classified before any of that, by extension alone:
 | Category | Extensions | Meaning |
 |---|---|---|
 | `text` | `.txt`, `.md` | Parseable; scored like any other document |
-| `unsupported_format` | `.docx`, `.pptx` | Admitted and flagged; the file is never opened |
+| `office` | `.docx`, `.pptx` | Parseable; `pages` is the slide count for a deck, `None` for Word |
+| `unsupported_format` | anything else | No parser for the extension; flagged before opening |
+
+The last row is reachable only by calling `triage_file` directly: the directory walk filters
+on `SUPPORTED_EXTS`, and every extension in it has a parser. It is kept as the honest
+landing for a format admitted ahead of its parser.
 
 The image count is deliberately best-effort: pypdf can raise on malformed image
 dictionaries, so that inner loop swallows a specific set of exceptions and continues with
@@ -93,9 +96,10 @@ surfaces far from its cause, since the resulting `TypeError` inside `_confidence
 swallowed by the Docling fallback handler. Keyword-only makes that class of positional
 drift impossible rather than merely fixed once, and a test pins the signature.
 
-The triage category is no longer unconsumed, though: it routes the unsupported-format case
-in the [run orchestration](../workflows/run-pipeline.md). That is the right layer for it —
-classification decides *whether to attempt* extraction, not *how* to extract.
+The triage category is still read, but only by the
+[run orchestration](../workflows/run-pipeline.md), where it guards the unsupported-format
+exit. That is the right layer for it — classification decides *whether to attempt*
+extraction, not *how* to extract. Which extractor runs is decided by the extension alone.
 
 The SHA-256 content hash triage computes for every file still has no consumer. It remains
 available for future deduplication or caching; content-level duplicate detection is done
@@ -121,17 +125,52 @@ the per-page confidence cap simply does not apply; and the image list is empty, 
 [enrichment](image-enrichment.md) a no-op. A test asserts that a text document never reaches
 Docling, pdfminer or pdfplumber.
 
-`.docx` and `.pptx` are a different matter: `cqg` cannot open them. They are still admitted
-by triage — dropping them would be a silent loss, which
-[score-and-flag](../architecture/anti-fabrication-and-flagging.md) forbids — but they are
-short-circuited in the run orchestration with the flag `unsupported_format:<ext>` **before**
-any parsing is attempted, so the file is never opened. That is deliberately distinct from
-`unreadable`, which means the document *was* opened and yielded nothing.
+### Word and PowerPoint
 
-Supporting them properly would require `python-docx` and `python-pptx` as runtime
-dependencies, which is a decision with
-[license-gate](../operations/testing-and-license-gate.md) consequences and was left out of
-scope.
+`.docx` and `.pptx` are parsed and scored too, read directly with `python-docx` and
+`python-pptx`. They are **extracted, not converted**: nothing round-trips through PDF, and
+the [Docling subprocess](docling-subprocess.md) is never involved. That boundary is
+PDF-only by construction — `_docling_extraction` opens with `PdfReader` to count the pages
+it must batch — and the isolation it buys exists to survive machine-learning
+out-of-memory kills, which XML tree-walking cannot cause.
+
+**Word: document order matters.** python-docx exposes paragraphs and tables as two separate
+collections, so reading each in turn would append every table at the end of the document.
+The extractor walks the body's XML children in order instead, and a table keeps its
+position in the text. Heading levels are carried into the markdown as `#` prefixes rather
+than flattened into plain paragraphs — the structure criteria are scored *on the markdown*,
+so flattening would cost a document points it has earned.
+
+**PowerPoint: slides and speaker notes.** Each slide's shapes are read in order, and speaker
+notes are included. Notes are prose a RAG system will ingest, so they belong in the quality
+verdict rather than being silently dropped.
+
+**Tables become text, images become blocks.** Tables from either format are rendered as
+markdown pipe tables, so their cell text lands in the string every later stage reads, and
+are typed as `Block(kind="table")`. Pictures are typed as `Block(kind="image")`. That typing
+is what lets the [deterministic scorers](../scoring/deterministic-signals.md) see an office
+document exactly as they see a PDF.
+
+**No `ImageRef` is emitted, deliberately.** `ImageRef` carries PDF-point geometry that the
+[enrichment](image-enrichment.md) cropper reads to cut a region out of a rendered page.
+Neither format exposes anything comparable — PowerPoint's EMU coordinates describe a slide,
+not a PDF page, and Word has no page geometry at all. Filling those fields would produce
+silently wrong crops, so office documents count their images without locating them, and
+enrichment is a no-op for them.
+
+**`pages` is a real slide count, or nothing.** Triage reports the slide count for a `.pptx`
+and `None` for a `.docx`. `pages` feeds the per-page density cap in `parse_confidence`, so
+it must only ever carry a true number: Word pagination is a renderer artefact that
+python-docx cannot report, and a fabricated value would feed that cap something meaningless.
+The consequence for decks is intended — a deck with almost no extractable text is capped at
+low confidence, which is score-and-flag working rather than a false positive. A deck whose
+slide count cannot be read degrades to `None` and stays in the corpus: triage is an
+inventory, and the unreadable verdict belongs to the parser.
+
+**Failure stays a result.** A corrupt or password-protected office file makes the library
+raise; the dispatch catches it and returns the same empty `ParsedDoc` a failed PDF produces,
+so the file lands as `unreadable`. That is distinct from `unsupported_format`, which now
+means only that `cqg` has no parser for the extension at all.
 
 ## The extraction chain
 

@@ -22,12 +22,14 @@ sources:
     resource: repo://src/cqg/triage.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
+  - id: openwiki-source-c3bd80e13bca0fabc8af5c04
+    resource: repo://tests/test_parse.py
   - id: openwiki-source-81cf9f57b4380dad067c7e02
     resource: repo://tests/test_screen.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # The run Pipeline
@@ -135,18 +137,24 @@ concrete: no input is ever silently dropped.
 
 | Path | Trigger | Result | Also |
 |---|---|---|---|
-| **Unsupported format** | Triage category is `unsupported_format` | `DocScore` at 0.0, level `Inadapté`, flag `unsupported_format:<ext>` | Checked **before** parsing — the file is never opened |
+| **Unsupported format** | Triage category is `unsupported_format` | `DocScore` at 0.0, level `Inadapté`, flag `unsupported_format:<ext>` | Checked **before** parsing — the file is never opened. Unreachable for any shipped extension |
 | **Unreadable** | Empty markdown after parsing | `DocScore` at 0.0, level `Inadapté`, flag `unreadable` | Skips metrics, screening and judgment entirely — **no LLM call on empty content**; excluded from duplicate detection |
 | **Processing error** | Any exception in the block | `DocScore` at 0.0, level `Inadapté`, flag `processing_error: <ExceptionType>` | Appended to the run's `errors` list with the message |
 | **Normal** | Everything succeeded | Full `DocScore` with dimensions, criteria and flags | — |
 
 Three details worth noting.
 
-The unsupported-format path is what finally gives the **triage category a real consumer**.
-The classification was previously computed and read by nothing — `parse_document` accepted
-it and never looked at it. Routing lives here instead, which is the right layer: the
-category decides *whether to attempt* extraction, while the parser decides *how* to extract.
-The file is never opened, so no archive is unpacked to reach that verdict.
+The unsupported-format path is the **only consumer of the triage category**, and it is
+currently inert. Every extension triage admits — `.pdf`, `.txt`, `.md`, `.docx`, `.pptx` —
+now has a parser, so nothing reaches this exit through a normal corpus walk. It is kept
+deliberately: it is the honest landing for a format admitted into `SUPPORTED_EXTS` ahead of
+its parser, and a test drives it through triage directly so the contract does not quietly
+stop being exercised.
+
+The layering it expresses still holds. The category decides *whether to attempt*
+extraction, while the parser decides *how* — and reaching this verdict never opens the
+file. Note what it does **not** cover: a `.docx` that is corrupt or password-protected is a
+supported format that failed to read, so it takes the unreadable path below instead.
 
 The unreadable path is a deliberate short-circuit rather than a consequence: it is commented
 as skipping metrics and judgment *specifically* to avoid spending an LLM call on empty

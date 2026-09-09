@@ -5,7 +5,7 @@ description: The two cross-cutting correctness boundaries of cqg — a score is 
 tags: [invariants, anti-fabrication, human-in-the-loop, error-handling, scoring, flags]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -19,6 +19,8 @@ sources:
     resource: repo://src/cqg/judge.py
   - id: openwiki-source-c8d879f00ddd07aa3b1256db
     resource: repo://src/cqg/models.py
+  - id: openwiki-source-b6095db5ec5025983f3c1227
+    resource: repo://src/cqg/parse.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
     resource: repo://src/cqg/report.py
   - id: openwiki-source-f2e05a5624d52b19421cdd43
@@ -31,9 +33,11 @@ sources:
     resource: repo://tests/test_judge.py
   - id: openwiki-source-d3c9c57e1b60bfc378d0ee28
     resource: repo://tests/test_models.py
+  - id: openwiki-source-c3bd80e13bca0fabc8af5c04
+    resource: repo://tests/test_parse.py
   - id: openwiki-source-9fc38c4696400c0068133e6e
     resource: repo://tests/test_report_scoring.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 ---
 
 # Anti-Fabrication and Score-and-Flag
@@ -169,17 +173,21 @@ Score-and-flag also governs failure handling. Each document is processed inside 
 `try`/`except` in the run orchestration, and there are exactly four exits — all of which
 produce a persisted score record:
 
-**Unsupported format.** A file in a format `cqg` cannot open — currently `.docx` and
-`.pptx` — is short-circuited *before* parsing to a `DocScore` at 0.0 flagged
-`unsupported_format:<ext>`, without the file ever being opened.
+**Unsupported format.** A file in a format `cqg` has no parser for is short-circuited
+*before* parsing to a `DocScore` at 0.0 flagged `unsupported_format:<ext>`, without the
+file ever being opened.
 
-This is a distinct finding from the one below, and keeping them apart matters. "I cannot
-open this format" and "I opened this document and got nothing usable" call for different
-actions from a reviewer: the first means convert or export the file, the second means the
-document itself is damaged. Reporting both as `unreadable` told the reviewer the wrong
-thing. Nor are these files simply excluded from the accepted extensions — dropping them
-would be a silent loss, which score-and-flag forbids. They are admitted so they are
-visible, flagged so they are actionable, and never opened.
+**No shipped extension takes this exit today.** Every extension triage admits — `.pdf`,
+`.txt`, `.md`, `.docx`, `.pptx` — has a parser behind it. The branch is nonetheless kept,
+because it is the honest landing for a format admitted into the accepted set ahead of its
+parser, and a dedicated test drives it through triage directly so the contract stays
+covered rather than silently ceasing to be exercised.
+
+The distinction it preserves is what matters. "I have no parser for this format" and "I
+opened this document and got nothing usable" call for different actions from a reviewer:
+the first means convert or export the file, the second means the document itself is
+damaged. A corrupt or password-protected `.docx` therefore lands as `unreadable`, not as
+`unsupported_format` — the format is supported, this particular file is not readable.
 
 **Empty extraction.** When parsing yields no usable text, the document short-circuits to a
 `DocScore` at 0.0 with level `Inadapté` and the flag `unreadable`. This path deliberately
@@ -213,7 +221,7 @@ look at a document. They are joined with `|` into the `flags` column of the repo
 
 | Flag | Attached by | Meaning |
 |---|---|---|
-| `unsupported_format:<ext>` | run orchestration | A format `cqg` cannot open; flagged before parsing, the file is never opened |
+| `unsupported_format:<ext>` | run orchestration | A format `cqg` has no parser for; flagged before parsing, the file is never opened. No shipped extension reaches it today |
 | `unreadable` | run orchestration | Parsing produced no usable text; scored 0.0 without any LLM call |
 | `processing_error: <ExceptionType>` | run orchestration | The document raised; the type is recorded and the run continues |
 | `screen:light (<reasons>)` | run orchestration | The document took the light route; the screen's reasons are inlined |

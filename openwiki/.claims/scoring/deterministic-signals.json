@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:94532af837fa24123b38b7f3fbe96dbd24cd206c857f179b8e09eaf5b1624186",
+  "pageVersion": "sha256:3770c9a060cc57a9babb62860aa64f3841d30eabed1f566e76aaae703f55fda3",
   "claims": [
     {
       "id": "claim_44238282d1684dd986832deac6401d24",
@@ -195,10 +195,28 @@
           "version": "repo-lines-v1:sha256:796b8bbd9315f428d678815f4b27ccace5a319854ab87e23e4f567c6bc328fa0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwMDM3OWZmNmE0ZThkNWE0ZDhiYjk2ZTUwYjkyYjZiM2UzNmZiMTUwNzViYmVhMDlhNjQzM2UwOGFhZjg4NjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjczNzA0OGJkZGY1NTY4ZTMwM2U3ZGVmMmFhMTc4NGMxM2UzYzI0NDQ2ZDI3NzkzYWI4MDQ1NzgyOGU5MWVjMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImVlYjEwYmM0MWUyM2U0MWQ0YzM0YTE3ZDc0N2NkZjc2YTY4MzcyYzNlYzliMDJjMTM1MGRkMWEzMzcwMjgyNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjcxYzNjNzZkNGU5NzMzODZlNzhmNGY0NWZhMWUxODg2OGQ3MzJiMzVkMTI1N2JlYTNjYWU1Njc0NjEyMTViOTIifQ"
         }
       ]
+    },
+    {
+      "id": "claim_37096f3bbef2458f9cbd29c0355a1787",
+      "statement": "The N/A inventory is driven by block kinds rather than by source format, so office documents participate on the same terms as PDFs: their extractors emit Block(kind=\"table\") and Block(kind=\"image\"), preventing a deck with figures from having its image criteria wrongly marked not-applicable.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/inventory.py",
+          "version": "repo-file-v1:sha256:f9642f82b12a404c9f6f19635760b17d13394cf39b0271eb39322363c8946902"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L249-L259",
+          "version": "repo-lines-v1:sha256:20bb06bf3e0f4cdf53b2f89bcb5d28c65876c3acb58f4b1fe41449d037ead99a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1ZmU0MGYwYjQwMjQ0Zjk4OTkyNDdmMmM1NjAzMDBjZTg5NWEyOWYyMWY5YTc1OWRhNTcxYzNlYWIyYTQxYjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZkYjJkODNlM2UzOTFmZjQ2ZTYxZGFiMzFlOWQwMTg5NTMzZmU1ZDRhOWI3NTExNDU4ZmI4YTNiYWI2Y2U1ODAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NDg3Yjk4NTI3YWJmYjBlNjhkNjU3ODZmNDhlYzkyOTQzZmQ1YzBiMzgxNGY5ZTIxMTg5ZGEwYzE0NTliOTAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L277-L286",
+          "version": "repo-lines-v1:sha256:9253718f52bc303f9a480bc91acdf72095c040eb981d4fc39e1ec86ebb98780f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZmEzMmY1NjhlYWJmMDE3OTdiYzk5MDU3ZmFkMWRjNGM5NjY5YjlhODhmNGMxZDU5OGM3YTRkMzcyNzQ0MWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjZTE1OWJmMTgzYzQwMzQyMjNkNjhiZmE5M2NmMjUxMDg1NTc3NTkzNmEwM2U5YzUzN2IzMmViNTdhNTdiNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZDE1ODM2MTAzNGZkZDRiNTZiMWEyZTNiOGE2NTQyYzA2NDc3NmRhMTA3M2NmOTA3Y2M0MTFkZDM3NzVjYjgifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-08T21:30:42.164Z"
+    "at": "2026-09-09T22:03:23.095Z"
   }
 }

@@ -20,10 +20,10 @@ sources:
     resource: repo://src/cqg/triage.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # Quickstart
@@ -50,8 +50,8 @@ python -m pytest -q                  # run from the repository root
 
 ## The two commands
 
-Both take a corpus directory. PDFs and plain-text files (`.txt`, `.md`) are scored;
-`.docx`/`.pptx` are listed and flagged without being opened. After `pip install -e .` the `cqg` console script works
+Both take a corpus directory. PDFs, plain-text files (`.txt`, `.md`) and office documents
+(`.docx`, `.pptx`) are all parsed and scored. After `pip install -e .` the `cqg` console script works
 identically to `python main.py`.
 
 ```bash
@@ -132,9 +132,9 @@ sizing and measured figures are in
 [`docs/GUIDE-run-docling-complet.md`](../docs/GUIDE-run-docling-complet.md); set
 `parsing.parser: legacy` for a fast pass without it.
 
-**Every input produces a row.** Nothing is silently dropped: a `.docx` is flagged
-`unsupported_format:docx` without being opened, a broken PDF is flagged `unreadable`, and a
-document that raised is flagged `processing_error:`. None of the three counts as a run
-error, so read the `flags` column rather than the error count to see what was actually
-scored. See
+**Every input produces a row.** Nothing is silently dropped: a document that fails to
+extract — a broken PDF, a corrupt `.docx` — is flagged `unreadable`, and a
+document that raised is flagged `processing_error:`. Only the second counts towards the
+run's error tally, so read the `flags` column rather than the error count to see what was
+actually scored. See
 [Anti-Fabrication and Score-and-Flag](architecture/anti-fabrication-and-flagging.md).

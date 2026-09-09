@@ -5,7 +5,7 @@ description: How cqg scores qualitative criteria — the document is split into 
 tags: [judgment, llm, chunking, aggregation, median, anti-fabrication, cost]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
+    at: 2026-09-09T22:03:23.095Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py

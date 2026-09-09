@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:18e850dedb278c211958d3f05418680355d148011d135b0a8a7a276e8dda3033",
+  "pageVersion": "sha256:64febd4072f4982318560fe4c0d49227731756f21b54fbac17c05d47ec5c5244",
   "claims": [
     {
       "id": "claim_bfaa8017a9b24b38a3d5cc230e0bbada",
@@ -220,25 +220,39 @@
     },
     {
       "id": "claim_0ae9ca8bdf7e49108b4ebe701d403b1b",
-      "statement": "Documents exiting on the unsupported-format path still produce a score JSON and a Synthese row carrying their flag, so a file cqg could not open is visible in the deliverable rather than missing from it.",
+      "statement": "Documents exiting on the unsupported-format or unreadable path still produce a score JSON and a Synthese row carrying their flag, so a document cqg could not read is visible in the deliverable rather than missing from it.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L98-L107",
-          "version": "repo-lines-v1:sha256:0b9ab4494d686cac1f2c2d140943a14ba4ec8b507a36615b0d59c29270028958:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjhmOGQyMzc1Nzc1NTk2MjFjODI2MTViMjA1Y2FiNjk5NmY1MzEwNWFkZThkYmQ0NGRjMDVhZWM4OGNkOGYifQ"
+          "resource": "repo://src/cqg/cli.py#L98-L119",
+          "version": "repo-lines-v1:sha256:d119787662715e53806dce981dae78c37ef29bcded165f4f9391c5b17fcbd732:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
         },
         {
           "resource": "repo://src/cqg/report.py#L74-L83",
           "version": "repo-lines-v1:sha256:5fb1f569ee6f9cf66a6c0b999bea91564a222191bbfb1314f43091059d4339d2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxYjNiZjUxMzVmZWEyYmU5Y2E2YTIxYTkyZTEwMGU5NGRhZWEzYjRhNWE2MWY0NTg4NjhlN2JjNjViNzZkYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIzZDBjMjllYzRiMmQ1ZGJmNDdmYTNmYjI1MDY5OTc1N2FhYTkwM2Q0MWI4MTkwN2JlMjRiZDJlZGVmMjUzN2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU0MjA5N2Y3ZjA1N2M2ZjA2YTQyZDhjN2Q1MzQ1ZTEyYjBhOTNmZWQxMTI5ZjczZDM1OWJiZThjN2QwZTBlNTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQxNTZhYmNjYjNhMDMwNDFkODU4ODE5NjFhMzA1YTJkMTBiMjcwMTkyMWNiY2Q5MGE1Y2YwYjc1ZGZiZmM2MTYifQ"
         },
         {
-          "resource": "repo://tests/test_cli_e2e.py#L145-L167",
-          "version": "repo-lines-v1:sha256:8c631c2c609a3a713faca05608204d09e10d8ae1dd312eb6a1a793af39217fd1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE0NDJmYzlkMTcyYTFjMWVkYWZiODk2MmVmOTI0OGU3ODUzNjhiOWEwYjgyZGEzN2M3M2UwN2NiMDcxNTFhODEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5NjM4OTFiZGUxYzE2ZWIwOGI0NmRkZTc5ZmEwY2MzOTAzYTZlYmNjYjZjNDFiOTQ4NjkxNGZjMGY4MTUzYzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUifQ"
+          "resource": "repo://tests/test_cli_e2e.py#L183-L203",
+          "version": "repo-lines-v1:sha256:f990066fcd69c2645506e4b21a53c6c63bd6903ee7a7fd79df92afdbdfba6a33:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwZjI3ZTU1NjlmN2M0ZjA1OWM2ODcyYzkzYjE3NWUzNjI4ZGY5YTA2NTdkN2Y4YmYyODVkYTI4YTU0ZWE5ZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhhODZkNjg2MmFmYTg0OTE0NGVlODZmNjE3Nzc2MTNiMWIyODI1MTM5MDRjYzg5NTgxODAxMjA4OWIwMTg2ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ2YTRmOTY1MjAxYmI1OWFkZmI3YmI2YjA0MGMzMmU0YzAzNmVkMjE3OTlmNTBlNGZmNWNmMThjNzgxZGFhNTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9fabff6769ca4089aba94001d74f1a59",
+      "statement": "Scoring is format-agnostic: PDF, plain-text and office documents all reach the scoring stage as the same ParsedDoc, and no stage after parsing branches on the source format.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L108-L147",
+          "version": "repo-lines-v1:sha256:29edf73a6faa47f0e3ec6616aa00f7e262350171ebc8216fdfe1c57a4c87d863:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0ZGFjN2QzNjQxOTA2YzNhM2ExOTEwYmRlOWJhMWM3NTUwZDdmY2NhNzMzNTE2ZjBmMDZmYmQxZjg3MjAzNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE0YjI4MTM5YzY1ODI3NWRjYTExNzRmMjg1ZmVkNDVjZmFhZTMyZTE4NDliN2I1OTJhMGZjZTJlODUzOGM0YjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyZWQ5M2I2Njk5MGEzMzAxNmI1MGQ1NmQ4Njg3Mzc1NGNlMDYxOTFmZGI2MWUwZWZlZGRiOGJhMDhhM2VhOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM4YmUyZGFiYmZhMTdmYjRjYTA3YmI1OTUzNDFkMWUxNjg2N2ExMjRmMmY5MWUyMDFlZDdhMmJiMDlmNzM0YTYifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_e2e.py#L146-L181",
+          "version": "repo-lines-v1:sha256:e4bc19cd573c7e820182882a03fdfb4c9e90cba33f26f972eb8473134afeaccd:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiOGMyYzZkMmNmYmUwMzdlN2U0MGExOWFiOThjY2NiMDVmMGMwZTYyZmZjM2RmODI1M2FmYjc1NDJiNzBkYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwODJiYzI4OGYxMTIzNTgwMzQ2N2QzNjcxYTdmMjgxZDA5NDdmZGNjNjlmZDFlZGYyMGY5YjUzODM5OGMzZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZlNTI5MTUzYzVlMWRhZmVjM2IxNDU3MWM0OWE3NmYxNmM4MzdjNTg3NTFmNjIwYzk0ZmY0MDQyNDE2NGRhMzYifQ"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-09T21:41:51.597Z"
+    "at": "2026-09-09T22:03:23.095Z"
   }
 }

@@ -5,7 +5,7 @@ description: The pluggable LLM layer of cqg — the capability contract every cl
 tags: [llm, providers, integration, anthropic, openai, azure, instrumentation, testing]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
+    at: 2026-09-09T22:03:23.095Z
 sources:
   - id: openwiki-source-3c31ddb57801e0f385098e58
     resource: repo://config/config.claude_cli.yaml

@@ -22,10 +22,10 @@ sources:
     resource: repo://src/cqg/triage.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # System Overview
@@ -35,8 +35,10 @@ they are ingested into a Retrieval-Augmented Generation pipeline. It answers a q
 that comes earlier than retrieval quality: *is this corpus fit to be ingested at all?*
 
 The target corpus is heterogeneous and multimodal digital PDFs, bilingual French/English.
-Plain-text formats (`.txt`, `.md`) are scored alongside them; office formats (`.docx`,
-`.pptx`) are admitted and flagged rather than opened. See
+Plain-text formats (`.txt`, `.md`) and office formats (`.docx`, `.pptx`) are scored
+alongside them — every admitted extension has a parser behind it. Word and PowerPoint are
+read directly with `python-docx` and `python-pptx`, which are declared dependencies, and
+never routed through the PDF chain. See
 [Corpus Triage and Document Parsing](../ingestion/document-parsing.md).
 
 ## What "reference-free and document-level" means

@@ -20,10 +20,10 @@ sources:
     resource: repo://src/cqg/signals.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # The Docling Subprocess Boundary
@@ -33,9 +33,15 @@ in-process**. Each page batch is converted by a freshly spawned `python -m
 cqg.docling_worker` subprocess, and the parent communicates with it only through argv, a
 temporary file, and an exit code.
 
-Only PDFs reach this boundary: `parse_document` dispatches plain-text formats to a
-separate path before the parser choice is consulted, so a `.txt` or `.md` document never
-spawns a worker.
+Only PDFs reach this boundary. `parse_document` dispatches every directly readable format
+— `.txt`, `.md`, `.docx`, `.pptx` — to a separate path *before* the parser choice is
+consulted, so none of them ever spawns a worker.
+
+The boundary is PDF-only by construction, not by policy: `_docling_extraction` opens with
+`PdfReader(path)` to count the pages it must batch. There is nothing to gain by routing
+office formats through it either — the subprocess exists to survive machine-learning
+out-of-memory kills, and reading a Word or PowerPoint package is pure XML tree-walking
+that cannot cause one.
 
 That indirection is not incidental. It exists because Docling loads machine-learning
 models that dominate the process's memory footprint, and because an out-of-memory kill is

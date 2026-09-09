@@ -5,7 +5,7 @@ description: The optional stage that converts a document's images into text befo
 tags: [enrichment, vlm, images, multimodal, anti-fabrication, human-in-the-loop]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
+    at: 2026-09-09T22:03:23.095Z
 sources:
   - id: openwiki-source-bf4bd188e5cad9eab90456b4
     resource: repo://config/config.example.yaml
@@ -15,13 +15,17 @@ sources:
     resource: repo://src/cqg/enrich.py
   - id: openwiki-source-c19eabdc855679b7af548ca1
     resource: repo://src/cqg/llm/manual.py
+  - id: openwiki-source-b6095db5ec5025983f3c1227
+    resource: repo://src/cqg/parse.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
   - id: openwiki-source-ff80dcfb97b14b00d06a2087
     resource: repo://tests/test_enrich.py
   - id: openwiki-source-30660c9911c84372885f3d7f
     resource: repo://tests/test_llm.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+  - id: openwiki-source-c3bd80e13bca0fabc8af5c04
+    resource: repo://tests/test_parse.py
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 ---
 
 # Image Enrichment
@@ -67,6 +71,15 @@ Enrichment depends on a contract established during
 The placeholder is therefore a *join key* between two stages that never share an object
 beyond `ParsedDoc`. It is also what makes the deferred manual workflow possible: as long as
 the token survives in the text, the description can still be filled in later.
+
+**This contract is PDF-only.** Cropping needs a bounding box in PDF points on a page that
+can be rasterized, and only the PDF extraction chain produces one. Word and PowerPoint
+documents count their pictures as `Block(kind="image")` — so the image-related criteria
+still see them — but emit no `ImageRef` and therefore no placeholder, which makes
+enrichment a silent no-op for them. That is deliberate: PowerPoint's EMU coordinates
+describe a slide rather than a PDF page and Word exposes no page geometry at all, so
+filling those fields would hand the cropper numbers that produce wrong crops. Text
+documents are in the same position for the simpler reason that they have no images.
 
 Rendering crops the image out of the page rather than extracting the embedded image
 stream: the page is rasterized at a scale factor, and the bounding box — pdfplumber

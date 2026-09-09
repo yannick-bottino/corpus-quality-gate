@@ -3,9 +3,6 @@ type: pipeline-stage
 title: Document Scoring and Corpus Outputs
 description: How criterion results become a document verdict and the corpus deliverables — two-level weighted aggregation into a global percentage and level, the coverage meter and its flags, and the Excel/CSV exports plus the redundancy and cost artifacts, with their injection and encoding safeguards.
 tags: [reporting, scoring, excel, csv, aggregation, coverage, redundancy, security]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -29,7 +26,10 @@ sources:
     resource: repo://tests/test_report_export.py
   - id: openwiki-source-9fc38c4696400c0068133e6e
     resource: repo://tests/test_report_scoring.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # Document Scoring and Corpus Outputs
@@ -78,9 +78,13 @@ an accent. `Inadapté` is also the level assigned directly by the run orchestrat
 `unreadable`, `unsupported_format` and `processing_error` documents.
 
 Those documents are not absent from the report: each still produces a `<doc_id>.score.json`
-and a `Synthese` row carrying its flag. A file `cqg` could not open is visible in the
+and a `Synthese` row carrying its flag. A document `cqg` could not read is visible in the
 deliverable rather than missing from it — which is the whole point of
 [score-and-flag](../architecture/anti-fabrication-and-flagging.md).
+
+Everything else is scored on its merits regardless of format. PDFs, `.txt`, `.md`, `.docx`
+and `.pptx` all arrive here as the same `ParsedDoc`, and nothing downstream of
+[parsing](../ingestion/document-parsing.md) branches on where the markdown came from.
 
 ### A criterion outside the registry is ignored, not fatal
 

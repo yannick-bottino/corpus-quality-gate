@@ -30,10 +30,10 @@ sources:
     resource: repo://tests/test_config.py
   - id: openwiki-source-5fa58a97f0a0e23a76dda820
     resource: repo://tests/test_registry.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # Configuration and Secrets
@@ -166,6 +166,11 @@ run fingerprint even though golden settings cannot affect run scoring. That dire
 chosen on purpose — a false *different* makes someone look twice at two comparable runs; a
 false *same* silently licenses comparing two runs that are not. Only one of those errors is
 recoverable by a careful reader.
+
+The mirror image of that over-sensitivity is worth naming: the settings that genuinely do
+drive the golden set are fingerprinted into the wrong artefact. `run_golden` computes no
+`config_hash` at all, so the golden set carries no run fingerprint — see
+[Golden Q&A Set Generation](../workflows/golden-set-generation.md).
 
 The `registry_version` component is now derived from the registry file's **content** via
 `registry_fingerprint()`, so editing the criteria grid changes the run fingerprint. It

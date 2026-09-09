@@ -5,7 +5,7 @@ description: The reference-free measurements cqg computes from extracted text be
 tags: [metrics, signals, deterministic, ttr, mattr, inventory, na-decisions]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-08T21:30:42.164Z
+    at: 2026-09-09T22:03:23.095Z
 sources:
   - id: openwiki-source-6b1845a66655ac54d0d4b6d0
     resource: repo://src/cqg/deterministic.py
@@ -13,6 +13,8 @@ sources:
     resource: repo://src/cqg/inventory.py
   - id: openwiki-source-f3839253c7c5e3d67e28a4ad
     resource: repo://src/cqg/judge.py
+  - id: openwiki-source-b6095db5ec5025983f3c1227
+    resource: repo://src/cqg/parse.py
   - id: openwiki-source-c68b4fcfcbfc7045e09425f5
     resource: repo://src/cqg/screen.py
   - id: openwiki-source-978bdc187683aafb96b74a0e
@@ -23,7 +25,7 @@ sources:
     resource: repo://tests/test_inventory.py
   - id: openwiki-source-348912dd3d0e7f05ba63cd33
     resource: repo://tests/test_signals.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 ---
 
 # Deterministic Signals and Metrics
@@ -113,6 +115,13 @@ and one answered by counting rather than guessing.
   are counted the same way.
 - **The markdown itself**, for links — both markdown link syntax and bare URLs, with the
   bare-URL pattern using a negative lookbehind so a markdown link is not counted twice.
+
+Because the count is driven by block kinds rather than by the source format, office
+documents participate on the same terms as PDFs: the
+[Word and PowerPoint extractors](../ingestion/document-parsing.md) emit
+`Block(kind="table")` and `Block(kind="image")` for the tables and pictures they find, so a
+deck with figures does not get its image criteria wrongly marked N/A. Their table text also
+reaches the markdown as pipe tables, so the text-side signals see it too.
 
 Four inventory conditions each map to a group of criteria: no images marks the image and
 figure criteria, no tables the table criteria, no formulas the formula criterion, no links

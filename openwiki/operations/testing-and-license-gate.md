@@ -42,10 +42,10 @@ sources:
     resource: repo://tests/test_screen.py
   - id: openwiki-source-f5f06ff27486b680ea499ebd
     resource: repo://tests/test_triage.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # Testing and the License Gate
@@ -54,7 +54,7 @@ verified:
 python -m pytest -q
 ```
 
-The suite currently reports **137 passed, 1 skipped in about 4 seconds**. That combination —
+The suite currently reports **146 passed, 1 skipped in about 4 seconds**. That combination —
 a full end-to-end pipeline suite that runs in seconds with no network and no credentials —
 is a deliberate design outcome, and this page explains how it is achieved and what it
 actually guarantees.
@@ -86,7 +86,7 @@ code, the table below points at the test that will notice.
 | **Run-fingerprint coverage** | `tests/test_config.py` asserts the hash changes for every scoring section, ignores `paths`, and covers a section `config_hash` has never heard of — the last one guards against the allowlist failure that caused the original provenance gap |
 | **Parser signature cannot drift** | `tests/test_parse.py::test_parse_document_takes_no_positional_beyond_path` pins that only `path` is positional, so a stray argument can never bind to `pages` |
 | **Plain-text extraction avoids PDF machinery** | `tests/test_parse.py` asserts a text document reaches neither Docling, pdfminer nor pdfplumber, and that decoding damage lowers `parse_confidence` |
-| **Formats are distinguished, not conflated** | `tests/test_triage.py` pins the `text` and `unsupported_format` categories; `tests/test_cli_e2e.py` asserts a `.md` is scored while a `.docx` is flagged `unsupported_format` and is not counted as a processing error |
+| **Formats are distinguished, not conflated** | `tests/test_triage.py` pins the `text`, `office` and `unsupported_format` categories and the `pages` semantics per format; `tests/test_parse.py` pins the office extractors, that they never reach a PDF parser, that they emit no `ImageRef`, and that a corrupt office file returns rather than raises; `tests/test_cli_e2e.py` scores a `.md`, a `.docx` and a `.pptx` in one corpus, and drives the `unsupported_format` exit separately |
 | **Level labels stay canonical** | `tests/test_report_scoring.py` asserts the orchestration cannot introduce a second spelling of a level |
 | **[Provider layer](../integrations/llm-providers.md)** | `tests/test_llm.py` covers the factory, the missing-key error, tolerant JSON extraction, and the manual manifest round trip; `tests/test_llm_instrument.py` covers the metering policy |
 
@@ -150,8 +150,13 @@ and exits 0.
 
 Support for plain-text documents was added **without any new runtime dependency** — it is
 `read_text()` plus the existing normalization — so it left this constraint untouched.
-Supporting `.docx`/`.pptx` would not: that needs `python-docx` and `python-pptx`, and any
-such addition has to pass this gate.
+
+Office support did add two: `python-docx` and `python-pptx` are declared runtime
+dependencies. Both clear the gate, and the addition was cheaper than it looks — both were
+already installed as transitive dependencies of `docling-slim`, which pulls them in for its
+own office backends. Declaring them makes an existing presence explicit rather than
+enlarging the dependency surface. Both are MIT-licensed, their shared `lxml` dependency is
+BSD-3-Clause, and none of the three appears in the denylist.
 
 Checking what is *installed* rather than what is *declared* is the important design choice.
 A forbidden package pulled in transitively by a dependency is caught, which a manifest scan

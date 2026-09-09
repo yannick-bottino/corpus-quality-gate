@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:a55feeb6e4e038a1e9d472a1b8d980788dc8c5137845b9781e2cf9ebfe08f544",
+  "pageVersion": "sha256:120af50ccc24cb2c502a6441fca81d45dfcbb130e8da6a68a2a769b67bd868cd",
   "claims": [
     {
       "id": "claim_d7134f6776504568a2d295f49f51a27a",
@@ -161,10 +161,32 @@
           "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
+    },
+    {
+      "id": "claim_b7a646adc517487c8d00441ac5acc8a9",
+      "statement": "Image enrichment applies only to PDFs: Word and PowerPoint documents emit Block(kind=\"image\") but no ImageRef and therefore no placeholder token, so the substitution stage finds nothing to replace and is a no-op for them.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/enrich.py",
+          "version": "repo-file-v1:sha256:d4a12dd19291919445d2aeb17c8de5298739acc96fe3d08a3f04a5e024133122"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L249-L259",
+          "version": "repo-lines-v1:sha256:20bb06bf3e0f4cdf53b2f89bcb5d28c65876c3acb58f4b1fe41449d037ead99a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1ZmU0MGYwYjQwMjQ0Zjk4OTkyNDdmMmM1NjAzMDBjZTg5NWEyOWYyMWY5YTc1OWRhNTcxYzNlYWIyYTQxYjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZkYjJkODNlM2UzOTFmZjQ2ZTYxZGFiMzFlOWQwMTg5NTMzZmU1ZDRhOWI3NTExNDU4ZmI4YTNiYWI2Y2U1ODAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4NDg3Yjk4NTI3YWJmYjBlNjhkNjU3ODZmNDhlYzkyOTQzZmQ1YzBiMzgxNGY5ZTIxMTg5ZGEwYzE0NTliOTAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L277-L286",
+          "version": "repo-lines-v1:sha256:9253718f52bc303f9a480bc91acdf72095c040eb981d4fc39e1ec86ebb98780f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZmEzMmY1NjhlYWJmMDE3OTdiYzk5MDU3ZmFkMWRjNGM5NjY5YjlhODhmNGMxZDU5OGM3YTRkMzcyNzQ0MWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjZTE1OWJmMTgzYzQwMzQyMjNkNjhiZmE5M2NmMjUxMDg1NTc3NTkzNmEwM2U5YzUzN2IzMmViNTdhNTdiNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZDE1ODM2MTAzNGZkZDRiNTZiMWEyZTNiOGE2NTQyYzA2NDc3NmRhMTA3M2NmOTA3Y2M0MTFkZDM3NzVjYjgifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse.py#L389-L397",
+          "version": "repo-lines-v1:sha256:89ed137b721c1355edec57b244fb2318ead176adb6b126ba09a4d768ac5cb8dc:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjMzYWRhZDAyMmI4ZjM2NjZhMmNlZDQyMzNhOTQ4YTQ3NmQxMjZhMzUzZjJmNjQ3YzcwZDNlNzE5YTU0OWVkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWVlMjE1NjUyN2ZiOGI5ZGNmYzA2MTJjNGZjNThhZTcxZTE2MmY4M2Y3YmZiNWZlOTYwNDY0YjYxM2YxNTgyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE5YzlmYWQ5MDMwYTMyZGNlYTBlMDE5ZjkyY2JjY2E1NGU5MzY2NjQxYzBmNTI1MGM4MDE1NDI3MDA5NTM4MSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-08T21:30:42.164Z"
+    "at": "2026-09-09T22:03:23.095Z"
   }
 }

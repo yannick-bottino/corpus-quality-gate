@@ -16,16 +16,18 @@ sources:
     resource: repo://src/cqg/judge.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
+  - id: openwiki-source-f2e05a5624d52b19421cdd43
+    resource: repo://src/cqg/triage.py
   - id: openwiki-source-b5bb35ef6f2a60707bddb75d
     resource: repo://tests/test_corpus_index.py
   - id: openwiki-source-81792d29bf652c27ca85a4c6
     resource: repo://tests/test_golden_cli.py
   - id: openwiki-source-96f4e8eabb9c2b7186fe059b
     resource: repo://tests/test_golden_qa.py
-generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
+generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T21:41:51.597Z
+    at: 2026-09-09T22:03:23.095Z
 ---
 
 # Golden Q&A Set Generation
@@ -65,14 +67,17 @@ main report — formula-injection neutralization, `;` delimiter with proper quot
 ## The orchestration
 
 `run_golden` triages and parses the corpus, generates per-document questions for each
-document that yielded text, then optionally adds corpus-wide questions. Plain-text documents
-(`.txt`, `.md`) are parsed like PDFs and are therefore perfectly good golden-set sources.
+document that yielded text, then optionally adds corpus-wide questions. It calls the same
+`parse_document` as `run`, so every format that stage supports — PDF, `.txt`, `.md`,
+`.docx`, `.pptx` — is a perfectly good golden-set source. A deck's speaker notes are part of
+the text questions are generated from, like any other extracted prose.
 
 Two robustness properties, both consistent with
 [score-and-flag](../architecture/anti-fabrication-and-flagging.md):
 
-- **A format `cqg` cannot open is skipped before parsing** — the loop checks the triage
-  category and moves on, rather than attempting an extraction that can only yield nothing.
+- **A format `cqg` has no parser for is skipped before parsing** — the loop checks the
+  triage category and moves on, rather than attempting an extraction that can only yield
+  nothing. No shipped extension is in that state today, so this guard is currently inert.
 - **A document that fails or parses empty is skipped**, not fatal — the `continue` is
   commented as exactly that: a failing document does not bring down the rest of the corpus.
 - **The whole corpus-level stage is wrapped**, so a failure there still returns the
@@ -81,6 +86,17 @@ Two robustness properties, both consistent with
 Note the asymmetry with `run`: a skipped document leaves **no trace** in the golden output.
 There is no flag mechanism here, because the deliverable is a question set rather than a
 corpus verdict. Use `cqg run` to find out which documents were unreadable.
+
+### The golden set carries no run fingerprint
+
+`run_golden` computes no `config_hash`. Where `run` stamps a fingerprint of the whole
+scoring configuration into every score record, the golden artefacts carry nothing
+equivalent — so two question sets generated under different `golden.profile`, `policy` or
+`n_questions` values are **indistinguishable after the fact**. If which settings produced a
+given set matters, that has to be recorded outside the tool. See
+[Configuration and Secrets](../operations/configuration-and-secrets.md), where the mirror
+image of this gap is discussed: `run`'s fingerprint covers the `golden` block even though
+golden settings cannot affect run scoring.
 
 ## Per-document generation
 
