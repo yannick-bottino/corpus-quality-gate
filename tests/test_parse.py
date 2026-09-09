@@ -102,7 +102,7 @@ def test_better_extraction_keeps_primary_when_clean():
 def test_parse_document_full_chain(tmp_path):
     from cqg.parse import parse_document
     p = tmp_path / "d.pdf"; _make_pdf(p, ["Contenu complet de la page."])
-    doc = parse_document(str(p), "born_digital", parser="legacy")
+    doc = parse_document(str(p), parser="legacy")
     assert "Contenu complet" in doc.markdown
     assert 0.0 <= doc.parse_confidence <= 1.0
 
@@ -110,7 +110,7 @@ def test_parse_document_full_chain(tmp_path):
 def test_parse_document_unreadable_never_raises(tmp_path):
     from cqg.parse import parse_document
     bad = tmp_path / "bad.pdf"; bad.write_bytes(b"%PDF-1.4 broken")
-    doc = parse_document(str(bad), "born_digital", parser="legacy")
+    doc = parse_document(str(bad), parser="legacy")
     assert doc.parse_confidence == 0.0
     assert any(b.kind == "unreadable" for b in doc.blocks)
 
@@ -125,7 +125,7 @@ def test_legacy_parser_does_not_use_docling(tmp_path, monkeypatch):
 
     monkeypatch.setattr(parse, "_docling_extraction", _boom)
     p = tmp_path / "d.pdf"; _make_pdf(p, ["Contenu complet de la page."])
-    doc = parse.parse_document(str(p), "born_digital", parser="legacy")
+    doc = parse.parse_document(str(p), parser="legacy")
     assert "Contenu complet" in doc.markdown
 
 
@@ -141,7 +141,7 @@ def test_parser_docling_dispatches_to_docling_extraction(tmp_path, monkeypatch):
 
     monkeypatch.setattr(parse, "_docling_extraction", _fake)
     p = tmp_path / "d.pdf"; _make_pdf(p, ["x"])
-    doc = parse.parse_document(str(p), "born_digital", parser="docling")
+    doc = parse.parse_document(str(p), parser="docling")
     assert called.get("yes") is True
     assert doc.markdown == "MD docling structure"
 
@@ -156,7 +156,7 @@ def test_parser_docling_falls_back_to_default_on_failure(tmp_path, monkeypatch):
 
     monkeypatch.setattr(parse, "_docling_extraction", _boom)
     p = tmp_path / "d.pdf"; _make_pdf(p, ["Contenu de repli."])
-    doc = parse.parse_document(str(p), "born_digital", parser="docling")
+    doc = parse.parse_document(str(p), parser="docling")
     assert "Contenu de repli" in doc.markdown  # the default chain took over
 
 
@@ -258,6 +258,23 @@ def test_docling_real_extraction(tmp_path):
     _, h = table.wrapOn(c, 400, 400)
     table.drawOn(c, 72, 700 - h)
     c.showPage(); c.save()
-    doc = parse_document(str(p), "born_digital", parser="docling")
+    doc = parse_document(str(p), parser="docling")
     assert doc.markdown.strip()
     assert "|" in doc.markdown
+
+
+def test_parse_document_takes_no_positional_beyond_path(tmp_path):
+    # parse_document previously accepted a `category` argument it never read, and
+    # both call sites passed it POSITIONALLY. Dropping the parameter without a
+    # keyword-only guard would have silently bound the category string to `pages`.
+    # Keyword-only makes that class of positional drift impossible.
+    import inspect
+    from cqg.parse import parse_document
+    params = inspect.signature(parse_document).parameters
+    assert "category" not in params
+    positional = [n for n, p in params.items()
+                  if p.kind in (p.POSITIONAL_ONLY, p.POSITIONAL_OR_KEYWORD)]
+    assert positional == ["path"]
+    p = tmp_path / "d.pdf"; _make_pdf(p, ["Texte."])
+    with pytest.raises(TypeError):
+        parse_document(str(p), "born_digital")     # ex-category, now rejected

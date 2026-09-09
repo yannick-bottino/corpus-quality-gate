@@ -40,7 +40,7 @@ def run_golden(corpus_dir: str, config_path: str, out_dir: str) -> dict:
     rows, docs = [], []
     for item in triage_corpus(corpus_dir):
         try:
-            doc = parse_document(item["path"], item["category"], pages=item.get("pages"), parser=parser,
+            doc = parse_document(item["path"], pages=item.get("pages"), parser=parser,
                                  docling_batch_pages=docling_batch_pages)
             if not doc.markdown.strip():
                 continue
@@ -93,7 +93,7 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
     for item in triage_corpus(corpus_dir):
         doc_id = item["doc_id"]
         try:
-            doc = parse_document(item["path"], item["category"], pages=item.get("pages"), parser=parser,
+            doc = parse_document(item["path"], pages=item.get("pages"), parser=parser,
                                  docling_batch_pages=docling_batch_pages)
             if not doc.markdown.strip():
                 # Score-and-flag: unreadable document (S14 parsing never raises) flagged

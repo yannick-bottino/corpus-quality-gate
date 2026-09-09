@@ -194,9 +194,13 @@ def _docling_extraction(path: str, pages: int | None = None,
     return md, blocks, refs
 
 
-def parse_document(path: str, category: str, pages: int | None = None,
+def parse_document(path: str, *, pages: int | None = None,
                    parser: str = "docling",
                    docling_batch_pages: int | None = None) -> ParsedDoc:
+    # Keyword-only past `path`: the extraction strategy is chosen from `parser` and
+    # from runtime failures, never from the triage category (which this function used
+    # to accept and never read). Keyword-only prevents a caller silently binding a
+    # stray positional argument to `pages`.
     doc_id = Path(path).stem
     fallback_used = False
     # Docling is the default parser. On any exception (import/OOM/error), we fall back
