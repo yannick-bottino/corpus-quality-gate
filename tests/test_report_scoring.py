@@ -40,3 +40,16 @@ def test_scored_none_excluded_from_coverage():
              _cs(c.id, c.tag, c.weight, "not_evaluated", None)]
     ds = compute_doc_score("d", crits, reg, 0.9, "h")
     assert ds.coverage_pct == 50.0  # 1 valid scored / (1 scored + 1 not_evaluated)
+
+
+def test_level_labels_are_consistent_across_modules():
+    # The four level labels are business-facing French output; only "Inadapté"
+    # carries an accent. A hand-built DocScore in the orchestration must not
+    # introduce a second spelling of the same level.
+    import re
+    from pathlib import Path
+    from cqg.report import _level
+    canonical = {_level(95.0), _level(75.0), _level(55.0), _level(10.0)}
+    assert canonical == {"Excellent", "Acceptable", "Insuffisant", "Inadapté"}
+    used = set(re.findall(r'level="([^"]+)"', Path("src/cqg/cli.py").read_text(encoding="utf-8")))
+    assert used <= canonical, f"non-canonical level label(s): {used - canonical}"

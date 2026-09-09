@@ -141,3 +141,28 @@ def test_cli_enrich_config_only_with_separate_vlm(tmp_path):
     enriched = out / "doc.enriched.md"
     assert enriched.exists()
     assert "description automatique" in enriched.read_text(encoding="utf-8")
+
+
+def test_run_scores_text_documents_and_flags_unsupported_formats(tmp_path):
+    # Score-and-flag across formats: a .md is a real scored document, while a
+    # .docx is surfaced with its own flag instead of being silently dropped or
+    # reported as an unreadable PDF.
+    corpus = tmp_path / "corpus"; corpus.mkdir()
+    (corpus / "note.md").write_text(
+        "# Notice\n\nVersion v1.0 du 2026-01-01.\n\n" + "Le contrat couvre l'incendie. " * 30,
+        encoding="utf-8")
+    (corpus / "rapport.docx").write_bytes(b"PK\x03\x04 non ouvert")
+    cfg = tmp_path / "cfg.yaml"
+    cfg.write_text("llm:\n  provider: mock\nparsing:\n  parser: legacy\n", encoding="utf-8")
+    out = tmp_path / "out"
+    result = run(str(corpus), str(cfg), str(out))
+    assert result["n_docs"] == 2
+
+    note = json.loads((out / "note.score.json").read_text(encoding="utf-8"))
+    assert "unreadable" not in note["flags"] and "unsupported_format" not in str(note["flags"])
+    assert note["criteria"], "a text document must be scored like any other"
+
+    docx = json.loads((out / "rapport.score.json").read_text(encoding="utf-8"))
+    assert any(f.startswith("unsupported_format") for f in docx["flags"])
+    assert "unreadable" not in docx["flags"]
+    assert result["n_errors"] == 0, "an unsupported format is not a processing error"

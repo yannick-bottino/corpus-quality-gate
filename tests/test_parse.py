@@ -278,3 +278,40 @@ def test_parse_document_takes_no_positional_beyond_path(tmp_path):
     p = tmp_path / "d.pdf"; _make_pdf(p, ["Texte."])
     with pytest.raises(TypeError):
         parse_document(str(p), "born_digital")     # ex-category, now rejected
+
+
+def test_parse_document_extracts_plain_text_and_markdown(tmp_path):
+    # .txt/.md need no PDF machinery: read + NFKC. Downstream stages operate on a
+    # markdown string, so a text document traverses the pipeline like any other.
+    from cqg.parse import parse_document
+    p = tmp_path / "note.md"
+    p.write_text("# Titre\n\nUn paragraphe de contenu.\n", encoding="utf-8")
+    doc = parse_document(str(p))
+    assert "Un paragraphe de contenu." in doc.markdown
+    assert doc.parse_confidence > 0
+    assert doc.images == []
+    assert any(b.kind == "text" and b.text.strip() for b in doc.blocks)
+
+
+def test_parse_document_text_never_uses_pdf_parsers(tmp_path, monkeypatch):
+    # A text file must not reach docling or pdfminer.
+    import cqg.parse as parse
+    def _boom(*a, **k):
+        raise AssertionError("PDF parser invoked on a text document")
+    monkeypatch.setattr(parse, "_docling_extraction", _boom)
+    monkeypatch.setattr(parse, "_pages_text_pdfminer", _boom)
+    monkeypatch.setattr(parse, "_pdfplumber_only", _boom)
+    p = tmp_path / "note.txt"; p.write_text("Contenu simple.", encoding="utf-8")
+    assert "Contenu simple." in parse.parse_document(str(p), parser="docling").markdown
+
+
+def test_parse_document_undecodable_text_lowers_confidence(tmp_path):
+    # Decoding damage becomes U+FFFD, which cid_failure_fraction already counts:
+    # a mis-decoded file is penalised and flagged by the existing mechanism
+    # rather than passing as clean.
+    from cqg.parse import parse_document
+    good = tmp_path / "good.txt"
+    good.write_text("Le contrat couvre l'incendie. " * 40, encoding="utf-8")
+    bad = tmp_path / "bad.txt"
+    bad.write_bytes(("Le contrat couvre l'incendie. " * 40).encode("utf-16"))
+    assert parse_document(str(bad)).parse_confidence < parse_document(str(good)).parse_confidence

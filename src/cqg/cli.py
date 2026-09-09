@@ -39,6 +39,8 @@ def run_golden(corpus_dir: str, config_path: str, out_dir: str) -> dict:
     docling_batch_pages = cfg.get("parsing", {}).get("docling_batch_pages")
     rows, docs = [], []
     for item in triage_corpus(corpus_dir):
+        if item["category"] == "unsupported_format":
+            continue
         try:
             doc = parse_document(item["path"], pages=item.get("pages"), parser=parser,
                                  docling_batch_pages=docling_batch_pages)
@@ -93,6 +95,16 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
     for item in triage_corpus(corpus_dir):
         doc_id = item["doc_id"]
         try:
+            if item["category"] == "unsupported_format":
+                # Score-and-flag: surfaced with its own flag, never dropped. Distinct
+                # from "unreadable" (a document cqg tried and failed to extract) and
+                # from a processing error (nothing went wrong here).
+                ds = DocScore(doc_id=doc_id, global_pct=0.0, level="Inadapté", coverage_pct=0.0,
+                              dimensions={}, criteria=[], worst_sections=[],
+                              flags=[f"unsupported_format:{item['type']}"], config_hash=chash)
+                write_doc_json(ds, str(out))
+                scores.append(ds)
+                continue
             doc = parse_document(item["path"], pages=item.get("pages"), parser=parser,
                                  docling_batch_pages=docling_batch_pages)
             if not doc.markdown.strip():

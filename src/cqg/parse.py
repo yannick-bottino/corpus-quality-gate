@@ -5,6 +5,7 @@ import unicodedata
 from pathlib import Path
 from .models import ParsedDoc, Block, ImageRef
 from .signals import cid_failure_fraction
+from .triage import TEXT_EXTS
 
 
 def _nfkc(s: str) -> str:
@@ -194,6 +195,17 @@ def _docling_extraction(path: str, pages: int | None = None,
     return md, blocks, refs
 
 
+def _plain_text_extraction(path: str) -> tuple[str, list[Block], list[ImageRef]]:
+    # .txt/.md carry their text directly: read + NFKC, no PDF machinery. Decoded as
+    # utf-8-sig (strips a BOM) with errors="replace", so decoding damage becomes
+    # U+FFFD -- which cid_failure_fraction already counts, penalising parse_confidence
+    # and flagging the document instead of letting mojibake pass as clean text.
+    md = _nfkc(Path(path).read_text(encoding="utf-8-sig", errors="replace")).strip()
+    blocks = [Block(kind="text", text=para.strip(), page=1)
+              for para in md.split("\n\n") if para.strip()]
+    return md, blocks, []
+
+
 def parse_document(path: str, *, pages: int | None = None,
                    parser: str = "docling",
                    docling_batch_pages: int | None = None) -> ParsedDoc:
@@ -203,6 +215,14 @@ def parse_document(path: str, *, pages: int | None = None,
     # stray positional argument to `pages`.
     doc_id = Path(path).stem
     fallback_used = False
+    if Path(path).suffix.lower() in TEXT_EXTS:
+        try:
+            md, blocks, refs = _plain_text_extraction(path)
+        except OSError:
+            md, blocks, refs = "", [Block(kind="unreadable", text="", page=0)], []
+        return ParsedDoc(doc_id=doc_id, markdown=md, blocks=blocks,
+                         parse_confidence=_confidence(md, blocks, pages, fallback_used),
+                         images=refs)
     # Docling is the default parser. On any exception (import/OOM/error), we fall back
     # to the legacy chain (pdfminer + pdfplumber): score-and-flag robustness, never a crash.
     if parser == "docling":
