@@ -1,7 +1,7 @@
 import argparse
 from pathlib import Path
 from .config import load_config, config_hash
-from .registry.loader import load_registry
+from .registry.loader import load_registry, registry_fingerprint
 from .triage import triage_corpus
 from .parse import parse_document
 from .deterministic import compute_metrics
@@ -68,7 +68,9 @@ def run(corpus_dir: str, config_path: str, out_dir: str, enrich: bool = False) -
     # calls and the prompt chars per doc, central criterion of levers A and C.
     llm = CountingLLM(from_config(cfg.get("llm", {"provider": "mock"})))
     cost = {}
-    chash = config_hash(cfg, registry_version="v1", policy_version="v1")
+    # Registry fingerprint derived from the grid's content: editing the criteria
+    # changes the run fingerprint, which a hardcoded version string could not do.
+    chash = config_hash(cfg, registry_version=registry_fingerprint())
     out = Path(out_dir); out.mkdir(parents=True, exist_ok=True)
     threshold = cfg.get("thresholds", {}).get("coverage_flag_below", 0.7)
     max_doc_chars = cfg.get("llm", {}).get("max_doc_chars", 24000)

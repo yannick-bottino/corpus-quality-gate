@@ -1,3 +1,4 @@
+import hashlib
 from pathlib import Path
 
 import yaml
@@ -21,6 +22,16 @@ class Registry(BaseModel):
 
 
 _DEFAULT = Path(__file__).parent / "criteria_registry.yaml"
+
+
+def registry_fingerprint(path: str | None = None) -> str:
+    """Short content hash of the criteria grid, for run provenance.
+
+    Derived from the file CONTENT so that editing the grid changes the run
+    fingerprint. A hardcoded version string cannot do that: the criteria drive
+    every score, so an edited grid must not share a fingerprint with the old one.
+    """
+    return hashlib.sha256(Path(path or _DEFAULT).read_bytes()).hexdigest()[:16]
 
 
 def load_registry(path: str | None = None) -> Registry:
