@@ -5,7 +5,7 @@ description: The optional stage that converts a document's images into text befo
 tags: [enrichment, vlm, images, multimodal, anti-fabrication, human-in-the-loop]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T22:03:23.095Z
+    at: 2026-09-11T06:45:44.636Z
 sources:
   - id: openwiki-source-bf4bd188e5cad9eab90456b4
     resource: repo://config/config.example.yaml

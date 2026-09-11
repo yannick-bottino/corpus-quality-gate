@@ -3,9 +3,6 @@ type: integration-layer
 title: LLM Provider Abstraction
 description: The pluggable LLM layer of cqg — the capability contract every client implements, the factory that selects one from configuration, the hosted-API, Claude CLI, manual and mock implementations, the tolerant JSON extraction they share, and the wrapper that meters judgment cost.
 tags: [llm, providers, integration, anthropic, openai, azure, instrumentation, testing]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-09T22:03:23.095Z
 sources:
   - id: openwiki-source-3c31ddb57801e0f385098e58
     resource: repo://config/config.claude_cli.yaml
@@ -33,7 +30,10 @@ sources:
     resource: repo://tests/test_llm_instrument.py
   - id: openwiki-source-30660c9911c84372885f3d7f
     resource: repo://tests/test_llm.py
-generated: { by: "claude-code", at: "2026-09-08T21:30:42.164Z" }
+generated: { by: "claude-code", at: "2026-09-11T06:45:44.636Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-11T06:45:44.636Z
 ---
 
 # LLM Provider Abstraction
@@ -83,11 +83,11 @@ implementation lazily so an optional dependency is required only if actually sel
 An unrecognized value raises `ValueError` naming the provider rather than silently
 defaulting.
 
-> **The code is authoritative, not the README.** The README's configuration section lists
-> only `mock / openai / azure_openai / anthropic`. The factory additionally supports
-> `claude_cli` and `manual`, both of which are exercised by shipped configuration and
-> tests — `config/config.claude_cli.yaml` selects `claude_cli`, and `manual` is the
-> provider behind the enrichment manifest workflow.
+Two of these are easy to overlook because they take no API key at all. `claude_cli`
+delegates judgment to the locally installed `claude` binary and is selected by the shipped
+`config/config.claude_cli.yaml`; `manual` is the provider behind the enrichment manifest
+workflow, where a human fills the descriptions in offline. Both are real, shipped paths
+rather than placeholders, and the README's configuration section lists all six.
 
 ## Hosted providers
 

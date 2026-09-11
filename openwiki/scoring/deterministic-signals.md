@@ -5,7 +5,7 @@ description: The reference-free measurements cqg computes from extracted text be
 tags: [metrics, signals, deterministic, ttr, mattr, inventory, na-decisions]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T22:03:23.095Z
+    at: 2026-09-11T06:45:44.636Z
 sources:
   - id: openwiki-source-6b1845a66655ac54d0d4b6d0
     resource: repo://src/cqg/deterministic.py

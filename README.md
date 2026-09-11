@@ -86,18 +86,22 @@ Each `<doc>.score.json` carries a `config_hash`: a fingerprint of the scoring co
 
 ## Configuration
 
-Documented template: `config/config.example.yaml` (`config/config.claude_cli.yaml` drives the
-judgment through the local Claude CLI instead of an HTTP provider). Sections:
+Documented template: `config/config.example.yaml`. Sections:
 
 | Section | What it sets |
 |---|---|
-| `llm` | provider mock / openai / azure_openai / anthropic + `api_key_env`, model, excerpt budget |
+| `llm` | judge provider + `api_key_env`, model, excerpt budget |
 | `judge` | section size and overlap for sectioned judgment |
 | `parsing` | `parser: docling \| legacy`, and the Docling page-batch size |
 | `enrichment` | image VLM (independent of the judge LLM), minimum image size |
-| `golden` | profile, policy, number of questions, corpus-wide questions + retrieval parameters |
 | `thresholds` | coverage below which a document is flagged |
 | `paths` | working directory — the only section excluded from `config_hash` |
+| `golden` | profile, policy, number of questions, corpus-wide questions + retrieval parameters |
+
+Providers accepted by `llm.provider` and by `enrichment.vlm.provider`:
+`mock`, `openai`, `azure_openai`, `anthropic`, `claude_cli` (judges through the local Claude
+CLI, no HTTP key — see `config/config.claude_cli.yaml`) and `manual` (writes an image
+manifest to fill in offline, for enrichment).
 
 Portable in batch (e.g. Azure OpenAI) via the `llm.provider` field of the configuration.
 

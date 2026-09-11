@@ -25,7 +25,7 @@ sources:
 generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T22:03:23.095Z
+    at: 2026-09-11T06:45:44.636Z
 ---
 
 # Corpus Triage and Document Parsing

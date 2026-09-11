@@ -5,7 +5,7 @@ description: The two cross-cutting correctness boundaries of cqg — a score is 
 tags: [invariants, anti-fabrication, human-in-the-loop, error-handling, scoring, flags]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-09T22:03:23.095Z
+    at: 2026-09-11T06:45:44.636Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py

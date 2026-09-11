@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:f1378fe45eb6212d13874fae93ee656d52221994dd48fd3834c9d1cb2532474f",
+  "pageVersion": "sha256:e5da6b7b602371ed8906bbd3c350487dbe0cf87abadebe5fa9317f500911b279",
   "claims": [
     {
       "id": "claim_82dd87205fb94a30b8c6f7e1d2f3da65",
@@ -27,28 +27,6 @@
         {
           "resource": "repo://tests/test_llm.py#L10-L21",
           "version": "repo-lines-v1:sha256:9313b1c69320fd6f60099736362268ae264b6d5b6e07c69e8063715b5d0e0c65:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkZTI0NGEwYjY4NjMwYzcxOWJjNDJjMDVlNGIxNDY5Yzc1ZGQ1NmEzYjJiZjkxZWZjMmI1YTFlYTU3MmJiZmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViY2E1YjQxNDkwN2ZkNTRiOGY5ZDhjZWQ4M2UzYjBhYmFkMTQ2YWE5Nzg0NWMzNDhiNWI3YzAyZDBhYWU3NjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU4ZjAxMzhhMTBlYmQyNmMzNjIxMzk4M2UxMjhjOTgwYmRmM2Q5MWJlM2YwZTIyYWUwZTE5ZjA2ZmE0OGFkODgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0MDY4NjdiNjA2YjE4Mjc1YzczYTI1OWQwYjkwMDQzY2M3OTI5MjQ0ODA0ZTFlNDM0YmQ0ZTE0Y2NiN2VkOWYifQ"
-        }
-      ]
-    },
-    {
-      "id": "claim_9ebae9bc61c1470caad5a22ea9b4f615",
-      "statement": "The factory supports two providers the README's configuration section omits — claude_cli and manual — and both are exercised by shipped artifacts: config/config.claude_cli.yaml selects claude_cli, and manual backs the enrichment manifest workflow.",
-      "evidence": [
-        {
-          "resource": "repo://README.md#L72-L77",
-          "version": "repo-lines-v1:sha256:ebce8aeb292a7ab4b79b8365f2d62e10511ceec02f1d876fb8605918dfc46b9b:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWYyNzY0YjgyNWI0Yjk0MTdkYmY2MzdhNzBiNGU5NWJlMDFlMGY0NTYyNjEzNDE4OWY0N2Q5YjBjMDQ2ZDBjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTA0OTc4YTRjZmEwZjg5ZjkzZjI1MzE4NTNmYTU3ZWExZmQ5YWFjNmEzZTNjMGYyODZkOTJjOGJiMDUyMzI0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzg3MjBkOGE5YzViZTY4OWQ0NDNmNjdmNzA0ZTJiMTgwYWU1MmQyMGQ3NTMzYTEzODlmMWY3YjJlNzNmZTNjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTE2ZTMyOTE3ZmFhMjQ1ZDgzMDlmM2ZlNzVlZDNiOWI0MzYyNmIzNWI2Y2Y2ZmZiNmZjZWI0OGU0Yjg1MzllNiJ9"
-        },
-        {
-          "resource": "repo://config/config.claude_cli.yaml#L1-L7",
-          "version": "repo-lines-v1:sha256:2d223f3a65dde221e9a07154b8d99359ef1dadc2bc0467fa0ec45ba544057271:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdhYTBjOWYwZmYyM2IxYjdiNzFjYjc1ZmYxYWViY2FjZDBhYWU3OWE2ZjY5ZDhkMWVmYTJiMjQ1YThkNTMyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU0MmEzNDI3NmUwMTUwNzk3YWYzZTA1NzZlOTViMTE1MzQzN2M2YTE2MTQ2OTU3YzliNDkwNzFkYzJmNTYzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODhhZTViMTYwYWQ4ZmQzYTlmYzhlZmE5MjE1MzZkYWZkMmU1YTU1MGQyNDc3NTljM2U5YWQ2YjJmOTViOTk1MSJ9"
-        },
-        {
-          "resource": "repo://config/config.example.yaml#L29-L33",
-          "version": "repo-lines-v1:sha256:60dd70570ca34784a68e8819295b2ece32ca3358690ce43bca46107b784ec012:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5YjFlY2Y0YzYwOWJiYzViMGVhMDVmMDk5ZjAzNzU1MTk1ZjAyZjc4N2NhODAzZmNiY2E4ZThiYWU4YjcwMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyMTExNTFiOTljY2U5YzdmODYzN2RiMjQxOGFhMDY5NzU5OGEzMWJmYTFmMjdmNTU0N2Y4NTVkMGQ5ODI3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2RlMDcyNjFjMmZmOWM5YzJlMTI2YTI3NTRmOWY5OTUzYmEyYzczNDdjMGQ5M2ViZjI2MDAzZDhmMDk3NzhlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWY2ZDQ5MWJiNDY3ZTlhZGJiODA0YWYzYzU5ZjVlNGVmZTMyZjc0MjA3MmRjYWM0YjY2YjJhYWMzOWI4M2M2MiJ9"
-        },
-        {
-          "resource": "repo://src/cqg/llm/base.py#L15-L29",
-          "version": "repo-lines-v1:sha256:9d6863db81affdeb40588d35ea91d10f6e2ce285f506a1a9de447e9465d3b37f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjZTQ5Mjg1YjY1MTkyZjVlZTBjYTQ4ZWU1MTc4NjI1NDQ5MTdmN2U4NzdiZWI2OTRlYmI5MWViNTJkMmJiY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYTMwOGZkNmExMWIyMjhkZWFhZWUyYTM5MWRkZWQ3NDQyY2U0NThhMzQwOWU3MWI5YWFkMGMwNjk2YmUxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMjkzZjZmNzIzZDlhYTgzMzU0NTU4ODM0NzA0YTRjNGYyOTRiMmJmYmY1NjlhZTNlYjNhYTQ1YTAxMzZlYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
         }
       ]
     },
@@ -213,10 +191,42 @@
           "version": "repo-lines-v1:sha256:226a7b196c50be55b8ebbb2a1bd216587c7bc88a443f0c7a094e1c779bd727cc:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODNhNjg3ZWExZmQzNDY0NDYzNmU4MzE3NWY2MWQwZjlmZDc5YTkxNTMyNzRiYTgwZDQ0MjA5MmYyZTc5ZDg5NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmM3NmFiOThiZjYyYzY2OGQ0ZTZhNTAwM2E3ZmVlZjRiYzM2NzliNjgzNmQzNzBlZjk2YWYxYzQ2YjRkYmU3ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQzZDM3NDczYTFjMGZkZmM3MzIwNDZmYTc1OGY1ZDEzYTllNGI1NjhkMmE0Yzk1MTViM2M5ZTNmZTdiYmZhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_6632e17c23e04d4584f426feb76311aa",
+      "statement": "The factory supports two providers that need no API key and are exercised by shipped artifacts: claude_cli delegates judgment to the local claude binary and is selected by config/config.claude_cli.yaml, and manual backs the enrichment image-manifest workflow.",
+      "evidence": [
+        {
+          "resource": "repo://config/config.claude_cli.yaml#L1-L7",
+          "version": "repo-lines-v1:sha256:2d223f3a65dde221e9a07154b8d99359ef1dadc2bc0467fa0ec45ba544057271:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzdhYTBjOWYwZmYyM2IxYjdiNzFjYjc1ZmYxYWViY2FjZDBhYWU3OWE2ZjY5ZDhkMWVmYTJiMjQ1YThkNTMyYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU0MmEzNDI3NmUwMTUwNzk3YWYzZTA1NzZlOTViMTE1MzQzN2M2YTE2MTQ2OTU3YzliNDkwNzFkYzJmNTYzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODhhZTViMTYwYWQ4ZmQzYTlmYzhlZmE5MjE1MzZkYWZkMmU1YTU1MGQyNDc3NTljM2U5YWQ2YjJmOTViOTk1MSJ9"
+        },
+        {
+          "resource": "repo://config/config.example.yaml#L29-L33",
+          "version": "repo-lines-v1:sha256:60dd70570ca34784a68e8819295b2ece32ca3358690ce43bca46107b784ec012:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjg5YjFlY2Y0YzYwOWJiYzViMGVhMDVmMDk5ZjAzNzU1MTk1ZjAyZjc4N2NhODAzZmNiY2E4ZThiYWU4YjcwMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyMTExNTFiOTljY2U5YzdmODYzN2RiMjQxOGFhMDY5NzU5OGEzMWJmYTFmMjdmNTU0N2Y4NTVkMGQ5ODI3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2RlMDcyNjFjMmZmOWM5YzJlMTI2YTI3NTRmOWY5OTUzYmEyYzczNDdjMGQ5M2ViZjI2MDAzZDhmMDk3NzhlOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWY2ZDQ5MWJiNDY3ZTlhZGJiODA0YWYzYzU5ZjVlNGVmZTMyZjc0MjA3MmRjYWM0YjY2YjJhYWMzOWI4M2M2MiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/base.py#L15-L29",
+          "version": "repo-lines-v1:sha256:9d6863db81affdeb40588d35ea91d10f6e2ce285f506a1a9de447e9465d3b37f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjZTQ5Mjg1YjY1MTkyZjVlZTBjYTQ4ZWU1MTc4NjI1NDQ5MTdmN2U4NzdiZWI2OTRlYmI5MWViNTJkMmJiY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYTMwOGZkNmExMWIyMjhkZWFhZWUyYTM5MWRkZWQ3NDQyY2U0NThhMzQwOWU3MWI5YWFkMGMwNjk2YmUxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMjkzZjZmNzIzZDlhYTgzMzU0NTU4ODM0NzA0YTRjNGYyOTRiMmJmYmY1NjlhZTNlYjNhYTQ1YTAxMzZlYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c6e56626eda0449bb0782b9bd24e4745",
+      "statement": "The README's configuration section enumerates all six providers the factory accepts, so it no longer diverges from the code on the available provider set.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L101-L104",
+          "version": "repo-lines-v1:sha256:34c267ceead2d42d052ef4d94b9bc0fa6cb0c516712cf864c111dfe475c73f66:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGMxODc4NWM5YmM5NWQ5ZDQ3ZGJjZTViZGJkMWZiM2NmOGM2YTI5MzdiMmMyYjgwMGZlYTE1ZjI2ZTAzNWJiMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMThjNjQ1MTYyNTMwZDA3NTcxYTMyZTg4NDBjMTJiM2RmODJiZTYyZDQyMWEyYjM5OGRjMTVhMDA4MTM4MWYwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzRiZTI0ZGFkYjZiYmM5NDg3YTkyOWMyNGE0MTBhMDFmMWQyNWQ2MjY0N2JlMjdhMTIzYTBkMjAwZmIzNTY5MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTE1MjJiYTQ3NTE0ZGQ2MjU3ZjU0MTBhOTM4YzI1MjUyZTA0MjY1MWUxYjZmMTM5MmNkMzIwYTVlYzEzOTE3NiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/llm/base.py#L15-L29",
+          "version": "repo-lines-v1:sha256:9d6863db81affdeb40588d35ea91d10f6e2ce285f506a1a9de447e9465d3b37f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjZTQ5Mjg1YjY1MTkyZjVlZTBjYTQ4ZWU1MTc4NjI1NDQ5MTdmN2U4NzdiZWI2OTRlYmI5MWViNTJkMmJiY2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxYTMwOGZkNmExMWIyMjhkZWFhZWUyYTM5MWRkZWQ3NDQyY2U0NThhMzQwOWU3MWI5YWFkMGMwNjk2YmUxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMjkzZjZmNzIzZDlhYTgzMzU0NTU4ODM0NzA0YTRjNGYyOTRiMmJmYmY1NjlhZTNlYjNhYTQ1YTAxMzZlYjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-09T22:03:23.095Z"
+    "at": "2026-09-11T06:45:44.636Z"
   }
 }

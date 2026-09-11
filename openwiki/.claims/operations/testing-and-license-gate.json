@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:1209e701c482701a9f43df1bdd92276acf508b4d7cba36417bceb1c762c6af2d",
+  "pageVersion": "sha256:288fbd5673628801ff0a78ab590595b54f33750ea9a7bf7b07e1d7aaa1e2a015",
   "claims": [
     {
       "id": "claim_61dbe115840c46829260248ed0e711c4",
       "statement": "The test suite relies entirely on pytest default discovery — there is no pytest.ini, conftest.py or [tool.pytest] section — and must be run from the repository root because at least one test opens pyproject.toml by a relative path.",
       "evidence": [
         {
-          "resource": "repo://README.md#L79-L83",
-          "version": "repo-lines-v1:sha256:faf1abea95410b196960d5ce79514354a2eba63baae7fd6bf2a42ef5bbe6dfa4:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU3ZjRiMzZhYzljZTBkMDZkY2Q3MmNjYzI0ZWIyOTBlY2NhM2RhZGNlZTM2Y2Q2NDE2ODlhMjgwNDhjODU0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDdjMDZjNTYxZDVjMzI3MzQzNjg1MjY4YTQ2YjMzOTFmMzk5OGVlZTg5MGQyYmU1MWYwZDIxY2M0YTUzYWU2ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzAyMmFmN2E0MjNjZTMyN2JmZTdkZDVkMmNlNWFjZTg2ZjllMDFjMDg4MmZkNDkxOGM0MzNjMDkwNWY5N2YwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzgyZTFiOWQ2MTljMjFjNDNlMmJlMzQ0YTBlOTI2ZTc0OGIxNDlhNGNkNmIwMWIzMGVhZjIyZDk1YTRlMWIxYyJ9"
+          "resource": "repo://README.md#L108-L114",
+          "version": "repo-lines-v1:sha256:bbfedb8f48ff74bdf5e0f8d475931f8040878925fdc0a7955bfce089a15ec319:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU3ZjRiMzZhYzljZTBkMDZkY2Q3MmNjYzI0ZWIyOTBlY2NhM2RhZGNlZTM2Y2Q2NDE2ODlhMjgwNDhjODU0NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWRjZThjNTU5MGZjZWIyZTIxNTlhOWI0NzcxMGEyMGVkZTIxYjJhYjI4M2QxZmIwZDk1NzVmMjc1NTU0MWRmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTE1MjJiYTQ3NTE0ZGQ2MjU3ZjU0MTBhOTM4YzI1MjUyZTA0MjY1MWUxYjZmMTM5MmNkMzIwYTVlYzEzOTE3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDk0NmI1MWI4NmE3ZTg4ZDA2ZDlkY2YwODA4OWFjYjZhYTg0NDYwNTA4ZTI4ODliMzU3YmYwNDY1ODdiMTFjMiJ9"
         },
         {
           "resource": "repo://pyproject.toml#L1-L36",
@@ -127,7 +127,7 @@
       "statement": "The license constraint restricting the project to MIT / Apache-2.0 / BSD dependencies for commercial use is enforced by a denylist script that enumerates INSTALLED distributions via importlib.metadata rather than declared ones, so a forbidden package pulled in transitively is still caught.",
       "evidence": [
         {
-          "resource": "repo://README.md#L15-L16",
+          "resource": "repo://README.md#L16-L17",
           "version": "repo-lines-v1:sha256:2e8875200fe21accb403dccb7249c6917b6ada582240faf89aa22807ae067e37:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA1NTExOTgyNDc1ZDljZDljYzBkZjJhODU3MWRhYWE3M2FjNDBjODY2NjBlNjU2ODZhYTZlYTM1MzY4ZWM5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2M1MmU3YWFhY2RhNzg3NGRhYjExZmMwODJhZGY3YTMzMDk4OTkyYWFiNzcxMjI0MzY5MjQ4Yjg2MzRlN2E4NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJhMDU5NTdkZGY3M2M4OWY2YWE0ZWI5ZGE5NjJhZDAzYzIyMmM1YTcwYjdhZmIzYmNjNWM4MjNmNjE4NmRhZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjUxOTBiYjE0NjhhMzE1MzhhMTlhODkxZDg0NTJlMzdhY2JiZDNmMDUxMWU0Mzg1ZWExMDA2ODE4YjUxZjVmOSJ9"
         },
         {
@@ -297,6 +297,6 @@
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-09T22:03:23.095Z"
+    "at": "2026-09-11T06:45:44.636Z"
   }
 }
