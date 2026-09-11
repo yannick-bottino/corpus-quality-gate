@@ -3,7 +3,8 @@
 Intrinsic document quality evaluator, run BEFORE RAG ingestion. Scores and flags each
 document (reference-free, document-level: neither ground truth nor queries required), aggregated
 at corpus level. Principle: **score-and-flag, human-in-the-loop** (nothing is deleted, everything
-is flagged for review). Target corpus: heterogeneous and multimodal digital PDFs, bilingual FR/EN.
+is flagged for review). Target corpus: heterogeneous and multimodal, bilingual FR/EN — digital
+PDFs, plain text (`.txt`, `.md`) and office documents (`.docx`, `.pptx`).
 
 ## Installation
 
@@ -22,10 +23,10 @@ Two subcommands. No API key in plain text: keys are read from environment variab
 
 ```bash
 # 1) Corpus quality verdict
-python main.py run    <dossier_pdf> --config config/config.example.yaml --out <sortie> --enrich
+python main.py run    <corpus_dir> --config config/config.example.yaml --out <sortie> --enrich
 
 # 2) Reference question/answer set (golden set) for business validation
-python main.py golden <dossier_pdf> --config config/config.example.yaml --out <sortie>
+python main.py golden <corpus_dir> --config config/config.example.yaml --out <sortie>
 ```
 
 (After `pip install -e .`, the `cqg run ...` / `cqg golden ...` command is also available.)
@@ -33,14 +34,22 @@ python main.py golden <dossier_pdf> --config config/config.example.yaml --out <s
 ## Pipeline
 
 ```
-triage (pypdf)
-  -> parse (pdfminer.six + pdfplumber, fallback cid)        # faithful extraction, cid failure detection
-  -> enrich (image -> text, VLM, injected BEFORE the eval)  # optional (--enrich)
+triage (pypdf, python-pptx)                                 # classify, count pages/slides
+  -> parse                                                  # extractor chosen by extension
+  -> enrich (image -> text, VLM, injected BEFORE the eval)  # optional (--enrich), PDF only
   -> screen (two-speed triage)                              # degraded/clean doc -> "light" route
   -> deterministic metrics (Gopher/RedPajama, block integrity, content redundancy)
   -> sectioned LLM judgment (100% document coverage, one batched call per section)
   -> Excel/CSV report + corpus redundancy
 ```
+
+Extraction is chosen by extension, never by the triage category:
+
+| Input | Extractor |
+|---|---|
+| `.pdf` | **Docling** in a batched subprocess (default), automatic fallback to pdfminer.six + pdfplumber |
+| `.txt`, `.md` | direct read, `utf-8-sig` + NFKC |
+| `.docx`, `.pptx` | python-docx / python-pptx — headings, tables, speaker notes; no PDF machinery |
 
 Key points built in:
 - **Parsing robustness**: detection of `(cid:NNN)` font-mapping failures and penalization
@@ -52,6 +61,9 @@ Key points built in:
   routed to light judgment (flagged, without spending the full LLM budget).
 - **Anti-fabrication**: three states `scored | na | not_evaluated`. A score is retained
   only if whole, within the scale, AND justified. Never a guessed score.
+- **Every input produces a row**: nothing is silently dropped. A document that failed to
+  extract is flagged `unreadable`, one that raised `processing_error`, a lightly judged one
+  `screen:light`. Read the `flags` column rather than the error count.
 
 ## Outputs
 
@@ -60,6 +72,9 @@ Key points built in:
   **Detail** (the 57 criteria with status / score / justification / evidence), **Remediation**.
 - `synthese.csv`, `detail.csv`, `remediation.csv`, `<doc>.score.json`, `<doc>.enriched.md`,
   `corpus_redundancy.json`, `cost.json` (LLM calls and prompt volume per document).
+
+Each `<doc>.score.json` carries a `config_hash`: a fingerprint of the scoring configuration
+*and* of the criteria grid's content, so two runs are only comparable when it matches.
 
 `golden` (in `--out`):
 - `golden_qa.xlsx` / `golden_qa.csv`: reference Q&A set, columns
@@ -71,10 +86,20 @@ Key points built in:
 
 ## Configuration
 
-Documented template: `config/config.example.yaml`. Sections: `llm` (provider mock / openai /
-azure_openai / anthropic + `api_key_env`), `judge` (section size and overlap),
-`enrichment` (image VLM), `golden` (profile, policy, number of questions, corpus-wide
-questions + retrieval parameters).
+Documented template: `config/config.example.yaml` (`config/config.claude_cli.yaml` drives the
+judgment through the local Claude CLI instead of an HTTP provider). Sections:
+
+| Section | What it sets |
+|---|---|
+| `llm` | provider mock / openai / azure_openai / anthropic + `api_key_env`, model, excerpt budget |
+| `judge` | section size and overlap for sectioned judgment |
+| `parsing` | `parser: docling \| legacy`, and the Docling page-batch size |
+| `enrichment` | image VLM (independent of the judge LLM), minimum image size |
+| `golden` | profile, policy, number of questions, corpus-wide questions + retrieval parameters |
+| `thresholds` | coverage below which a document is flagged |
+| `paths` | working directory — the only section excluded from `config_hash` |
+
+Portable in batch (e.g. Azure OpenAI) via the `llm.provider` field of the configuration.
 
 ## Tests
 
@@ -82,4 +107,14 @@ questions + retrieval parameters).
 python -m pytest -q
 ```
 
-Portable in batch (e.g. Azure OpenAI) via the `llm.provider` field of the configuration.
+Run from the repository root: one test reads `pyproject.toml` by a relative path.
+
+## Documentation
+
+- **[`openwiki/`](openwiki/quickstart.md)** — the repository wiki: pipeline stages, parsing and
+  extraction, scoring and the criteria registry, reporting, configuration, operations. Start at
+  [`openwiki/quickstart.md`](openwiki/quickstart.md).
+- [`docs/GUIDE-run-docling-complet.md`](docs/GUIDE-run-docling-complet.md) — Docling setup,
+  batch sizing and measured memory figures.
+- [`docs/benchmark-docling-cahier-ma-sante.md`](docs/benchmark-docling-cahier-ma-sante.md) —
+  the parsing benchmark behind the Docling default.
