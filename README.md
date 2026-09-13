@@ -18,18 +18,58 @@ gate is verifiable: `python scripts/check_licenses.py`.
 
 ## Usage
 
-Two subcommands. No API key in plain text: keys are read from environment variables
+Three subcommands. No API key in plain text: keys are read from environment variables
 (`*_api_key_env` fields of the config).
 
 ```bash
-# 1) Corpus quality verdict
+# 1) Parsing: raw sources -> parsed_input/ (the markdown as it will be ingested)
+python main.py parse  <raw_dir>    --config config/config.example.yaml --out <parsed_input> [--enrich] [--force]
+
+# 2) Corpus quality verdict
 python main.py run    <corpus_dir> --config config/config.example.yaml --out <sortie> --enrich
 
-# 2) Reference question/answer set (golden set) for business validation
+# 3) Reference question/answer set (golden set) for business validation
 python main.py golden <corpus_dir> --config config/config.example.yaml --out <sortie>
 ```
 
-(After `pip install -e .`, the `cqg run ...` / `cqg golden ...` command is also available.)
+`run` and `golden` take as `<corpus_dir>` **either** a folder of raw sources (parsed on the
+fly, behaviour unchanged) **or** a `parsed_input/` (pure scoring, no source file is ever
+touched). `parse` takes a raw folder only, and refuses a folder that is already a
+`parsed_input/`.
+
+(After `pip install -e .`, the `cqg parse ...` / `cqg run ...` / `cqg golden ...` command is
+also available.)
+
+## `parsed_input/`
+
+The boundary between parsing and scoring. One parsed document = two files side by side:
+
+| File | Content |
+|---|---|
+| `<doc_id>.md` | the markdown as it will be ingested into RAG, editable by hand |
+| `<doc_id>.parse.json` | sidecar: `blocks`, `images`, `parse_confidence`, `markdown_hash`, `provenance` |
+
+The sidecar is not optional. `na_decisions` counts blocks, so a markdown without its
+sidecar would show zero table and zero image and flip the structure criteria to `na` — the
+score would move for a reason foreign to the quality of the document.
+
+Detection is automatic: a folder holding `*.parse.json` files is a `parsed_input/`. A `.md`
+on its own never marks a folder as parsed, being both a supported source format and an
+output of parsing. A folder holding both sidecars and raw sources (`.pdf`, `.docx`,
+`.pptx`, `.txt`) is refused with an explicit error rather than guessed: scoring it as raw
+would re-parse the markdown and ignore the sidecars, scoring it as parsed would drop the
+sources.
+
+`parse` skips a document already present in the output folder; `--force` re-parses it.
+Editing the markdown by hand is a first-class case, and a silent re-parse would destroy
+that work. When the source has changed since the parsing (source hash compared with the
+sidecar provenance), `parse` reports it on stdout and never re-parses on its own: choosing
+between the human edit and the new source version is the human's call, made with `--force`.
+
+If the `.md` has been edited by hand, `run` detects it (`markdown_hash` comparison), flags
+the document `manually_edited` and recomputes the text blocks from the edited markdown. The
+typed blocks (`table`, `image`) and the image geometry stay as parsed: they are facts about
+the SOURCE, which an edit to the prose cannot re-derive.
 
 ## Pipeline
 
@@ -42,6 +82,12 @@ triage (pypdf, python-pptx)                                 # classify, count pa
   -> sectioned LLM judgment (100% document coverage, one batched call per section)
   -> Excel/CSV report + corpus redundancy
 ```
+
+`cqg parse` covers the chain from `triage` through `enrich` and stops at `parsed_input/`;
+`cqg run` picks it up at `screen`. Given a raw folder, `run` still runs the whole chain in
+one go, `--enrich` included: the split opens a possible stop, it does not impose one. On a
+`parsed_input/`, `--enrich` has no object — a warning says so and the option is ignored
+(the VLM client is not even built, so no API key is demanded to do nothing).
 
 Extraction is chosen by extension, never by the triage category:
 
@@ -63,15 +109,28 @@ Key points built in:
   only if whole, within the scale, AND justified. Never a guessed score.
 - **Every input produces a row**: nothing is silently dropped. A document that failed to
   extract is flagged `unreadable`, one that raised `processing_error`, a lightly judged one
-  `screen:light`. Read the `flags` column rather than the error count.
+  `screen:light`. On a `parsed_input/`, a hand-edited markdown is flagged `manually_edited`,
+  a markdown dropped in without its sidecar `missing_sidecar`, a sidecar whose markdown was
+  moved or deleted `missing_markdown`. An unsupported format and an unreadable document
+  cross the parsing boundary too and are flagged exactly as they are on a raw folder.
+  Read the `flags` column rather than the error count.
 
 ## Outputs
+
+`parse` (in `--out`, which is the `parsed_input/`):
+- `<doc_id>.md` and `<doc_id>.parse.json` per document — the enriched markdown when
+  enrichment is on, since the enrichment happens here;
+- `images/<doc_id>/`: the cut-out images, written only when enrichment is on and the
+  document has images.
 
 `run` (in `--out`):
 - `corpus_report.xlsx`: tabs **Synthese** (score, level, coverage, flags per document),
   **Detail** (the 57 criteria with status / score / justification / evidence), **Remediation**.
 - `synthese.csv`, `detail.csv`, `remediation.csv`, `<doc>.score.json`, `<doc>.enriched.md`,
   `corpus_redundancy.json`, `cost.json` (LLM calls and prompt volume per document).
+
+`<doc>.enriched.md` only appears on a run over a raw folder with enrichment on. On a
+`parsed_input/` the enriched markdown is `<doc_id>.md` itself, written by `parse`.
 
 Each `<doc>.score.json` carries a `config_hash`: a fingerprint of the scoring configuration
 *and* of the criteria grid's content, so two runs are only comparable when it matches.

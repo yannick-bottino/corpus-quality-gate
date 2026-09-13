@@ -20,8 +20,21 @@ def render_image(pdf_path: str, ref: ImageRef, out_dir: str, scale: float = 2.0)
     crop.save(out)
     return out
 
-_TAG = "[Image (description automatique, non verifiee): {desc}]"
+# Anti-fabrication marker carried by every auto-generated description. Named because
+# the count of these is a flag on the score: whoever reads the report must know part of
+# it rests on unverified content, whether the enrichment happened in `parse` or in `run`.
+AUTO_DESC_MARK = "description automatique, non verifiee"
+_TAG = "[Image (" + AUTO_DESC_MARK + "): {desc}]"
 _DECO = "[Image decorative ignoree]"
+
+
+def count_auto_descriptions(markdown: str) -> int:
+    # Counted from the scored markdown rather than from the enrichment step, so the flag
+    # is the same whether the enrichment happened in `run` or upstream in `cqg parse`.
+    # Matched on the opening of the tag, not on the marker alone: prose quoting the
+    # marker -- an .enriched.md from an earlier run fed back in as a raw source, say --
+    # would otherwise claim descriptions the document never received.
+    return markdown.count("[Image (" + AUTO_DESC_MARK)
 
 def enrich_document(doc: ParsedDoc, pdf_path: str, llm: LLMClient, out_dir: str,
                     min_side_pts: float = 24.0) -> str:

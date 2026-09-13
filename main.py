@@ -1,4 +1,4 @@
-"""Root entry point: allows `python main.py run|golden <corpus> --config ...`
+"""Root entry point: allows `python main.py parse|run|golden <corpus> --config ...`
 without prior installation (adds src/ to the import path)."""
 import os
 import sys

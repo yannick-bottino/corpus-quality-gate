@@ -25,6 +25,30 @@ class ParsedDoc(BaseModel):
     parse_confidence: float
     images: list["ImageRef"] = []
 
+class ParseProvenance(BaseModel):
+    # What produced the parsed document, anchored on the source bytes. No timestamp:
+    # parsed_input/ is a human-editable, reviewable artefact, and a clock value would
+    # turn every --force re-parse into a diff nobody can read.
+    parser: str
+    source_name: str
+    source_type: str
+    source_sha256: str
+    source_pages: int | None = None
+    category: str = ""
+    enriched: bool = False
+
+class ParsedDocFile(BaseModel):
+    # Sidecar of a parsed_input/ entry: everything a ParsedDoc carries EXCEPT the
+    # markdown, which lives next to it in <doc_id>.md so a human can edit it.
+    # markdown_hash is that file's sha256, which is how a hand edit is detected.
+    schema_version: int = 1
+    doc_id: str
+    markdown_hash: str
+    parse_confidence: float
+    blocks: list[Block]
+    images: list[ImageRef] = []
+    provenance: ParseProvenance
+
 class CriterionScore(BaseModel):
     id: str
     tag: Literal["D", "H", "L"]
