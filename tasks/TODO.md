@@ -1,7 +1,9 @@
 # Plan d'implémentation — 2 features Corpus Quality Gate
 
-Issu du grilling du 2026-09-11. 26 décisions arbitrées, frontière vide.
-**Statut : EN ATTENTE DE VALIDATION — aucune ligne de code ecrite.**
+Issu du grilling du 2026-09-11. 26 questions arbitrées + 2 réserves tranchées (R1, R2)
+= 28 décisions, frontière vide.
+**Statut : lot 1 livré et vérifié le 2026-09-11 (voir « Résultat mesuré » plus bas).
+Lots 2 et 3 non commencés.**
 
 Méthode d'exécution retenue : **subagent-driven development + TDD** (test rouge, puis
 implémentation, puis revue). Un sous-agent = une tache du plan, avec brief structuré
@@ -253,8 +255,10 @@ sur `test_data/` avec ce YAML redonne les **mêmes scores**.
 - `compute_doc_score` fait `reg.dimension_weights[d]` **sans garde** : le compilateur doit
   valider que chaque dimension citée a un poids, sinon `KeyError` en plein run.
 - Le loader ne valide aujourd'hui que l'unicité des ids.
-- `parse_document` a **deux** appelants (`run` et `run_golden`) : le lecteur de
-  `parsed_input/` doit servir les deux.
+- `parse_document` a **trois** appelants depuis le lot 1 : `parse_corpus` (`cli.py:119`),
+  `run_golden` en mode brut (`cli.py:173`) et `run` en mode brut (`cli.py:252`). Le
+  lecteur de `parsed_input/` les sert tous. (Le cadrage n'en annonçait que deux : la
+  sous-commande `parse` en a ajouté un.)
 - `enrich_document` a besoin du PDF source (`render_image` crop la page) : d'où la
   descente de l'enrichissement dans `parse` (Q9).
 - `CountingLLM` exclut explicitement les appels VLM du comptage de jugement : les
