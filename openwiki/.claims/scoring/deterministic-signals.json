@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:dcb14d207a814448c1dfa19c43243a74e4f19dbac2239ce03db7bebedf4c1c98",
+  "pageVersion": "sha256:413d64350f72385f32f9498dbbc38d22a47409cf121737467f5dcb8796cc1169",
   "claims": [
     {
       "id": "claim_44238282d1684dd986832deac6401d24",
@@ -213,10 +213,32 @@
           "version": "repo-lines-v1:sha256:9253718f52bc303f9a480bc91acdf72095c040eb981d4fc39e1ec86ebb98780f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhlZmEzMmY1NjhlYWJmMDE3OTdiYzk5MDU3ZmFkMWRjNGM5NjY5YjlhODhmNGMxZDU5OGM3YTRkMzcyNzQ0MWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjJjZTE1OWJmMTgzYzQwMzQyMjNkNjhiZmE5M2NmMjUxMDg1NTc3NTkzNmEwM2U5YzUzN2IzMmViNTdhNTdiNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZDE1ODM2MTAzNGZkZDRiNTZiMWEyZTNiOGE2NTQyYzA2NDc3NmRhMTA3M2NmOTA3Y2M0MTFkZDM3NzVjYjgifQ"
         }
       ]
+    },
+    {
+      "id": "claim_e89d3dc4eebd47ccbc4728a11e2456a5",
+      "statement": "On the parsed path the blocks `block_inventory` and `na_decisions` read come from the entry's sidecar rather than from a live extraction, which is why the sidecar is mandatory: a markdown read alone would count zero tables and zero images and flip those criteria to `na`.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L34-L41",
+          "version": "repo-lines-v1:sha256:4d18d651cb33e074774a0b0b2865944d3cb387dd20c6c929f2fe9848a8c9cb64:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNjYTZhN2YyNGExNGJlOTgwNjM4M2Q1YzJiYWRkNTZlN2FmYzVlY2M1ZGVkOWFkNDY5ZTk5MjIyODNhMDU3YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI4ZTIyMTUxMjhiMjc1YzM5MjFiOWRjZTI0NjYyMzliN2RlZjI0NGE0YjY1ODczZGRiZWViNDg2MDU3NWI4NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGM4MTg0M2E1YTM4Y2M5YzdkNTRkNzZhYWMyYTU5Njc2MzJlYjQ0N2UxMjg3NDhmYmEwZTVhOGZkMjgzMDJmNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2NhOWNiYzAyN2IyOTIzNTMzZTJmYTY5ODg4NjJhMTU0NDZiN2M5MDM4NzhlYWNhNmJlZDA5NjhiZDU5MTg0ZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/inventory.py#L1-L20",
+          "version": "repo-lines-v1:sha256:70a068abca075cae0c27899a94303e2f9f6743d44b3fd8ae51771c429feb8c62:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwODgzZWE3ZWNmOGRkOGY5ZmE1NDNmZDg5ZjdiNmQ0ZmIxY2NkNGZlNmZkNjFiN2IxNTEyN2JkMTcwODg1MDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3ZTAyZmY0Njk3MGQ1MGYyZjhjODkzZTlkNTUwNDlhNWNmM2FmNGJmZGJmODYxMzc4ZGQ4YWY2MzM4NDc0Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ4YTljZGE3NDFjNmVmZTA4OWM1YzgzMmJkMGFlZDZhYjZlNTM1YmNkOTAyMzk3ZDU2ZDNmYmUwMGNkMmVjYWUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L133-L140",
+          "version": "repo-lines-v1:sha256:92cdb1110d565334faa662f168d19371a14f03c48e8ad257d3862cbf033635c5:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA0NTI5ZjE4YzA2ZmE0OGU2YjM5YzFhMTBjOTc1ZDFhMDc3ZWYwZWRjZTY4NTFmZDhlZmUxNmI5NTYyYTIzZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIyMzg0MDdjYWVmOTZhNjU2M2UxNDViNDlmM2RkMTRiZjVlMmY2ODg0ODU3ZjE2ZTU1M2MwN2ExYmQ4NzhiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWYwYTA4OTU5MDRjNTRlMmRkNzQ5ZmE4MmMzNGQxNTBlODAxNjE2ODFiNGY1MzBkYmY0YzQ1NGIyOTUzYjhmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjJjYjYwNWM2ZGRlMWMyZTU3YzhmNzA0YWRjOGU2YmQyMzlkMDZkYmM4NGMyNGY3MDhiMWEzYmI2NmRhYmM0ZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L9-L11",
+          "version": "repo-lines-v1:sha256:fa4c0d99c80d08b08e54f9f208bc81534d29ad0eb4032fd1fbd18fcb91710a29:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJkZGIxYjg5NzBlMTI2MTc5OWZiMDlmMmNhYTEzODBjY2RhNGE1ZDJiNTQzMzZmODZkYjdlMTZlNzNmMjYzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAzMWU3N2Y5YjY2OTdkNTlhMmYyZDNlODJkOGVlMWEwN2U1MWE0M2EyYWIzZjMxNDRiNjE4ODFkNzg1ODU1YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjMyM2M4MTk2NzAxZjhlNTBiNjU2ZTU1NTQyMTJmMTFmOTZmZTNiYzkxY2ZlMTIyYjNjYjNiMzc4MzFmOWU0OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUzMTBlMjg0Y2RkMjZmYzQ2NmM1Zjc4MGRjMDRiZDZhZDBhNTIzN2Q5ZWIzYWMxMDZkMTMwZDM2OWFjMjQxNSJ9"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-11T06:45:44.636Z"
+    "at": "2026-09-11T15:09:34.136Z"
   }
 }

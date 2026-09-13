@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:f235bfa7186b5e17d132603191c908e0ee73054c3f15b99f482004ab66ec1605",
+  "pageVersion": "sha256:2712775dbf39f8981acd8b1f3dc3b039c045dc4a76aadf2023ca9b44029855d9",
   "claims": [
     {
       "id": "claim_d7134f6776504568a2d295f49f51a27a",
       "statement": "Enrichment runs before evaluation by design: the run orchestration replaces the document's markdown with the enriched markdown so that quality is scored on what will actually be ingested into RAG rather than on raw text containing opaque image placeholders.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L106-L117",
-          "version": "repo-lines-v1:sha256:e0a5b72d2cf458c6476ddc25171cfbed94fd3db012ecbeff847c59db8d0d6cd7:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxM2JkYjNhNDBmNmY1ZjAwODVmMTdjYjZhNWNjNGI1ZmU5ZDdiYzJhY2Y0OWNkMTIxY2Y4YjZmNjBjNGJhYTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkN2FhZmVhMjc3OTE3YWVlOWUwZTYyNGYzY2YyMmJhMThmZDQ0ZTczZDE4NjY3NzJkZmI5MzBlNzM5ZTI1NDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyZWQ5M2I2Njk5MGEzMzAxNmI1MGQ1NmQ4Njg3Mzc1NGNlMDYxOTFmZGI2MWUwZWZlZGRiOGJhMDhhM2VhOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg4Nzk2NTcwMGZlZTZkMTAyYTE1NWU5MzMzMTJkNmU3NWZkOTJhMmNhMzk0MGY3NDM2ZGE4MWE2NDhiYzhjMmIifQ"
+          "resource": "repo://src/cqg/cli.py#L265-L274",
+          "version": "repo-lines-v1:sha256:56e923b4f8a13f2bbbcb55e38ce13d392ceb703dffa9911604bdcdbeadbc7f05:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkNTgxZjA0OTJhYTExMDU5ZWMxYmUzYjMzNTVhNDVjMDhkMzQ3YmNiZWIxNzE0MzhlZmJkYTZiNzc5Y2FmZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkN2FhZmVhMjc3OTE3YWVlOWUwZTYyNGYzY2YyMmJhMThmZDQ0ZTczZDE4NjY3NzJkZmI5MzBlNzM5ZTI1NDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyZWQ5M2I2Njk5MGEzMzAxNmI1MGQ1NmQ4Njg3Mzc1NGNlMDYxOTFmZGI2MWUwZWZlZGRiOGJhMDhhM2VhOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI4ZjA3NzkzOTg1YmJmMjE1NGM2YmI0ZGFmNDM2MzhjOTViNTRmOTk1ZWNkOTQ2NzM0Y2Y2M2UxMzliNzgwYTcifQ"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L100-L120",
@@ -32,19 +32,23 @@
     },
     {
       "id": "claim_8daec1e06e9f48e38aa34edf8319b4b0",
-      "statement": "Enrichment is optional and activated either by the --enrich command-line flag or by the enrichment.enabled configuration key, with either route sufficient on its own.",
+      "statement": "Enrichment is optional and activated either by the --enrich command-line flag or by the enrichment.enabled configuration key, with either route sufficient on its own, in both `cqg parse` and `cqg run`.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L164-L167",
-          "version": "repo-lines-v1:sha256:a623f593cd77bb04c2314f30ec74aaccb15d65df22a768488d80865ecce3678d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDM4ZjBiMzNiNDQ2NGVmZjYzYzFlZTFkNjhkMGMyMDMxMGQ2YWRmYjY1ZWNiN2VlNWY0MDdlMTlhMWY3ZjEwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTE1MWE4NWVlOTM0ZTRhMWVhYTZkNmMxMmU5YTNhZTE1OGVlZDE5MDdiNWFlN2E4ZjMyYTA3YmViY2UyZTBhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmI4NzI4NThhZTlmMmI0OTFlMGEwYTIyYTI1YmMyZmRlOTRmOTM4NzA4Mzc0YzFkOTFkM2Q3NzA1MDYyYTcxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTMwMTM5N2JlMTQ3ZjFjMDE4NTllNzVmMDAzMzg2ZjU0ZGQ0MjJkM2VkNDA3MzI4ODA1NGI2ZDU4NGFkNTRhNyJ9"
-        },
-        {
-          "resource": "repo://src/cqg/cli.py#L80-L80",
+          "resource": "repo://src/cqg/cli.py#L213-L213",
           "version": "repo-lines-v1:sha256:ebbf6b591e1e975834e20397cd877ab05d0bf1544830e7ec3a2efbd6b035adbc:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiZjZiNTkxZTFlOTc1ODM0ZTIwMzk3Y2Q4NzdhYjA1ZDBiZjE1NDQ4MzBlN2VjM2EyZWZiZDZiMDM1YWRiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiZjZiNTkxZTFlOTc1ODM0ZTIwMzk3Y2Q4NzdhYjA1ZDBiZjE1NDQ4MzBlN2VjM2EyZWZiZDZiMDM1YWRiYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzgwODMyYTc4NDIyODc2Y2JkZWEyNGZkNzMyYTJhZGY5ZTI3ZDkwYzg0ZTU1MWRhYzRkZDY5NDhjMmQ3Njk5YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmU5NWFmOWYzYmJkNTkwMmE2ZTk5NTE3YTA4ZTA5NzI5NDUwNjgyYmUzYTNkM2RjMWFlMGZlZjI5MjQ4OTU2NCJ9"
         },
         {
+          "resource": "repo://src/cqg/cli.py#L327-L327",
+          "version": "repo-lines-v1:sha256:d38f0b33b4464eff63c1ee1d68d0c20310d6adfb65ecb7ee5f407e19a1f7f10f:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDM4ZjBiMzNiNDQ2NGVmZjYzYzFlZTFkNjhkMGMyMDMxMGQ2YWRmYjY1ZWNiN2VlNWY0MDdlMTlhMWY3ZjEwZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDM4ZjBiMzNiNDQ2NGVmZjYzYzFlZTFkNjhkMGMyMDMxMGQ2YWRmYjY1ZWNiN2VlNWY0MDdlMTlhMWY3ZjEwZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmI4NzI4NThhZTlmMmI0OTFlMGEwYTIyYTI1YmMyZmRlOTRmOTM4NzA4Mzc0YzFkOTFkM2Q3NzA1MDYyYTcxNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTRiMGU0YTU0YzRkZjdlNjQxNGVhMzAzYzVjMmU2NDhjNWFhYzI3MjIzMzljNGVjMjc1NzY0ZjBlYWUwMzgyNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L83-L88",
+          "version": "repo-lines-v1:sha256:23811bc75ac47b311e1c9182201dd93825950ae90746bee1662b0462fab7ca96:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJiZjZiNTkxZTFlOTc1ODM0ZTIwMzk3Y2Q4NzdhYjA1ZDBiZjE1NDQ4MzBlN2VjM2EyZWZiZDZiMDM1YWRiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2YxOWI5ZWQyNWMyNTUzY2U4NWU5YmJmODIxZjljY2ZmZmZhMmMwZWY1MzU3YzlhMzgzZDY3NjZlYTVmYWIwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGI3YWJiZmUwOGVmYzA1ZjU0YjQ4YmFlODgyNmY1YTJkZGM3N2VhMTQ5OGM1ZmEwMWRiZDYwOWU2MWUwMzYwNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE4M2M1ZGY2NDY5NzYxYjY1M2EwMDVmZjFmZTYzNzczMDVlNWJkZDUyODgxMjVlMjI0ZDRiMzEzMzk1ZDBmNiJ9"
+        },
+        {
           "resource": "repo://tests/test_cli_e2e.py#L122-L143",
-          "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmODJmNWMxZmQ2NDQ0MWQyOWU1NTRjYjRlOWQwMzZiMDE0ZTRjZDNmNGU5YzlmZGRlMjI5YmMxNjIxNjFmYzcifQ"
         }
       ]
     },
@@ -67,8 +71,12 @@
       "statement": "Each ImageRef resolves to exactly one of three substitutions: an image whose bounding box has a side below min_side_pts is replaced by `[Image decorative ignoree]` with no render and no model call, a successful description is wrapped in `[Image (description automatique, non verifiee): {desc}]`, and any exception yields `[Image non decrite: {type}]` naming the exception type.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/enrich.py#L23-L44",
-          "version": "repo-lines-v1:sha256:d2c218c10177110c4fe5ac8e41ae0a7cc838eaecd184cdf4a5883db9f3de382f:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkxMWVkODIxNTRiMjZhNmQ2ZjBjYTNjNmUzZmIyNTFmMjkwMDI5ZjI2MDYwNDNhYTVhYjNhMDg1MTFjZDg3ZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYzNTUwYzhlZDg0YWVlZjM2MWRhNjNiZjJhN2NlN2NiMWIwZTA3NWJkNzZkNjhkNmEyZTFiMDU0ZDM5NmViMTIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc3ZjEzYTU0ODE4N2VmMTRlZjA3MjgwOTI5ZGFjY2QyY2Y4NjY4M2M1OWUwZDkwZjJkNjY2M2NkYmU5ODFjMmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhNjg3MzFjMWYzMDlhMjc0MDc2Yzk5YTA1MzI2ZmY2NDE3ZmU0OWE4ZjBjOGM0ZjAyZmZmODY1MjAyOTZjZmIifQ"
+          "resource": "repo://src/cqg/enrich.py#L26-L28",
+          "version": "repo-lines-v1:sha256:f79e41c0ff916bb4493ec66aad511afae00566e6315277d8c7078fb7ec320aed:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDliMmM4ZTRmNjEzZTNkNGIyMGRkMjAxODI5NDI3OTg2ODEyODJmMGYxNjE4MjMzYTBjZTI3ZDRlNWIyZjhiNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDRhMzE0MWMyMjRkNDIzOGRkMTk5NDI5MWI2NjNjNDA3MmM4NzhjODA5M2JiMWVhMWJkMjI0NTdmY2YzZWU0NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTczZDJiNzM0ZTM0Njg5YzNhOWFmNGM0ZTM0ZDVkMWU5YTQzMTgzNzBmNzY4ZGM4NDcyZTQ0ZDE3NDIzNjdjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzQ5NmUwYzFkMzEyZGU4MDJmMmJlYjc1NGRjNjQ2NThjMDIzZWU5NmZjYzEzZmMzYzFjZmI4NTBiOWZhYzZmOSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/enrich.py#L39-L58",
+          "version": "repo-lines-v1:sha256:e19183cd4037d762327ae57c5be6ef0a1d7ceb9dc94caa6dc31c37aff859bbd0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkYzczZjAxOTc5NjQyMGQ4YmMwMzU3N2U5YmNmNTJjYjFlNTk5MzIzMzQwNjNkZDJjZjA1MjgzMDU4OTAzNmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2YTk1MTUyZjUwNDBiMmU4NDVjYmFkZjJjYWVmNWQwZGJhODIzZjY2M2UzNzRmMzQyYmExYTUzZTIxNmFiMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUwMjI4ZDVkYmYwNzQ0NzVmZjcyNGFlZWNkZmVjOTNiNDRiYjY1OTQ0NzUwYzgyNjBmNDA3YjM2YmM5NDcwYzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRhMGMxYWJkMDU0MWU2NmI2ZjlmYjNkMzFiMmFkNzk2ZTk0YTRjMzE3ZWM4MDlkMGY0ZDM2YmY3ZTIyYzg4MjMifQ"
         },
         {
           "resource": "repo://tests/test_enrich.py#L16-L46",
@@ -96,15 +104,19 @@
     },
     {
       "id": "claim_b531ecdfe66343baa112bc5bf0030492",
-      "statement": "The run counts occurrences of the unverified-description tag in the enriched markdown and attaches the count as an `auto_descriptions:<n>` flag, giving a reviewer an audit trail for how much of the scored text was machine-written rather than extracted.",
+      "statement": "The run counts the unverified-description tag in the markdown it is about to score and attaches the count as an `auto_descriptions:<n>` flag, giving a reviewer an audit trail for how much of the scored text was machine-written; the count is matched on the opening of the tag rather than on the marker string alone, so prose merely quoting the marker — an .enriched.md from an earlier run fed back in as a raw source — cannot claim descriptions the document never received.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L112-L117",
-          "version": "repo-lines-v1:sha256:149a5fcfb1be33fd609129fd4759b4f50c88261881348000f8456f30e07f5bf1:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTAxMGU0MmJlOTA2MzdmMWY3NzI3MWQzZDRkMTMyYzMyZmY0YzRiMmFlZmM4NjA1OTEyMDNjYmNjOTc0NGUxZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmQ3YWFmZWEyNzc5MTdhZWU5ZTBlNjI0ZjNjZjIyYmExOGZkNDRlNzNkMTg2Njc3MmRmYjkzMGU3MzllMjU0OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODM1NmQ1MDA3MzNhNWUxMWUwYTBkYjVjNWIzZTE1MzRiMjRmM2RjNTVkNjM5YTQ5MDdhYTRiYjk1MzhjZGExNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODg3OTY1NzAwZmVlNmQxMDJhMTU1ZTkzMzMxMmQ2ZTc1ZmQ5MmEyY2EzOTQwZjc0MzZkYTgxYTY0OGJjOGMyYiJ9"
+          "resource": "repo://src/cqg/cli.py#L275-L278",
+          "version": "repo-lines-v1:sha256:b19893c2881f1a1e47e38823d8e742474b9453131634f2380fdbc968d561dc8d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2UxMDMxOTUyNzY4MGIzOWM0MzQ4MGFlN2U0MWFjM2E4MzdlZDkxMmZmZTE3OTdhZjEyMzEzZGM4ZjdhYWZiNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWFiNzZkOWUyZjQ5ZTYzOWJlMGUyMzI5NjJhMDJjYjY3NWI3NGVlODU3ZWMwNDIyMTRiMTgzN2MyMGVjYmUyOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmFjOTIyMjE2MjUzNzI4Y2NkZTBiYTJjNDUxOWVmMzJjOWEwNjE4NjRhNWY4M2IwOTZiNTJmMzI1NTczNzA0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODg3OTY1NzAwZmVlNmQxMDJhMTU1ZTkzMzMxMmQ2ZTc1ZmQ5MmEyY2EzOTQwZjc0MzZkYTgxYTY0OGJjOGMyYiJ9"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L132-L133",
-          "version": "repo-lines-v1:sha256:2052136f45502331956cb776b81fcbef25374e1b0cb756f16fd16aac3156b145:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE3ZTNkNTMwMTBmYWUzNmM2MDY4NGMzNDhjMzliODFmMDA4YzJmNjIxMzYzMjk1NGUzODczNjZhYTU4YTk5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTRiMjgxMzljNjU4Mjc1ZGNhMTE3NGYyODVmZWQ0NWNmYWFlMzJlMTg0OWI3YjU5MmEwZmNlMmU4NTM4YzRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQ1YjNiOGE1Y2IwYzcxMWE0MWJlMGM1OGIwZTRiZWMxOWEyYTQ4ZWEzYmQ3ZTIzYTkzNjBmMGNmMzQwMGYyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzhiZTJkYWJiZmExN2ZiNGNhMDdiYjU5NTM0MWQxZTE2ODY3YTEyNGYyZjkxZTIwMWVkN2EyYmIwOWY3MzRhNiJ9"
+          "resource": "repo://src/cqg/cli.py#L293-L294",
+          "version": "repo-lines-v1:sha256:2052136f45502331956cb776b81fcbef25374e1b0cb756f16fd16aac3156b145:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTE3ZTNkNTMwMTBmYWUzNmM2MDY4NGMzNDhjMzliODFmMDA4YzJmNjIxMzYzMjk1NGUzODczNjZhYTU4YTk5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTRiMjgxMzljNjU4Mjc1ZGNhMTE3NGYyODVmZWQ0NWNmYWFlMzJlMTg0OWI3YjU5MmEwZmNlMmU4NTM4YzRiMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTQ1YjNiOGE1Y2IwYzcxMWE0MWJlMGM1OGIwZTRiZWMxOWEyYTQ4ZWEzYmQ3ZTIzYTkzNjBmMGNmMzQwMGYyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQzMGE2ZjVjNDg5NWE0YTI4MDFkMmZlZDE3MGRiNjgxYjQ2Njk1OTIwYzAxMTBmOTMwNzUzYjQ5OGU1MDg5NyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/enrich.py#L31-L37",
+          "version": "repo-lines-v1:sha256:42f92917a142e5e723fcc5f51b9a63e0f00bc8f10cb8c6d7966c63914467bae3:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTEyMGNiZWI3OTIwNDY4NmRkYTQyMjIwMjc2YWU1MWQ3MGEyMTRlNjUyYTYxMGIwMmY5MzliMjUzMjUwZDkyMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGY5YzdhMWZlMTlhMDRhNWU0NTk5OTFlY2ExMTY4ZTNmMmRlZThmZDFjM2I4OGU0YmMzNDJiZTRlYTIwZDdjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzlhOGYzZTMxYmFmZTlhMzcyYTkyZDBmYzg5MmE5Njc0ZjdlODBlM2M3ZmM0NjdmODE1MTAyNjAxMTlmMGU2ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWI0NzRmYmFkOTNjYTQwM2Q3MmNjZDk4YWM3NGRmZDRmZjBmNjE5YjU0YzFmNzc4YjNkMmE3MzdhMGMxZjM4MyJ9"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L100-L120",
@@ -153,12 +165,16 @@
           "version": "repo-lines-v1:sha256:256f641b9352b63090c69d298a60d0a31e908de368578f9bf7d44f4126582551:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc1NGY0NTc3OTFhN2Y5ZmM2MzUxYTcyNDZkYjVjYjZkNjU4NGUyNDRmMTMwMWI4OTFjYzE4NTJjZDE0NzhiZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyMTExNTFiOTljY2U5YzdmODYzN2RiMjQxOGFhMDY5NzU5OGEzMWJmYTFmMjdmNTU0N2Y4NTVkMGQ5ODI3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWZmZGQyNjA5ZDk2NzA3Zjg1YzdjNmM0MjZmOTA2NWVjMjZiZjcyM2YyYTM1OWI2YjFlODVkOGVhNThiYzAwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWY2ZDQ5MWJiNDY3ZTlhZGJiODA0YWYzYzU5ZjVlNGVmZTMyZjc0MjA3MmRjYWM0YjY2YjJhYWMzOWI4M2M2MiJ9"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L81-L89",
-          "version": "repo-lines-v1:sha256:21db45f4074156bffbf73c0fd4a3516dd20509d6670d49e796b27e212155252a:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI4ZDU2MTNmZDUzMmMxZjFmODlkMWZlYTAzYjc4ZDQxMTAzZjAzZWEwMjYyMGM5ZjFhNWJjMTFiYTNiZjY2YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2YxOWI5ZWQyNWMyNTUzY2U4NWU5YmJmODIxZjljY2ZmZmZhMmMwZWY1MzU3YzlhMzgzZDY3NjZlYTVmYWIwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTU0YzMzMzVlMmQzMGFhOGUyZDEzNzdlZWRkOTIwOTI0NmZhZTNjNTM0NTYxNWM0MWI0ZDkwMmVjZGFmMDQ0ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGY3YTJiM2M5ZjEzMGQyZTE5ZjE3ZDhjZmFmYjkxYzUwMzEyZmM0OTY0ODY4OWJjOGY3OWFiYmUyODg0ZjYxZCJ9"
+          "resource": "repo://src/cqg/cli.py#L229-L233",
+          "version": "repo-lines-v1:sha256:1437aa175806214bd9962f1da7d90e82048837d95e0ee770267ba3581d64086c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY0YjdjOGZjMzIxOWQ1OGMxZDViNjFmYTNkZjY4NDZjODliYjZhMThiNmI1M2FlMzYwYjc2MjJlYzJhODYzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2YxOWI5ZWQyNWMyNTUzY2U4NWU5YmJmODIxZjljY2ZmZmZhMmMwZWY1MzU3YzlhMzgzZDY3NjZlYTVmYWIwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDk4ZDI4YWY1NzZiYWE4NDNhMmUwMWJjNTY3YTc1NzFjNWM3NmRmMWQ4MDk2MGJhNDk2N2RjNDM5YzMxYTY4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGFmNjhmM2NkOTViOWU4NDAyZWYwNzIxMWNhYTY0MDE1NTM5ZWI5ZTE1MWMwOTg0ZWE2MDQ5ODRkZDY2YzY3ZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L86-L88",
+          "version": "repo-lines-v1:sha256:c499f4f6360e7041c4537227177abe09b2e19ee38f870eb2c12ec1c1c6832285:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY0YjdjOGZjMzIxOWQ1OGMxZDViNjFmYTNkZjY4NDZjODliYjZhMThiNmI1M2FlMzYwYjc2MjJlYzJhODYzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2YxOWI5ZWQyNWMyNTUzY2U4NWU5YmJmODIxZjljY2ZmZmZhMmMwZWY1MzU3YzlhMzgzZDY3NjZlYTVmYWIwZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTMxY2ExYWI5ZTQ0NzIwMDFjZGY3Zjc2MmMyZmQ4MjNjNDhiNmQzMWFlMTc5YWFkYmQ5MzhkNjJkMmYxODk2NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWE4M2M1ZGY2NDY5NzYxYjY1M2EwMDVmZjFmZTYzNzczMDVlNWJkZDUyODgxMjVlMjI0ZDRiMzEzMzk1ZDBmNiJ9"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L122-L143",
-          "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+          "version": "repo-lines-v1:sha256:027692566719c19e96ffebaf8851ad2e9defaebec856ae49b7ee57b46d8fc7d4:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4M2U3NGQ3OGU1ZWQzOTVlMjA1YmNhNDlhMzk5N2M4ZDM3YTNjNmJkN2Y3YTE1NDJmM2UxYjBmNzQ0ZDg0MDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1NTMxZGNmYjAxN2JhNTNhNzNkNTFjNzViZWNmOGRjZDQ2YWY1OTM0NWJmYTNlOGE0YjJlMjhjNDRmODhjMGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU4MmNmNzBjMGVhMzFlZDZmYzhmYjNlZDA2ZjI5OWM4ZGNkN2JjOTY3NDM4ZGRhMDg5OGI2MzEzNzI3ZDc5NDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRmODJmNWMxZmQ2NDQ0MWQyOWU1NTRjYjRlOWQwMzZiMDE0ZTRjZDNmNGU5YzlmZGRlMjI5YmMxNjIxNjFmYzcifQ"
         }
       ]
     },
@@ -167,8 +183,8 @@
       "statement": "Image enrichment applies only to PDFs: Word and PowerPoint documents emit Block(kind=\"image\") but no ImageRef and therefore no placeholder token, so the substitution stage finds nothing to replace and is a no-op for them.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/enrich.py",
-          "version": "repo-file-v1:sha256:d4a12dd19291919445d2aeb17c8de5298739acc96fe3d08a3f04a5e024133122"
+          "resource": "repo://src/cqg/enrich.py#L39-L58",
+          "version": "repo-lines-v1:sha256:e19183cd4037d762327ae57c5be6ef0a1d7ceb9dc94caa6dc31c37aff859bbd0:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZkYzczZjAxOTc5NjQyMGQ4YmMwMzU3N2U5YmNmNTJjYjFlNTk5MzIzMzQwNjNkZDJjZjA1MjgzMDU4OTAzNmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2YTk1MTUyZjUwNDBiMmU4NDVjYmFkZjJjYWVmNWQwZGJhODIzZjY2M2UzNzRmMzQyYmExYTUzZTIxNmFiMjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUwMjI4ZDVkYmYwNzQ0NzVmZjcyNGFlZWNkZmVjOTNiNDRiYjY1OTQ0NzUwYzgyNjBmNDA3YjM2YmM5NDcwYzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRhMGMxYWJkMDU0MWU2NmI2ZjlmYjNkMzFiMmFkNzk2ZTk0YTRjMzE3ZWM4MDlkMGY0ZDM2YmY3ZTIyYzg4MjMifQ"
         },
         {
           "resource": "repo://src/cqg/parse.py#L249-L259",
@@ -183,10 +199,74 @@
           "version": "repo-lines-v1:sha256:89ed137b721c1355edec57b244fb2318ead176adb6b126ba09a4d768ac5cb8dc:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjMzYWRhZDAyMmI4ZjM2NjZhMmNlZDQyMzNhOTQ4YTQ3NmQxMjZhMzUzZjJmNjQ3YzcwZDNlNzE5YTU0OWVkNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWVlMjE1NjUyN2ZiOGI5ZGNmYzA2MTJjNGZjNThhZTcxZTE2MmY4M2Y3YmZiNWZlOTYwNDY0YjYxM2YxNTgyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWE5YzlmYWQ5MDMwYTMyZGNlYTBlMDE5ZjkyY2JjY2E1NGU5MzY2NjQxYzBmNTI1MGM4MDE1NDI3MDA5NTM4MSJ9"
         }
       ]
+    },
+    {
+      "id": "claim_69a51d85ef2e4cb4924dbe2cd7187cca",
+      "statement": "Enrichment now also runs inside `cqg parse`, which writes the enriched markdown as the entry's `<doc_id>.md` and the cropped images under `<parsed_dir>/images/<doc_id>/`, because enrich_document needs the source PDF that scoring must no longer open and because parsed_input/ is defined as the document as it will be ingested into RAG.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L121-L127",
+          "version": "repo-lines-v1:sha256:95ddff5ba6dfeec95caf800766dc87a91efc5888e77002819e92be4eeabba9da:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWQ1ODFmMDQ5MmFhMTEwNTllYzFiZTNiMzM1NWE0NWMwOGQzNDdiY2JlYjE3MTQzOGVmYmRhNmI3NzljYWZlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2RhYWQxNGVlODQ1NjVmMmY4MDNhODYwOTk5ZTViNGY2ZWYwMDY3ZjFjZjViYmZmMmMyOGI4ZDdkNzU1MmJkNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzRjYmZmYzFmNjNmNmRhN2Y2Yjg1OWNhMjY0ODQyZTQyYTlmMzA5ODQ5YjUzMjhlN2MzOTNhNGIxNzkxN2FjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQwMDFhOWZiZWE0NTI1NTU5OGE5OTdkOTMxMGRlNjkyYWExNmU1YzZhOWI1ZTU2ZjY3MWJlNmJkMTcwMmIxMiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L69-L71",
+          "version": "repo-lines-v1:sha256:abd2398f0a20eba3c3e546c8f7ab6216406f0e62bd374ef8123ddb4ded06ba75:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTk1Njc0OTExN2NmN2IyYmY0NjAyZmY5OGMxMWQwOWFlNWQ3N2ZhZGZiMDkxZDU0MjE1M2QxNDI1MzMwZDY5OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGY0OTcwMGJlN2M3YmMxZDYzYThhN2RkYjE3ZTQ5OTY3YTdmMDcwMGE2YmY1ZmQ5YzAyMjY3NzZlY2I2YTZkYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQzNzJiZGQ5YjczMmE2NzdkZmQ0MzU3MjlmMjdhNWUzNzkzNTIwYWZhMjJlNjg0NjA5ZGFhOGM2YWQzZDZmYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjcyMWJmNzU2YjYyYzBlODk1NDNmODc5MzdjMDdjMjBiMDAwZTA3Y2RkNzk0NDNkZWFiMTM2YjgyODQ0OThhNSJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L97-L112",
+          "version": "repo-lines-v1:sha256:8ef41b42b82d4c3f037d4cb993a73310e30074ebd8c8cd496b9b9c7e8bcf720d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2MTc3ZTM3YzAyMTIxOWQ2MzNlNGRiOWI0Y2RhZjRlMWNkYjQxMTEyN2RhYjY3OTg5NzNjMDBkOTAyYmJhNzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzYjM2ZGZhOGYzYjNjNzg4NjVjN2U5OGQ2MDI0OGVhZWZhMjQ0YTBjOWI3ZjA0YzBkNTIxY2NiMzI5ZjFiODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczNDExMzEwNmE0ZTAzNzA5NGQ2YzdkMjUxNTVkM2E2Mzk4YzEzOTJhYjlmNDgwMzllNGUyOGQzYmVhM2VlNzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cdcf7752ab2d460ea4ae24e9e9677e3a",
+      "statement": "`--enrich` remains active on `cqg run` over a raw folder, but on a parsed_input/ it emits a RuntimeWarning stating \"--enrich est sans objet sur un parsed_input/ : l'enrichissement a lieu dans `cqg parse`. Option ignoree.\" and is ignored; the flag is cleared before the VLM client would be constructed, so no enrichment API key is demanded to do nothing.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L221-L233",
+          "version": "repo-lines-v1:sha256:eca17fe7230381d8a62003c45944e36f7de995a298030e106f90d74f0b32fff3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVmMGMzMmRmYzgzMDcxYzI4NTg1OWFhYmQ2N2M1NjgwMTA0ODk4ZGYxYzhiNTdjMzY3ZDI3MzdkM2RkYmY3MTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmMTliOWVkMjVjMjU1M2NlODVlOWJiZjgyMWY5Y2NmZmZmYTJjMGVmNTM1N2M5YTM4M2Q2NzY2ZWE1ZmFiMGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIxZTliOWI2YjdkMjEwMTIyYmRiYzQzOTYyZDE0YzliNTkyMzg5YThmYzZjOWFlZGIwMWM3YjFiYzY1OGYzMTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhhZjY4ZjNjZDk1YjllODQwMmVmMDcyMTFjYWE2NDAxNTUzOWViOWUxNTFjMDk4NGVhNjA0OTg0ZGQ2NmM2N2YifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L177-L189",
+          "version": "repo-lines-v1:sha256:66a12c894cc6ba3f313e177bab4a5979743569803718967be7755bc2c85d75da:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU3NGMzOWY4NTZiOTA0NDhhYTBiODcxZDY3Njk4NjQyM2RhMjY5N2M3MjI4NDNmNjEyODNkYTcyMGU3NGZlYTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhlMjMxZTI5OTViNGNlZTg4ZjFmYTEyZGZhMjFiYmU3NGQyZDE2YzFjZmI0MjBiOWJhNGJkMWU1MDQzZTE4YmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBlMTMxMGY1M2Q5ODM4MGI5NjM1Y2VlOGU1MWQ5NTg3OTg5NDZhMDJmMTNkZmEwYTg5YmRmNWU1NDA2MmM3NDcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_49ac07f7ec60495f83aecf5635fe621d",
+      "statement": "The sidecar written by `cqg parse` keeps the pre-enrichment blocks and image geometry — enrichment rewrites the markdown only — while the provenance records `enriched: true`, so the ImageRef bounding boxes stay usable and a reader can tell which kind of entry they are looking at.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L121-L127",
+          "version": "repo-lines-v1:sha256:95ddff5ba6dfeec95caf800766dc87a91efc5888e77002819e92be4eeabba9da:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWQ1ODFmMDQ5MmFhMTEwNTllYzFiZTNiMzM1NWE0NWMwOGQzNDdiY2JlYjE3MTQzOGVmYmRhNmI3NzljYWZlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2RhYWQxNGVlODQ1NjVmMmY4MDNhODYwOTk5ZTViNGY2ZWYwMDY3ZjFjZjViYmZmMmMyOGI4ZDdkNzU1MmJkNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzRjYmZmYzFmNjNmNmRhN2Y2Yjg1OWNhMjY0ODQyZTQyYTlmMzA5ODQ5YjUzMjhlN2MzOTNhNGIxNzkxN2FjYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWQwMDFhOWZiZWE0NTI1NTU5OGE5OTdkOTMxMGRlNjkyYWExNmU1YzZhOWI1ZTU2ZjY3MWJlNmJkMTcwMmIxMiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L59-L69",
+          "version": "repo-lines-v1:sha256:96eee416020ce6ecb6657d128b8220ae17eab86ec05ffb5f085fbdf00514e15a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZDU3ZjI0MzQzM2Y3NzkwNTkyMDM1ZmFlZWZlNWVkYjcxOGNmYWVlYzM5YzJlMDkxMmVkNjYwNjNiOWNiZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyYzc2ZjU1OWYwYjQ5N2QxMTlkNGQyZDFlZmRkM2YxN2EzOWRkMjhlOGY4ZGUzODA2MzEyZThjOTMwYWRjZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1MjljMTc2ZDRmOTQ1OTJkYjc3MDA5ZmMwNzZjNzU2N2E0M2M3ZGVjZjM5ODg0Mjk1YjM3MzdiYmY5YjA3NzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmZThhMWRhMDBiYWJmMjAwYjgyNDBhNmY3ZmYwZjZkYzYxYzc3OWRhYWU2OTE4MjU5MGFmYmM0ZmViZDE1ZmMifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L97-L112",
+          "version": "repo-lines-v1:sha256:8ef41b42b82d4c3f037d4cb993a73310e30074ebd8c8cd496b9b9c7e8bcf720d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2MTc3ZTM3YzAyMTIxOWQ2MzNlNGRiOWI0Y2RhZjRlMWNkYjQxMTEyN2RhYjY3OTg5NzNjMDBkOTAyYmJhNzYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzYjM2ZGZhOGYzYjNjNzg4NjVjN2U5OGQ2MDI0OGVhZWZhMjQ0YTBjOWI3ZjA0YzBkNTIxY2NiMzI5ZjFiODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczNDExMzEwNmE0ZTAzNzA5NGQ2YzdkMjUxNTVkM2E2Mzk4YzEzOTJhYjlmNDgwMzllNGUyOGQzYmVhM2VlNzIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_96bbd70ab5ae426c9c491592198fce5a",
+      "statement": "Inside `cqg parse` the enrichment call carries its own try/except nested in the per-document one: a rate limit, timeout or unreadable image is recorded in the result's errors and the entry is written un-enriched, rather than a perfectly parsed document disappearing from parsed_input/ while the command reports success.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L121-L136",
+          "version": "repo-lines-v1:sha256:0e0c58abd22fdb3697c854f571a90ce07939cdfc82fc8a6b578967c7d9132af3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkNTgxZjA0OTJhYTExMDU5ZWMxYmUzYjMzNTVhNDVjMDhkMzQ3YmNiZWIxNzE0MzhlZmJkYTZiNzc5Y2FmZTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3ODJlZjk5Y2E3YmE1NzU5ZWZmNzc5ZGRjOTJiMDExYzVhYmY1ZTExYTY0OGI0ZTg0MWFjMjZhZTgyNzU0OGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM0Y2JmZmMxZjYzZjZkYTdmNmI4NTljYTI2NDg0MmU0MmE5ZjMwOTg0OWI1MzI4ZTdjMzkzYTRiMTc5MTdhY2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI4OWY5ZTVhYzYxNDQyZWE2YTk3MTRiNTk3MDA5N2E5NmM4NjRmN2JmNjMxMzg0ZTU4YTc3YmE3NTM0YjY0MWIifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L235-L253",
+          "version": "repo-lines-v1:sha256:22fe27904859fe685c2e7f874e5372bac3c5e312cb7342cf84de766c4e4565be:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZTBlY2I5N2RiN2JiMjU2MjFkY2Y1NTQyYjU4MjFlY2RmZGFkOTcxMGFiMWQ1OGI0NWNlYWMyNTBjMGZiYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE0ZjQ0ZWQzNTMxNTM3ZmI0NzY5N2M2MWI2NDg4ZTRjMWMyYTc2YTE5ZTI4NmY3ZGU5ZjkxNThmMGZhNzRjZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM5Njc2YjE2YmFiNWQ3NWJlOTZlNTI3YTc5MWMwMDc2MGRmMGMxNWMxNDY2OTcwYzBiYTg4ODAzYzUxNjZmYWIifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-11T06:45:44.636Z"
+    "at": "2026-09-11T15:09:34.136Z"
   }
 }

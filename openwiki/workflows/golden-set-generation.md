@@ -18,16 +18,18 @@ sources:
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-f2e05a5624d52b19421cdd43
     resource: repo://src/cqg/triage.py
+  - id: openwiki-source-e0c57be84bf0b2495447ad1f
+    resource: repo://tests/test_cli_parse.py
   - id: openwiki-source-b5bb35ef6f2a60707bddb75d
     resource: repo://tests/test_corpus_index.py
   - id: openwiki-source-81792d29bf652c27ca85a4c6
     resource: repo://tests/test_golden_cli.py
   - id: openwiki-source-96f4e8eabb9c2b7186fe059b
     resource: repo://tests/test_golden_qa.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # Golden Q&A Set Generation
@@ -66,11 +68,26 @@ main report — formula-injection neutralization, `;` delimiter with proper quot
 
 ## The orchestration
 
-`run_golden` triages and parses the corpus, generates per-document questions for each
-document that yielded text, then optionally adds corpus-wide questions. It calls the same
-`parse_document` as `run`, so every format that stage supports — PDF, `.txt`, `.md`,
-`.docx`, `.pptx` — is a perfectly good golden-set source. A deck's speaker notes are part of
-the text questions are generated from, like any other extracted prose.
+`run_golden` acquires the corpus, generates per-document questions for each document that
+yielded text, then optionally adds corpus-wide questions. On a raw folder it triages and
+calls the same `parse_document` as `run`, so every format that stage supports — PDF, `.txt`,
+`.md`, `.docx`, `.pptx` — is a perfectly good golden-set source. A deck's speaker notes are
+part of the text questions are generated from, like any other extracted prose.
+
+**Acquisition is the only thing this stage changed.** `run_golden` auto-detects the folder's
+mode exactly as `run` does — same `is_parsed_input` check, same shared helper feeding the
+loop — so a [`parsed_input/`](../ingestion/parsed-input-boundary.md) is a first-class golden
+source, read back as is with no source file opened. Everything after the document arrives is
+untouched: the question count, the retrieval grounding and the answering policy do not know
+which kind of folder they came from. A test pins that `golden` accepts a parsed folder and
+produces its workbook.
+
+Two consequences worth naming. The entry-level flags the parsed path raises are *read* by
+this loop — a hand-edited or sidecar-less document is accepted on its content, as it must be,
+since a corrected markdown is exactly the text questions should be generated from — but they
+go nowhere, for the same reason the skip asymmetry below exists: this deliverable has no flag
+column. And the `unsupported_format` guard applies identically on both paths, because the
+triage category rides in the sidecar's provenance.
 
 Two robustness properties, both consistent with
 [score-and-flag](../architecture/anti-fabrication-and-flagging.md):

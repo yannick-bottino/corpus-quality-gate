@@ -22,6 +22,8 @@ sources:
     resource: repo://src/cqg/llm/claude_cli.py
   - id: openwiki-source-bf3b15b22d143311cdbe443a
     resource: repo://src/cqg/llm/providers.py
+  - id: openwiki-source-c8d879f00ddd07aa3b1256db
+    resource: repo://src/cqg/models.py
   - id: openwiki-source-9d2f2d9e2d1816a6a6d4bd67
     resource: repo://src/cqg/registry/loader.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
@@ -30,10 +32,12 @@ sources:
     resource: repo://tests/test_config.py
   - id: openwiki-source-5fa58a97f0a0e23a76dda820
     resource: repo://tests/test_registry.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+  - id: openwiki-source-150acf1471520418887f0cfe
+    resource: repo://tests/test_regression_parse_run.py
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # Configuration and Secrets
@@ -107,6 +111,14 @@ value is consumed:
 - In the `golden` orchestration: profile `"utilisateur metier"`, the built-in French policy
   constant `_GOLDEN_POLICY_DEFAUT`, `n_questions` `auto`, corpus-level generation enabled,
   `k` `6`, `chunk_chars` `1000`, `chunk_overlap` `100`.
+- In the `parse` orchestration: the same parsing and enrichment keys `run` reads, with the
+  same defaults — parser `docling`, `docling_batch_pages` unset, enrichment disabled,
+  `min_side_pts` `24.0`, and the enrichment VLM block falling back to `llm`.
+
+That last line is the point rather than a footnote. Splitting parsing out of scoring
+introduced **no configuration key at all**: `parse` reads the sections `run` already read,
+with identical defaults, which is what lets a corpus parsed once be scored later by the same
+configuration without a translation step.
 
 The practical effect is that a nearly empty configuration file still runs end to end on the
 mock provider — which the end-to-end tests rely on, several passing configurations of only
@@ -153,6 +165,17 @@ The payload is the **whole configuration except the non-scoring sections** — c
 `paths`, which only says where output lands and cannot move a score. So `llm`, `thresholds`,
 `judge`, `parsing`, `enrichment` and `golden` all change the hash, and a configuration
 section added later is fingerprinted **without editing `config_hash`**.
+
+Because the [parsing/scoring split](../ingestion/parsed-input-boundary.md) added no key, it
+does not change `config_hash`: the same configuration produces the same fingerprint before
+and after, and score files from either path remain comparable. That is what makes the split's
+non-regression test meaningful — a moved hash would have told a reader the two runs were not
+comparable in the first place.
+
+`config_hash` is computed in the `run` orchestration only. Neither `golden` nor `parse`
+computes one, so neither the golden-set artefacts nor a `parsed_input/` carries a run
+fingerprint; a parsed entry is stamped instead by its own `ParseProvenance`, which is
+anchored on the source bytes rather than on the configuration.
 
 That last property is the point. The previous design was an explicit allowlist naming `llm`
 and `thresholds`, and it silently omitted `judge`, `parsing` and `enrichment` — so two runs

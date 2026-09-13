@@ -3,9 +3,6 @@ type: pipeline-stage
 title: Image Enrichment
 description: The optional stage that converts a document's images into text before evaluation — cropping each image out of the PDF, describing it with a vision model independent of the judge LLM, and substituting the description into the markdown that is actually scored and ingested.
 tags: [enrichment, vlm, images, multimodal, anti-fabrication, human-in-the-loop]
-verified:
-  - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
 sources:
   - id: openwiki-source-bf4bd188e5cad9eab90456b4
     resource: repo://config/config.example.yaml
@@ -15,17 +12,24 @@ sources:
     resource: repo://src/cqg/enrich.py
   - id: openwiki-source-c19eabdc855679b7af548ca1
     resource: repo://src/cqg/llm/manual.py
+  - id: openwiki-source-4d169df8f5a62ba2edae177b
+    resource: repo://src/cqg/parse_store.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
+  - id: openwiki-source-e0c57be84bf0b2495447ad1f
+    resource: repo://tests/test_cli_parse.py
   - id: openwiki-source-ff80dcfb97b14b00d06a2087
     resource: repo://tests/test_enrich.py
   - id: openwiki-source-30660c9911c84372885f3d7f
     resource: repo://tests/test_llm.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
+verified:
+  - by: openwiki/0.5.0
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # Image Enrichment
@@ -37,7 +41,7 @@ to a text-only RAG pipeline — that content is simply absent.
 Enrichment closes the gap. It renders each referenced image, asks a vision model to
 describe it, and writes the description into the markdown in the image's place. It is
 **optional**, enabled either by the `--enrich` flag or by `enrichment.enabled` in
-configuration.
+configuration — either route is sufficient on its own, in both `cqg parse` and `cqg run`.
 
 ## Enrich *before* evaluation
 
@@ -54,6 +58,46 @@ illustrated documents relative to how they will really perform.
 The enriched markdown is also persisted as `<doc_id>.enriched.md` so a reviewer can inspect
 exactly what was judged. A test confirms both halves: the enriched file is written, and it
 contains the injected description text.
+
+## Where enrichment runs
+
+Enrichment now has a home earlier in the chain. `cqg parse` performs it while building a
+[`parsed_input/`](parsed-input-boundary.md), for two reasons that point the same way:
+`enrich_document` needs the **source PDF** to crop from, and that is the file scoring must
+no longer touch; and `parsed_input/` is defined as the document *as it will be ingested into
+RAG*, which is the enriched text, not the text with placeholders.
+
+Three behaviours follow, and they are worth keeping straight:
+
+| Invocation | What happens |
+|---|---|
+| `cqg parse <raw_dir> --enrich` | Descriptions are injected and the **enriched** markdown is written as `<doc_id>.md`; crops land under `<parsed_dir>/images/<doc_id>/` |
+| `cqg run <raw_dir> --enrich` | Unchanged: enrichment runs in-process, `<doc_id>.enriched.md` is written beside the scores, crops under `<out>/images/<doc_id>/` |
+| `cqg run <parsed_input> --enrich` | Refused. The option has no object — enrichment already happened, or did not — so a `RuntimeWarning` is emitted and the flag ignored |
+
+The refusal is spoken out loud rather than silently dropped, in the project's usual French
+for user-facing messages:
+
+```
+--enrich est sans objet sur un parsed_input/ : l'enrichissement a lieu dans `cqg parse`. Option ignoree.
+```
+
+And it is a real refusal, not a no-op call: the enrichment flag is cleared *before* the VLM
+client would be built, so no enrichment API key is demanded to do nothing.
+
+**The sidecar keeps the pre-enrichment inventory.** Enrichment rewrites the markdown only —
+the blocks and the image geometry serialised beside it are what parsing found, before any
+placeholder was substituted. That is deliberate: those are facts about the source document,
+and the `ImageRef` bounding boxes must stay usable for a later `--force` re-parse. The
+provenance records `enriched: true` so a reader of the folder knows which it is looking at.
+
+**A failing enrichment never costs the parsed document.** Inside `parse`, the enrichment
+call has its own `try`/`except` nested within the per-document one. A rate limit, a timeout
+or an unreadable image is recorded in the result's `errors` and the entry is written
+**un-enriched**, with `enriched` left `false` — rather than the document disappearing from
+`parsed_input/` while the command reports success. The markdown is valid and expensive to
+recompute; the descriptions are not. A test pins exactly this: enrichment raises, the
+document is still written, and `run` still scores it.
 
 ## The placeholder round trip
 
@@ -123,9 +167,22 @@ what the manual workflow depends on.
 ## Unverified descriptions are auditable
 
 Every injected description is labelled `description automatique, non verifiee` — machine
-written, not human checked. The label is not cosmetic: the run **counts** its occurrences in
-the enriched markdown and attaches the count to the document as the flag
+written, not human checked. That marker is a named constant, `AUTO_DESC_MARK`, and the label
+is not cosmetic: the run **counts** it in the markdown it is about to score, through
+`count_auto_descriptions`, and attaches the count to the document as the flag
 `auto_descriptions:<n>`.
+
+Counting the *scored markdown* rather than taking a number back from the enrichment call is
+what keeps the flag honest now that enrichment can happen in either subcommand. A document
+enriched upstream by `cqg parse` and scored later carries exactly the same
+`auto_descriptions:<n>` as one enriched inside `run`; a count returned by the enrichment
+step would simply have been absent on the parsed path.
+
+The match is deliberately on the **opening of the tag**, `[Image (` followed by the marker,
+not on the marker string alone. Prose that merely quotes the marker would otherwise be
+counted — the concrete case being an `.enriched.md` from an earlier run fed back in as a raw
+source, which would then claim descriptions the document never received. Over-reporting
+unverified content is still fabricating a number.
 
 That flag is the audit trail. Because enrichment happens before evaluation, the document's
 score rests in part on text no human has verified, and a reviewer needs to know how much.
@@ -179,6 +236,7 @@ instrumentation, keeping `cost.json` a measure of judgment spend. See
 ## Related
 
 - [Corpus Triage and Document Parsing](document-parsing.md) — where placeholders and bounding boxes originate
+- [The parsed_input/ Boundary](parsed-input-boundary.md) — the artifact enrichment now writes into
 - [The Docling Subprocess Boundary](docling-subprocess.md) — why pdfplumber still supplies image geometry on the Docling route
 - [Anti-Fabrication and Score-and-Flag](../architecture/anti-fabrication-and-flagging.md) — the unverified-content invariant
 - [LLM Provider Abstraction](../integrations/llm-providers.md) — the client interface and the manual provider

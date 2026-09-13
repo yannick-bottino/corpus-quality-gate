@@ -6,6 +6,8 @@ tags: [parsing, triage, ingestion, pdf, docx, pptx, extraction, confidence, robu
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
+  - id: openwiki-source-c8d879f00ddd07aa3b1256db
+    resource: repo://src/cqg/models.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-0807e73ac7196a324665fd8b
@@ -22,10 +24,10 @@ sources:
     resource: repo://tests/test_signals.py
   - id: openwiki-source-f5f06ff27486b680ea499ebd
     resource: repo://tests/test_triage.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # Corpus Triage and Document Parsing
@@ -89,21 +91,30 @@ one bad file.
 and was never read. It has been removed: the extraction strategy is chosen from the
 `parser` setting and from runtime failures, never from the triage verdict.
 
-Everything past `path` is now **keyword-only**, and that is not cosmetic. Both call sites
+Everything past `path` is now **keyword-only**, and that is not cosmetic. The call sites
 previously passed `item["category"]` *positionally* as the second argument, so dropping the
 parameter alone would have silently bound a category string to `pages` — a failure that
 surfaces far from its cause, since the resulting `TypeError` inside `_confidence` is
 swallowed by the Docling fallback handler. Keyword-only makes that class of positional
 drift impossible rather than merely fixed once, and a test pins the signature.
 
-The triage category is still read, but only by the
-[run orchestration](../workflows/run-pipeline.md), where it guards the unsupported-format
-exit. That is the right layer for it — classification decides *whether to attempt*
-extraction, not *how* to extract. Which extractor runs is decided by the extension alone.
+That guarantee earns its keep: `parse_document` now has **three** callers, not two. Beyond
+the `run` and `golden` orchestrations, `parse_corpus` calls it to populate a
+[`parsed_input/`](parsed-input-boundary.md). None of them can drift positionally.
 
-The SHA-256 content hash triage computes for every file still has no consumer. It remains
-available for future deduplication or caching; content-level duplicate detection is done
-separately over extracted text in
+The triage category is read by both orchestration layers, never by the parser.
+[`run`](../workflows/run-pipeline.md) reads it to guard the unsupported-format exit, and
+`parse_corpus` reads it for the same purpose and then records it in the entry's provenance,
+so the category survives the boundary and `run` reaches the same exit on a parsed folder.
+That is the right layer for it — classification decides *whether to attempt* extraction,
+not *how* to extract. Which extractor runs is decided by the extension alone.
+
+The SHA-256 content hash triage computes for every file now has a consumer: `parse_corpus`
+records it as `source_sha256` in the entry's provenance, and on a skipped document compares
+the recorded hash with the source's current one. A mismatch is *reported* as
+`source_changed` and never acted on — choosing between a human's edit of the markdown and a
+new version of the source is the human's call, made with `--force`. Content-level duplicate
+detection remains a separate concern, done over extracted text in
 [corpus redundancy](../reporting/document-scoring-and-reports.md).
 
 ### The non-PDF extensions
@@ -280,6 +291,7 @@ degradation there surfaces through the cid penalty and the per-page cap instead.
 
 ## Related
 
+- [The parsed_input/ Boundary](parsed-input-boundary.md) — where this stage's output is persisted and read back
 - [The Docling Subprocess Boundary](docling-subprocess.md) — the default parser's isolation and batching
 - [Image Enrichment](image-enrichment.md) — the consumer of image placeholders and coordinates
 - [Deterministic Signals and Metrics](../scoring/deterministic-signals.md) — where `cid_failure_fraction` sits among the other signals

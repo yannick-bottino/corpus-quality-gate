@@ -14,6 +14,8 @@ sources:
     resource: repo://src/cqg/config.py
   - id: openwiki-source-32ae41a9ecb698838dd793e6
     resource: repo://src/cqg/llm/mock.py
+  - id: openwiki-source-4d169df8f5a62ba2edae177b
+    resource: repo://src/cqg/parse_store.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
@@ -22,6 +24,8 @@ sources:
     resource: repo://src/cqg/screen.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
+  - id: openwiki-source-e0c57be84bf0b2495447ad1f
+    resource: repo://tests/test_cli_parse.py
   - id: openwiki-source-81af13fa7982f0b3becf1286
     resource: repo://tests/test_config.py
   - id: openwiki-source-81792d29bf652c27ca85a4c6
@@ -32,8 +36,12 @@ sources:
     resource: repo://tests/test_judge_batch.py
   - id: openwiki-source-42c6d60421d221776b69fe39
     resource: repo://tests/test_licenses.py
+  - id: openwiki-source-c6b71c8e750f25bb45856882
+    resource: repo://tests/test_parse_store.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
+  - id: openwiki-source-150acf1471520418887f0cfe
+    resource: repo://tests/test_regression_parse_run.py
   - id: openwiki-source-1fb869e707757275b0a8994a
     resource: repo://tests/test_report_export.py
   - id: openwiki-source-9fc38c4696400c0068133e6e
@@ -42,10 +50,10 @@ sources:
     resource: repo://tests/test_screen.py
   - id: openwiki-source-f5f06ff27486b680ea499ebd
     resource: repo://tests/test_triage.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # Testing and the License Gate
@@ -54,7 +62,7 @@ verified:
 python -m pytest -q
 ```
 
-The suite currently reports **146 passed, 1 skipped in about 4 seconds**. That combination —
+The suite currently reports **182 passed, 1 skipped in about 10 seconds**. That combination —
 a full end-to-end pipeline suite that runs in seconds with no network and no credentials —
 is a deliberate design outcome, and this page explains how it is achieved and what it
 actually guarantees.
@@ -89,6 +97,9 @@ code, the table below points at the test that will notice.
 | **Formats are distinguished, not conflated** | `tests/test_triage.py` pins the `text`, `office` and `unsupported_format` categories and the `pages` semantics per format; `tests/test_parse.py` pins the office extractors, that they never reach a PDF parser, that they emit no `ImageRef`, and that a corrupt office file returns rather than raises; `tests/test_cli_e2e.py` scores a `.md`, a `.docx` and a `.pptx` in one corpus, and drives the `unsupported_format` exit separately |
 | **Level labels stay canonical** | `tests/test_report_scoring.py` asserts the orchestration cannot introduce a second spelling of a level |
 | **[Provider layer](../integrations/llm-providers.md)** | `tests/test_llm.py` covers the factory, the missing-key error, tolerant JSON extraction, and the manual manifest round trip; `tests/test_llm_instrument.py` covers the metering policy |
+| **[The parsed_input/ round trip](../ingestion/parsed-input-boundary.md)** | `tests/test_parse_store.py` pins the byte-for-byte markdown round trip, that the sidecar carries the blocks the inventory counts, the four degraded-entry flags, that a re-encoded markdown degrades instead of crashing, that an identifier with spaces, accents and parentheses survives, and the mode-detection rules including the ambiguous-folder refusal |
+| **The `parse` subcommand's contract** | `tests/test_cli_parse.py` pins the two files written per document, the refusals (already-parsed input, output equal to source, colliding document stems), the skip/`--force` behaviour, the `source_changed` report, enrichment inside `parse`, that an unsupported or unreadable document still crosses as an entry, the `--enrich` warning on a parsed folder, the `renamed:` precedence, and the non-zero exit on parse errors |
+| **Splitting parsing from scoring moves no score** | `tests/test_regression_parse_run.py` asserts **strict equality** of every `*.score.json` between a direct `run <raw>` and `parse` + `run <parsed_input>`, parameterised over the non-enriched and enriched cases; plus that editing prose raises `manually_edited` without flipping any criterion to `na` or moving the global score, and that the scored markdown is byte-identical on both paths |
 
 ## What makes the suite hermetic
 
@@ -174,6 +185,11 @@ would miss.
 
 That last test is why pytest must run from the repository root: it opens `pyproject.toml` by
 a relative path.
+
+The [parsing/scoring split](../ingestion/parsed-input-boundary.md) left the gate untouched.
+It introduced **no new dependency**: the new store layer is `hashlib`, `json`, `re` and
+`pathlib` over the Pydantic models the project already used, so the permissive-license
+constraint has nothing new to clear.
 
 ## Related
 

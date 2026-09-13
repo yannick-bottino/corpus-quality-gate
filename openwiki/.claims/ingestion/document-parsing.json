@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:242b0c5357e1568dc9d90e308fe3b6345433af7bb6a40eeff6c40349d1ff4d2d",
+  "pageVersion": "sha256:a860cb5aa8055677f9eb4d50c14e6e0ebd971490c4678b0abd746db43b4ae209",
   "claims": [
     {
       "id": "claim_849893926f3c48d096e1df85fd388c05",
@@ -46,19 +46,31 @@
     },
     {
       "id": "claim_ea3f91abd7de46c685d9037148c60932",
-      "statement": "Triage computes a SHA-256 hash of each file's full bytes, but no consumer currently reads that field; content-level duplicate detection is instead performed separately over extracted text in the corpus redundancy stage.",
+      "statement": "The SHA-256 hash of each file's full bytes that triage computes is consumed by `parse_corpus`, which records it as `source_sha256` in the entry's provenance and, on a document it skips, compares it with the source's current hash; a mismatch is reported as `source_changed` and never acted on, since choosing between a hand-edited markdown and a new source version is the human's call made with --force. Content-level duplicate detection remains a separate concern, performed over extracted text in the corpus redundancy stage.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L95-L98",
-          "version": "repo-lines-v1:sha256:687f1a2a9c1aad3fba5f31fbdaad81806d5822069013a49d5e54baf4e7cc7d98:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc3YzAwYjNmNzc1ZDgwNDE0ZmY1MmYyNGE0MGQ2ZWZmYzVmNjA3M2RlZDkzOTg4ZTIwZGIyN2EwNDlmZDBhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE2N2U3NGJhZDNlMmEzMWQ0ZWJkNzJkYmExY2NkZThjZGM5YzRmMGNlOWM4NzNiMGQ4Y2QwZDVmNDViNTUzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNhMjVjOTE5ZTRiYzVlZjQ2ZDY1MmY2NmFhNTBiYTkzNDQyYzkwYWMxMWYyNzVlZmM2NTc0ZDI2MjY3NjdjZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDg3YjE2OTMzN2MxZDA1MDkzMDViNjM4ODcxNjU2OGYwYTE2ODhiZDM1ZThmN2JhN2RhODhhZGQzZmMzYzA0ZSJ9"
+          "resource": "repo://src/cqg/cli.py#L107-L109",
+          "version": "repo-lines-v1:sha256:6b1c84c103b32200c33fd0b3fe9a690e013716a26d12479966dc9ccad49bef78:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDYxNzhiOWNlNTA5NWI1ZWU0YWMyN2I4MzljZDhjMGNlNjVjNDlhZGYyY2EzOGU0NjMzOTI5MTE5MWZiOWEyYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjhhYzdmM2M3N2NmMWY3YTJhMjhiMDBhNDQ5ZDM2MDlhMzNhNDQyYmI5MmU4N2EwYTNhYWVkZjYxZGExYmI0YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTBjNzY5Mjg1YTg5MzkyZTJjZjk1YjMxN2E2MDg1MTI2ODQwM2E1NjU1NjQ3NDgwY2RiYmMxNWU3NWJiYmY1MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODA1ODMyMjAyYWYxMTU4ZjM1YzljZWE5N2Y3N2FmZjdlZDM0ODc3NWEyZGVlYjZlMTc3ZDRhZmYxMTEwYjA5MCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L303-L305",
+          "version": "repo-lines-v1:sha256:fa7cc8a6d0d290ced47899c338bf7e34ad3dec595fe2d58ffa7fc6643591d416:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzg4YzkyMmVkNWZkMGIxZDQ2NTM2NGNhZTA4MzBiYzgxNmU1ZjhiYWQwZjc4ZGZmNThkMWNhNDNjNTRlZjM5YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU1NTExMjljYWZlMWU3NzI5MGM2NDM3ODRiMDllZWY5YTdmZjk2NWQ3NzU4MjQ2MTI0NWM2NmJiNjkwMDAyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmEwYTQzM2JlY2YwN2NmODlmZWQ1YTc1NTJlZDczZWFhMjBkNGZkZjFjYzM1Y2JhNDhkZGFjYzlhZjFhZDUwOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzJmMTJmMTZiMDdiNjJiMjcwOWUwOGQ5ZWQwMzAwYjZmNzVjYmEzNDFlN2Q4OGM3MmU3OWMzNDg4MmIyMTBkZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L69-L84",
+          "version": "repo-lines-v1:sha256:4b316b804106b89ea74b11bf184460738f64469c082055c606e4b8ff57402286:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE5NTY3NDkxMTdjZjdiMmJmNDYwMmZmOThjMTFkMDlhZTVkNzdmYWRmYjA5MWQ1NDIxNTNkMTQyNTMzMGQ2OTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhYTdiMmVlYjhmY2JlOTFiOGY5YTQ3YmZmMDdjMTk0N2NiM2U5ZTcyMjA3MTI3ZTBlYzBjMDFlMjAzNjkwZTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA0MzcyYmRkOWI3MzJhNjc3ZGZkNDM1NzI5ZjI3YTVlMzc5MzUyMGFmYTIyZTY4NDYwOWRhYThjNmFkM2Q2ZmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjMGUzNWQzZTUyNWEwMzA3YjM5OWUzZTE1MDUyYzlkNGY3N2IyNWY1ZGQ2YmNmZGRiMWEwZDY2MWY1NGQ5ZDIifQ"
+        },
+        {
+          "resource": "repo://src/cqg/models.py#L28-L38",
+          "version": "repo-lines-v1:sha256:8d9de99eeb868834af0afd95868c817da46e1101c0cd24c78da8d377b128c684:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk4MjYyYjNjNWU1MjQyNWI2ZTQ5NzRiMGFiYjYwZDQ5MWY3OGVhMGMwMjY0MzRhNzhjYTIwZWYzODc1NDgwNjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5ZjQ2OTg5Yjk5ODNhNjQ0NTA5NDhiZDgyMGRjN2QxNmFjYmQ4NDZmNmE0ZmVmZGQzZjRjZTk5ZmVlNDllN2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijc4MjgzNDRjZGQxNWE1NzlhNWE4YThmMjMyZDljZmI4ZTkxYTM2MTYyOTk3OWEyNTNlZGQzZjIyNGIxMTIwM2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZjOTBhOWFiMmE0Mjg3NzY4Y2E4MWI1OTE1NDZlNjMwYjI1ZWIyOTk0ZTQ0YTFjNjliYjJlNWViNjc0ODVmZWIifQ"
         },
         {
           "resource": "repo://src/cqg/redundancy.py#L11-L18",
           "version": "repo-lines-v1:sha256:5a5a26ef9053905e983c1c3329d191fcaed8898dfb2948fb16bfe7fee7e4a433:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzc4ZWIwY2M1M2E4N2RlYzc5OGQwZGE4YWNmZmIxOGMwODVlMjVjMDI1YWJmOTZlOTA4MzIzZmZhNzBiOTRmOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOThkMzYxNjhiYTAxNDFmZWFjOTM3Yzg3ZWUzY2YxNzUwMjIwYTQxNTk0ODcxOWQ0NzExZjY1M2E2MmQwYjVkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWJjNmQyYWI3NDNmMDQyOGJjNGM2NDVlMDI1OWM5YWQ4Zjc2NDNlZDA3YTBmNjEyY2Q5YTIyMGUyOGNhZWUyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U5ZmIyOWUwMjkyMzViYmExZDJkNjM4MDY5YjU0NDViNzM4MTQ0YmI3ZjIwMmU1NDg1ZDAxZjFhNzIzNzUzYiJ9"
         },
         {
-          "resource": "repo://src/cqg/triage.py#L14-L20",
-          "version": "repo-lines-v1:sha256:ec5966dc84d1e2ac67dbfc95902aa82273557881335ba799ea96f7984d6e7826:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjBjZDNiMjVmNGVkZDQ3ZTcyN2Y4NmRkMjAxZDY4N2VhMDcwY2U4NWViZThjNDRjOWQxYTJiZDY0YmQ5NzRmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNiOWQzOTEzYjNlOWIxNDVhNWI2MWY2YjYyOTZlNGY0NTg1MWJlYzBhZDgyOWY0NWYzMzI1ZDA0Zjc4OTFjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTk4NzdmN2Q0NWEwMDYzYTM2NDFjYmE2MzRlYjQ1Zjk1ODExZjJmODQxYzQ1ZGM0YTdiYmJmYjJiMjRhNWIyYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmMzZWNlZWQwZjA3MzE0YjkzMzU0ZmQ3NmY4MGI2NzFlOTY4NGExY2U4OTAwMzJhMzY3ZGY3NDM5NGZiYzUyOCJ9"
+          "resource": "repo://src/cqg/triage.py#L25-L31",
+          "version": "repo-lines-v1:sha256:ec5966dc84d1e2ac67dbfc95902aa82273557881335ba799ea96f7984d6e7826:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjBjZDNiMjVmNGVkZDQ3ZTcyN2Y4NmRkMjAxZDY4N2VhMDcwY2U4NWViZThjNDRjOWQxYTJiZDY0YmQ5NzRmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDNiOWQzOTEzYjNlOWIxNDVhNWI2MWY2YjYyOTZlNGY0NTg1MWJlYzBhZDgyOWY0NWYzMzI1ZDA0Zjc4OTFjOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzMzZTg0ODdjODVkZmRjZjlmYTdiOTNjNzQ2Yzk0NjI1YWU0N2UxMjBjNzk3ZTc5MWU3MzdmOWVkN2ZmYzczZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTgyNTQ1OTljZDVmYThhY2I2ZmYyNDhiNDAzM2I1MjIyODgyNWEwZWUxODZmZTlmNDgwY2QxZGFiN2JkYTE0NyJ9"
         }
       ]
     },
@@ -234,15 +246,23 @@
     },
     {
       "id": "claim_e5b8b01c024548f48d5ff2361b3dd0d3",
-      "statement": "parse_document no longer accepts a category argument and takes only `path` positionally; every other parameter is keyword-only, which prevents a caller silently binding a stray positional argument to `pages` — the exact failure that removing the previously-unread category parameter would otherwise have caused at its two positional call sites.",
+      "statement": "parse_document no longer accepts a category argument and takes only `path` positionally; every other parameter is keyword-only, which prevents a caller silently binding a stray positional argument to `pages` — a guarantee that now covers three call sites, since `parse_corpus` joined `run` and `run_golden` as a caller.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L44-L45",
-          "version": "repo-lines-v1:sha256:ca9867c5a1a701915515768666542d25d0d5d28f0789ec8390aa8bbfbee27d35:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjU2OWNiMDkyODBlZTA3ODE5NDVlNDhkNDA0MWJkMmRmYWFlNjkxYWQyZWFiZjVkM2NiYTA4NDZjNzIxNmNhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODRkYWM3ZDM2NDE5MDZjM2EzYTE5MTBiZGU5YmExYzc1NTBkN2ZjY2E3MzM1MTZmMGYwNmZiZDFmODcyMDM2NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWM2N2U3ODY5MmEyZGRjODNiMDg0ZWQxNjRjYTk5Zjg5OGE3MTAzNWU3ZTU0MTU0M2I4ZWM5NDQ1MGIxOTU4YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDc1YzM4MDk1MWE1YTkyNmQzZmE1ZDk5OWEzODIxZTE0MDgyYzE5ODUxMmFlZmY0YjRiODk1NGE5NWRjY2EyOSJ9"
+          "resource": "repo://src/cqg/cli.py#L140-L142",
+          "version": "repo-lines-v1:sha256:ac5dcaac61387ecfc6c8338f324aa71d7c5e123db3bd09acf7e1346a7c8d3c5f:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTNhNzBmZDJjODRmODljMzc0ZTdjMDFmOWZjYjRhZTM4M2FjYWMzNjM5NWVlN2Y2MjFkY2UwZmE1NTFlMTcwNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E0NDA5NmVmODZhYTU3ZmZmYjZiYWZkYTQxMTU5ZmVkYzRmZGFjNjFiZTUwZDkyNWY3MzcxZGI2ZGM4NDRmNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjg5ZjllNWFjNjE0NDJlYTZhOTcxNGI1OTcwMDk3YTk2Yzg2NGY3YmY2MzEzODRlNThhNzdiYTc1MzRiNjQxYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjQwMzcyYTQxNTE1ZTQyZDRjMTYzODZiYjgwNDMyOWY5NjQ5NDUzYTZkMDFiMGRiMjgzMmFiNzAzYjBjZTBlYyJ9"
         },
         {
-          "resource": "repo://src/cqg/parse.py#L209-L217",
-          "version": "repo-lines-v1:sha256:d218d0441488d1f614f5b1fcddbe435d4579081b38760f6c28f76e0407ca7556:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIyNDcwZTMzZGZhYzc0OTBkMjgzYWQ2YThjMWIzNjRiNmQzMzFjZjg4ZGIxN2QwYTk4ZDA2ZDFhNGM0NTA5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTYxOWRjNWU2ODBjZWI3YzhlNmI2MzM3ODM1YmZlY2E3MzVhZDQ1YjNlYzFjMWVmYmFhYzkzY2UyN2VjMTlkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM0MzE1Mzg1YWFjOTI5Mzk5OTFjMjAyNGFlMGU4MGRmZDBmZmMyYzQ5MjhkN2U5ZWZkYjM0MTdmMmJlMzkyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjQ0NGE1MWMwYWM1NmYwMTdmOWFkNjFkMjc0MmU0MGIyZGE2OWI1OTE1YjQ5MWZhNDQ2ZmJiYjljYjFlNjZkNCJ9"
+          "resource": "repo://src/cqg/cli.py#L219-L221",
+          "version": "repo-lines-v1:sha256:0fe524dafe29c39bae020553c5735a33bddb7243fc24528758cbf08fc75c21b3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2E0OGJkN2YxMWQ3YWI0NWQwNDE0ODQzODAyZmIzZTRkZTIwOTEwNDI2ZjM2MmYzNTZiNGI4YjE1MDgxZDc2MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWYwYzMyZGZjODMwNzFjMjg1ODU5YWFiZDY3YzU2ODAxMDQ4OThkZjFjOGI1N2MzNjdkMjczN2QzZGRiZjcxNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTJkMmJmNTllNWE1ZTRlYTRiYWE5ZGJjZDBmYTU4NDMwYzJjNjViMWNkN2E1ZjhlZmU3MDA0MGY0MzBjMGU1YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDYzNGE3ZjhlOTYwODM4ZjNhYjJjZjg3NTQwYTA0ZTc3ZjNhNGIzNjg0MGFmMmU4YzdmN2FiNmY1YmI5Y2I5OCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L94-L95",
+          "version": "repo-lines-v1:sha256:2e8e6fb47edeeb2b4f1d11e1de7609d9a70676608741ce654ac387a9659b6b55:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTdhZDM3YWZiNjI2NDE2ZmNkZmUyZGRlZjZlNTg0ZGJhNTEzODdiZWIxOWRmNDJiNzNkMmI0YWVkN2UwOTI2NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTNhNzMxYTEyZjVhZTdmYTE1YzI0OTg2YWRmNjUxMjBkMTI1YTVlMzhmYzllZGZkYTM4MzE0NTJmNGI5ZGNhYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTJlYWFjZTU3ODkzNTAzNDU4MmQ3NTBlNjJhZGEzMzEyZTY5NDI2NjBhYmNjNzQ1Yjk5YmJhOTRiMDc1MzYwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmRlZTAxYWRhMGU5NDVhZTM5NWI2ZTM2OTk5ODZmOGVkZjgwZDU5NzBhMTU0MGI3ZTE2NWQzMDRkZWNiNzhjYyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L323-L330",
+          "version": "repo-lines-v1:sha256:d2f2ac97e1c4f1da752d34ad7a9303f37e31555fe742c73d511503c78773c7b0:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIyNDcwZTMzZGZhYzc0OTBkMjgzYWQ2YThjMWIzNjRiNmQzMzFjZjg4ZGIxN2QwYTk4ZDA2ZDFhNGM0NTA5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjlhNDk4ZjUwNDI4YjI4ZDFhNDUyYzViYmIyZWMwYzQxNjdjODE4ZDFhOGFkODU5ODhlZjNiYTQ5N2I4ZTI3OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzMxMjBiYjI0YzQ3MjM1ZmIxMjdiODRkYTEyNDdkZGQwODhhZDMyNDI3NzYyMDIzMzNiOTYzNWNlMDVhNDgwMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDljOGVmOWFjNzI4YjcwYjk1NzNiZjYxNTlkYTUwNWYyZTAxYzM1NGNmNzkxMzliOWI1OWMwMDM0NDZiOTk1NiJ9"
         },
         {
           "resource": "repo://tests/test_parse.py#L266-L281",
@@ -252,15 +272,23 @@
     },
     {
       "id": "claim_8b7194abc44f4abd813c43aad893d460",
-      "statement": "The triage category is now genuinely consumed, but by the run orchestration to route the unsupported-format case rather than by the parser — classification decides whether to attempt extraction, not how to extract.",
+      "statement": "The triage category is consumed by the orchestration layers rather than by the parser: `run` reads it to route the unsupported-format case, and `parse_corpus` reads it for the same purpose and then records it in the entry's provenance so the category survives into parsed_input/ — classification decides whether to attempt extraction, not how to extract.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L95-L107",
-          "version": "repo-lines-v1:sha256:59f2c6d8c8e58c8524eb79222a0d62664e26447d64b7e86c55666c5dfa488fe6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjYTI1YzkxOWU0YmM1ZWY0NmQ2NTJmNjZhYTUwYmE5MzQ0MmM5MGFjMTFmMjc1ZWZjNjU3NGQyNjI2NzY3Y2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjFjYjhmOGQyMzc1Nzc1NTk2MjFjODI2MTViMjA1Y2FiNjk5NmY1MzEwNWFkZThkYmQ0NGRjMDVhZWM4OGNkOGYifQ"
+          "resource": "repo://src/cqg/cli.py#L208-L218",
+          "version": "repo-lines-v1:sha256:a4304ba8a23a0a39f10fc7863730dc30be7139a31bd8d3953631cf0f367c54c3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0NzI4OTBhZGI1NjdkZmVhOTM1OTVkMTIzMTdjZmRhZGQ3MWY5ZmJkMTJhZTM4OGJmOWQ2MjFjMDcwYmRhNGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmMDkwM2JkZTJkZmY0MjFmZDIwM2EwMDJiMDg4YWY2YzgwZjA4ZTBkNDQxY2RhN2FlM2M0MjhiNTgyZTA1YmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwODQxM2M0MDhkN2JhOTdmNzVkNWExNWZlYjMzYThkZWQ1MmNiZWJjNTA0OTQ2ZDgxMjhjMjg5ODMxYjM0MWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBmZTUyNGRhZmUyOWMzOWJhZTAyMDU1M2M1NzM1YTMzYmRkYjcyNDNmYzI0NTI4NzU4Y2JmMDhmYzc1YzIxYjMifQ"
         },
         {
-          "resource": "repo://src/cqg/parse.py#L209-L217",
-          "version": "repo-lines-v1:sha256:d218d0441488d1f614f5b1fcddbe435d4579081b38760f6c28f76e0407ca7556:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIyNDcwZTMzZGZhYzc0OTBkMjgzYWQ2YThjMWIzNjRiNmQzMzFjZjg4ZGIxN2QwYTk4ZDA2ZDFhNGM0NTA5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTYxOWRjNWU2ODBjZWI3YzhlNmI2MzM3ODM1YmZlY2E3MzVhZDQ1YjNlYzFjMWVmYmFhYzkzY2UyN2VjMTlkYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzM0MzE1Mzg1YWFjOTI5Mzk5OTFjMjAyNGFlMGU4MGRmZDBmZmMyYzQ5MjhkN2U5ZWZkYjM0MTdmMmJlMzkyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjQ0NGE1MWMwYWM1NmYwMTdmOWFkNjFkMjc0MmU0MGIyZGE2OWI1OTE1YjQ5MWZhNDQ2ZmJiYjljYjFlNjZkNCJ9"
+          "resource": "repo://src/cqg/cli.py#L36-L41",
+          "version": "repo-lines-v1:sha256:ba59fe60534c5fa0f9acc736cdec2831a6fcaa4ca861506b5f3650f3ac61f991:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjAyMzhjODVmYjkyOTc3MjVhZmVkNGE4ZTdkOTFmZTVlNjc4MzUzMGUzNTY5ZWRiMjMzMWRhOTNiM2UxNzVhMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI4ZTIyMTUxMjhiMjc1YzM5MjFiOWRjZTI0NjYyMzliN2RlZjI0NGE0YjY1ODczZGRiZWViNDg2MDU3NWI4NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTA0YTNiODIwYjc0N2UwY2JkZTQ1M2MxNTAzNTNjOGU4MzhmYzIxMjVkMjdmYTcwNTg3N2JhYzM4OWZmNjFlMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2NhOWNiYzAyN2IyOTIzNTMzZTJmYTY5ODg4NjJhMTU0NDZiN2M5MDM4NzhlYWNhNmJlZDA5NjhiZDU5MTg0ZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L79-L93",
+          "version": "repo-lines-v1:sha256:fdd25752e3a20a3c9340b48935cc9e27433d9c1a4ad43d3d8c46e81cbb8a4bbc:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyNDFiMWI2NmJmZjhjMzE4ZmE1YzhiMzRjYzg0YjE3ZjgyNzA1NDJiNDVjMDI1ZWNjZmM5MzQ3NWE1YjhhYzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI1NjljYjA5MjgwZWUwNzgxOTQ1ZTQ4ZDQwNDFiZDJkZmFhZTY5MWFkMmVhYmY1ZDNjYmEwODQ2YzcyMTZjYWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNmODNjMmQzZGU1Y2VmY2VlNWIyZDAzNGFlZTUxOTU5ZTRhNzEzZDIyMTZmZWIxMjdkY2NkNzYwM2VmMTQxYmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0YTEzOTk2NTRkYWE2ZGYzZmI3NDcyY2ZlNDg0MjU5ZDYzYzI0ZDBjM2ViMTE3YzhiMTc2ZTM5NDM4NmExNGMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse.py#L323-L330",
+          "version": "repo-lines-v1:sha256:d2f2ac97e1c4f1da752d34ad7a9303f37e31555fe742c73d511503c78773c7b0:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZWIyNDcwZTMzZGZhYzc0OTBkMjgzYWQ2YThjMWIzNjRiNmQzMzFjZjg4ZGIxN2QwYTk4ZDA2ZDFhNGM0NTA5OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjlhNDk4ZjUwNDI4YjI4ZDFhNDUyYzViYmIyZWMwYzQxNjdjODE4ZDFhOGFkODU5ODhlZjNiYTQ5N2I4ZTI3OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzMxMjBiYjI0YzQ3MjM1ZmIxMjdiODRkYTEyNDdkZGQwODhhZDMyNDI3NzYyMDIzMzNiOTYzNWNlMDVhNDgwMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDljOGVmOWFjNzI4YjcwYjk1NzNiZjYxNTlkYTUwNWYyZTAxYzM1NGNmNzkxMzliOWI1OWMwMDM0NDZiOTk1NiJ9"
         }
       ]
     },
@@ -451,6 +479,6 @@
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-11T06:45:44.636Z"
+    "at": "2026-09-11T15:09:34.136Z"
   }
 }

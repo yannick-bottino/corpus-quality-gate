@@ -23,7 +23,7 @@ sources:
 generated: { by: "claude-code", at: "2026-09-09T21:41:51.597Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # The Criteria Registry

@@ -1,7 +1,7 @@
 ---
 type: workflow
 title: The run Pipeline
-description: End-to-end orchestration of the cqg run subcommand — how each document is sequenced through triage, parsing, optional enrichment, deterministic metrics, screening, sectioned judgment and scoring, the three exit paths, and the corpus artifacts written at the end.
+description: End-to-end orchestration of the cqg run subcommand — the two entry modes (a raw folder parsed on the fly, or a parsed_input/ read back), how each document is sequenced through enrichment, deterministic metrics, screening, sectioned judgment and scoring, the four exit paths, and the corpus artifacts written at the end.
 tags: [pipeline, orchestration, workflow, control-flow, error-handling, cost]
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
@@ -22,14 +22,18 @@ sources:
     resource: repo://src/cqg/triage.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
+  - id: openwiki-source-e0c57be84bf0b2495447ad1f
+    resource: repo://tests/test_cli_parse.py
   - id: openwiki-source-c3bd80e13bca0fabc8af5c04
     resource: repo://tests/test_parse.py
+  - id: openwiki-source-150acf1471520418887f0cfe
+    resource: repo://tests/test_regression_parse_run.py
   - id: openwiki-source-81cf9f57b4380dad067c7e02
     resource: repo://tests/test_screen.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # The run Pipeline
@@ -40,9 +44,10 @@ document's journey actually produces. Each stage has its own page, linked at the
 appears.
 
 ```
-triage ─▶ parse ─▶ [enrich] ─▶ deterministic metrics ─▶ screen ─▶ [judge] ─▶ score
-                                                                              │
-                     corpus report + redundancy + cost ◀────────── all documents
+raw folder ─▶ triage ─▶ parse ─▶ [enrich] ─┐
+                                           ├─▶ metrics ─▶ screen ─▶ [judge] ─▶ score
+parsed_input/ ─▶ read entry ───────────────┘                                    │
+                        corpus report + redundancy + cost ◀───────── all documents
 ```
 
 ## Setup, before any document
@@ -63,11 +68,34 @@ The orchestration reads configuration once and builds everything the loop needs.
   are testable in isolation. Defaults are applied here at the call sites — see
   [Configuration and Secrets](../operations/configuration-and-secrets.md).
 
+### Which kind of folder is this?
+
+Before anything else the orchestration asks `is_parsed_input`, and the answer selects one of
+two entry modes for the whole run:
+
+| Mode | Trigger | The loop is fed by |
+|---|---|---|
+| **Raw** | No `*.parse.json` in the folder | [Triage](../ingestion/document-parsing.md), parsing each document on the fly — behaviour strictly unchanged |
+| **Parsed** | At least one `*.parse.json` | Reading each [`parsed_input/`](../ingestion/parsed-input-boundary.md) entry back; **no source file is ever opened** |
+
+A folder holding both raises rather than being guessed at. The two modes converge on the
+same item shape — `doc_id`, path, type, pages, category — so everything downstream of
+acquisition is literally the same code; in parsed mode the item simply arrives carrying its
+already-extracted `doc` and any flags raised while reading it.
+
+Parsed entries are yielded by a **generator**, not collected into a list. A parsed entry
+carries its blocks, so materialising a whole corpus of them before scoring the first document
+would undo the bounded memory the per-page parsing was built to buy.
+
 ### The VLM is built conditionally
 
 Enrichment is on if **either** `--enrich` was passed **or** `enrichment.enabled` is set.
 Only then is the vision client constructed, from `enrichment.vlm` when present and otherwise
 from the main `llm` block.
+
+In parsed mode the flag is cleared first, with a `RuntimeWarning` saying so: enrichment
+belongs to `cqg parse` there, and clearing before construction means no enrichment credential
+is demanded to do nothing.
 
 The conditional construction is the point: because a provider resolves its credential at
 construction, building the VLM unconditionally would make an enrichment API key a
@@ -81,10 +109,14 @@ keeps the plain path credential-free. See
 loop walks its records in sorted order. Everything below happens inside a `try`/`except`
 scoped to a single document.
 
-### 1. Parse
+### 1. Parse — or read back
 
-[Parsing](../ingestion/document-parsing.md) produces a `ParsedDoc`. It never raises — the
-worst case is an empty-markdown document at confidence 0.0.
+In raw mode, [parsing](../ingestion/document-parsing.md) produces a `ParsedDoc`. It never
+raises — the worst case is an empty-markdown document at confidence 0.0.
+
+In parsed mode the `ParsedDoc` was already built when the entry was read, and this step is a
+no-op. Reading is total in the same way parsing is: a degraded entry yields a document plus
+flags, never an exception.
 
 ### 2. Enrich, *before* evaluation
 
@@ -144,12 +176,13 @@ concrete: no input is ever silently dropped.
 
 Three details worth noting.
 
-The unsupported-format path is the **only consumer of the triage category**, and it is
-currently inert. Every extension triage admits — `.pdf`, `.txt`, `.md`, `.docx`, `.pptx` —
-now has a parser, so nothing reaches this exit through a normal corpus walk. It is kept
-deliberately: it is the honest landing for a format admitted into `SUPPORTED_EXTS` ahead of
-its parser, and a test drives it through triage directly so the contract does not quietly
-stop being exercised.
+The unsupported-format path is this loop's **only consumer of the triage category** — the
+other consumer is `cqg parse`, which reads the same category to record it in the entry's
+provenance so this exit is reachable identically on the parsed path. It is currently inert:
+every extension triage admits — `.pdf`, `.txt`, `.md`, `.docx`, `.pptx` — now has a parser,
+so nothing reaches this exit through a normal corpus walk. It is kept deliberately: it is
+the honest landing for a format admitted into `SUPPORTED_EXTS` ahead of its parser, and a
+test drives it through triage directly so the contract does not quietly stop being exercised.
 
 The layering it expresses still holds. The category decides *whether to attempt*
 extraction, while the parser decides *how* — and reaching this verdict never opens the
@@ -170,6 +203,30 @@ not just the error count.
 An end-to-end test drives both failure paths together: a valid PDF and a corrupt one in one
 corpus, asserting two score files, and that the corrupt one carries `unreadable` while the
 valid one scores normally.
+
+### Entry flags survive every exit
+
+Flags raised while reading a `parsed_input/` entry — `manually_edited`, `missing_sidecar`,
+`missing_markdown`, `invalid_sidecar`, `sidecar_schema_unsupported:<n>`,
+`renamed:<original_doc_id>` — are captured **before** the `try` and appended on **every one
+of the four exits**, including `unsupported_format`, `unreadable` and `processing_error`. A
+degraded entry therefore never loses its flag by failing early: a hand-edited document that
+then comes out unreadable reports both facts.
+
+On the raw path that list is empty by construction, which is what keeps a raw run's flags
+byte-identical to what they were before the boundary existed.
+
+## The split changes no score
+
+That last property is not an assertion of intent; it is pinned. A dedicated regression test
+asserts that `cqg parse` followed by `cqg run <parsed_input>` produces `*.score.json` files
+**strictly identical** to those of a direct `cqg run <raw>`, over a corpus of four documents
+and parameterised over the non-enriched and enriched cases. In the enriched case the split
+run deliberately scores with enrichment off, so the equality is carried entirely by the
+markdown `parse` wrote. The equivalence has also been verified on real PDFs.
+
+This lot introduces no LLM call, which is what makes that comparison interpretable: with
+judgment held fixed, anything that moved could only have come from the split.
 
 ## After the loop
 
@@ -200,7 +257,7 @@ path.
 | `<doc_id>.score.json` | Every document, on all four exit paths |
 | `corpus_report.xlsx`, `synthese.csv`, `detail.csv`, `remediation.csv` | Always |
 | `corpus_redundancy.json`, `cost.json` | Always |
-| `<doc_id>.enriched.md`, `images/<doc_id>/*.png` | Enrichment active and the document has images |
+| `<doc_id>.enriched.md`, `images/<doc_id>/*.png` | Raw mode only, enrichment active and the document has images |
 | Image manifest | Manual VLM mode |
 
 ## Related

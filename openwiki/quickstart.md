@@ -1,7 +1,7 @@
 ---
 type: quickstart
 title: Quickstart
-description: Entry point to the Corpus Quality Gate wiki — what cqg does, how to install and run both subcommands, what artifacts they produce, and which page answers each common question.
+description: Entry point to the Corpus Quality Gate wiki — what cqg does, how to install and run its three subcommands, the one-shot and parse-then-score ways to work, what artifacts they produce, and which page answers each common question.
 tags: [quickstart, getting-started, cli, navigation, installation]
 sources:
   - id: openwiki-source-bf4bd188e5cad9eab90456b4
@@ -12,6 +12,8 @@ sources:
     resource: repo://README.md
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
+  - id: openwiki-source-4d169df8f5a62ba2edae177b
+    resource: repo://src/cqg/parse_store.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
@@ -20,10 +22,12 @@ sources:
     resource: repo://src/cqg/triage.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+  - id: openwiki-source-150acf1471520418887f0cfe
+    resource: repo://tests/test_regression_parse_run.py
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # Quickstart
@@ -48,9 +52,9 @@ python scripts/check_licenses.py     # prints "Licences OK", or exits 1
 python -m pytest -q                  # run from the repository root
 ```
 
-## The two commands
+## The three commands
 
-Both take a corpus directory. PDFs, plain-text files (`.txt`, `.md`) and office documents
+All take a corpus directory. PDFs, plain-text files (`.txt`, `.md`) and office documents
 (`.docx`, `.pptx`) are all parsed and scored. After `pip install -e .` the `cqg` console script works
 identically to `python main.py`.
 
@@ -60,12 +64,42 @@ python main.py run <corpus_dir> --config config/config.example.yaml --out <out_d
 
 # 2) Reference Q&A set (golden set) for business validation
 python main.py golden <corpus_dir> --config config/config.example.yaml --out <out_dir>
+
+# 3) Extraction only: turn raw sources into an editable parsed_input/
+python main.py parse <raw_dir> --out <parsed_dir> [--enrich] [--force]
 ```
 
 `--out` defaults to `./workdir/out`, `--config` to `config/config.example.yaml`. `--enrich`
-applies to `run` only and turns on image description before evaluation.
+turns on image description and applies to `parse` and to `run` over a raw folder. `--force`
+applies to `parse` only, and re-parses a document already present in the output folder.
 
-The shipped template selects the `mock` provider, so both commands run end to end with **no
+### One shot, or parse then score
+
+`run` accepts **either** a raw folder or a `parsed_input/`, and works out which it was given.
+That yields two ways to work:
+
+```bash
+# One shot — unchanged. Existing commands keep working exactly as before.
+python main.py run <raw_dir> --out <out_dir>
+
+# Split — extract once, inspect or correct the text, then score it.
+python main.py parse <raw_dir>    --out parsed_input/
+#   ... open parsed_input/<doc_id>.md, fix a mangled table, save ...
+python main.py run   parsed_input/ --out <out_dir>
+python main.py golden parsed_input/ --out <golden_dir>
+```
+
+The split exists because `parsed_input/<doc_id>.md` is *the text that will be ingested into
+RAG* — the thing worth reading and correcting before it is judged. Scoring a corrected
+document flags it `manually_edited` rather than hiding the edit, and re-running `parse` never
+overwrites your correction without `--force`. Keep `raw_input/` and `parsed_input/` as
+separate folders: a folder holding both is refused rather than guessed at. See
+[The parsed_input/ Boundary](ingestion/parsed-input-boundary.md).
+
+Splitting changes **no score**: a regression test requires `parse` + `run` to produce score
+files strictly identical to a direct `run`.
+
+The shipped template selects the `mock` provider, so every command runs end to end with **no
 API key** as a smoke test. For real judgment, either set a provider and its credential
 environment variable, or use `config/config.claude_cli.yaml`, which needs no key at all.
 
@@ -83,9 +117,16 @@ environment variable, or use `config/config.claude_cli.yaml`, which needs no key
 | `<doc_id>.score.json` | Full machine-readable score for each document |
 | `corpus_redundancy.json` | Exact and near-duplicate detection across the corpus |
 | `cost.json` | LLM calls and prompt characters per document |
-| `<doc_id>.enriched.md` | With `--enrich`: the text actually scored |
+| `<doc_id>.enriched.md` | Raw folder with `--enrich`: the text actually scored |
 
 Levels are `Excellent` / `Acceptable` / `Insuffisant` / `Inadapté`.
+
+**`parse`**, in `--out`: `<doc_id>.md` (the markdown as it will be ingested, editable) and
+`<doc_id>.parse.json` (its sidecar: blocks, images, parse confidence, markdown hash and
+provenance) per document, plus `images/<doc_id>/*.png` when `--enrich` is on. The command
+prints how many documents were written and skipped, names any whose source changed since the
+last parse, and **exits non-zero** if any document failed — a partial `parsed_input/` that
+looks like a success is how a document disappears from a later report.
 
 **`golden`**, in `--out`: `golden_qa.xlsx` and `golden_qa.csv`, columns
 `id | origine | question | reponse | sources | couvert | statut_validation | commentaire_beta`.
@@ -103,6 +144,10 @@ Two numbers per document, and they must be read together:
 column: `unsupported_format:`, `unreadable`, `processing_error:`, `screen:light (…)`,
 `auto_descriptions:`, `low_coverage`, `low_parse_confidence`.
 
+Scoring a `parsed_input/` can add `manually_edited`, `missing_sidecar`, `missing_markdown`,
+`invalid_sidecar`, `sidecar_schema_unsupported:` and `renamed:` — all reporting the state of
+the parsed entry rather than the quality of the document.
+
 ## Where to read next
 
 | Your question | Page |
@@ -111,6 +156,7 @@ column: `unsupported_format:`, `unreadable`, `processing_error:`, `screen:light 
 | Why is a criterion `not_evaluated` instead of scored? What does a flag mean? | [Anti-Fabrication and Score-and-Flag](architecture/anti-fabrication-and-flagging.md) |
 | What happens to a document, stage by stage? | [The run Pipeline](workflows/run-pipeline.md) |
 | A document parsed badly, or came out `unreadable` | [Corpus Triage and Document Parsing](ingestion/document-parsing.md) |
+| I want to correct the extracted text before it is scored | [The parsed_input/ Boundary](ingestion/parsed-input-boundary.md) |
 | Parsing is slow, or is being killed for memory | [The Docling Subprocess Boundary](ingestion/docling-subprocess.md) · [`docs/GUIDE-run-docling-complet.md`](../docs/GUIDE-run-docling-complet.md) |
 | Images are ignored or descriptions are missing | [Image Enrichment](ingestion/image-enrichment.md) |
 | I want to change the criteria, weights, or scale | [The Criteria Registry](scoring/criteria-registry.md) |

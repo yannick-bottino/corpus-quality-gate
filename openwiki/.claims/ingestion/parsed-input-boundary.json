@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:d7b288749f481de1bdcf35f9d183dd9f2ad894fd2e4c65c225abb6f7e6e0717f",
+  "claims": [
+    {
+      "id": "claim_17b0b26f75f848b58293212ce65adbd5",
+      "statement": "`cqg parse <raw_dir> --out <parsed_dir>` writes exactly two files per document: `<doc_id>.md`, the markdown as it will be ingested into RAG and editable by hand, and `<doc_id>.parse.json`, the sidecar carrying blocks, images, parse_confidence, markdown_hash, schema_version and provenance.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L119-L136",
+          "version": "repo-lines-v1:sha256:10d421bb43b1c7a184a3c95601efd5f72b9ae60846ed2ca26e8a71a26bf29718:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0ZGFjN2QzNjQxOTA2YzNhM2ExOTEwYmRlOWJhMWM3NTUwZDdmY2NhNzMzNTE2ZjBmMDZmYmQxZjg3MjAzNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk3ODJlZjk5Y2E3YmE1NzU5ZWZmNzc5ZGRjOTJiMDExYzVhYmY1ZTExYTY0OGI0ZTg0MWFjMjZhZTgyNzU0OGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyMzJjNDRkZjUwMzA4ZDQ3ODhjYzkzMWVlNzFmZTAxZmYxNDhjZDZjZmEzZjg0MzA3NTI4OTljNTE4OWZkYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjI4OWY5ZTVhYzYxNDQyZWE2YTk3MTRiNTk3MDA5N2E5NmM4NjRmN2JmNjMxMzg0ZTU4YTc3YmE3NTM0YjY0MWIifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L67-L74",
+          "version": "repo-lines-v1:sha256:3e414dc8f8acec9fba737d4edb7df048204addc0e3e72879e1ba34507138aa96:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjM2NWNhMDFhZmYzNDQ3ZTkzODMwNWFlMWU5ODNhMjhjZmFkYWU4ZDMzMzI4N2MyMTliMmE5MThiNGNkNzIwYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjFjYzJiY2Y1YjA5ZWU5Y2M5YjA2MTkyZmU1M2Y4NzU2NzM3MThiMWI0YjJlYWQ5NmQyNjIxNzgyODZiY2Y1NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWMxMWQwNGI0NTUwNTlmNTA3OWZkZTkzYjgwMDk1ZGYyZGJlMmVlNmVmZDY3ODUzNzBlMjRhYmM3NzQxM2IzMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDczNmU4YjM3M2M2MDUyMmU3Mzk2NjlmYzUzYWEyNzNlY2IzNWM2NzE5ZmIwMTdkNmFjOWYyYzUwMjhlYzIzMiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/models.py#L40-L50",
+          "version": "repo-lines-v1:sha256:bd3447f0793839baff66255278afc6e2d468ba0f8df8842cc49ea3ca4ada432c:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjEzYzg2YTBhMzMzMTg4NGY4MjA1OGQxOWI1ZGY0YjY0OWYwYzdmNzY0YWY4NTM3MWMxNTllYzNmNzYyOWI2MzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVlMzNhY2E0ZGRkNzNlZDVmZjU4NGUzYjU3ZWJiNTQ3OGU2NjM0ZDkzMWFhNGM1Njk0ZTJhNjhiYjQ3YmZiZDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVjZjE2ODA1NzA1MmQ2ODZjMzczZGIyZDFlOGUxZjZjNTE3ODg3OWQ0MzVkY2E3MDc3MGI0ZGZmZjU5MTA0MWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdmMDJkMmIzMTA5Y2M2Y2M5NDA5OTM3ZTA5ODlhZGM0YWQ4YTEzNGJiYThiMDk0YWE0NDNiMTZjNDk2ZGM5NzkifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L59-L69",
+          "version": "repo-lines-v1:sha256:96eee416020ce6ecb6657d128b8220ae17eab86ec05ffb5f085fbdf00514e15a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZDU3ZjI0MzQzM2Y3NzkwNTkyMDM1ZmFlZWZlNWVkYjcxOGNmYWVlYzM5YzJlMDkxMmVkNjYwNjNiOWNiZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyYzc2ZjU1OWYwYjQ5N2QxMTlkNGQyZDFlZmRkM2YxN2EzOWRkMjhlOGY4ZGUzODA2MzEyZThjOTMwYWRjZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1MjljMTc2ZDRmOTQ1OTJkYjc3MDA5ZmMwNzZjNzU2N2E0M2M3ZGVjZjM5ODg0Mjk1YjM3MzdiYmY5YjA3NzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmZThhMWRhMDBiYWJmMjAwYjgyNDBhNmY3ZmYwZjZkYzYxYzc3OWRhYWU2OTE4MjU5MGFmYmM0ZmViZDE1ZmMifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L40-L54",
+          "version": "repo-lines-v1:sha256:b93e6a4472fd76f3848fd7c6144ab26dc0d76fc02499c909c19de49fa2bf7e0a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3OWIwYTgxYWFmZDY3OWMzNGRiNTg5OWM4MWYyYzI3Y2M0YmI1MWM1ZDBhMWViMGU4YTViM2U4ZmQxOTk5OWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU2ZTJkNjhmZjA4OTZjMDE0NzQwMTMzNjNkOWU4M2JkMDRhMTc2Nzg0ZWM3NmNiNmY0MTY1OWRlNmY4YzBjZTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4ZDJmMzM4MTA1ZmU4NGUxNTNiOTI4MzAwMmMyMzk4NzQ3ZGRmYTJhOTc2NzM1MDMzMzhhOWZhMWEzZWE3YTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bf7c041db4ca4ea3a54b5b2b60273982",
+      "statement": "`parse` refuses an input folder that is already a parsed_input/ with the message \"<dir> est deja un parsed_input/ : rien a parser.\", and refuses an output folder identical to the source folder, because writing parsed markdown beside its own sources would make the folder ambiguous for every later command.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L72-L78",
+          "version": "repo-lines-v1:sha256:3732116078a1da0180727f3fc63aca52c603a4529a74fd2d7fde3c3b0ef4731a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWEzNzM0MjYwY2RmMjhkMTE3MTAyYTgyNzkyNTQ1NDIyMzI3YzUyYzY1ZWEyZWQ1NjA5MDgyMDBmZjk0OWJkNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGIwMzY5MTQ4MzhiY2I2N2E0OGE2Y2JiNmM2NTViZjZlMzY4ZTgzZjJmYTU5YWMwOTM1YmQ2OTFhM2NjNDdmZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWJkMjM5OGYwYTIwZWJhM2MzZTU0NmM4ZjdhYjYyMTY0MDZmMGU2MmJkMzc0ZWY4MTIzZGRiNGRlZDA2YmE3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTA0NGZhYjM2MDdjMjk2MjljZmMyZmM3NDA2YzM1ZDU2NjFhYmY5Y2ZjMzZiZjk4OWQyMzM3ZDc0YzliNTkxNCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L228-L233",
+          "version": "repo-lines-v1:sha256:70196ba416dc4be9d8435edea0ea36002cca5910f52144b784b71986816210a5:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU2YWQ3ZTg3YzE0NzZiMWEwZjVlNzQ1MTYzYTg2MTdmYzFiODJhMmFlNDlhOGQyODBlMWU5M2VkZjg0MjhmZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjRiODg1YmY2Y2M5YzI5ZGY4OTNkZDYxODM3ZTkyZWQ5MzllMjlmZDA0YzEzMTUzMmE3OTE4NGYzYWE3M2Q1MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGVhMzRkMDc0YjliY2M5ZWYzYzZiMjUxYTAxOGMyMzkxMDM2ZTAzOWM3OWU5NDIwMzYxMWQ3MzgwMmRmNmVjMCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L56-L63",
+          "version": "repo-lines-v1:sha256:88a6f9a2bd6179e486f1bb843c5d9a8576becf619a9eca91a2cec0a1e4524591:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzYwZjEyN2MzMWFlNGJiMmExMDQwYTAzNWI0N2RlM2E4MmIwZTdlM2Q4N2E0YzNkN2IxYTc0ZTE1ZmNmYWIxZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmRlMDJlMWJjYTk0OWYyNDNlMGYwMDYzMThkY2YwOWNkZjYyNTkwODQ1YTJlNjc5Y2VhNWI2YzNmNzhlZGE5OSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzlhMjFkYTRiMTg5YjBiNjJlY2FkMmU5ZWE1ZmZjZjUzMDU0ZTIxNmIzYmMxMTVjNWY0OGNiNDc5NzY4N2Y1YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_34037c3ca59048c4acb19cadf5009e0e",
+      "statement": "Because doc_id is the file stem, two sources sharing a stem — a .docx next to its PDF export — would both claim the same parsed markdown; `_refuse_colliding_doc_ids` raises before anything is written, naming both paths, since one would otherwise be skipped as already parsed and --force would overwrite rather than recover it.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L48-L64",
+          "version": "repo-lines-v1:sha256:ff1906d3bd0b5f7dc0c0774e521054f51a15183028f50fc390d2c50b7a65cede:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzNWM0NTMxMDM1MTI5NTMwMWZmM2VjZDk5NTA0ZmZhMjBiN2ZkNWM5OWY0ZDM3Mzk1M2JhMTQ1NTE0MThjZWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwZjQxMDI2OTZjMTFkNGY5MGIzNjBkYjU4YmI2Y2FmYTBhMWZlZWY3NGU0Y2RmODgxOGQ2Yzk4NDkzZWYwYTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwOTU0MzI1MmRlZDQyOWM4MmQ3OTk1NzE2Zjg1OGI4YTg2Y2QwMGZkN2RlODY5M2EzN2I2MTRkYjBiNGU0MTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg5Mjg5ZTViYjNkYTg2MWYxMWU1M2E5YzM1MGE4ZGY1YmJiMmZkZmNmMTU2YTE1NTc5YTY2MmNkNTJiY2NkZDUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L79-L80",
+          "version": "repo-lines-v1:sha256:1893b89cfe3464cf5c2a9c0e6016baaf2fa1b896e73e85f184ea8c65bd8b0237:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODI0MWIxYjY2YmZmOGMzMThmYTVjOGIzNGNjODRiMTdmODI3MDU0MmI0NWMwMjVlY2NmYzkzNDc1YTViOGFjNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODdlNWQxYjE4OWI5ZWZjZjEzNmU5MzFjYjkyOTBhNTQ4ZTNjYzBjYzcyMDljMTUzOTg2MGE5YWRkZjIxMDg2OCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiY2Y4M2MyZDNkZTVjZWZjZWU1YjJkMDM0YWVlNTE5NTllNGE3MTNkMjIxNmZlYjEyN2RjY2Q3NjAzZWYxNDFiZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDYwN2YyZmYzZTkwNzk0Yjc5ODM2N2RjODE0YzE1ZWU1YmNhZTcyYTk4ODRlNDA0OGMyMDYwOTc3YTBjYTE4NyJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L213-L226",
+          "version": "repo-lines-v1:sha256:460f6c96ff8af6d9ec7ce318a942fa6a421190fceea5bc3eea6c4e902f685e75:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmNmU0NjYwN2YzNGY0Njg0MTU1NjUxYWE3NGRlOThhY2NmZTcwMjFlNGFjODZjNTVkNjhkZjZlODU1NjY5ZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI2MWI2NDVkZDg2MmYwZDViNDNjZGRjN2FhZGRiOGRjZGYzNzY4YWI0NGMzNzY0NGUxYjVhYzE4OTUyMjNjMGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRmMTk0MDAyNDhhMGI5ODY2OGM2OGViNjg4NzM2MzA0MzA3ZDZmNTY4YzMzZjk5ZGE3NDg1OTcyOTM4NTY3MjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fbcf29cf72ff4df8be880dddad03ca11",
+      "statement": "The sidecar is not optional because the deterministic inventory counts blocks to decide which criteria are `na`: a markdown read without its sidecar would show zero tables and zero images, flip the structure criteria to `na`, and move the document's score for a reason foreign to the quality of the document.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L133-L140",
+          "version": "repo-lines-v1:sha256:92cdb1110d565334faa662f168d19371a14f03c48e8ad257d3862cbf033635c5:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTA0NTI5ZjE4YzA2ZmE0OGU2YjM5YzFhMTBjOTc1ZDFhMDc3ZWYwZWRjZTY4NTFmZDhlZmUxNmI5NTYyYTIzZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjIyMzg0MDdjYWVmOTZhNjU2M2UxNDViNDlmM2RkMTRiZjVlMmY2ODg0ODU3ZjE2ZTU1M2MwN2ExYmQ4NzhiOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWYwYTA4OTU5MDRjNTRlMmRkNzQ5ZmE4MmMzNGQxNTBlODAxNjE2ODFiNGY1MzBkYmY0YzQ1NGIyOTUzYjhmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjJjYjYwNWM2ZGRlMWMyZTU3YzhmNzA0YWRjOGU2YmQyMzlkMDZkYmM4NGMyNGY3MDhiMWEzYmI2NmRhYmM0ZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L9-L11",
+          "version": "repo-lines-v1:sha256:fa4c0d99c80d08b08e54f9f208bc81534d29ad0eb4032fd1fbd18fcb91710a29:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzJkZGIxYjg5NzBlMTI2MTc5OWZiMDlmMmNhYTEzODBjY2RhNGE1ZDJiNTQzMzZmODZkYjdlMTZlNzNmMjYzZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjAzMWU3N2Y5YjY2OTdkNTlhMmYyZDNlODJkOGVlMWEwN2U1MWE0M2EyYWIzZjMxNDRiNjE4ODFkNzg1ODU1YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjMyM2M4MTk2NzAxZjhlNTBiNjU2ZTU1NTQyMTJmMTFmOTZmZTNiYzkxY2ZlMTIyYjNjYjNiMzc4MzFmOWU0OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTUzMTBlMjg0Y2RkMjZmYzQ2NmM1Zjc4MGRjMDRiZDZhZDBhNTIzN2Q5ZWIzYWMxMDZkMTMwZDM2OWFjMjQxNSJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L37-L48",
+          "version": "repo-lines-v1:sha256:29008e9be1da823537020de5933d6bd5be4d6ef03ffb028f92a32b441f62876d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1MGRmODM5YzgxZDJmNjMwZDA4ZTk2ZDM2MWY4MTBjNjc4NDYxOTZhNGJiYzM5YzAzYjEyYTRmZWE3NTgxZTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5OGI5ODU4MTFlNjYzMjA0MGQ3MDViNWI0YTgxY2ZmOGZiZjJjZmVhMjUyMzAwMTFmYWYzODdhNTJjOWRmMzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVmOTljMjhiMWYxZjU0NDllZGYwMTQ1NTFjMGMyYmVlNDQ2MTI4MzM2ZTliMjAwYjE3M2QzYjY3NWU0NjRiMzgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e1d0a2bd39ae4e59af0828df5c8eaebf",
+      "statement": "The parsed markdown is written with write_bytes on a UTF-8 encoding and read back with read_bytes().decode(\"utf-8\"), never through universal-newline decoding, and no trailing newline is appended — because that exact string is what non_alpha_fraction, token_count and duplicate_line_fraction are computed on, and a CR rewritten as LF would shift all three.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L129-L132",
+          "version": "repo-lines-v1:sha256:f1b4125c3f392e9bca5767bdcf2133d32ebd330b3a5113f6a6bbd227b8c3b126:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDJlY2EwODc4ZWQ2ZTkzYTMzNjYzMTFkZGMwYjVmZGE0YjUxMDc5NmRjMmI1ZThhOWI1ZGFhNTNlZDczNDFjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjlmMTM0ZDNlNDRhMzVlMGU4ZjAyNzA2YWI4ZDczOWJkOGM3ZDdjYzczNzY5OWQ5YzAzMmVmZTMyMWMzMjNjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNhYzNkMWRkNDc1ZWUwMzE5MmIyZmQ2MWZjYjI4ZWY3NzViYWMzNDhjZGVhN2IxMmFlNjc5NWVkY2JiN2YwMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDMzNTJjY2VlODVlMWEwODRhZjVkNTg1OTQyOTVjMmNkNjM5NTc0NmJlOWQ5MzgxNmQ5NDI0MTM4ZTU5ZDVmNiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L13-L16",
+          "version": "repo-lines-v1:sha256:d3af77c635509216905fb20597b650765085bea78e9bfcee145fdec4db9024e7:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmUwMTU0ZDQzMTZiNTliY2JkNWMxYmZiYzVjZDBhMGYxYzI2ZGM2Y2U2NTI2OGQ0MzE4MWJkODNjNGE5ZjhhOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGM0NjljOTViNDYzYjdmN2M4OWJhNWQyN2Y2NzI1M2ZjZjFiZGI3MDhmZjljZTk1YWMyMzc2NDRmODhmNTgxMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODU1NTIyMjdhYmVkMDNkYTc5MDRkMTg1NWZmOTIzN2ZjMTNlNDMyODVhNzJiM2I2YzNmNzU4M2VkZWJiZGEzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWI1Y2ZhNzI4ODgyMmU3M2JkMjlmOTE1YjBhYzUwZjVjYzNmODI2NzEyMDAxYWFhZGU5ZDA2OTk4OWM2YzJjYyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L59-L69",
+          "version": "repo-lines-v1:sha256:96eee416020ce6ecb6657d128b8220ae17eab86ec05ffb5f085fbdf00514e15a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZDU3ZjI0MzQzM2Y3NzkwNTkyMDM1ZmFlZWZlNWVkYjcxOGNmYWVlYzM5YzJlMDkxMmVkNjYwNjNiOWNiZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyYzc2ZjU1OWYwYjQ5N2QxMTlkNGQyZDFlZmRkM2YxN2EzOWRkMjhlOGY4ZGUzODA2MzEyZThjOTMwYWRjZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1MjljMTc2ZDRmOTQ1OTJkYjc3MDA5ZmMwNzZjNzU2N2E0M2M3ZGVjZjM5ODg0Mjk1YjM3MzdiYmY5YjA3NzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmZThhMWRhMDBiYWJmMjAwYjgyNDBhNmY3ZmYwZjZkYzYxYzc3OWRhYWU2OTE4MjU5MGFmYmM0ZmViZDE1ZmMifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L25-L35",
+          "version": "repo-lines-v1:sha256:1c3275c562bcbee1755a48abccbc3e732e4cc7484df6f2e94b01230c26b9423f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmY2MwOTRiZjI2ZDA1ZDVjYTNkZjcwN2EwNWU3ZTg0YWUyYWM3MGFjMDZiNDJmYTkzMjA2NGJlMDk4ZGM1M2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlNmVhNWUwZTFhYjI0NWMyMWE2MTY0NjA1ZGU3YTMwYTA0Y2M2Y2VmNzNlNDAxMTZmMTg3NDBkODAxNGNkZmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhjYWY3MjdkZDYyMGI5NzYzZmZiNmNhOTk4ZGIxYmEyMmMyZGQzM2QwMDVlMTRjNThhOTcwMGRlNTVmYTNkNGIifQ"
+        },
+        {
+          "resource": "repo://tests/test_regression_parse_run.py#L121-L142",
+          "version": "repo-lines-v1:sha256:06e7be87e0e461a1a23d5cd7298cde2fc7d56a365e5c335691ad13fdee6969c3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3YWFjNDU5MzE4NGQ3MWViOTJlMjkyNjE4MjM1OWFmMGIwM2ZkYWJiNTZhNDE5MjdkMTIzMjk3NGMwNzAwNzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllYjQ3NzMxZjM2OTk5ZjA1MDI3ODU1MDAxMjk4OTIwMjA3ZjYwZGRlZDEzZTA2ZTRlODE2M2ExNDk2MjQ2YjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ5ZTBiNWQ4MjIyNTQyYjU3ZDZiNWQyYmQwOGVmOGExN2Q0NzM2YWU1NDA5MWJmMjk3ZDc4ODEyZTNhZmU1N2EiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4a8e40f9aa3e49bca5a667200b7b0702",
+      "statement": "A folder is detected as a parsed_input/ solely by the presence of at least one `*.parse.json`; a `.md` file never decides the mode, because .md is both a supported source format and the output of parsing, so a folder of hand-written notes stays a legitimate raw corpus.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L170-L184",
+          "version": "repo-lines-v1:sha256:8d771fd63b9bcfe341d3d01011333399da385a905029680261cd7a03b723a120:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4YjQ3YzU4ZTg2NDk0NzUzNzlkZDc3MzQ0YmNiNWQ5YTEzNTFlOWNlYmQ1MTNjN2Y1MTgwYmM3MDkyNmYzZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY4YzM0YTQ0YzFlZWYzNzRlNTBjZWIzY2Q5OGU5NGRlOWJkNzZjMWRiNGEwOGI4OTNhMDZhYTY4YWFlOTEzMDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4YjEyNGE2NTJjM2U2NTcwNmE3ZjYyNGNiZjdhZjYwZGU3ODY4MWExZmFiOGVhODk0YjJkNWRhNmRmYjMxMTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViYmQyZDYxMGVkN2I3NTM2N2FkYzkwYzc2M2MyMzU1Zjg1YmJmMWQ5M2ZjMjQ3MjJkZjkzNGU2YjAxMzc3MmYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L34-L37",
+          "version": "repo-lines-v1:sha256:628d8cd6a684379bcc519b42fd1e6470ed9a382e60dc28ab58df456e74ff8638:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdkNjY1ODAxMTE0MjNkZmQ3YjU1NWRiZTNiZjZmYjVjZDYzMGJhZTlhZjk1N2M2Mzg1MGQwOTc1ZGE1YzQ1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTg0NzIxYjEyYmRjOTEyM2M1M2I4NDc0ZjQwMzQxOTU1NGVlN2M5M2UwZDMzOWRlMjUyYTJmMzE5N2Q0Y2ZkYyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzk1Yjc5ZWI3OWZlNzU3MGQyN2Q2ODJmZmQ2OTU5MzUzYTdmNzFhMmFhZmU3NzlhMTA4ODU2ZjQ3MjlkNjRkNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjFkMTY1YzIwYjBkYjFiYTNkYTdiZDkzOGJlM2YyNWE2MzMxZmQ1NjMyYzNmNmU5MmZiZDQ0N2EyZmFjZTI2YiJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L125-L129",
+          "version": "repo-lines-v1:sha256:3efda52cf86e73a337f023e746e931fb4a3ac1b216617eb0ab9815f31b276424:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U4MmFmNjQ5MjJmNTk2NGZkOTM2YjA0OTI5ZjhhNGEyNTY1Yjk4MDJiNzI4YTg5YzU5NTVhNzNkNjIxYjVjMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDk4Yjk4NTgxMWU2NjMyMDQwZDcwNWI1YjRhODFjZmY4ZmJmMmNmZWEyNTIzMDAxMWZhZjM4N2E1MmM5ZGYzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTRkMTg3ZGQyZmEwN2RmNGUwZDAxYTk3YjYzNTMxNTE1OTBmMGYwZTE3NzM2ZjkwZDBkZmU3ZGNiMGExNzAxNSJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L140-L145",
+          "version": "repo-lines-v1:sha256:75ea41d3a6eb7ff2006ce780d7426739fc89a3be1da9a8a30318691b6e4917d2:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTIxMWRiY2U2ZWMyMzZmNzQ0YzczN2IyODJhNGUwYTU1NjAzMTFmNWI4ODZmZDI1MTkxZGY1YmM2ZmZmYzljMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDJiYTM4MDEzY2Q5M2E1MzIxMTZiNjZhZDM4YWVlZWZkYjA0N2FmNWRhNmU0MTJjM2FkZmRmNjZmMzUzYzliNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGM5MzhlNWI4Mjg4ZjJmY2U3NzYxMzk0MDc0NDA3Mjg2MzQ0NjAzYjc4OGU4ZDBkMDllMjQyODQ4YmU4NDNlNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ae628551f46c4ebcb81d3f741916df09",
+      "statement": "A folder holding both sidecars and raw sources raises \"Dossier ambigu: ... contient a la fois des documents parses ... et des sources brutes ... Separez raw_input/ et parsed_input/.\" rather than being guessed at, because scoring it as raw would re-parse the markdown exports and ignore the sidecars while scoring it as parsed would drop the sources.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L170-L190",
+          "version": "repo-lines-v1:sha256:17f3874a7822a4ba5b3985e91414648e2429eb29c4b27c8587d63b4d4f909798:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4YjQ3YzU4ZTg2NDk0NzUzNzlkZDc3MzQ0YmNiNWQ5YTEzNTFlOWNlYmQ1MTNjN2Y1MTgwYmM3MDkyNmYzZGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwZTJhNDY1MDA5NWZhOTVkMGUyYmI0MWIyZGIyOTA5NGQzNDA0ZDI4Y2UxMjMzOWVjODhiYjRiNWM1YmU4ZjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI4YjEyNGE2NTJjM2U2NTcwNmE3ZjYyNGNiZjdhZjYwZGU3ODY4MWExZmFiOGVhODk0YjJkNWRhNmRmYjMxMTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L131-L138",
+          "version": "repo-lines-v1:sha256:ff3914ce96eaa943a58ca06d82f609724047c556f24f44653a3fe1249d88c45b:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODE0YjAyZDQzYjEzZmFhYjc0ZDZhZmY0YTk4NmQ3N2ZmODUwMWI4ZjdjYWM5MjE4NTg4ODE2MTQzNjFjYTU5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmY1ZDVmMTRiZmQwMWFkMDZlOTdlNGE5YjEwNTdjMWM2NDZiOGJhNmI3NTE1YzRmN2NhNjA2YWRmOGM1MjM5MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzgyODhlYzgwNmEwYjc0YTU2ZTc1ZmEyNzAwYWRiM2JiMDJlMWI2NWI2OWRjYzE1NmVjZGUyYmFjMWU5M2ZmMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_70993f3f40414477ab81533cf4ec5262",
+      "statement": "Parsed entries are listed sorted on the file name rather than the stem, to match the order triage_corpus gives raw sources, because that ordering drives the row order of corpus_report.xlsx and the grouping of corpus_redundancy.json and neither should depend on which path the corpus took; orphan sidecars are included in the listing so a document whose markdown was deleted is still reported.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L159-L167",
+          "version": "repo-lines-v1:sha256:b7203426d5fb5ef1385a3aa9bd8510e344dc28c641fe242da226c6d35305d6e5:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzA1NmZiYzY1ZTg4MmYwZjQ4ZjU4ZjA0M2M0MmFmMjY2ZGQwOGYzZTM3ZTg0NjlkMTkxYzNhMDBmNzgwMmNiNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFjYzQ1YWYzNGZlZjk2MmJkY2I3NDhiNmM1ZmUxNzc0YWE5OTgyN2RkYzI5MGM0NTczNGNkMDhjMmVlOTBjNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzAxMTRkYmNhOWQyNDQzOGYxZDU0NDllNmU5OGY0NjQ4MjgzYjQ0OTQ4YWFiZjcxM2RmOTk0NjA1NzJmNzE3YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2ExMTRkNzVlMGIwNWRmMzg5NThiNDBiMGJiZjFjYTBmYzM4Yzk1MjY2OGU4NWRhZTk4MmNjNmE0ZTBmNThlNSJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L147-L156",
+          "version": "repo-lines-v1:sha256:5c1b657180a63cf231b30072080d2938b0c2d3d256094d3064020fdb9a7e51df:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2Mzk1YTFiMDMzM2MyNzkzZjY0ODY3NDJhYjg1MjhjZDg0MTg3MzEzMDgzYzVhMDM3NjFkZTA2MDNiOTI3NjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlmNDJjODlhM2Y1ZGU5MTJjYTY2MTA3YzIwN2NiZmEyZWY5NDZmZTY0NzRhYWU5OTk2YjljOWVjM2I2Y2IwZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImViOTdkZWFmOWU2MDA3NTkyOGVhY2ZmYjUwN2JiZDA1ZDcxYmRjMzY0ODk3MWVkMGQ5MDY0NDA0ODMwZjA2MzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b43eeb4050684e9c94595ffc25f1ce47",
+      "statement": "Reading a parsed entry is total — every folder state yields a document and a list of flags rather than an exception: `manually_edited` on a markdown_hash mismatch, `missing_sidecar` for a markdown alone, `missing_markdown` for an orphan sidecar, `invalid_sidecar` for a sidecar that is not valid JSON, `sidecar_schema_unsupported:<n>` for a schema_version newer than this cqg understands, and `renamed:<original_doc_id>` when the sidecar's doc_id disagrees with the file name.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L117-L156",
+          "version": "repo-lines-v1:sha256:1c97b05e278185613ee8594f528c0753c6789c58cd99f1cd73244c0419342717:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU1YzhmODRjZjIyYWJhYWUxMTcyZmI2MGM2ZmRkYmY2NmRhODQ5ZDE2ZDU3YzllYjQ4MzJhYzVhYmZiNzVhNGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdlYzRiMjllODY0NjEwZmEzYzc0N2I3NzU3NWZhYjQwYzMxMGQxYzI1MDY4Y2NlZDU0MTg4Zjk4MGRjYTIyMDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkwNGE4YjUwMTkzODJkYjFjY2EwMDBmZTBmMzY2MmY5OThkODE0OGQ2NjE5NjcwYWM3NzJhNmUyMzFjNjAxNzAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZiOTMyNzliMzgzNTQ2MjY3Mzc1MjlkYjU2MjE2YjZhOTg2MzdhODkzMDM0YzAwNGFjYTZiNTM4OWMwMDU5MmIifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L29-L32",
+          "version": "repo-lines-v1:sha256:63524189197759e299229b87e3ecf7307fd8997f7a3f2e000cee1d67ef40babb:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTY5MmY5ZjlmNjYwMzViNTk4MmY5ODJhNzhlY2NkNWUwODAzZTg3YzI5MTIxZmQxNDM2YzVjYzQyMTgxZTYxNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU1MzFlYWE5ODIxNTA3YTRiNzY4NWE0ZWVlOTdmMGNhMDM2YWNkZTI5MmYyMGViMDY0Y2M5NzlhYzkwYTYyMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWIxNmNiMTAwYzBmODk3MTg3NjQ0ZDhjYjI0MGQ3ZTMxZGVkMjU4MWNhMWM3YmIwOTc3NjJiYTU0NjNmMTc4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTIxZGJlMDJhMDE3ZWU0ZGU1MWRhMWY2NDQ5YjNiYTE0MGUxOWY2MDRlNDkwMDQ1MzY3MWE4NjhiN2ViOTExYiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L84-L90",
+          "version": "repo-lines-v1:sha256:7f71e2efcb9bc124c9cc78ae9e3367084e0a0895aac257c21d8490919bf8d514:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDg3NGY5YTRjZTZjZmY5NWFiZGQ4N2Q5MTlhNDc5YmUwMDAxNjIyZDVmMjMzOGU4YmU0MWJkNGY2ODgxMjhmOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZWJjMjE1ODQ4MGJhNTE4ZjQ1YmE0ZjdlN2E5ZWZmNDk1YzZiNDYxZjRkNzBmNjc0MmE0MWFmYmI0YzkxMGRkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjkyYTk4YTRkYzVmZDY5NmU4MjAwNmFmYzgwMDZiMjk5ZDIxNGIxZGYzNDZkZWNmNDBmMDJhYTM1MTJkOTliMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmU5N2RhOGIzZDEzYjJmYjQxM2Q1YmU1NWRhYzZmN2I2NzBhNmFlZWFmNjcyMmE4OWVlY2RiNTZmODNlMGU0OSJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L50-L103",
+          "version": "repo-lines-v1:sha256:5ed5b59458b1ed1644f61bcd1f2977e1465471ff8be21aa92580f5db1fcd6e31:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZjIwN2Q3Mjk0MThkNTEyOTMyZTE3MjYzMjZlZjFjMWYxYTFhNDhhMTk1NWVhZjMyODE3YjUzNDRkYzg3MTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwYTI4OGIxNWRiOGEzMTZlNGNhYjk2YWIwNGEwYjM4MzQ0NDZjNjk2ZTlmZjUzMDY5NmE2YzY4ODQxNjI1OTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyYmMyZTJjYWI3MjkyYjZjOTc2MmI5ZDhhMzQ4ZGU4ODNhY2Q3NjZjMzk5YjM0OTU2NGExMjVjMWMxZTI1NGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bd7da175cb1f43869915fc199414c883",
+      "statement": "A parsed markdown re-saved in another encoding is decoded with errors=\"replace\", so the damage becomes U+FFFD — which cid_failure_fraction already counts, penalising parse_confidence and flagging the document — the same precedent _plain_text_extraction set for .txt/.md sources, and it arrives flagged manually_edited as well since the file genuinely changed.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse.py#L198-L203",
+          "version": "repo-lines-v1:sha256:36a9fd00113346c766fb425ac7f49018eb1365663e26110a7873ebfd4c03be8a:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ1NjYyZjc5NTE3Y2VhYTliZGFlMzQ1Y2JkYWU5NjZhZDI5NDg3OGYxODIyMjc5Mzk4YzAxOTljM2YzNzA3MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRkOThhMmNlNWViMjQ1MmY5NmUwZDNiMTNjNTM5ZjhiZWFjZTVkZDI3OGZjODhlODZlNGIwNTVlYzljNDZlNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmM4MThiMzg5MGYwOGE3NTM0OWIwZDRmMzk2MzE5MWExNTk4NWU3NmEwOTUzMmIzZDJjNzgxZjZjZTU3MzUzMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU0OTA0MWNkOWJkM2VhNzI2MmFkMzdhNTQwNGZjNGZkOTEzZjMzNTk1NTdlY2YxNWQ5YWExNzM3ZTZhNDI4OSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L129-L132",
+          "version": "repo-lines-v1:sha256:f1b4125c3f392e9bca5767bdcf2133d32ebd330b3a5113f6a6bbd227b8c3b126:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDJlY2EwODc4ZWQ2ZTkzYTMzNjYzMTFkZGMwYjVmZGE0YjUxMDc5NmRjMmI1ZThhOWI1ZGFhNTNlZDczNDFjZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjlmMTM0ZDNlNDRhMzVlMGU4ZjAyNzA2YWI4ZDczOWJkOGM3ZDdjYzczNzY5OWQ5YzAzMmVmZTMyMWMzMjNjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWNhYzNkMWRkNDc1ZWUwMzE5MmIyZmQ2MWZjYjI4ZWY3NzViYWMzNDhjZGVhN2IxMmFlNjc5NWVkY2JiN2YwMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDMzNTJjY2VlODVlMWEwODRhZjVkNTg1OTQyOTVjMmNkNjM5NTc0NmJlOWQ5MzgxNmQ5NDI0MTM4ZTU5ZDVmNiJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L105-L113",
+          "version": "repo-lines-v1:sha256:7e0968f04f00ae84698e06149b06b9af2bc6dd21e4f06cd2f2534aa602a9ec22:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzNkYjA0YzBiYzMyYjBjMTU4N2JiMDFhNmYwZDcxY2U4ZjFlMTE2OWI5NWM1NjY5YTU1ZGUxOTgwNDZmNzI4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmExYTA4NjQwZjg2YTQxOTU2YjRlNzRlNTQ4Y2JiYWM2NzFmNzZmN2Y1MzAzMDk1NTliZDM0YjAxMTM3ODVlOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWY5NDNhYjMwNWNmY2NiMTBiYjM5NDNmOGJlYTAzZDgwNzg5NjhkNDEyNmNmMjVlNTdiMmYwNGUwODVkZmJkYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjYxMjFiNWYxNTRkNGQ0YWMzZjIyNGE2NmQ3Mjg2MTc1ZDViZThkOWUxMzM2Y2NlNGQ1OWJkM2M5Y2IxY2FjNiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5937fe71d27640e3a181800197a6501b",
+      "statement": "When the sidecar's recorded doc_id disagrees with the file name, the file name wins and the original is reported as `renamed:<original_doc_id>`, because the file name is what indexes the folder and names the score file — a duplicated pair edited into a variant would otherwise write the same score file twice and one copy would silently overwrite the other.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L148-L155",
+          "version": "repo-lines-v1:sha256:9cfca639a78aa21aba31a07598a3bdd8fd71e41be667ab92af8aee3190cf8714:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDJiZWRiMTg3NWMwOGMwOTNjZWVkZDZkZmIxMTI2ZTc5NDY2OWJiOTJhMjY3ZjQyYTViYWQ5YzM2MjkyZjE3YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDQ3ZjNkOGNhZDE4OTAxOWQxYmMyYTg4MjNlNGRiYTZlYTFmNTQ1MzNhN2I1NWViOTA4ZGU1MmU3ZDQ3OTU4MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjA4YzJiNTE3MTJkODVhNDUxN2ExZWEwNzc4NWNlM2FhOTMxYzUxMThiNjYyMDI0MDI1OGFhODBjOWEzMGI5ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzAxMTRkYmNhOWQyNDQzOGYxZDU0NDllNmU5OGY0NjQ4MjgzYjQ0OTQ4YWFiZjcxM2RmOTk0NjA1NzJmNzE3YyJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L269-L285",
+          "version": "repo-lines-v1:sha256:c078135b4003098dbdcc79312bff875c6de9482042a0b3776982b4f47383ac2d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRhMDcxZjhkY2NmNzBkYjBlMTliY2IxN2YzNzliZTJmZjZlMzY4Y2FiMGQ0YjNkZmRmYWQ4ZWUwMTU0OWJlNjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc1NjI5NTA5MjI4MmRlYjRiM2M2MjkxMmJhOGVjOTNhZWI0MjAxM2Y4NjBiNGQ0YzU5NDBiMmEyMWE1N2NiOTkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk4OTQ0NjdkYTZiNTg5ZjU0YjM5NDAwOTkzN2U1YjU4ZmNkNDk3ZDk4NDM1OTA0MDFiMGM0MzRkNTZmZTY5M2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9558e5aff4ca4b47a730d08a55036be9",
+      "statement": "Document identifiers containing spaces, accents and parentheses round-trip through the parsed_input/ layout unchanged, sidecar file name included.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L50-L56",
+          "version": "repo-lines-v1:sha256:329e23d7d3544dd6ac28a400ff2337f023175742f90276cbab202ad84558b411:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTg3NzA2YWI5MDQ0MGMyZDkzYjUzODdiN2JjMzZjN2M5ZWI5NDNkN2M1Y2Q4NTc4NGU1NGU0MDViZTI3YjBhYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTFjMGIyZTk3N2IzYWZkYmZlM2M3ODI2YzIxOTI2ZjkyYmRkZDVjMjQ4Zjk3MzFhMWUyNDQ5YmMyMzFmZDU5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzkwNzBjOGU4ZmVkMzYxZjg0NjhmMjM4ZmQ4ZTU4ZTk3NWJiYzc0NTViOWFkZWZkZTBkOGUzNDc3ZjEyZTc3ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTI1N2JiM2FlN2ZhYWQ3ZjBmMjNmYTM1OTE1ODJjMDE1NjhmMzVkYTgyZTBkYjk4ZmYxMmZmM2M0MDhhNDRhOSJ9"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L116-L123",
+          "version": "repo-lines-v1:sha256:5eab16efba776fa9db80518fb22b8987ea31501b22c454df82a3d794dbb8c76a:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYmEzNWRjMTEzMmRmNjE0MWY4ZTAyODk1Y2I1NTc3MDE5YmU2YjM1MTQ0MWJlZDAxYWFlODFiZTIyZDJmZWFjOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmFmZDIyNWIyZWE3ZDJjYmI0NTkxMWFjMWU5ODhlZjM1YzlkY2EwNjI1MWI5YjEwZmZjOTEwY2M5MmIwZGNkMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2RhZWQ3NDFkNjE2NDUyZDViNWU0OWVlOWMwNTExMWJhMmRmNDBhYmM2ODY3MjMzMTNjOTI0NzdhNjZjZmI1NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d655e9e0c5ec47ee8c09d8173d207456",
+      "statement": "`parse` skips a document already present in the output folder rather than overwriting it, because the markdown may have been corrected by hand and a silent re-parse would discard that work; --force is the explicit way to ask for the overwrite, and passing --force to `run` or `golden` prints that it is without object and is ignored.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L328-L333",
+          "version": "repo-lines-v1:sha256:753118cffb51aabc250841f87eb9aa8b79192acc99548951e8b109bf1a379b5a:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzAzNDc3YmY5ODQxOTA2ZjZhMTMxZDY4MDY2ZWU1NDg4Mjc2Yzg0YWU0NmI2MzZiM2E5ODJmYTVlM2Q4YTc1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWQ0M2U3ZjNkYmVjMTU5NzUxMzA5MGE0OTE0NmJiYzYyNjJmZGIyZTUzYmFlODllZGI3MDUxMWQ0ODU4YmM5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTljZjEwZjQ0MjYxNjlkMjljNzRkNzExN2ZiODdhMmNkYjVlMzM4Y2YzMjBmNmM4MmRmNzQyOTJmMGRiYzA3NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmIzNTUyOTUxZmZhODg4ZTYyMjllY2VhNWMzNzhjYjhjNThkYzJmZmM4N2YwMzQ5YjZiNmY3OWI4NTMwM2NmZCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L94-L103",
+          "version": "repo-lines-v1:sha256:42929f27b8752afb6f17152527bf4a7ff2af49be22bef98b788575bb206d1142:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3YWQzN2FmYjYyNjQxNmZjZGZlMmRkZWY2ZTU4NGRiYTUxMzg3YmViMTlkZjQyYjczZDJiNGFlZDdlMDkyNjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImEyZWFhY2U1Nzg5MzUwMzQ1ODJkNzUwZTYyYWRhMzMxMmU2OTQyNjYwYWJjYzc0NWI5OWJiYTk0YjA3NTM2MGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwYzc2OTI4NWE4OTM5MmUyY2Y5NWIzMTdhNjA4NTEyNjg0MDNhNTY1NTY0NzQ4MGNkYmJjMTVlNzViYmJmNTIifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L65-L82",
+          "version": "repo-lines-v1:sha256:da52b7fdfd22947221fc3128dfcb4c97b42f748e83c4f1e81fe35889b24a79fe:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMyYWQ5YzgyMjEyM2Y1OGNiN2ZhOGUwMTY2YjNiNWFkMjY5NGUwZTQ2YzgxMmQwYWYwMTIzZjU5NGIxNzA4MTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzOTk4NjMyMzFkYjVhN2MwN2U5NjE5ZGNjMWE3NWRmZTQ5OGQxNTEyOTQxZDVmMDYyMmFkOGQ4ZTdkM2NhZjQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE4NjAyN2NmZDg5YzVhMzgwZTBhNGNjYzUwZmIyYzM3NzA4Njg1MGQzZGUzODU2ZDBhMTkyYzg4NzVmNDVmYWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3a3d0b72dd264a16ac243b1df80919e3",
+      "statement": "On a skipped document `parse` compares the source's current sha256 with the one recorded in provenance and collects a mismatch into `source_changed`, which the CLI prints as \"Source modifiee depuis le parsing (relancer avec --force pour reparser)\" — reported and never acted on, because choosing between the human's edit and the new source version is the human's call.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L349-L351",
+          "version": "repo-lines-v1:sha256:57b484fba3b3448102517f8ef06638ae0b0d2656061253b7a9042571a10aecf8:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWVkYWZkZGU3NjUxMWZmZDI1ZmI0OTVmMzViMTk5NGYxOWZmNTllNDBiNGM1OTgwMzNlYzAxYzZkYWVhNDQxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDY5OGVjMjNjYWZiNjkyOGU0MmE2NDIwNmFkM2Y4MmY0Mjc2NzY0MzBiZDFkMzhhMzQxZTRlM2VlZmY2ZWEwMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjdlYTBkNDlmZGVjMzY2MGQ4YTAwNzU3NGM0ZjBjZDM2NjY4NWRiOWNjZDk2YzFkYWQzZTUwNmM1MGQyOTM3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTVlOTk5ZTVjZTYzMzMyOWU1NDY3NTIxMDZjYWNhOGM1NjI4ZTVhNmFmOGVlNjZjMGY4ZWJlOTI3ZGZlZmU1YSJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L98-L102",
+          "version": "repo-lines-v1:sha256:739e44c3651c73a7eee038b63116e84228500ead8740793d4c7f278e8874b9d1:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFlMjJkZDM2MTkwMzRjNTg5ZjE3ZDhlMjFhZmE5ZGI0NWIwYzM0NDU1YmVlY2Q2M2E4YTQ4NGJlN2E2ZGYyOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBkM2M1ZDk1ZmUzM2IwN2FhNjliYTNmMmQzZGI4YzM2NjU0NGE4MjllYjU2MGVkMjNiZjJlNjRkZmZkM2U3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjYwNzY1MzRkNmY0ZDI0YzU3ZjNkMjE4MGQxNzQyYTdjYzBiYTZlNTVhM2ZkYmQ2YWI1MDUxMjI3NzVkNjgyNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODk0MWEyZTgxYThiNzZhOWVlOTc5M2M1ZjBjZDAxOGNiYzlmN2M3NzU4YTcyOTUwMDFhYTMyMzVkYjBkOTBiOCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L84-L95",
+          "version": "repo-lines-v1:sha256:5b740d491e5f9a2d1322b59885bbff405f4d9372c9ae887d386fed566e70218e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVhY2M3NzUwYmM2YWYwYmE5YWUzZTMwZTcxMmFhMTViMzFhNTk2MmI0MzBjM2I1NTU3YmMxNTlkOGQxNDZlODQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzYjM2ZGZhOGYzYjNjNzg4NjVjN2U5OGQ2MDI0OGVhZWZhMjQ0YTBjOWI3ZjA0YzBkNTIxY2NiMzI5ZjFiODIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdhMjgzNmQ1ZWM2MTJjNGVkMWU1OTNiNDdmZDYwYjRiY2E5NzQ0NzZmMmQzYWZlNWVkMDJjZTIxM2NkZDUzNDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b5b9c53188bb4b4fb9018098ab6cd370",
+      "statement": "On a hand-edited markdown the text blocks are recomputed from what the human wrote while every non-text block and the image geometry are kept from the sidecar; paragraphs are split on blank lines with CRLF accepted, because a hand-edited markdown is the one likely to come back from a Windows editor, and each recomputed block is given page=0, the sentinel the docling and docx extractions already use, because after an edit the page a paragraph came from is unknown and claiming page 1 would invent a location.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/parse_store.py#L141-L147",
+          "version": "repo-lines-v1:sha256:db00f4d409e5b547f2889ba4481c62adb33feb4d947853a47815e922ca3b87b9:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZmNjMzNzg2YTYxZGYxYTZkN2E2ZTQwNmVkY2NiN2U5MGE4YWMxMWMyNjQ5MGEwYzZkNzYxMmQ2OTU0MGVlNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZGEyZmRmZmZhMzNjYzI5NTFiY2E1NmFiZjdlYzc4OWU4OGM0ZmI5MmY5MDg3ZDdiYzliM2ExZTA1ZTQ2ODI5ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTdiNTc3MzdhNGZkMDU0NTg3NDBhMDg5MjRlM2Y0MDEwMmFkMzU5NWU1MzViOTc3NWJhZmM1YzdjZjQ3ZmEzOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTZhMjk4YTE3MmVmMmYwZjczNTUyYjM2MGRlNzJjZDgwNmRiODQ0Nzk5ZmJjNmUwZTc5YTU3MGQ0MDA5NGNjMCJ9"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L93-L114",
+          "version": "repo-lines-v1:sha256:d0e417379ade70c4af9a8e322e9f82b0be106ea969036ed3702e6227dcfc5ac8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0MzM4NGRkNjVkMmMxNmI0NDFhOTAxNGJkMTFiNWRiNzk5MGM4ZjhjY2RlZDA0MGNmYzNmZjNiOTYxMjU5NWUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM5OTQ5YjAxZjUzYTNmZmJiODBlOTk1ZDlmZWNiOTllZmM5OGRmMTYwNjZmNjIzMzRlZmJkNTYyN2NhZjc5YzQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQxZmYxYWEwOWRiZmU3ZjM3NWNjOGQ0MzZmNDFlZjRkN2I0Y2U1MzM1NjA5ODRlOTIxOGE1MGRmZjY2Zjk0NWEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRjZDEwY2UxNDYzOTU0ZWJlNjUzZmU0NDNmYjljYTU5YWNkZTU1OTA0MDBkZmJhYzc3YWE2NjRlMGM2ZjdmOTEifQ"
+        },
+        {
+          "resource": "repo://tests/test_parse_store.py#L50-L73",
+          "version": "repo-lines-v1:sha256:1920efd40e4bb643bf93735dd7700f2a2905d73017a021005711446eb484b11a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZjIwN2Q3Mjk0MThkNTEyOTMyZTE3MjYzMjZlZjFjMWYxYTFhNDhhMTk1NWVhZjMyODE3YjUzNDRkYzg3MTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwYTI4OGIxNWRiOGEzMTZlNGNhYjk2YWIwNGEwYjM4MzQ0NDZjNjk2ZTlmZjUzMDY5NmE2YzY4ODQxNjI1OTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImVjZWJlNTUzZTkwZjY3NjQzZmUwMzgxM2E1NzcwMjc5ZWU3YjhmODM3MTAwOGFkMzZkNzVkOTc4ZWU1Yzg1MmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b7eee6077e0b42d28d099a7403c799b3",
+      "statement": "A regression test asserts the consequence directly: editing the prose of a parsed .docx that carries a real table raises manually_edited while leaving the set of `na` criteria and the global score identical, with a further assertion that the table criteria were live in the first place so the equality cannot hold trivially.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_regression_parse_run.py#L77-L118",
+          "version": "repo-lines-v1:sha256:90621b5eb64680ea4bcb16eacd65a58bb849a743c20ba7c3e12a76d2b5a3e400:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjYzQ4ZjBkZjhmZWFlZGY2MGIxZTZiZTdiMTg0ZTEzZmE4ZjZkOTM2YTBiZmZhMTdjN2IyZWQ0MTMxZjkxZjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIyMDEwOWNlODk2YmMxZGRmNmU2ODRhMGQzMmU3YjM0ZWMxMDY4NTA5NDA3YTNkMWY2ZjMzNjhlMzc4ZjQwNjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZiMTEzMTg1MWFkMmM1ZjJhMDAwY2EyNjMyNTE0YjM2MTI2N2Y2NWEyNjE0ZTY1MDAyMDg0MTY1ZjFlMDkzNjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNiZjBkMzkxMDIyZjkyYjRkZjljYzExMDQ3ZTUzNTc0MmU4MDdkZmY0Njc2MjQxNTYzMDk5MmU5YjA4YzZiMzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cb62df853f3548099e318d94da045688",
+      "statement": "An unsupported_format document crosses the boundary as an entry with an empty markdown whose category is preserved in provenance, and an unreadable document crosses the same way, so `run` raises the same `unsupported_format:<type>` or `unreadable` flag it would have raised on the raw folder.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L110-L118",
+          "version": "repo-lines-v1:sha256:b9a882cc9569c2e1903269429aaefcfd667af714f69c482ec1904c1eaefad82d:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWE2N2U3NGJhZDNlMmEzMWQ0ZWJkNzJkYmExY2NkZThjZGM5YzRmMGNlOWM4NzNiMGQ4Y2QwZDVmNDViNTUzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ4YTllOWMzMjUyODIwYzY1YTgxNjUyMGI4ZGI0OTMyMjgwODQ5ZWM4YzdkMmViNjI3MmFmZGZlYmUwNTljMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmIxYzg0YzEwM2IzMjIwMGMzM2ZkMGIzZmU5YTY5MGUwMTM3MTZhMjZkMTI0Nzk5NjZkYzljY2FkNDliZWY3OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDM5N2JkMzhlNjdlNzUzN2VkYzEzZDg4NWQ1N2RiN2VjNGMxMDQ4YzZkNjhjOWJlY2Q4OGRiZTk2M2M2MDU2MyJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L241-L264",
+          "version": "repo-lines-v1:sha256:53208a5fc5ec5df1c0b32c78d1f5bc47e43f1cd0beda662fbc947f8f9507eb32:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyZjU0MTQ0YjM1Y2NhMGZiMGNmMzRlY2E4NjA1ZjQ0MmRhMjYwMTE2NmNjZjFhMjE3ZDYxOWM2MDM4ZDVjM2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViMmJmNDllOTlhMTQwYzAyMDYyMjgyYWRjYzQ4MjVkNmU2ZWMzNDk3ZjRhOTYwNjUzODVhOWI0NjAxNDIxZDcifQ"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L114-L146",
+          "version": "repo-lines-v1:sha256:b89c79d681528ddf14ecbe22477240aead5508294f61315e3a3a3f9c200f3f85:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZWJmOWRkM2NhMWNjY2RmNTUxZDNiZjViMTUyZjA4ZDI5NTVmYmJiMmRmMmFmYTZkYTk0MDA1YzU2NTY2NWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE2ZWU3YTQ0MDk2ZWUyNDNmYTMxZTk4NThhZGQyNDBjMGJiNmY4OGRmYjU3MzI5ZTYwNjc1Zjg0NjY0ZWQ2YTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNlZTc2Y2RiNjMwZWVlYzUyNmI5MWY3OTIyZmFjZWI4YzQ2M2FlZWNiYTJlYWFiZDRmNzJkNmVlZjJhZDUzYWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_69b5d052c01240f8b8c2f48108038f89",
+      "statement": "On a parsed_input/ the scoring path opens no source file at all: the markdown and its sidecar are the whole input.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L218-L220",
+          "version": "repo-lines-v1:sha256:21e9b9b6b7d210122bdbc43962d14c9b592389a8fc6c9aedb01c7b1bc658f313:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2YwOTAzYmRlMmRmZjQyMWZkMjAzYTAwMmIwODhhZjZjODBmMDhlMGQ0NDFjZGE3YWUzYzQyOGI1ODJlMDViYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmMxMTdhZTBlYjNjOTNmYTE2ZWVmNTczYjI1ODVhNDYyNWVhNzkzMTY3ZmFiMmE1ZjVlYWNiYTNlN2UyNWQxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg1ZGZjMjM1NmI2MjhhNzkzZDNjOTllZDJlZjQxYTdiODNiNzMyYjlhM2RiMjgwMzAxYTQ2NDQwMTg3ZmQxZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQwNWIwYjU0NzdmNTIzOTkzMjA3YTBjMmRjZWM3NjEzOGZlZjU1YzkxYWIwMzUxOWQwZDU4MDljNjc3YjEzZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L252-L254",
+          "version": "repo-lines-v1:sha256:7a62fdbb229f0a3d7e2f64db85655673a0c599b7410f97323534817d15e6fc32:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDI4ZGEyMGM4YmFiMGExOTlkYjBhNGNkOWU0ZjBkMjBlYWQ0MmI2YWNmODI3ODUyNjliMmZmNWJmOGQzYzk4MiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE1NDZmY2E4ZDZjOWNlYTBkNzY1ZDVmMGNlNGY4ZjYwYmU2OTY3NGFiMmI4ZmI1NTJkOGQ4MzdiY2U2YTU3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJlZDkzYjY2OTkwYTMzMDE2YjUwZDU2ZDg2ODczNzU0Y2UwNjE5MWZkYjYxZTBlZmVkZGI4YmEwOGEzZWE4YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzU5NTIyMDlmNjY3ZmEwYTg2MzJjZGVhODg3OGQyNTQ4YzBiNzM4YzA0OTYyYjkwZGI5NjU0ZjE3NTJlYzQxZCJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L148-L160",
+          "version": "repo-lines-v1:sha256:2bd51e23fa3f7ba636113ef3ae75230e3f66158867a12474680d82004cfe4c50:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJmMmZkM2E1ODFiNzA4YjNhZjdkOTgyZmMxMGM1OTAyNjhkYWM5NWIxOGMzMGU5NGNiMWNlMDhkNTBlOWU0YTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA2NTVjMGVlYmIyYTM0NDI0ZmM1MjdiOGMwNzliZWQzOGJiMzczNGVjN2M2ZDVjZWE1ODU5ZjU4ZTAzMzVkZmYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNhY2JhZTg4YjI1MGY2MzdlNTUyNGVjMjY3Yjk4NDBkZTIwNWMxMDc4MGJmM2I4YTc2Mzg2Y2ZmZTk3NTc2NDYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_df80127556d4487d9458c1a410d8608d",
+      "statement": "`parse` prints every error it collected and exits with code 1, and a folder it refuses outright — ambiguous, self-overwriting or with colliding document names — prints an explanatory operator message and exits with code 2, because parsed_input/ feeds the scoring step and a partial output that looks like a success is how a document silently disappears from a report.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L331-L340",
+          "version": "repo-lines-v1:sha256:c392438b1a79339f5b7a3f36c32abab801712db6a4979f6b8d48781c49430aac:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNiODFhZTM0MjY2YzU3N2U0NWYzODk1ZmJjOGYyNmI2ZmM1YzliNTdjYzhmMTNjNzFkMDBkMDg2OGQ4YmIzZDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmOGY4ZmQ4Yjg2M2JkOGJhNDJlZTgwNGUxOTE5MDg3Njc4NzIxY2EyNzVkMGVjMTQ2NTkyNGNlMDA1MDIxZjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0YjBlNGE1NGM0ZGY3ZTY0MTRlYTMwM2M1YzJlNjQ4YzVhYWMyNzIyMzM5YzRlYzI3NTc2NGYwZWFlMDM4MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImZmMDZlZWJmZGY5MTM1NzYwYWQzYWVlZWUxYjc3NDBhYzI4ZGIwNmU3MTE0MmZkMzJjNGY2ZDg0ZmIzMDZkNWUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L352-L359",
+          "version": "repo-lines-v1:sha256:a4b66f785f08fdfe4605bbbe6832b3b36b252acc6a6e97caf22a677ac9ba8c62:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWJkZjI0NWE0NDVkNmE3ZDU1MTBhY2IxMGUzZmY2ZmMwOTQ2MTU3ZTdiY2RhZTRhOTRkYTkyNjY0NWQ0Njk4MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2U3NTk2MmNmODdkYmJiMzU2Mzk0YTcxNzMzOTFkMzU4MDFjZTk0NzZhYjIzZThkOTMwZDkyODZjMDZlOGFhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTdiNDg0ZmJhM2IzNDQ4MTAyNTE3ZjhlZjA2NjM4YWUwYjBkMjY1NjA2MTI1M2I3YTkwNDI1NzFhMTBhZWNmOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2U0MjQ5ODZmMGE5NTJmMGRlODA2YmJjNDBmMDUyZWNmMzRmNGEwMmRlZmI0YzUyZTUxYmZjNDNjZDFkYmE0YSJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L255-L266",
+          "version": "repo-lines-v1:sha256:d1d90932c8b2e68b5ab2fceecc4a3b976ea0cd79ac3f063a8b3838f13687fab8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE3ZWZiMTM4ZDQxODM2NzlmZjBmNjhiMTA5YzY2ZGZlYmNiZmRlZWY3MWNhZjFkYWMzZWQ2ZDFjMWZjNDMwMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM3MzRjZDg0MWJkMzdjNDJkMmVkZDRiOTUyZDhlM2I2OTI5ODViNTdhNjgxZTg5MmQ3Njk5M2MzZTk4ZDc3OWUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFjYWYxMzYzYTQwYjEwMjMyNmI5OGYyNjEyMTVmYjdiZDZlZTAxYjgyNGY2MjhkZTljMTU5ZDU1MjFhZDEyOGEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQ1YjkwN2E3MWE5NWY3NjIwZDI0Y2I5NmVlZjRiNmRiNjJiNWYyMjcwZjlmM2UxNjJmZWU4YzNlZTFjOTgyMDkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_90284d0fce2b464099760cde265a8b07",
+      "statement": "A non-regression test pins the whole split: over a corpus of four documents — a text PDF, an illustrated PDF, a Markdown note and a deliberately corrupt PDF — `parse` followed by `run <parsed_input>` produces *.score.json files strictly identical to a direct `run <raw>`, parameterised over the enriched and non-enriched cases, with the enriched split run deliberately scoring with enrichment off so the equality is carried by the markdown `parse` wrote.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_regression_parse_run.py#L1-L7",
+          "version": "repo-lines-v1:sha256:2b77a3a583f339b3873a5d1c4dedb484b30dfa5f47d27c73e1182903cbbb6504:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWY1YzlkZjZhMjFhZjM3YWI4OTdkNTI2OGQzYTg2ZWEwNzg2OGVlZGM1YjE5MzU0OGFjYTlhMGQyY2IzYmMwMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTMwM2VjZGQ0YTRkMTBmMTljNzNmZDQyZmQxMjQzN2ZkMzM1NGE4MjY4MTYwNWRhNTI1NWE5N2EzOTA2OGRiYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjgyYmIzYTZmMmZjYzYzMWNhYmMyMGVlM2RlMTExMjRjMjE1ZjI2YzUzYjRkNzA1YzE3N2JkNWRjN2M5NTZkZiJ9"
+        },
+        {
+          "resource": "repo://tests/test_regression_parse_run.py#L55-L74",
+          "version": "repo-lines-v1:sha256:b883a96d7e86f1d6873b0cb430a01e86f5d2ee157b38c2fa2f05b4302a0918ce:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3YWFjNDU5MzE4NGQ3MWViOTJlMjkyNjE4MjM1OWFmMGIwM2ZkYWJiNTZhNDE5MjdkMTIzMjk3NGMwNzAwNzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzMWY0ODI1ZmE3NGE1NmNlNTViNzU3YTI5NjdiN2NiZTIwMjU1NGJjNTM1YjAzMmI2MzVjYTYxYTljOTRkNTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkyNTRhZjI1YmFjZWYxN2IxMGRmYzRiNzZkZDI5NTYxZDJiNjZlZDU5YWNjY2E5YTk5Zjg2MDg0ZTRiMjIxMTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczODY4MTlmMWU5NzJkYWFlOTEyMzBjNDI0OTQwNTAwY2E5Y2Y3ZWFjYWM2OTFiYWU5OWQwYWRkNzM0YjRlZGQifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.0",
+    "at": "2026-09-11T15:09:34.136Z"
+  }
+}

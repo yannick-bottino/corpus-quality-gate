@@ -1,35 +1,35 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:4c9f4db6e6b670718ecbdd24fda0a02038e31c60174c69215dbae90931b3f83b",
+  "pageVersion": "sha256:412e96a54fc3b42bdf0f7886d5f205bc034cbf7986bc68786632c4a10e2685b5",
   "claims": [
     {
       "id": "claim_bb4cb6fd34e74e2897bb97629fbf5810",
-      "statement": "Both subcommands are runnable with no API key out of the box because --config defaults to config/config.example.yaml, which selects the mock provider, while --out defaults to ./workdir/out and --enrich applies to the run subcommand only.",
+      "statement": "All three subcommands are runnable with no API key out of the box because --config defaults to config/config.example.yaml, which selects the mock provider, while --out defaults to ./workdir/out; --enrich applies to `parse` and to `run` over a raw folder, and --force applies to `parse` only.",
       "evidence": [
         {
           "resource": "repo://config/config.example.yaml#L4-L5",
           "version": "repo-lines-v1:sha256:b1ba38394eaebf24279ac00a4a5d0b0dde609d351eb83ac133f6bff64aebba38:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmQ2YjE3MWZmNTUxMjc5NmY1NGQ3MDI0Y2QwN2YxNmU1ZjJhMmM5YzllZWMyNjExMDEwYmE2NTVhYmIyMWNhZCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmIxZDlhOGZlNzdmOWI0OGU5YThkMDRkZmY2MjAzNTgyOTQwOWM5MDU4M2M5OWY1ZmQwODAyMmYxMjJkYTMyZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2I3Yjg1NzgxMjNkMjBmNTVjYTZmNzU4Y2Y0NGVjZTE0ZDk3NGY5YjhmMzM0NzBlYzUwMTUxZjcxYzEyZGYyZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjAzMjhhNTgzMWFiODUzYjYyODExODg4ZDc3ZDk5NmQzN2E1NWNhZjkwMmE1YTk4MDNhMDdjYjc1MzUyZWM3NiJ9"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L158-L167",
-          "version": "repo-lines-v1:sha256:74a551ef79d5be464113dad8f3475a6f3a9e8db29b616637c2699d6705fbbcf2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzk3OTMzYTI0YTgwMWVlOTIzMzI3YmQ2OWEwMTA0OWMwNzc5MTUwMjFjZjJlYzM5ZGRhNGY4MWFhODM3ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjExNTFhODVlZTkzNGU0YTFlYWE2ZDZjMTJlOWEzYWUxNThlZWQxOTA3YjVhZTdhOGYzMmEwN2JlYmNlMmUwYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzNDExNGYyNzI3NWRkZjQ5NDE1YzQ4ZmRkNmEwZGU1ODAxZThlNzMxM2E5NzdkZDE4ZGU0MjQ1NzZlOWM2Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzMDEzOTdiZTE0N2YxYzAxODU5ZTc1ZjAwMzM4NmY1NGRkNDIyZDNlZDQwNzMyODgwNTRiNmQ1ODRhZDU0YTcifQ"
+          "resource": "repo://src/cqg/cli.py#L321-L333",
+          "version": "repo-lines-v1:sha256:e572b400b014f4523d7277ef8db5efe2153929f13c3fafdc8792eec6b0e25dee:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzk3OTMzYTI0YTgwMWVlOTIzMzI3YmQ2OWEwMTA0OWMwNzc5MTUwMjFjZjJlYzM5ZGRhNGY4MWFhODM3ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkNDNlN2YzZGJlYzE1OTc1MTMwOTBhNDkxNDZiYmM2MjYyZmRiMmU1M2JhZTg5ZWRiNzA1MTFkNDg1OGJjOWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzNDExNGYyNzI3NWRkZjQ5NDE1YzQ4ZmRkNmEwZGU1ODAxZThlNzMxM2E5NzdkZDE4ZGU0MjQ1NzZlOWM2Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJiMzU1Mjk1MWZmYTg4OGU2MjI5ZWNlYTVjMzc4Y2I4YzU4ZGMyZmZjODdmMDM0OWI2YjZmNzliODUzMDNjZmQifQ"
         }
       ]
     },
     {
       "id": "claim_8582d62b0cca4476a8267abbb2a35b60",
-      "statement": "A run writes a fixed artifact set into the output directory: the corpus_report.xlsx workbook, three CSV mirrors, a per-document score JSON, corpus_redundancy.json and cost.json, plus an enriched markdown file per document when enrichment is active.",
+      "statement": "A run writes a fixed artifact set into the output directory: the corpus_report.xlsx workbook, three CSV mirrors, a per-document score JSON, corpus_redundancy.json and cost.json, plus an enriched markdown file per document when enrichment is active on a raw folder.",
       "evidence": [
         {
-          "resource": "repo://README.md#L56-L62",
-          "version": "repo-lines-v1:sha256:061cd715c26b2e29576f2e74752145111e7fd570c84f1e61a847e971aa503c72:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWY1NTcxMzRlYTY3ZjRjN2NlMjhlN2Y5ZjQzNDJkNzhlMTBkOGEzMDRhZmEzOTg5N2RhN2YzYWVlN2U0YWNkOCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2M1ZjY3ODlhNDYxNTE1OTQ3ZTQ1OTJjYWU4ZDRkMzJhODBhNzUwMDYwYTYxZTA2YTRlNmNiMzg3ZTdhZDU2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWQwMTk4ZjdjMWFkM2I3MzMxYTExZWI0YjFiYzBiMTJjYTA0NTQxYWU1MWU3Y2FiMmIyYjBjZWQ5OWUzMGI4MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzA3ODJiOGM2N2U5ODVkZTUyNTY0NGZhYjYwZGVhOGEzMWM5M2UzZmU5NmZlNGE1ODFhNmNhMzFiM2M3ZjU4ZSJ9"
+          "resource": "repo://README.md#L125-L131",
+          "version": "repo-lines-v1:sha256:80df6deba53579a3e9032a8d46a19bdccd5cc1036ec3b11660762aded4de81cd:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDFiYTQ3MTljODBiNmZlOTExYjA5MWE3YzA1MTI0YjY0ZWVlY2U5NjRlMDljMDU4ZWY4Zjk4MDVkYWNhNTQ2YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODc2NDQxOWE5NmNmMDNhZWY5MmM1OGQxNTEyODkzZWYyY2ZkZWViZWIyMDIyNmU3ZDRjZDJmNmQyMmE2ZTVmMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGQ2MDg0MWY3ODViMTkyM2IwMDQ5ZWU3N2ViYWUyODQ2YWZhZGYxOWQ1NjdiYzU3OTFhYzM1ZjgyNWJmMjk2NSJ9"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L108-L111",
-          "version": "repo-lines-v1:sha256:690f159fd60050d126de96fb3ea1be1e1a0fee9d3c44e48be5ddc73d0fd6f09a:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDQ1ODJhMGQ0ZjEwNDJkN2U0MjgxZWMwOGVhYzg1NjIxOWY4OTRmZDM0NGFiNGNjM2M2NmU4MjMzZjlmYjdkNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdjMmQxMzYzOTdmZDk2N2ZlM2I2ODc1NjczMTcwZjA4YTA1Y2ZlZjNmYWYxMTRjZjQ5ZmMzMTNhZTNhZWFjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDBlMWMxYjY1ZDNjMDU0YjViODllN2ZlMzhjMjk5NzRjNTczYzFkZDNkNmYxYTQ2YzIyNjA5NjY1YWFhMDg0MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBjOTM0OTJkZTZiNjEwMTkyNTdmMmZlOGYxMDcyMjY4MjAxZTI1MjljZjc0NDA4YzZiMmU5OTVkNWRkYThhMCJ9"
+          "resource": "repo://src/cqg/cli.py#L265-L269",
+          "version": "repo-lines-v1:sha256:b486902d3b88c2e501c3aeeabbe97ab21ecf39bbf79f2e296b568699dc9c07d8:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNWQ1ODFmMDQ5MmFhMTEwNTllYzFiZTNiMzM1NWE0NWMwOGQzNDdiY2JlYjE3MTQzOGVmYmRhNmI3NzljYWZlMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTdjMmQxMzYzOTdmZDk2N2ZlM2I2ODc1NjczMTcwZjA4YTA1Y2ZlZjNmYWYxMTRjZjQ5ZmMzMTNhZTNhZWFjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNDJlZDkzYjY2OTkwYTMzMDE2YjUwZDU2ZDg2ODczNzU0Y2UwNjE5MWZkYjYxZTBlZmVkZGI4YmEwOGEzZWE4YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODBjOTM0OTJkZTZiNjEwMTkyNTdmMmZlOGYxMDcyMjY4MjAxZTI1MjljZjc0NDA4YzZiMmU5OTVkNWRkYThhMCJ9"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L143-L151",
+          "resource": "repo://src/cqg/cli.py#L306-L314",
           "version": "repo-lines-v1:sha256:58f83a56eb0571e3d579830ed389f000611c0d2a77ef7f624c4cd4ede06379e7:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmYwZDA3OGViYjE1OGM4MzNjMzdlNWU2ODZjNmI4MTM2MTkyMTI5NTZhYWM2Y2Y3YmQxZmMyZDVlNGQ5NGQ1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVlOWYwOGQ3MDMzMTRjOWNkMGI0MTk0YTU4MTVlZDk0MDE3MzgwMmM2MmM4YzlmOTM0NzY2ODFmNjdhMzU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmE3Y2M4YTZkMGQyOTBjZWQ0Nzg5OWMzMzhiZjdlMzRhZDNkZWM1OTVmZTJkNThmZmE3ZmM2NjQzNTkxZDQxNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk3MzJmYjFkMTExYmIzZDgyMGUxNmYxM2VhMmVkMGE4ZWI0NjJlZmNmZmM0ODRlNzQ5MzM2YjM5NTgxYTYxYyJ9"
         },
         {
@@ -97,22 +97,66 @@
       "statement": "Only the processing_error path counts towards the run's error tally; an unreadable document is an expected outcome and leaves n_errors unchanged.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L108-L119",
-          "version": "repo-lines-v1:sha256:3816e15c5515edb3cc2a38ee586f17bb8b4c42b020f53b65cc41350c7ceb56f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0ZGFjN2QzNjQxOTA2YzNhM2ExOTEwYmRlOWJhMWM3NTUwZDdmY2NhNzMzNTE2ZjBmMDZmYmQxZjg3MjAzNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQyZWQ5M2I2Njk5MGEzMzAxNmI1MGQ1NmQ4Njg3Mzc1NGNlMDYxOTFmZGI2MWUwZWZlZGRiOGJhMDhhM2VhOGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM2NTYzODM0MGVhYWZkMjgwZTBmN2FkMzhiMjk1ZDFkNzBlZjdkYWUwMjhkMTUwYjQ3OGYxMWU4YWMyNTRlNzgifQ"
+          "resource": "repo://src/cqg/cli.py#L255-L264",
+          "version": "repo-lines-v1:sha256:7e9c5a833e84bf770932e4ede96d9d2f8982dcd98c1b81b2f718f0f6541c6845:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAzZDk0ODk2OWVmNThkNGUxMzQ3Y2M2YWQ4NTUxODIxNWNkMDMwOGMwYTI5ZDFjZGY1MWMxNzI3M2M2NjM4OWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjdhNjJmZGJiMjI5ZjBhM2Q3ZTJmNjRkYjg1NjU1NjczYTBjNTk5Yjc0MTBmOTczMjM1MzQ4MTdkMTVlNmZjMzIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViMmJmNDllOTlhMTQwYzAyMDYyMjgyYWRjYzQ4MjVkNmU2ZWMzNDk3ZjRhOTYwNjUzODVhOWI0NjAxNDIxZDcifQ"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L148-L156",
-          "version": "repo-lines-v1:sha256:4c3300774e60e5abc4a17ca66ee9dff426f83005fd149a58a86cba1e75a9b2b4:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjU5ZTQxOWU1Y2ZhZGJkNjdjMDgxODFkOTU5MTc1YjJkZTdlOGJjYTIwZTg3MDlmOTk2NDhmZWJkYzgzMjg0OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzU1NTExMjljYWZlMWU3NzI5MGM2NDM3ODRiMDllZWY5YTdmZjk2NWQ3NzU4MjQ2MTI0NWM2NmJiNjkwMDAyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTU1OGJkYThjMTQxYjI1YWNmYTg0ZDlhYzUzNmU1Yzk0MDc3ZGY4MmM5NGQzYTJlNzZmMWUzY2NkOGRiY2NmNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzJmMTJmMTZiMDdiNjJiMjcwOWUwOGQ5ZWQwMzAwYjZmNzVjYmEzNDFlN2Q4OGM3MmU3OWMzNDg4MmIyMTBkZiJ9"
+          "resource": "repo://src/cqg/cli.py#L296-L305",
+          "version": "repo-lines-v1:sha256:7faa087b950153ad269da48d07e4d5c147d8eafbedcd8a330bbec9d4b7fd4018:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1OWU0MTllNWNmYWRiZDY3YzA4MTgxZDk1OTE3NWIyZGU3ZThiY2EyMGU4NzA5Zjk5NjQ4ZmViZGM4MzI4NDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1NTUxMTI5Y2FmZTFlNzcyOTBjNjQzNzg0YjA5ZWVmOWE3ZmY5NjVkNzc1ODI0NjEyNDVjNjZiYjY5MDAwMmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjliYzc4NTU0YTc4NmE5ODQ5YzNjYzI3NDQ1ODk5MWJlNTI2NjYxOTQwYjBiZGM3OTIzMjc0OGYzNjc2YzJjZTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMyZjEyZjE2YjA3YjYyYjI3MDllMDhkOWVkMDMwMGI2Zjc1Y2JhMzQxZTdkODhjNzJlNzljMzQ4ODJiMjEwZGYifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L312-L314",
+          "version": "repo-lines-v1:sha256:041ca1838ef144a190664532379aa975ab90bcea043ecb2981179e6b09ab988d:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjg3OTcwYjFhNmEyNWJkMTZlYmU4YzcwNTQ4MjU3MDlmYTU0ZmEyZTkyOWIyM2Q3MTBjMDQ5OGQ3YjZlOWU2OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmVlOWYwOGQ3MDMzMTRjOWNkMGI0MTk0YTU4MTVlZDk0MDE3MzgwMmM2MmM4YzlmOTM0NzY2ODFmNjdhMzU5YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2U4NzRiZWZmY2E3N2FjM2I1YTM2YTVlYTk4YjMxMmYwY2IwNzM3ODNhYjQ2YjdhYjliMmM3ZGFmODdhZjYyOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjk3MzJmYjFkMTExYmIzZDgyMGUxNmYxM2VhMmVkMGE4ZWI0NjJlZmNmZmM0ODRlNzQ5MzM2YjM5NTgxYTYxYyJ9"
         },
         {
           "resource": "repo://tests/test_cli_e2e.py#L146-L181",
           "version": "repo-lines-v1:sha256:e4bc19cd573c7e820182882a03fdfb4c9e90cba33f26f972eb8473134afeaccd:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiOGMyYzZkMmNmYmUwMzdlN2U0MGExOWFiOThjY2NiMDVmMGMwZTYyZmZjM2RmODI1M2FmYjc1NDJiNzBkYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQwODJiYzI4OGYxMTIzNTgwMzQ2N2QzNjcxYTdmMjgxZDA5NDdmZGNjNjlmZDFlZGYyMGY5YjUzODM5OGMzZjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjZlNTI5MTUzYzVlMWRhZmVjM2IxNDU3MWM0OWE3NmYxNmM4MzdjNTg3NTFmNjIwYzk0ZmY0MDQyNDE2NGRhMzYifQ"
         }
       ]
+    },
+    {
+      "id": "claim_785456061c1f497ebdf8a7e036e78274",
+      "statement": "The CLI exposes three subcommands — `parse`, `run` and `golden` — and `run` accepts either a raw folder or a parsed_input/, so a corpus can be scored in one shot exactly as before, or extracted once with `parse` and scored afterwards; the one-shot behaviour over a raw folder is unchanged, so existing commands keep working.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L218-L220",
+          "version": "repo-lines-v1:sha256:21e9b9b6b7d210122bdbc43962d14c9b592389a8fc6c9aedb01c7b1bc658f313:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiY2YwOTAzYmRlMmRmZjQyMWZkMjAzYTAwMmIwODhhZjZjODBmMDhlMGQ0NDFjZGE3YWUzYzQyOGI1ODJlMDViYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmMxMTdhZTBlYjNjOTNmYTE2ZWVmNTczYjI1ODVhNDYyNWVhNzkzMTY3ZmFiMmE1ZjVlYWNiYTNlN2UyNWQxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjg1ZGZjMjM1NmI2MjhhNzkzZDNjOTllZDJlZjQxYTdiODNiNzMyYjlhM2RiMjgwMzAxYTQ2NDQwMTg3ZmQxZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNmQwNWIwYjU0NzdmNTIzOTkzMjA3YTBjMmRjZWM3NjEzOGZlZjU1YzkxYWIwMzUxOWQwZDU4MDljNjc3YjEzZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L321-L333",
+          "version": "repo-lines-v1:sha256:e572b400b014f4523d7277ef8db5efe2153929f13c3fafdc8792eec6b0e25dee:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFiMzk3OTMzYTI0YTgwMWVlOTIzMzI3YmQ2OWEwMTA0OWMwNzc5MTUwMjFjZjJlYzM5ZGRhNGY4MWFhODM3ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkNDNlN2YzZGJlYzE1OTc1MTMwOTBhNDkxNDZiYmM2MjYyZmRiMmU1M2JhZTg5ZWRiNzA1MTFkNDg1OGJjOWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzNDExNGYyNzI3NWRkZjQ5NDE1YzQ4ZmRkNmEwZGU1ODAxZThlNzMxM2E5NzdkZDE4ZGU0MjQ1NzZlOWM2Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJiMzU1Mjk1MWZmYTg4OGU2MjI5ZWNlYTVjMzc4Y2I4YzU4ZGMyZmZjODdmMDM0OWI2YjZmNzliODUzMDNjZmQifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L343-L366",
+          "version": "repo-lines-v1:sha256:2502899c69ff44b83fdfe736ad3b41f7502c3b9d1aa9aebff0068edeb9114ffa:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImYzNmU2ZjI3MWI2ODQxNGU1ZDdkMGJjNjE4ZjNkOGFhMmYwZTEzZDc1NTU0NGM4MjlmMmEzYjdkYjNlMjhiZjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE2MjMzYjNmZmVhMzJhMjNkZjUzMDY1MzQzNDhmMmRlZTc3NmE1YTZmNzRmYjUzMzE3NWRkYzUzOWE4ZmU0NjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRkZDVkZjU1ZmYwNzBjMjA4Y2YzMDVmOTE1MDdiMzg3ZmJlNzYyMTUwYjJjYjVmM2QwNDRmMDgzYjRiNjU5MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjNkNDEzNDBjYzIzOWExNTljZTliNjAyMmU5ZjYzMjI4MzJlMmVhZDc2Y2FlOWU0NzU0ZDIxMGViOGZiNmQ1ZTgifQ"
+        },
+        {
+          "resource": "repo://tests/test_regression_parse_run.py#L55-L74",
+          "version": "repo-lines-v1:sha256:b883a96d7e86f1d6873b0cb430a01e86f5d2ee157b38c2fa2f05b4302a0918ce:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA3YWFjNDU5MzE4NGQ3MWViOTJlMjkyNjE4MjM1OWFmMGIwM2ZkYWJiNTZhNDE5MjdkMTIzMjk3NGMwNzAwNzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzMWY0ODI1ZmE3NGE1NmNlNTViNzU3YTI5NjdiN2NiZTIwMjU1NGJjNTM1YjAzMmI2MzVjYTYxYTljOTRkNTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkyNTRhZjI1YmFjZWYxN2IxMGRmYzRiNzZkZDI5NTYxZDJiNjZlZDU5YWNjY2E5YTk5Zjg2MDg0ZTRiMjIxMTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjczODY4MTlmMWU5NzJkYWFlOTEyMzBjNDI0OTQwNTAwY2E5Y2Y3ZWFjYWM2OTFiYWU5OWQwYWRkNzM0YjRlZGQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c793e65d32bf43a3859ea1dc6d12407f",
+      "statement": "`cqg parse` writes `<doc_id>.md` and `<doc_id>.parse.json` per document plus `images/<doc_id>/*.png` when enrichment is on, prints how many documents were written and skipped, names any whose source changed since the last parse, and exits non-zero if any document failed.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L119-L142",
+          "version": "repo-lines-v1:sha256:b271329449ef6d089d317282a94685bc24eb71b1b96dc994b588042b5c6b189b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg0ZGFjN2QzNjQxOTA2YzNhM2ExOTEwYmRlOWJhMWM3NTUwZDdmY2NhNzMzNTE2ZjBmMDZmYmQxZjg3MjAzNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhNDQwOTZlZjg2YWE1N2ZmZmI2YmFmZGE0MTE1OWZlZGM0ZmRhYzYxYmU1MGQ5MjVmNzM3MWRiNmRjODQ0ZjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIyMzJjNDRkZjUwMzA4ZDQ3ODhjYzkzMWVlNzFmZTAxZmYxNDhjZDZjZmEzZjg0MzA3NTI4OTljNTE4OWZkYWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY0MDM3MmE0MTUxNWU0MmQ0YzE2Mzg2YmI4MDQzMjlmOTY0OTQ1M2E2ZDAxYjBkYjI4MzJhYjcwM2IwY2UwZWMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L344-L359",
+          "version": "repo-lines-v1:sha256:f15636e4480e266f6c094035ca3a33cc313a9a1161e20faa757c7f36ad1e72b3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyNmIyODYxYTc2MmVkZWZiNjQ0N2ZlYTY5MTZjYjA0ZDRlNGQzNjg0MTk4OTRlMmIwMTIzYzAzM2Y5NTgxMTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNlNzU5NjJjZjg3ZGJiYjM1NjM5NGE3MTczMzkxZDM1ODAxY2U5NDc2YWIyM2U4ZDkzMGQ5Mjg2YzA2ZThhYTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmMDZlZWJmZGY5MTM1NzYwYWQzYWVlZWUxYjc3NDBhYzI4ZGIwNmU3MTE0MmZkMzJjNGY2ZDg0ZmIzMDZkNWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlNDI0OTg2ZjBhOTUyZjBkZTgwNmJiYzQwZjA1MmVjZjM0ZjRhMDJkZWZiNGM1MmU1MWJmYzQzY2QxZGJhNGEifQ"
+        },
+        {
+          "resource": "repo://src/cqg/parse_store.py#L59-L69",
+          "version": "repo-lines-v1:sha256:96eee416020ce6ecb6657d128b8220ae17eab86ec05ffb5f085fbdf00514e15a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZDU3ZjI0MzQzM2Y3NzkwNTkyMDM1ZmFlZWZlNWVkYjcxOGNmYWVlYzM5YzJlMDkxMmVkNjYwNjNiOWNiZTYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyYzc2ZjU1OWYwYjQ5N2QxMTlkNGQyZDFlZmRkM2YxN2EzOWRkMjhlOGY4ZGUzODA2MzEyZThjOTMwYWRjZDYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1MjljMTc2ZDRmOTQ1OTJkYjc3MDA5ZmMwNzZjNzU2N2E0M2M3ZGVjZjM5ODg0Mjk1YjM3MzdiYmY5YjA3NzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmZThhMWRhMDBiYWJmMjAwYjgyNDBhNmY3ZmYwZjZkYzYxYzc3OWRhYWU2OTE4MjU5MGFmYmM0ZmViZDE1ZmMifQ"
+        }
+      ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-11T06:45:44.636Z"
+    "at": "2026-09-11T15:09:34.136Z"
   }
 }

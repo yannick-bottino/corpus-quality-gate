@@ -5,14 +5,18 @@ description: The reference-free measurements cqg computes from extracted text be
 tags: [metrics, signals, deterministic, ttr, mattr, inventory, na-decisions]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 sources:
+  - id: openwiki-source-b324806e0b781575cf038d77
+    resource: repo://src/cqg/cli.py
   - id: openwiki-source-6b1845a66655ac54d0d4b6d0
     resource: repo://src/cqg/deterministic.py
   - id: openwiki-source-78a59ac162fb1ac39266402a
     resource: repo://src/cqg/inventory.py
   - id: openwiki-source-f3839253c7c5e3d67e28a4ad
     resource: repo://src/cqg/judge.py
+  - id: openwiki-source-4d169df8f5a62ba2edae177b
+    resource: repo://src/cqg/parse_store.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-c68b4fcfcbfc7045e09425f5
@@ -25,7 +29,7 @@ sources:
     resource: repo://tests/test_inventory.py
   - id: openwiki-source-348912dd3d0e7f05ba63cd33
     resource: repo://tests/test_signals.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 ---
 
 # Deterministic Signals and Metrics
@@ -122,6 +126,11 @@ documents participate on the same terms as PDFs: the
 `Block(kind="table")` and `Block(kind="image")` for the tables and pictures they find, so a
 deck with figures does not get its image criteria wrongly marked N/A. Their table text also
 reaches the markdown as pipe tables, so the text-side signals see it too.
+
+On the [parsed path](../ingestion/parsed-input-boundary.md) these blocks come from the
+entry's sidecar rather than from a live extraction, which is precisely why the sidecar is
+mandatory: a markdown read alone would count zero tables and zero images and flip those
+criteria to `na`, moving the score for a reason foreign to the quality of the document.
 
 Four inventory conditions each map to a group of criteria: no images marks the image and
 figure criteria, no tables the table criteria, no formulas the formula criterion, no links

@@ -5,7 +5,7 @@ description: The two cross-cutting correctness boundaries of cqg — a score is 
 tags: [invariants, anti-fabrication, human-in-the-loop, error-handling, scoring, flags]
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 sources:
   - id: openwiki-source-b324806e0b781575cf038d77
     resource: repo://src/cqg/cli.py
@@ -19,6 +19,8 @@ sources:
     resource: repo://src/cqg/judge.py
   - id: openwiki-source-c8d879f00ddd07aa3b1256db
     resource: repo://src/cqg/models.py
+  - id: openwiki-source-4d169df8f5a62ba2edae177b
+    resource: repo://src/cqg/parse_store.py
   - id: openwiki-source-b6095db5ec5025983f3c1227
     resource: repo://src/cqg/parse.py
   - id: openwiki-source-0d4ac7a15c4a3514756da39e
@@ -37,7 +39,7 @@ sources:
     resource: repo://tests/test_parse.py
   - id: openwiki-source-9fc38c4696400c0068133e6e
     resource: repo://tests/test_report_scoring.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 ---
 
 # Anti-Fabrication and Score-and-Flag
@@ -167,6 +169,15 @@ machine rather than extracted from the source. Failures are labelled too, as
 `[Image non decrite: {type}]`, and an empty description deliberately leaves the original
 placeholder in place rather than being interpreted as "nothing there".
 
+The count is taken from the scored markdown itself: the marker string is named as the
+constant `AUTO_DESC_MARK`, and `count_auto_descriptions` counts its occurrences in the
+markdown the run is about to judge. Deriving the flag from the text rather than from the
+enrichment step is what makes it independent of *where* the enrichment happened — a
+document enriched upstream by [`cqg parse`](../ingestion/parsed-input-boundary.md) carries
+exactly the same `auto_descriptions:<n>` as one enriched inside `run`. A count returned by
+the enrichment call would have been silently zero on the parsed path, which is precisely
+the kind of invisible discrepancy this page exists to prevent.
+
 ## Per-document error isolation
 
 Score-and-flag also governs failure handling. Each document is processed inside its own
@@ -214,6 +225,79 @@ together and asserts that both produce score files, that the corpus count is 2, 
 the corrupt file carries `unreadable` — the parsing chain is resilient enough that a
 corrupt PDF is short-circuited rather than raising. Nothing is dropped in either case.
 
+## Enforcement point 6 — the parsing boundary degrades, it never raises
+
+Scoring can now read a [`parsed_input/`](../ingestion/parsed-input-boundary.md) folder
+instead of raw sources. That folder is explicitly human-editable, which means every way a
+human can damage it has to be an outcome rather than a crash. Reading an entry therefore
+produces a document plus a list of flags. Four of them name a way the entry is degraded:
+
+- a markdown whose sha256 no longer matches the `markdown_hash` recorded in its sidecar is
+  a **hand edit**, flagged `manually_edited`;
+- a markdown with no sidecar beside it is a document dropped in by hand, flagged
+  `missing_sidecar` — it is still scored, on what can be read from its prose;
+- a sidecar whose markdown was moved or deleted is surfaced as an empty document flagged
+  `missing_markdown`, never as a document that quietly vanishes;
+- a sidecar truncated or hand-edited into invalid JSON is flagged `invalid_sidecar`, and
+  the document is read with what is left.
+
+Two further flags report a state that is not damage but must not be silently reconciled:
+
+- `sidecar_schema_unsupported:<n>` — the sidecar declares a `schema_version` newer than the
+  one this `cqg` understands. It is flagged rather than half-understood, which is how a
+  field nobody reads becomes a field nobody trusts;
+- `renamed:<original_doc_id>` — the sidecar's recorded `doc_id` differs from the file name.
+  The **file name wins**, because it is what indexes the folder and what names the score
+  file: a duplicated pair edited into a variant would otherwise report under the original
+  identity, and the two copies would overwrite each other's score. The original identity is
+  reported rather than discarded.
+
+None of these raises. A markdown re-saved in another encoding is decoded with
+`errors="replace"`, so decoding damage becomes U+FFFD — which `cid_failure_fraction`
+already counts, penalising `parse_confidence` and flagging the document instead of letting
+mojibake pass as clean text. This is the same precedent `_plain_text_extraction` set for
+`.txt`/`.md` sources, which reads them as `utf-8-sig` with `errors="replace"` for exactly
+that reason. Degrading one document is always preferred to losing the corpus.
+
+The sidecar is not optional, and the reason is an anti-fabrication one. `na` decisions are
+taken from the block inventory, so a markdown read without its sidecar sees zero tables and
+zero images and flips the structure criteria to `na` — the score would move for a reason
+foreign to the quality of the document. `missing_sidecar` exists so that this shift is
+visible rather than inferred.
+
+**Typed blocks are facts about the source.** When a hand edit is detected, the text blocks
+are re-derived from the markdown the human actually wrote, but every non-text block —
+tables, images — and the image geometry are kept from the sidecar. Re-deriving them from
+the prose is impossible on the docling path, whose table blocks come from pdfplumber
+geometry and never appear as pipe tables in the markdown; inventing them is the mistake
+`_direct_extraction` refuses to make for `.docx`/`.pptx` images. Between an inventory that
+is stale about the human's edit and an inventory that is fabricated, the code chooses the
+first and says so.
+
+Two details of that re-derivation follow the same rule. Paragraphs are split on blank lines
+**CRLF included**, because a hand-edited markdown is precisely the one likely to come back
+from a Windows editor, where a plain `\n\n` split would see a single paragraph. And each
+re-derived block is given `page=0`, the sentinel the docling and docx extractions already
+use: after an edit, the page a paragraph came from is genuinely unknown, and claiming page 1
+would invent a location.
+
+The boundary also preserves the exits above rather than collapsing them. An
+`unsupported_format` document is written into `parsed_input/` as an entry with an empty
+markdown and its category recorded in the sidecar's provenance, so the split cannot lose a
+document on the way and `run` flags it exactly as it would have on the raw folder.
+
+On the `parse` side the same per-document `try`/`except` isolates failures: a document that
+fails is collected into the result's `errors` list and the rest of the corpus is parsed.
+Nested inside it, the enrichment call has a handler of its own, so a failed *description*
+costs only the descriptions: the entry is still written, un-enriched, rather than a validly
+parsed document vanishing from `parsed_input/` while the command reports success.
+
+Because `parsed_input/` feeds the scoring step, a partial output that looks like a success
+is exactly how a document disappears from a report. `parse` therefore prints each error and
+**exits non-zero** when any occurred; a folder the CLI refuses outright — ambiguous,
+self-overwriting, or with colliding document names — prints its explanatory message and
+exits with a distinct code. Silence is not an option this command has.
+
 ## The flag vocabulary
 
 Flags are the contract with the human reviewer: each one is a machine-readable reason to
@@ -226,8 +310,20 @@ look at a document. They are joined with `|` into the `flags` column of the repo
 | `processing_error: <ExceptionType>` | run orchestration | The document raised; the type is recorded and the run continues |
 | `screen:light (<reasons>)` | run orchestration | The document took the light route; the screen's reasons are inlined |
 | `auto_descriptions:<n>` | run orchestration | `n` unverified machine-written image descriptions entered the evaluated text |
+| `manually_edited` | parsed-entry reading | The markdown no longer matches the sidecar hash; text blocks were re-derived, typed blocks kept |
+| `missing_sidecar` | parsed-entry reading | A markdown with no sidecar; scored on its prose, with a prose-only inventory |
+| `missing_markdown` | parsed-entry reading | An orphan sidecar; surfaced as an empty document rather than dropped |
+| `invalid_sidecar` | parsed-entry reading | The sidecar is not valid JSON; read with what is left |
+| `sidecar_schema_unsupported:<n>` | parsed-entry reading | The sidecar declares a `schema_version` newer than this `cqg` understands |
+| `renamed:<original_doc_id>` | parsed-entry reading | The sidecar's recorded `doc_id` differs from the file name; the file name wins and the original is reported |
 | `low_coverage` | document scoring | Coverage fell below the configured threshold |
 | `low_parse_confidence` | document scoring | Extraction confidence fell below 0.5 |
+
+The six boundary flags are raised while reading a `parsed_input/` entry and are carried
+into the score alongside whichever exit the document took, so a hand-edited document that
+also turns out to be unreadable reports both facts. On the raw path the list is empty by
+construction, which is why the flags of a raw run are byte-identical to what they were
+before the boundary existed.
 
 The reasons interpolated into `screen:light (...)` are the screen's own French reason
 strings — `extraction_degradee`, `signaux_propres`, `gros_document_extraction_saine`,
@@ -250,4 +346,5 @@ produce a cleaner-looking report that means considerably less.
 - [Document Scoring and Corpus Outputs](../reporting/document-scoring-and-reports.md) — how coverage and flags reach the report
 - [Golden Q&A Set Generation](../workflows/golden-set-generation.md) — the coverage fallback
 - [Image Enrichment](../ingestion/image-enrichment.md) — the unverified-description tag
+- [The parsed_input/ Boundary](../ingestion/parsed-input-boundary.md) — where the four boundary flags are raised
 - [The run Pipeline](../workflows/run-pipeline.md) — the orchestration that applies error isolation

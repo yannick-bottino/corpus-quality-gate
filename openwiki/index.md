@@ -4,7 +4,7 @@ okf_version: "0.2"
 
 # Files
 
-- [Quickstart](quickstart.md) - Entry point to the Corpus Quality Gate wiki — what cqg does, how to install and run both subcommands, what artifacts they produce, and which page answers each common question.
+- [Quickstart](quickstart.md) - Entry point to the Corpus Quality Gate wiki — what cqg does, how to install and run its three subcommands, the one-shot and parse-then-score ways to work, what artifacts they produce, and which page answers each common question.
 
 # Directories
 

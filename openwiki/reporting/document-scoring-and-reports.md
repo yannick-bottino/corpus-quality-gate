@@ -10,6 +10,8 @@ sources:
     resource: repo://src/cqg/judge.py
   - id: openwiki-source-ada6bc0d2c90f334a8174d7f
     resource: repo://src/cqg/llm/instrument.py
+  - id: openwiki-source-4d169df8f5a62ba2edae177b
+    resource: repo://src/cqg/parse_store.py
   - id: openwiki-source-0807e73ac7196a324665fd8b
     resource: repo://src/cqg/redundancy.py
   - id: openwiki-source-487a7b025a60961dcab9ff1a
@@ -20,16 +22,18 @@ sources:
     resource: repo://src/cqg/report.py
   - id: openwiki-source-15ffe11df9b60121e2241bb7
     resource: repo://tests/test_cli_e2e.py
+  - id: openwiki-source-e0c57be84bf0b2495447ad1f
+    resource: repo://tests/test_cli_parse.py
   - id: openwiki-source-414d25e40d7d980f8f1cd5fe
     resource: repo://tests/test_redundancy.py
   - id: openwiki-source-1fb869e707757275b0a8994a
     resource: repo://tests/test_report_export.py
   - id: openwiki-source-9fc38c4696400c0068133e6e
     resource: repo://tests/test_report_scoring.py
-generated: { by: "claude-code", at: "2026-09-09T22:03:23.095Z" }
+generated: { by: "claude-code", at: "2026-09-11T15:09:34.136Z" }
 verified:
   - by: openwiki/0.5.0
-    at: 2026-09-11T06:45:44.636Z
+    at: 2026-09-11T15:09:34.136Z
 ---
 
 # Document Scoring and Corpus Outputs
@@ -129,6 +133,14 @@ Below the configured threshold, the flag `low_coverage` is raised. A second flag
 run-level flags described in the
 [flag vocabulary](../architecture/anti-fabrication-and-flagging.md).
 
+Scoring a [`parsed_input/`](../ingestion/parsed-input-boundary.md) adds a further family to
+that column, raised while reading the entry rather than while judging it:
+`manually_edited`, `missing_sidecar`, `missing_markdown`, `invalid_sidecar`,
+`sidecar_schema_unsupported:<n>` and `renamed:<original_doc_id>`. They are appended to
+whichever exit the document took, so one row can report both that a document was hand-edited
+and that it came out unreadable. On the raw path the list is empty by construction, which is
+why a raw run's `flags` column is unchanged by the split.
+
 The pairing matters when reading a report: **a high score with low coverage is a weak
 signal, not a good result.** It means few criteria were judged and those happened to score
 well.
@@ -158,6 +170,12 @@ criterion on each document comes first. Its columns are
 Each sheet is mirrored as a CSV (`synthese.csv`, `detail.csv`, `remediation.csv`), and each
 document also gets a `<doc_id>.score.json` containing the full `DocScore` — the complete
 machine-readable record including every criterion and the `config_hash`.
+
+One side artifact is now conditional. `<doc_id>.enriched.md` — the copy of the enriched text
+a reviewer can inspect to see exactly what was judged — is written **only** by a `run` over a
+*raw* folder with enrichment on. On the parsed path there is nothing to copy: the enriched
+markdown is `<doc_id>.md` in the `parsed_input/` itself, which is the point of the
+[boundary](../ingestion/parsed-input-boundary.md), and `--enrich` is refused there anyway.
 
 ### Export safeguards
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "pageVersion": "sha256:a63cca05f49ec41e7f16f1c3b653a349a0821c6b319135bd556fe34fafc81bbe",
+  "pageVersion": "sha256:b5c92bc695e900390a33d08aabb029646d5645a681300fe8bd58227eebbc5079",
   "claims": [
     {
       "id": "claim_10b153e0d13048009e4cdf03ea3fbce2",
@@ -47,8 +47,12 @@
       "statement": "A document that raises or parses to empty markdown is skipped from golden generation without aborting the corpus, and the entire corpus-level stage is separately wrapped so a failure there still returns the per-document rows already generated.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L41-L64",
-          "version": "repo-lines-v1:sha256:7fde61eebfe0993c4deee6ed2c9b1d34c7f5a12e5cebaf6313db4e29d09977bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRjNGZkZTIzZDc3YzJjMTJjN2U4MDJhMDY5OTZlMDljMjU1ZGI5YTgzZmIwM2Q0YzVmMDY2M2M5ZDIwNDAxNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+          "resource": "repo://src/cqg/cli.py#L169-L182",
+          "version": "repo-lines-v1:sha256:b9f6e03b8b66516b7785b8d81887b9670d158c86707e42ec6a7da4d05b2fb29f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRlMzAyYWEyMzUyMjRmM2NkYzI5OWY2YzEyMjY3MjQzNzVmZDc5ZjgyYjAxNWQyM2U2YTg0OTlmNzYwYjdhZTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2YWQwNTJjNDRiOTUzZjBkODMyODZhMmRkZGVjMjE4NWU3ZjE4OWRiMGU0ZjUwMmM2ZjA2ZjM0NzU4NDU0YTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRmNDFhNmRiNmI1MGVlZWYzMTVjMjk5MGIwNmQzMmQyMGQ0NzRhM2U5NmMzNWM0ODk3ZmM4ZGEyNzUxMzgzMDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ3MjYwMWM0OWRlNzM3ZGMzMDljNWUxYWEzZGU3ZTNhNTNmMzY4YTE0MGM4MjUzN2I0MjM0YWM1NDFhOTc4MzAifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L183-L193",
+          "version": "repo-lines-v1:sha256:2e818e084bb5ee8357edc086affa5c2c53b6a67628d5a2caba60cbdeee7982fd:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhZTBkZDEyZTM0OTliYjk4ZjMwYTU5ODRiNjNjMTdmZjgxNmYzYzc1ODJhNGU0ODM3ZWU0NDk0NjYwMzMzZWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUxNjI0ZjY1ZGIzMDU2YTE5Zjg1YThhYTAzYzc1NDY0ZjI4MDQ4MzFkMDA4OTAyM2RiYzA1ZGFlYzE2N2RmYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
         }
       ]
     },
@@ -57,12 +61,12 @@
       "statement": "Unlike the run workflow, a skipped document leaves no trace in the golden output because the deliverable is a question set with no flag mechanism, so identifying unreadable or unsupported documents requires the run subcommand.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L41-L64",
-          "version": "repo-lines-v1:sha256:7fde61eebfe0993c4deee6ed2c9b1d34c7f5a12e5cebaf6313db4e29d09977bc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI3N2MwMGIzZjc3NWQ4MDQxNGZmNTJmMjRhNDBkNmVmZmM1ZjYwNzNkZWQ5Mzk4OGUyMGRiMjdhMDQ5ZmQwYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRjNGZkZTIzZDc3YzJjMTJjN2U4MDJhMDY5OTZlMDljMjU1ZGI5YTgzZmIwM2Q0YzVmMDY2M2M5ZDIwNDAxNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+          "resource": "repo://src/cqg/cli.py#L169-L182",
+          "version": "repo-lines-v1:sha256:b9f6e03b8b66516b7785b8d81887b9670d158c86707e42ec6a7da4d05b2fb29f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRlMzAyYWEyMzUyMjRmM2NkYzI5OWY2YzEyMjY3MjQzNzVmZDc5ZjgyYjAxNWQyM2U2YTg0OTlmNzYwYjdhZTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2YWQwNTJjNDRiOTUzZjBkODMyODZhMmRkZGVjMjE4NWU3ZjE4OWRiMGU0ZjUwMmM2ZjA2ZjM0NzU4NDU0YTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRmNDFhNmRiNmI1MGVlZWYzMTVjMjk5MGIwNmQzMmQyMGQ0NzRhM2U5NmMzNWM0ODk3ZmM4ZGEyNzUxMzgzMDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ3MjYwMWM0OWRlNzM3ZGMzMDljNWUxYWEzZGU3ZTNhNTNmMzY4YTE0MGM4MjUzN2I0MjM0YWM1NDFhOTc4MzAifQ"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L98-L118",
-          "version": "repo-lines-v1:sha256:e6ee881bcad7e7f60c992bc22c6c713ed3fdb353a367d4be217f9e9d41bf6645:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhMzY4MDhmZDJiNTM4OGYwZjBhYjY0NmRlYTU0NjE3ZWUzYWRjZTc3MTAyNGU1YTA5ZTc5OTE4NjdlZGQ5ZjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIyZDk4OGE2YmYyZDc1NTBjYmQ1YzFmZDgyNjEyZTMxNmNkYjQ4MmY0NmVmN2E4YzczMGU2ODA0MjQ1NDIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQwZTFjMWI2NWQzYzA1NGI1Yjg5ZTdmZTM4YzI5OTc0YzU3M2MxZGQzZDZmMWE0NmMyMjYwOTY2NWFhYTA4NDIifQ"
+          "resource": "repo://src/cqg/cli.py#L241-L264",
+          "version": "repo-lines-v1:sha256:53208a5fc5ec5df1c0b32c78d1f5bc47e43f1cd0beda662fbc947f8f9507eb32:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhNjdlNzRiYWQzZTJhMzFkNGViZDcyZGJhMWNjZGU4Y2RjOWM0ZjBjZTljODczYjBkOGNkMGQ1ZjQ1YjU1MzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUyZjU0MTQ0YjM1Y2NhMGZiMGNmMzRlY2E4NjA1ZjQ0MmRhMjYwMTE2NmNjZjFhMjE3ZDYxOWM2MDM4ZDVjM2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViMmJmNDllOTlhMTQwYzAyMDYyMjgyYWRjYzQ4MjVkNmU2ZWMzNDk3ZjRhOTYwNjUzODVhOWI0NjAxNDIxZDcifQ"
         }
       ]
     },
@@ -254,15 +258,15 @@
     },
     {
       "id": "claim_c3fab0025f0e443b85dbfd8f5509d11c",
-      "statement": "The golden loop calls the same parse_document as `run`, so every format that stage supports (PDF, .txt, .md, .docx, .pptx) is a usable golden-set source; its triage-category guard against formats cqg has no parser for is currently inert because no shipped extension is in that state.",
+      "statement": "On a raw folder the golden loop calls the same parse_document as `run`, so every format that stage supports (PDF, .txt, .md, .docx, .pptx) is a usable golden-set source; its triage-category guard against formats cqg has no parser for is currently inert because no shipped extension is in that state.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L41-L48",
-          "version": "repo-lines-v1:sha256:66baa88b222996c1b0ccac45dc91e3069c5789410bc84237ed5ac10f3dc88a08:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjc3YzAwYjNmNzc1ZDgwNDE0ZmY1MmYyNGE0MGQ2ZWZmYzVmNjA3M2RlZDkzOTg4ZTIwZGIyN2EwNDlmZDBhNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWQ4YTllOWMzMjUyODIwYzY1YTgxNjUyMGI4ZGI0OTMyMjgwODQ5ZWM4YzdkMmViNjI3MmFmZGZlYmUwNTljMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGM0ZmRlMjNkNzdjMmMxMmM3ZTgwMmEwNjk5NmUwOWMyNTVkYjlhODNmYjAzZDRjNWYwNjYzYzlkMjA0MDE2YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMGQ5NGRkNjMyMzg5MzM5Yzg0ZDhiYTUxYTljODg4MDYyMGUxYWNhYzkwOGQ5ZjQ3ZDdkZmVjNTU3YzM5YmRmMyJ9"
+          "resource": "repo://src/cqg/cli.py#L169-L175",
+          "version": "repo-lines-v1:sha256:128437c3b1ed8b48f375fb2f51e582695e4b948fa6bbd1f4de047519d578fe6c:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGUzMDJhYTIzNTIyNGYzY2RjMjk5ZjZjMTIyNjcyNDM3NWZkNzlmODJiMDE1ZDIzZTZhODQ5OWY3NjBiN2FlNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE1NDZmY2E4ZDZjOWNlYTBkNzY1ZDVmMGNlNGY4ZjYwYmU2OTY3NGFiMmI4ZmI1NTJkOGQ4MzdiY2U2YTU3ZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGY0MWE2ZGI2YjUwZWVlZjMxNWMyOTkwYjA2ZDMyZDIwZDQ3NGEzZTk2YzM1YzQ4OTdmYzhkYTI3NTEzODMwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDgwNDk5NTU4NDVhZTgwNmFjMThiOGMzMGRjZTM2MGE5MDg4OTVhZjBlN2FlMzg2ODZjNWFhZGZkYTVlNGNhNSJ9"
         },
         {
-          "resource": "repo://src/cqg/parse.py#L310-L321",
-          "version": "repo-lines-v1:sha256:1cf38f70f2b548d29e415059c52a692a9f4658327646704a3c5028fde2da416d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjZmFlMmZkYTljNDkxNjQxOTQ2MWYyZDc5NTFmYWRjZjFhMzI5ZWVmYzlmNmNhNWNmYWU2MWViNDZiNDEwOGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5OWVmZWRmZDJkOTcwNmQ4OTFjN2JhOTgzZTdmODRlMDVhZDBlMDE5MWMxMzI3OThiZTVlM2MxY2M1MzA0MjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkZmI0YjYzYTc2OGQ2N2ZiZDJiOGE1NWQ2ZWQ2ZjYwNWQ2MzJjM2E5M2Y0NTViYWMzZGVlZTcwZDQ3MmMwYjUifQ"
+          "resource": "repo://src/cqg/parse.py#L323-L335",
+          "version": "repo-lines-v1:sha256:b9b5af39b8beaf0ebb238c1254e0da0c41adf0910eb6cf7a99850bd3f492a64e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImViMjQ3MGUzM2RmYWM3NDkwZDI4M2FkNmE4YzFiMzY0YjZkMzMxY2Y4OGRiMTdkMGE5OGQwNmQxYTRjNDUwOTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjNGE2M2U1MjA4ODE5M2JjMDM5NzJjZDE1NTExNDZiOTRiZjMwZWQ2YmNjOWU1MGQzMjIxMTFhOGIxNTA0ZjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjczMTIwYmIyNGM0NzIzNWZiMTI3Yjg0ZGExMjQ3ZGRkMDg4YWQzMjQyNzc2MjAyMzMzYjk2MzVjZTA1YTQ4MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwNDA2OGQ1MTVhMmY0Mjg4OWE3MDJlODk5ODM2N2FmYzZmYWZlYjJjZTMyNWZjYjA4ODdhNDljMTUyYTQzZjUifQ"
         },
         {
           "resource": "repo://src/cqg/triage.py#L4-L11",
@@ -275,18 +279,54 @@
       "statement": "run_golden computes no config_hash, so the golden Q&A artefacts carry no run fingerprint and two sets generated under different golden.profile, policy or n_questions values cannot be told apart after the fact.",
       "evidence": [
         {
-          "resource": "repo://src/cqg/cli.py#L24-L64",
-          "version": "repo-lines-v1:sha256:7968cf179322385f5c2ff4180ba25deb171dfe205e2ac1a8b8285ddcb7063e3d:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYTU5ZmFmMzA3ODJhNjMzNjgyZWEwOGQ4OTY2OTE4NzMzMmMwNjZjM2MyZjY5MDlhMWViZDM4NzM1NjA3YmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJiODcyMzI5ZGEwYzU4MTVlYjczODVlZmIzZWI5YzdiMmU5M2NmZjczZTMwNjI4YWJjNzNlOWYwZjUwNTI0NjYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY1MTAzNTUxMGYyZDkyOGQ1ZGE0Y2Y1NmI3ZWUzMGE1ZDg0MDc1N2Q0MDU2ZDU4ZjVkNjNiZTBjMmE0ZTE2ZTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBiZjQ2OTYxNWUyMTBlOTFjOTI3NGQ3ZWE1ODNhZWY3OTBhNDY1OWQ2MDY1MGQwNmI1Y2U4NmE5N2UzZGVhZGYifQ"
+          "resource": "repo://src/cqg/cli.py#L149-L167",
+          "version": "repo-lines-v1:sha256:409caf6ca0de7c5e6dc6d67ae85205eef1dee59025d3f295d036117d257e17ba:eyJzZWxlY3RlZExpbmVDb3VudCI6MTksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNmYTU5ZmFmMzA3ODJhNjMzNjgyZWEwOGQ4OTY2OTE4NzMzMmMwNjZjM2MyZjY5MDlhMWViZDM4NzM1NjA3YmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJjMTE3YWUwZWIzYzkzZmExNmVlZjU3M2IyNTg1YTQ2MjVlYTc5MzE2N2ZhYjJhNWY1ZWFjYmEzZTdlMjVkMTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjUzNDExNGYyNzI3NWRkZjQ5NDE1YzQ4ZmRkNmEwZGU1ODAxZThlNzMxM2E5NzdkZDE4ZGU0MjQ1NzZlOWM2Y2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBkMmYxZjJhNTM2YjhjMjhlMzBkZWMyNDA3ZjgzNDg3YjhmMTZjZTJiZDNhNjAxNmIwZGQ4MWZiYjQ4ZDA4NjcifQ"
         },
         {
-          "resource": "repo://src/cqg/cli.py#L66-L76",
-          "version": "repo-lines-v1:sha256:efad77a5583332a82689e70a45c53ed528c0770b6815e2e652f0500010cda593:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhODI1YWE1MTMwMGU3ODM5YTY2OGQ3ODRlODg0NmY0ZWQ3YmFlZTBiZmViOTRkZGY4OGY5NjM4ZmUyOTI2OGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2ZDM4OTA2NjljMDAzNGQzZTNjNDE3Y2JmNWIxMGViYTEwMDZmMmIxMWE4MWE4M2FhZDNiMWVjYWU0ZDYxNDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZDM0NmNmMDk2OWNkOWY2MzcxZTljNDg5OGJiNjgxODU0YWZhNWZkMzU3YWIxNDExZDI3ZTJkNGViNTJiNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNlMzVkOTFkZDUyODY2NzNiODdkNjJiNzYzYjVkYTJmYjY5MTM1NzBhNjkyMWU2NjgwNzk1MTdiMTliMGEwYmMifQ"
+          "resource": "repo://src/cqg/cli.py#L195-L204",
+          "version": "repo-lines-v1:sha256:b5f526d4501648b55bfc21f3236c071c8d7193741142f1266a766834b5e527d8:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVhODI1YWE1MTMwMGU3ODM5YTY2OGQ3ODRlODg0NmY0ZWQ3YmFlZTBiZmViOTRkZGY4OGY5NjM4ZmUyOTI2OGIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxY2ZjZDUxZjBhY2FiMDhmMTg3OWU4ODY5ZjhjZjFjYTBlYjEwNWM1N2QyNDE2MzI5NTFjN2FlY2Y4ZDRhNWYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjlkZDM0NmNmMDk2OWNkOWY2MzcxZTljNDg5OGJiNjgxODU0YWZhNWZkMzU3YWIxNDExZDI3ZTJkNGViNTJiNTEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMwODQxM2M0MDhkN2JhOTdmNzVkNWExNWZlYjMzYThkZWQ1MmNiZWJjNTA0OTQ2ZDgxMjhjMjg5ODMxYjM0MWIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_fef26bc873a44ec1a188d78e82748e08",
+      "statement": "Document acquisition is the only part of the golden workflow the parsing/scoring split changed: run_golden auto-detects the folder's mode through the same is_parsed_input check and the same shared item helper `run` uses, so a parsed_input/ is a first-class golden source read back without opening any source file, while the question count, retrieval grounding and answering policy are untouched.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L165-L175",
+          "version": "repo-lines-v1:sha256:b07e92dcd8e7f49813a0a5bfe405322c2ccf42c784b232d40147f63bcb66b625:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhjYzMwZGU1YmYzNjY4M2JkMzViNWIyY2YzNDBkY2Y1YWNiZGEzYzUxMzVjZmI3ZmZjNThjMWRiMWRhMWFlMGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjUxNTQ2ZmNhOGQ2YzljZWEwZDc2NWQ1ZjBjZTRmOGY2MGJlNjk2NzRhYjJiOGZiNTUyZDhkODM3YmNlNmE1N2YiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMzYWFmMTgzODhmOWFiZTQzNjAyOWYzMTViYTFlNGJkMjRhYjE3YjhiZDAyOGY5OWYwYTUzNjRjMzg0ZWEzZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ4MDQ5OTU1ODQ1YWU4MDZhYzE4YjhjMzBkY2UzNjBhOTA4ODk1YWYwZTdhZTM4Njg2YzVhYWRmZGE1ZTRjYTUifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L44-L45",
+          "version": "repo-lines-v1:sha256:76d0555edea2e3e42a67c8761490d666a142cba5878357c8d2b2d83b0fd0e818:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjZhZWMxNDA3YmYxZDJlZGI3ZDlmMmQ2NjJhNjAwYzBjZWRkODQ4ZmJiYzZkNWY0NTkyZjVlMGMyMGI4ZTI1NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjg0OWM2NTkyMGE3NTEzM2JhNTY1YjJkNTMxZTE0NzYxMjllMDk5ZTY1MDUzZThiYzYyYzY4OTRiYzhiZmQ5YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGUzNzBiM2EyYzFkNGM5YTJmMGQwM2MzMDY0YTI4MTkyYTY0OGIzMWY5NTlhZDExYTRhYTNlYzNiZTY4Y2FkYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmU4YjZmNmU0NDc2MWJjNzYyMDU4ZWNmZGFiZWIzZTA1Y2Y4Y2QxMjVhZGM3MmE0YzY4ZDY1Y2IxMzkyZTI5NyJ9"
+        },
+        {
+          "resource": "repo://tests/test_cli_parse.py#L191-L200",
+          "version": "repo-lines-v1:sha256:3003a7a0f216af3d51b8076f40c25560c3ad2e7cc853cf9e4a15269a49d014c5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVkZjI3ZmI5NWY3YmEwNWIyNmYzOGYwMDc2YmYzZmI0ZmY4MmU4MDRkZTE5M2U0MmRhM2RjMWM5YmVmMWU5ODkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU3NDdiYmUyOTMyZTgwY2RjNjQ0NTFiNmE5NzJlNmI1YmYzMWVjOWI5ZDlkYzE1ZGU5MmFhNDI5YmNiNzgxM2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYxZWY4ZjQ5NzIyMzM4N2JhMGY3Mjg0OGFmNjQxMDJhNDc2ZjlhOTNkZGFkY2MwMTYyMjc5ODg3ZDVhOTBiZjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_aa1a2baffa38406abea22dd27776c742",
+      "statement": "The unsupported_format guard in the golden loop applies identically on the raw and parsed paths, because the triage category rides in the sidecar's provenance and is handed back by the parsed-entry helper.",
+      "evidence": [
+        {
+          "resource": "repo://src/cqg/cli.py#L105-L118",
+          "version": "repo-lines-v1:sha256:12217e502af84d0df9823043956fdf8c00bda20b8a50ba23e56598519293e207:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2YzEzOWVjM2FiYTZjMTQ4M2VkYmUwNGM1OWFmZjhlODU3YWZhYzY2NzAzMjY1Yzk1M2M0Mzg0OGZjY2Q0NDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlkOGE5ZTljMzI1MjgyMGM2NWE4MTY1MjBiOGRiNDkzMjI4MDg0OWVjOGM3ZDJlYjYyNzJhZmRmZWJlMDU5YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImRkMzIyMDAxODUwODhiOTc3ZDFhMDI5NDY3ZGM5ZmNhZjdlOTVkOGNlM2QwYzUxNzQwZjZmN2IyZjI3MDU0MjkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAzOTdiZDM4ZTY3ZTc1MzdlZGMxM2Q4ODVkNTdkYjdlYzRjMTA0OGM2ZDY4YzliZWNkODhkYmU5NjNjNjA1NjMifQ"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L169-L171",
+          "version": "repo-lines-v1:sha256:4403c157fdf2fa51f725db60f10e19e4c031491d122b89697d3af12cd8a28ad4:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGUzMDJhYTIzNTIyNGYzY2RjMjk5ZjZjMTIyNjcyNDM3NWZkNzlmODJiMDE1ZDIzZTZhODQ5OWY3NjBiN2FlNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjZhZDA1MmM0NGI5NTNmMGQ4MzI4NmEyZGRkZWMyMTg1ZTdmMTg5ZGIwZTRmNTAyYzZmMDZmMzQ3NTg0NTRhNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGY0MWE2ZGI2YjUwZWVlZjMxNWMyOTkwYjA2ZDMyZDIwZDQ3NGEzZTk2YzM1YzQ4OTdmYzhkYTI3NTEzODMwMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODRjNzY1Mjk1YzM4NGUzOGZlODQ4ZjMwYWU0NTUwNGZmYmVjYTZmMTdkMTM0NmM3OTAxY2ExZTQwNDZmMjdlZiJ9"
+        },
+        {
+          "resource": "repo://src/cqg/cli.py#L34-L41",
+          "version": "repo-lines-v1:sha256:4d18d651cb33e074774a0b0b2865944d3cb387dd20c6c929f2fe9848a8c9cb64:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzNjYTZhN2YyNGExNGJlOTgwNjM4M2Q1YzJiYWRkNTZlN2FmYzVlY2M1ZGVkOWFkNDY5ZTk5MjIyODNhMDU3YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjI4ZTIyMTUxMjhiMjc1YzM5MjFiOWRjZTI0NjYyMzliN2RlZjI0NGE0YjY1ODczZGRiZWViNDg2MDU3NWI4NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGM4MTg0M2E1YTM4Y2M5YzdkNTRkNzZhYWMyYTU5Njc2MzJlYjQ0N2UxMjg3NDhmYmEwZTVhOGZkMjgzMDJmNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2NhOWNiYzAyN2IyOTIzNTMzZTJmYTY5ODg4NjJhMTU0NDZiN2M5MDM4NzhlYWNhNmJlZDA5NjhiZDU5MTg0ZiJ9"
         }
       ]
     }
   ],
   "verification": {
     "by": "openwiki/0.5.0",
-    "at": "2026-09-11T06:45:44.636Z"
+    "at": "2026-09-11T15:09:34.136Z"
   }
 }

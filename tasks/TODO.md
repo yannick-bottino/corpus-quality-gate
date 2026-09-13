@@ -110,18 +110,99 @@ annoncé, pas subi.
 Le seul lot qui touche le cœur du pipeline existant. Le livrer sans LLM permet de
 prouver par les tests que les scores n'ont pas bougé avant d'ajouter de l'incertain.
 
-- [ ] `models.py` : modèle du sidecar (`ParsedDocFile` : markdown_hash, provenance, blocks, images, parse_confidence)
-- [ ] `parse_store.py` (nouveau) : écriture/lecture de `parsed_input/`, détection d'édition manuelle
-- [ ] Sous-commande `cqg parse` avec les parsers existants (`docling` / `legacy`)
-- [ ] Descente de l'enrichissement VLM dans `parse`
-- [ ] `run` et `golden` : auto-détection dossier brut vs `parsed_input/`
-- [ ] `--force` sur `parse`, flag `manually_edited` sur `run`
-- [ ] README + wiki OpenWiki mis à jour
+- [x] `models.py` : modèle du sidecar (`ParsedDocFile` : markdown_hash, provenance, blocks, images, parse_confidence)
+- [x] `parse_store.py` (nouveau) : écriture/lecture de `parsed_input/`, détection d'édition manuelle
+- [x] Sous-commande `cqg parse` avec les parsers existants (`docling` / `legacy`)
+- [x] Descente de l'enrichissement VLM dans `parse`
+- [x] `run` et `golden` : auto-détection dossier brut vs `parsed_input/`
+- [x] `--force` sur `parse`, flag `manually_edited` sur `run`
+- [x] README mis à jour
+- [x] Wiki OpenWiki mis à jour — `openwiki_finish` : `{"status":"complete","sourceChanged":true}`.
+      17 pages traitées, dont la nouvelle `openwiki/ingestion/parsed-input-boundary.md`.
+      31 Claims révisées (dont 5 devenues fausses : vocabulaire de flags clos, « exactement
+      deux sous-commandes », « le hash n'a pas de consommateur », « deux sites d'appel »,
+      « seul consommateur de la catégorie de triage »), 53 ajoutées, 0 retirée.
+
+**Dette OpenWiki à reprendre au prochain run** (les pages sur disque sont justes ; ce sont
+deux Claims figées avant la dernière passe de corrections qui sont imprécises) :
+`anti-fabrication-and-flagging` énumère 4 flags de frontière au lieu de 6, et affirme qu'un
+document en échec est absent de `parsed_input/` — devenu faux pour un échec
+d'enrichissement, qui écrit désormais l'entrée non enrichie.
+
+#### Précision apportée à Q11 pendant l'implémentation
+
+Q11 disait « `run` recalcule les blocs depuis le markdown ». Appliqué à la lettre, ce
+recalcul ne rend que des blocs de prose : un document dont les tableaux et les images
+n'apparaissent pas dans son texte les perdrait de l'inventaire, `na_decisions`
+basculerait les critères de structure en `na`, et le score bougerait — exactement la
+dérive que Q2 interdit. L'implémentation recalcule donc les blocs de **texte** depuis le
+markdown édité et **conserve** les blocs typés (table / image) et la géométrie d'images
+du sidecar : ce sont des faits sur la **source**, qu'une édition de la prose ne peut pas
+re-dériver, et les inventer serait l'erreur que `_direct_extraction` refuse de commettre
+pour les images docx/pptx. Motif écrit dans la docstring de `blocks_from_markdown`.
+
+#### Revue de code — corrections appliquées
+
+Deux violations du principe score-and-flag introduites par le lot, trouvées en revue et
+corrigées :
+
+- **Collision de radical.** `rapport.docx` à côté de `rapport.pdf` (une source Word et son
+  export PDF) revendiquaient le même `rapport.md`. Le second était ignoré comme « déjà
+  parsé », disparaissait du rapport sans flag, et le message affiché invitait à relancer
+  avec `--force`, ce qui écrasait le survivant au lieu de récupérer le perdu.
+  `_refuse_colliding_doc_ids` refuse désormais avant toute écriture, en nommant les deux
+  chemins. À noter : un `run` direct sur un tel corpus écrasait déjà silencieusement un
+  `*.score.json` — comportement préexistant, non corrigé ici (hors périmètre du lot).
+- **Échec d'enrichissement.** `write_parsed_doc` était appelé après `enrich_document` :
+  une erreur VLM (429, timeout) faisait perdre le markdown parsé, pourtant valide, et le
+  document n'existait plus nulle part — CLI en succès, code de sortie 0. L'enrichissement
+  est isolé dans son propre `try` ; l'entrée est écrite non enrichie, l'erreur reportée,
+  et `main` imprime les erreurs et sort en code 1.
+
+Également corrigé : `doc_id` du sidecar primant sur le nom de fichier (une paire dupliquée
+écrasait le `*.score.json` de l'autre → flag `renamed:<doc_id>`), `auto_descriptions`
+comptant une chaîne trop large, ordre d'itération divergent du rapport corpus,
+`blocks_from_markdown` aveugle au CRLF, `schema_version` jamais vérifié, `--force` accepté
+sans effet sur `run`/`golden`, `parse` acceptant d'écrire dans son dossier source.
+
+#### Limites connues, non corrigées dans ce lot (motif : périmètre)
+
+- Sur sidecar manquant ou corrompu, `parse_confidence` vaut `0.0` par défaut. Le flag est
+  juste, mais la chaîne de raison de `screen:light` affiche `parse_confidence=0.0` comme
+  une **mesure**, alors qu'aucune mesure n'a eu lieu. Corriger proprement demanderait de
+  toucher `screen.py` ou `report.py`, que le cadrage du lot 1 gèle comme référence du test
+  de non-régression. Le flag `missing_sidecar` accompagne la valeur, donc le lecteur a
+  l'information ; à reprendre dans un lot ultérieur.
+- `run_golden` en mode parsé ignore les flags d'entrée (`manually_edited`, etc.) : le
+  schéma du golden set n'a pas de colonne pour les porter.
+
+#### Écarts assumés sur les cas dégradés (non prévus par le cadrage, tranchés en score-and-flag)
+
+- Sidecar JSON corrompu → flag `invalid_sidecar`, document noté sur ce qui reste lisible.
+- Markdown réenregistré dans un autre encodage → `errors="replace"` (même précédent que
+  `_plain_text_extraction`), les U+FFFD étant comptés par `cid_failure_fraction`.
+- Sidecar orphelin → flag `missing_markdown` ; markdown déposé à la main sans sidecar →
+  flag `missing_sidecar`. Dans les deux cas le document est signalé, jamais perdu.
+- Format non supporté → une entrée est écrite dans `parsed_input/` malgré l'absence de
+  markdown, sinon le découplage ferait disparaître un document que `run` signalait.
 
 **Fini quand** : `pytest` vert **et** un test de non-régression fait tourner `parse` puis
 `run` sur `test_data/`, et compare les `*.score.json` à ceux d'un `run` direct —
 **égalité stricte hors `config_hash`**, sur les deux cas (non enrichi et enrichi avec un
 VLM mock), R1 ayant tranché vers Q24(b).
+
+**Résultat mesuré (revérifié le 2026-09-13 avant commit).** `pytest -q` : 183 passés, 1 ignoré (test docling réel,
+opt-in préexistant). L'égalité tient **`config_hash` inclus** — la même config servant aux
+deux étapes, l'empreinte est identique et il n'y a pas eu lieu de l'exclure.
+
+- Gate pytest : `tests/test_regression_parse_run.py`, corpus synthétique de 4 documents
+  (PDF texte, PDF illustré, `.md`, PDF corrompu), paramétré non enrichi / enrichi.
+- Corpus réel `test_data/` (parser `legacy`, VLM mock, enrichissement actif), exécuté à la
+  main : `Fiche DPTAM généralistes` (global 20.0, couverture 14.5, flags `low_coverage` +
+  `auto_descriptions:1`) et `Le Cahier Ma Santé (AGA - AEP)`, 222 pages (global 24.7,
+  couverture 14.5, flag `low_coverage`) — `*.score.json` identiques entre `run` direct et
+  `parse` + `run`. Le chemin docling n'a pas été rejoué sur les 222 pages
+  (`_DOCLING_BATCH_PAGES = 1`, soit 222 chargements de modèle) : hors périmètre du gate.
 
 ### Lot 2 — Chemin de parsing LLM
 
